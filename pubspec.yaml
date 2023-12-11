@@ -1,0 +1,34 @@
+name: mp
+version: 1.0.0+1
+publish_to: none
+description: Math despose
+environment: 
+  sdk: '>=3.1.0 <4.0.0'
+
+dependencies: 
+  cupertino_icons: ^1.0.2
+  get: ^4.6.6
+  get_storage: ^2.1.1
+  dio: ^5.1.2
+  flutter_smart_dialog: ^4.9.5+1
+  easy_refresh: ^3.3.2+4
+  flutter_swiper_view: ^1.1.8
+  connectivity_plus: ^5.0.2
+  extended_image: ^8.0.2
+  permission_handler: ^10.3.0
+  logging: 1.2.0
+  equatable: ^2.0.5
+  path_provider: ^2.0.15
+
+  flutter: 
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+dev_dependencies: 
+  flutter_lints: ^2.0.0
+  flutter_test: 
+    sdk: flutter
+
+flutter: 
+  uses-material-design: true
+
