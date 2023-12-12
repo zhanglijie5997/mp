@@ -1,16 +1,8 @@
 # mp
 
-A new Flutter project.
-
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+- vsCode插件
+- [Json to Dart Model 生成结构体插件](https://marketplace.visualstudio.com/items?itemName=hirantha.json-to-dart)
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
