@@ -1,23 +1,23 @@
 {
-    "success": {
-      "dark": "#F2DFBB",
-      "light": "#F2DFBB",
-      "///": "基础主题色"
+    "border": {
+      "dark": "#36373F",
+      "light": "#ffffffa6",
+      "///": "边框"
     },
-    "buttonSuccess": {
-      "dark": "#3D3D3D",
-      "light": "#3D3D3D",
-      "///": "按钮成功颜色"
+    "dark2": {
+      "dark": "#191B23",
+      "light": "#ffffff",
+      "///": "body颜色"
     },
-    "buttonDisabled": {
-      "dark": "#BBBBBB",
-      "light": "#BBBBBB",
-      "///": "按钮禁用颜色"
+    "font": {
+      "dark": "#ffffff",
+      "light": "#000000",
+      "///": "基础文字颜色"
     },
-    "desColor": {
-      "dark": "#999999",
-      "light": "#999999",
-      "///": "说明文字颜色"
+    "active": {
+      "dark": "#7B61FF",
+      "light": "#7B61FF",
+      "///": "选中文字"
     },
     "remarkColor": {
       "dark": "#666666",

@@ -18,7 +18,7 @@ dependencies:
   logging: 1.2.0
   equatable: ^2.0.5
   path_provider: ^2.0.15
-
+  flutter_svg: ^2.0.9
   flutter: 
     sdk: flutter
   flutter_localizations:
@@ -31,4 +31,10 @@ dev_dependencies:
 
 flutter: 
   uses-material-design: true
-
+  assets:
+    - assets/images/svg/Icon/
+    - assets/images/svg/Icon/Icon/
+flutter_assets:
+  assets_path: assets/images/
+  output_path: lib/constants/
+  filename: assets.dart

@@ -12,7 +12,7 @@ import 'dart:convert' as convert;
 String packageName = """import 'dart:ui';
 import '../extension/string.ext.dart';
 """;
-String writePath = './lib/src/constants/base.theme.dart';
+String writePath = './lib/constants/base.theme.dart';
 void main() async {
   io.File file = io.File('./assets/json/theme.json');
   String _ = await file.readAsString();

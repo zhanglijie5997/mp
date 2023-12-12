@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
 import 'package:get/get.dart';
-import 'package:mp/src/router/router.observer.dart';
-import 'package:mp/src/router/routes.dart';
+import 'package:mp/router/router.observer.dart';
+import 'package:mp/router/routes.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:mp/services/theme/theme.services.dart';
 
 class MpApp extends StatefulWidget {
   const MpApp({super.key});
@@ -60,6 +61,9 @@ class _MpAppState extends State<MpApp> {
         routeObserver,
         FlutterSmartDialog.observer
       ],
+      themeMode: ThemeMode.dark,
+      theme: ThemeServices.to.light,
+      darkTheme: ThemeServices.to.dark,
       builder: FlutterSmartDialog.init(builder: (context, child) {
         _buildAnnotatedRegion(context, child!);
         _buildBottomPaddingVerticalShield(context);
