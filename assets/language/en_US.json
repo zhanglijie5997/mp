@@ -1,0 +1,20 @@
+{
+  "hello": "hello",
+  "home": "Home",
+  "me": "Me",
+  "market": "Market",
+  "message": "Message",
+  "selectedCollection": "Selected collection",
+  "firstCollection": "First Collection",
+  "release": "Release",
+  "part": "Part",
+  "creator": "Creator",
+  "announcementDetail": "Announcement Detail",
+  "clickLogin": "Click Login/Register",
+  "userInformation": "User Information",
+  "myWallet": "My Wallet",
+  "search": "Search",
+  "login": "Login",
+  "register": "Register",
+  "loginLookInformation": "Login to view collection information"
+}

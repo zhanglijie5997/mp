@@ -1,0 +1,20 @@
+{
+  "hello": "你好",
+  "home": "首页",
+  "me": "我的",
+  "market": "市场",
+  "message": "消息",
+  "selectedCollection": "精选藏品",
+  "firstCollection": "首发藏品",
+  "release": "发行",
+  "part": "份",
+  "creator": "创作者",
+  "announcementDetail": "公告详情",
+  "clickLogin": "点击登陆/注册",
+  "userInformation": "个人资料",
+  "myWallet": "我的钱包",
+  "search": "搜索",
+  "login": "登陆",
+  "register": "注册",
+  "loginLookInformation": "登录查看藏品信息"
+}

@@ -13,7 +13,6 @@ dependencies:
   flutter_smart_dialog: ^4.9.5+1
   easy_refresh: ^3.3.2+4
   flutter_swiper_view: ^1.1.8
-  connectivity_plus: ^5.0.2
   extended_image: ^8.0.2
   permission_handler: ^10.3.0
   logging: 1.2.0
