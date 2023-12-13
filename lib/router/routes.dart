@@ -1,5 +1,7 @@
 import 'package:get/get.dart';
 import 'package:mp/middleware/auth.middleware.dart';
+import 'package:mp/views/details/binds/binds.dart';
+import 'package:mp/views/details/details.dart';
 import 'package:mp/views/home/binds/binds.dart';
 import 'package:mp/views/home/home.dart';
 import 'package:mp/views/login/binds/binds.dart';
@@ -14,11 +16,13 @@ final class AppRoutes {
   static String login = "/login";
   static String register = "/register";
   static String order = "/order";
+  static String details = "/details";
   /// 需要登陆的页面 在GetPage middlewares: [AuthMiddleWare()]
   static var routes = [
     GetPage(name: AppRoutes.home, page:()=> const HomePage(), binding:HomeBinding()),
     GetPage(name: AppRoutes.order, page:()=> const OrderPage(), binding:OrderBinding(), middlewares: [AuthMiddleWare()]),
     GetPage(name: AppRoutes.login, page:()=> const LoginPage(), binding: LoginBinding(), transition: Transition.downToUp, showCupertinoParallax:false, transitionDuration: 0.milliseconds ),
     GetPage(name: AppRoutes.register, page:()=> const RegisterPage(), binding: RegisterBinding(), transition: Transition.downToUp , showCupertinoParallax:false, transitionDuration: 0.milliseconds),
+    GetPage(name: "${AppRoutes.details}/:id", page:()=> const DetailPage(), binding: DetailsBinding() ),
   ];
 }

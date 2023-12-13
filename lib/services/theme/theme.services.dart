@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:mp/constants/base.theme.dart';
+import 'package:mp/extension/context.ext.dart';
 import 'package:mp/utils/storage.utils.dart';
 
 const themeLocal = {
@@ -57,8 +58,12 @@ class ThemeServices extends GetxController{
   }
 
   ThemeData get dark => ThemeData(
-    appBarTheme: const AppBarTheme(
-      systemOverlayStyle: SystemUiOverlayStyle.dark
+    appBarTheme: AppBarTheme(
+      systemOverlayStyle: SystemUiOverlayStyle.dark,
+      backgroundColor: BaseTheme.dark2Dark,
+      titleTextStyle: Get.context?.theme.appBarTheme.titleTextStyle?.copyWith(
+        color: Get.context!.customTheme?.fontColor
+      )
     ),
     extensions: [CustomTheme.dark()],
     scaffoldBackgroundColor: BaseTheme.dark2Dark,
@@ -69,12 +74,17 @@ class ThemeServices extends GetxController{
     ),
     textSelectionTheme: TextSelectionThemeData(
       cursorColor: BaseTheme.cursorColorDark
-    )
+    ),
+
   );
 
   ThemeData get light => ThemeData(
-    appBarTheme: const AppBarTheme(
-      systemOverlayStyle: SystemUiOverlayStyle.light
+    appBarTheme:  AppBarTheme(
+      systemOverlayStyle: SystemUiOverlayStyle.light,
+      backgroundColor: BaseTheme.dark2Light,
+      titleTextStyle: Get.context?.theme.appBarTheme.titleTextStyle?.copyWith(
+        color: Get.context!.customTheme?.fontColor
+      )
     ),
     extensions: [CustomTheme.light()],
     scaffoldBackgroundColor: BaseTheme.dark2Light,

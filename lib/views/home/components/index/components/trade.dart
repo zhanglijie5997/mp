@@ -20,7 +20,17 @@ class _IndexTradeHexState extends State<IndexTradeHex> {
       ),
       width: double.infinity,
       height: 150,
-      // child: ,
+      child: ListView.builder(
+        physics: const NeverScrollableScrollPhysics(),
+        itemBuilder: (c, i) {
+          return const Padding(
+            padding: EdgeInsets.symmetric(
+              horizontal: 10, vertical: 5
+            ),
+            child: Text("交易hex："),
+          );
+        }
+      ),
     );
   }
 }

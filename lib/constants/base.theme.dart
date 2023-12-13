@@ -8,7 +8,7 @@ class BaseTheme {
 
   /// body颜色
   static Color get dark2Dark => '#191B23'.color();
-  static Color get dark2Light => '#ffffff'.color();
+  static Color get dark2Light => '#f6f6f6'.color();
 
   /// 基础文字颜色
   static Color get fontDark => '#ffffff'.color();

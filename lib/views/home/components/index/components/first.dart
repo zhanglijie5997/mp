@@ -5,7 +5,9 @@ import 'package:mp/components/custom.image.dart';
 import 'package:mp/constants/assets.dart';
 import 'package:mp/extension/context.ext.dart';
 import 'package:mp/extension/num.ext.dart';
+import 'package:mp/extension/widget.ext.dart';
 import 'package:mp/generated/locales.g.dart';
+import 'package:mp/router/routes.dart';
 import 'package:shimmer_animation/shimmer_animation.dart';
 
 class IndexFirst extends StatefulWidget {
@@ -74,6 +76,7 @@ class _IndexFirstState extends State<IndexFirst> {
         SizedBox(
           height: 390,
           child: ListView.builder(
+            padding: const EdgeInsets.only(left: 15),
             shrinkWrap: true,
             itemCount: 10,
             scrollDirection: Axis.horizontal,
@@ -122,14 +125,15 @@ class _IndexFirstState extends State<IndexFirst> {
                               child:Text('¥', style: context.textTheme.bodyMedium?.copyWith(fontSize: 12, fontWeight: FontWeight.bold),)
                             ),
                             Text("100",style: context.textTheme.bodyMedium?.copyWith(fontSize: 20, fontWeight: FontWeight.bold),),
-                           
                           ],
                         ))
                     ],
                   ),
                 ),
               ),
-            );
+            ).onTap(() {
+              Get.toNamed("${AppRoutes.details}/1");
+            });
           }),
         )
       ],
