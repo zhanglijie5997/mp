@@ -16,5 +16,13 @@
   "search": "搜索",
   "login": "登陆",
   "register": "注册",
-  "loginLookInformation": "登录查看藏品信息"
+  "loginLookInformation": "登录查看藏品信息",
+  "email": "邮箱",
+  "password": "密码",
+  "pleaseEnterSure": "请输入正确",
+  "pleaseEnter": "请输入",
+  "passwrodHelp": "请输入6位 字母+数字密码组合",
+  "forgetPassword": "忘记密码？",
+  "dontHaveAccountTip": "没有账号？去注册",
+  "haveAccountTip": "已有账号？去登陆"
 }

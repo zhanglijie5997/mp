@@ -1,7 +1,7 @@
 class NavBarModel {
   String? assets;
   String? name;
-  num? index;
+  int? index;
   NavBarModel({this.assets, this.name, this.index});
 
   NavBarModel.fromJson(Map<String, dynamic> json) {

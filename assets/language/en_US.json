@@ -14,7 +14,15 @@
   "userInformation": "User Information",
   "myWallet": "My Wallet",
   "search": "Search",
-  "login": "Login",
+  "login": "Login In",
   "register": "Register",
-  "loginLookInformation": "Login to view collection information"
+  "loginLookInformation": "Login to view collection information",
+  "email": "Email",
+  "password": "Password",
+  "pleaseEnterSure": "Please enter sure",
+  "pleaseEnter": "Please enter",
+  "passwrodHelp": "Please enter a 6-digit alphanumeric password combination",
+  "forgetPassword": "Forget password?",
+  "dontHaveAccountTip": "No account? Go to register",
+  "haveAccountTip": "Already have an account? Go to login"
 }

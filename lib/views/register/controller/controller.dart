@@ -2,9 +2,8 @@ import 'package:get/get.dart';
 import 'package:mp/core/reg.core.dart';
 import 'package:mp/router/routes.dart';
 
-class LoginController extends GetxController {
-  static LoginController get to => Get.find<LoginController>();
-  
+class RegisterController extends GetxController {
+  static RegisterController get to => Get.find<RegisterController>();
   final account = "".obs;
   final passwrod = "".obs;
   final accountStatus = false.obs;
@@ -23,10 +22,12 @@ class LoginController extends GetxController {
     }
   }
 
-  // 点击忘记密码
-  handleForgetPassword() {}
-  // 登陆
-  handleLogin() {
+  handleLoginPage() {
+    Get.offAndToNamed(AppRoutes.login);
+  }
+
+  // 注册
+  handleRegister() {
     final emailRes = !RegCore.emailReg.hasMatch(account.value);
     final passwrodRes = !RegCore.passwrodReg.hasMatch(passwrod.value);
     if (emailRes) {
@@ -40,11 +41,6 @@ class LoginController extends GetxController {
     if (emailRes || passwrodRes) {
       return;
     }
-    // 登陆
-    
-  }
-
-  handleRegisterPage() {
-    Get.offAndToNamed(AppRoutes.register);
+    // 注册
   }
 }

@@ -8,18 +8,19 @@ class HomePage extends GetView<HomeController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        // appBar: AppBar(title: const Text('HomePage')),
-        body: SafeArea(
-            child: GestureDetector(
-                onTap: () {
-                  controller.setCount();
-                },
-                child: Obx(() => Text('${controller.count}')
-            )
+        body: PageView.builder(
+          padEnds: false,
+          allowImplicitScrolling: true,
+          controller: controller.tabController,
+          pageSnapping: false,
+          physics: const NeverScrollableScrollPhysics(),
+          itemCount: controller.tabView.length,
+          itemBuilder: (c, i) => controller.tabView[i]
         ),
-
-      ),
-      bottomNavigationBar: NavBar(navbar: controller.tabbar)
-    );
+        bottomNavigationBar: Obx(() => NavBar(
+              navbar: controller.tabbar,
+              active: controller.active.value,
+              change: controller.handleActive,
+            )));
   }
 }

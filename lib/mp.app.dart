@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
 import 'package:get/get.dart';
+import 'package:mp/extension/widget.ext.dart';
+import 'package:mp/generated/locales.g.dart';
 import 'package:mp/router/router.observer.dart';
 import 'package:mp/router/routes.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -32,7 +34,8 @@ class _MpAppState extends State<MpApp> {
       bottom: 0,
       height: MediaQuery.of(context).padding.bottom,
       child: GestureDetector(
-        onTap: () {},
+        onTap: () {
+        },
         behavior: HitTestBehavior.translucent,
         onVerticalDragStart: (_) {},
       ),
@@ -61,7 +64,14 @@ class _MpAppState extends State<MpApp> {
         routeObserver,
         FlutterSmartDialog.observer
       ],
+      supportedLocales: const [
+        Locale('en', 'US'), // English, no country code
+        Locale('es', ''), // Spanish, no country code
+        Locale('zh', 'CN'), // Chinese, no country code
+      ],
+      locale: const Locale('zh', 'CN'),
       themeMode: ThemeMode.dark,
+      translationsKeys: AppTranslation.translations,
       theme: ThemeServices.to.light,
       darkTheme: ThemeServices.to.dark,
       builder: FlutterSmartDialog.init(builder: (context, child) {
@@ -69,6 +79,9 @@ class _MpAppState extends State<MpApp> {
         _buildBottomPaddingVerticalShield(context);
         return _buildFontSize(context, child);
       }),
-    );
+    ).onTap(() {
+      // 全局键盘回落
+      FocusScope.of(context).requestFocus(FocusNode());
+    });
   }
 }

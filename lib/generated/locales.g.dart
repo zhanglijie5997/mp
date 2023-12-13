@@ -29,6 +29,14 @@ class LocaleKeys {
   static const login = 'login';
   static const register = 'register';
   static const loginLookInformation = 'loginLookInformation';
+  static const email = 'email';
+  static const password = 'password';
+  static const pleaseEnterSure = 'pleaseEnterSure';
+  static const pleaseEnter = 'pleaseEnter';
+  static const passwrodHelp = 'passwrodHelp';
+  static const forgetPassword = 'forgetPassword';
+  static const dontHaveAccountTip = 'dontHaveAccountTip';
+  static const haveAccountTip = 'haveAccountTip';
 }
 
 class Locales {
@@ -51,6 +59,14 @@ class Locales {
     'login': '登陆',
     'register': '注册',
     'loginLookInformation': '登录查看藏品信息',
+    'email': '邮箱',
+    'password': '密码',
+    'pleaseEnterSure': '请输入正确',
+    'pleaseEnter': '请输入',
+    'passwrodHelp': '请输入6位 字母+数字密码组合',
+    'forgetPassword': '忘记密码？',
+    'dontHaveAccountTip': '没有账号？去注册',
+    'haveAccountTip': '已有账号？去登陆',
   };
   static const en_US = {
     'hello': 'hello',
@@ -68,8 +84,16 @@ class Locales {
     'userInformation': 'User Information',
     'myWallet': 'My Wallet',
     'search': 'Search',
-    'login': 'Login',
+    'login': 'Login In',
     'register': 'Register',
     'loginLookInformation': 'Login to view collection information',
+    'email': 'Email',
+    'password': 'Password',
+    'pleaseEnterSure': 'Please enter sure',
+    'pleaseEnter': 'Please enter',
+    'passwrodHelp': 'Please enter a 6-digit alphanumeric password combination',
+    'forgetPassword': 'Forget password?',
+    'dontHaveAccountTip': 'No account? Go to register',
+    'haveAccountTip': 'Already have an account? Go to login',
   };
 }
