@@ -9,7 +9,6 @@ class HomeSearchPage extends GetView<HomeSearchController> {
   Widget build(BuildContext context) {
 
     return Scaffold(
-    appBar: AppBar(title: Text('HomeSearchPage')),
 
     body: SafeArea(
       child: Text('HomeSearchController'))

@@ -37,6 +37,11 @@ class LocaleKeys {
   static const forgetPassword = 'forgetPassword';
   static const dontHaveAccountTip = 'dontHaveAccountTip';
   static const haveAccountTip = 'haveAccountTip';
+  static const privateText = 'privateText';
+  static const and = 'and';
+  static const service = 'service';
+  static const private = 'private';
+  static const more = 'more';
 }
 
 class Locales {
@@ -67,6 +72,11 @@ class Locales {
     'forgetPassword': '忘记密码？',
     'dontHaveAccountTip': '没有账号？去注册',
     'haveAccountTip': '已有账号？去登陆',
+    'privateText': '我已阅读并同意',
+    'and': '和',
+    'service': '服务条款',
+    'private': '隐私协议',
+    'more': '更多',
   };
   static const en_US = {
     'hello': 'hello',
@@ -95,5 +105,10 @@ class Locales {
     'forgetPassword': 'Forget password?',
     'dontHaveAccountTip': 'No account? Go to register',
     'haveAccountTip': 'Already have an account? Go to login',
+    'privateText': 'I have read and agreed to',
+    'and': 'and',
+    'service': 'Terms of Service',
+    'private': 'privacy agreement',
+    'more': 'More',
   };
 }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:get/get.dart';
+import 'package:mp/animation/shank.ani.dart';
+import 'package:mp/components/custom.checkbox.dart';
 import 'package:mp/components/custom.field.dart';
 import 'package:mp/extension/context.ext.dart';
 import 'package:mp/extension/num.ext.dart';
@@ -14,6 +15,7 @@ class LoginPage extends GetView<LoginController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
         body: Padding(
       padding: EdgeInsets.only(
           left: 24, right: 24, top: context.mediaQueryPadding.top + 30),
@@ -58,6 +60,41 @@ class LoginPage extends GetView<LoginController> {
               ],
             ),
           ),
+
+          // 分割线
+          Padding(
+            padding: const EdgeInsets.only(
+              top: 32,  right: 10
+            ),
+            child: ShankAnimation(
+              key: controller.privateKey,
+              child: Row(
+              
+                children: [
+                CustomCheckbox(onChange: controller.handlePrivite),
+                Padding(
+                  padding: const EdgeInsets.only(left: 10.0),
+                  child: Text.rich(
+                    TextSpan(
+                      text: LocaleKeys.privateText.tr,
+                      children: [
+                        TextSpan(text: " ${LocaleKeys.private.tr} ", style: context.textTheme.bodyMedium?.copyWith(
+                          color: context.customTheme?.active
+                        )),
+                        TextSpan(text: LocaleKeys.and.tr),
+                        TextSpan(text: " ${LocaleKeys.service.tr}", style: context.textTheme.bodyMedium?.copyWith(
+                          color: context.customTheme?.active
+                        )),
+                      ]
+                    )
+                  ),
+                )
+              ],
+           
+            ),
+          )),
+
+
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 32),
             child: Container(
@@ -72,7 +109,9 @@ class LoginPage extends GetView<LoginController> {
                       color: context.customTheme?.dark2,
                       fontWeight: FontWeight.bold)),
             ).onTap(controller.handleLogin),
-          )
+          ),
+        
+          
         ],
       ),
     ));

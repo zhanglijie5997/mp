@@ -9,7 +9,6 @@ class HomeAddPage extends GetView<HomeAddController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-    appBar: AppBar(title: Text('HomeAddPage')),
     body: SafeArea(
       child: Text('HomeAddController'))
     );

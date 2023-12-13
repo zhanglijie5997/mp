@@ -10,6 +10,7 @@ import 'package:mp/views/home/components/search/search.dart';
 
 
 class HomeController extends GetxController {
+  static HomeController get to => Get.find<HomeController>();
   final count = 0.obs;
   final tabbar = [
     NavBarModel(name: "首页", assets: Assets.assetsImagesSvgIconHome, index: 0),

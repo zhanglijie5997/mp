@@ -26,6 +26,7 @@ class _NavBarState extends State<NavBar> {
       decoration: BoxDecoration(
         border:  Border(top: BorderSide(
           color: context.customTheme?.gray ?? Colors.grey,
+          // color: Color.fromARGB(255, 245, 243, 243),
           width: 1.4,
         ))
       ),

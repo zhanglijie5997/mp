@@ -4,7 +4,7 @@ import '../extension/string.ext.dart';
 class BaseTheme {
   /// 边框
   static Color get borderDark => '#36373F'.color();
-  static Color get borderLight => '#ffffffa6'.color();
+  static Color get borderLight => '#fff5f3'.color();
 
   /// body颜色
   static Color get dark2Dark => '#191B23'.color();
@@ -29,4 +29,8 @@ class BaseTheme {
   /// 错误
   static Color get errorColorDark => '#F14B4B'.color();
   static Color get errorColorLight => '#F14B4B'.color();
+
+  /// 卡片
+  static Color get cardDark => '#36373F'.color();
+  static Color get cardLight => '#EBEDF2'.color();
 }

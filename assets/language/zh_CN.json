@@ -24,5 +24,10 @@
   "passwrodHelp": "请输入6位 字母+数字密码组合",
   "forgetPassword": "忘记密码？",
   "dontHaveAccountTip": "没有账号？去注册",
-  "haveAccountTip": "已有账号？去登陆"
+  "haveAccountTip": "已有账号？去登陆",
+  "privateText": "我已阅读并同意",
+  "and": "和",
+  "service": "服务条款",
+  "private": "隐私协议",
+  "more": "更多"
 }

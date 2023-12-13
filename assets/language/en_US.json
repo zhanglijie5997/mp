@@ -24,5 +24,10 @@
   "passwrodHelp": "Please enter a 6-digit alphanumeric password combination",
   "forgetPassword": "Forget password?",
   "dontHaveAccountTip": "No account? Go to register",
-  "haveAccountTip": "Already have an account? Go to login"
+  "haveAccountTip": "Already have an account? Go to login",
+  "privateText": "I have read and agreed to",
+  "and": "and",
+  "service": "Terms of Service",
+  "private": "privacy agreement",
+  "more": "More"
 }

@@ -3,5 +3,5 @@
 final class RegCore {
   static final emailReg = RegExp(r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$');
   // 密码强度校验，最少6位，包括至少1个大写字母，1个小写字母，1个数字
-  static final passwrodReg = RegExp(r'^\S*(?=\S{6,})(?=\S*\d)(?=\S*[A-z])\S*$');
+  static final passwrodReg = RegExp(r'^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6}$');
 }

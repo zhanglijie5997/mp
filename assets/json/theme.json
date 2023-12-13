@@ -1,7 +1,7 @@
 {
     "border": {
       "dark": "#36373F",
-      "light": "#ffffffa6",
+      "light": "#fff5f3",
       "///": "边框"
     },
     "dark2": {
@@ -33,5 +33,10 @@
       "dark": "#F14B4B",
       "light": "#F14B4B",
       "///": "错误"
+    },
+    "card": {
+      "dark": "#36373F",
+      "light": "#EBEDF2",
+      "///": "卡片"
     }
   }

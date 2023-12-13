@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:mp/extension/widget.ext.dart';
+import 'package:mp/router/routes.dart';
 import 'package:mp/views/home/components/me/controller/controller.dart';
 
 class HomeMePage extends GetView<HomeMeController> {
@@ -8,10 +10,11 @@ class HomeMePage extends GetView<HomeMeController> {
   Widget build(BuildContext context) {
 
     return Scaffold(
-    appBar: AppBar(title: Text('HomeMePage')),
-
+   
     body: SafeArea(
-      child: Text('HomeMeController'))
+      child:  Text('HomeMePage').onTap(() {
+      Get.toNamed(AppRoutes.order);
+    }))
     );
   }
 }

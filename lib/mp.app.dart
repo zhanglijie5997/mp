@@ -7,6 +7,7 @@ import 'package:mp/generated/locales.g.dart';
 import 'package:mp/router/router.observer.dart';
 import 'package:mp/router/routes.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:mp/services/language/language.services.dart';
 import 'package:mp/services/theme/theme.services.dart';
 
 class MpApp extends StatefulWidget {
@@ -69,8 +70,8 @@ class _MpAppState extends State<MpApp> {
         Locale('es', ''), // Spanish, no country code
         Locale('zh', 'CN'), // Chinese, no country code
       ],
-      locale: const Locale('zh', 'CN'),
-      themeMode: ThemeMode.dark,
+      locale: LanguageServices.to.lang,
+      themeMode: ThemeServices.to.mode,
       translationsKeys: AppTranslation.translations,
       theme: ThemeServices.to.light,
       darkTheme: ThemeServices.to.dark,
