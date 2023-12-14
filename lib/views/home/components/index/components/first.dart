@@ -133,8 +133,8 @@ class _IndexFirstState extends State<IndexFirst> {
                 ),
               ),
             ).onTap(() {
-              ToastUtils.showLoading("msg");
-              // Get.toNamed("${AppRoutes.details}/1");
+              // ToastUtils.showLoading("msg");
+              Get.toNamed("${AppRoutes.details}/$i");
             });
           }),
         )

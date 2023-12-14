@@ -86,6 +86,7 @@ class ThemeServices extends GetxController{
         color: Get.context!.customTheme?.fontColor
       )
     ),
+    
     extensions: [CustomTheme.light()],
     scaffoldBackgroundColor: BaseTheme.dark2Light,
     textTheme: TextTheme(

@@ -21,34 +21,40 @@ class CustomAppBar extends StatefulWidget implements PreferredSizeWidget {
 class _CustomAppBarState extends State<CustomAppBar> {
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Container(
+    return ColoredBox(
+      color: context.customTheme?.dark2 ?? Colors.transparent,
+      child: SafeArea(
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Container(
+                constraints: const BoxConstraints(
+                  minWidth: 50,
+                ),
+                child: widget.leading ??
+                    SvgPicture.asset(
+                      Assets.assetsImagesSvgIconHeaderBack,
+                      width: 24,
+                      height: 24,
+                      color: context.customTheme?.fontColor,
+                    ).onTap(() {
+                      Get.back();
+                    })),
+            Expanded(
+                child: Container(
+                    alignment: Alignment.center,
+                    child: widget.title ?? Text("头"))),
+            Container(
               constraints: const BoxConstraints(
-                minWidth: 50,
+                minWidth: 0,
+                minHeight: 0,
+                maxWidth: 44,
+                maxHeight: 50
               ),
-              child: widget.leading ??
-                  SvgPicture.asset(
-                    Assets.assetsImagesSvgIconHeaderBack,
-                    width: 24,
-                    height: 24,
-                    color: context.customTheme?.fontColor,
-                  ).onTap(() {
-                    Get.back();
-                  })),
-          Expanded(
-              child: Container(
-                  alignment: Alignment.center,
-                  child: widget.title ?? Text("头"))),
-          Container(
-            constraints: const BoxConstraints(
-              minWidth: 50,
-            ),
-            child: widget.actions,
-          )
-        ],
+              child: widget.actions,
+            )
+          ],
+        ),
       ),
     );
   }

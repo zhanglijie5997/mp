@@ -53,6 +53,7 @@ class _MpAppState extends State<MpApp> {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
+      debugShowCheckedModeBanner: false,
       getPages: AppRoutes.routes,
       initialRoute: AppRoutes.home,
       fallbackLocale: const Locale('en', 'US'),

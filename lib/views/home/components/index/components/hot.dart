@@ -18,7 +18,7 @@ class _IndexHotState extends State<IndexHot> {
 
   late final ScrollController controller = ScrollController();
 
-  final img = "https://psc2.cf2.poecdn.net/eb2fac5718d45c40206067bcb301c24b21014b9d/_next/static/media/chatGPTAvatar.04ed8443.png 1x, https://psc2.cf2.poecdn.net/eb2fac5718d45c40206067bcb301c24b21014b9d/_next/static/media/chatGPTAvatar.04ed8443.png 2x";
+  final img = "https://static.ibox.art/file/oss/test/image/nft-goods/144ea876bf184bb180b9be8c7626e132.png?style=st6";
 
   listener() {
     if(controller.offset == controller.position.maxScrollExtent) {
@@ -70,7 +70,9 @@ class _IndexHotState extends State<IndexHot> {
           child: Stack(
             alignment: Alignment.center,
             children: [
-              CustomImage(url: img, size: const Size(54, 54),)
+              ClipRRect(
+                borderRadius: 13.radius,
+                child: CustomImage(url: img, size: const Size(54, 54),))
             ],
           )
         ),
