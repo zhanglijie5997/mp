@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:mp/components/custom.image.dart';
 import 'package:mp/extension/context.ext.dart';
 import 'package:mp/extension/num.ext.dart';
+import 'package:mp/extension/widget.ext.dart';
+import 'package:mp/utils/toast.utils.dart';
 /// 热门藏品
 class IndexHot extends StatefulWidget {
   const IndexHot({super.key});
@@ -54,20 +56,24 @@ class _IndexHotState extends State<IndexHot> {
       itemCount: 20,
       padding: const EdgeInsets.only(left: 15),
       scrollDirection: Axis.horizontal,
-      shrinkWrap: true,
-      itemBuilder: (c, i) => Container(
-        margin: const EdgeInsets.only(right: 17),
-        width: 74, height: 74,
-        decoration: BoxDecoration(
-          color: context.customTheme?.card,
-          borderRadius: 25.radius
+      itemBuilder: (c, i) => Listener(
+        onPointerDown: (e) {
+          ToastUtils.showLoading("loading...");
+        },
+        child: Container(
+          margin: const EdgeInsets.only(right: 17),
+          width: 74, height: 74,
+          decoration: BoxDecoration(
+            color: context.customTheme?.card,
+            borderRadius: 25.radius
+          ),
+          child: Stack(
+            alignment: Alignment.center,
+            children: [
+              CustomImage(url: img, size: const Size(54, 54),)
+            ],
+          )
         ),
-        child: Stack(
-          alignment: Alignment.center,
-          children: [
-            CustomImage(url: img, size: const Size(54, 54),)
-          ],
-        )
       ));
   }
 }

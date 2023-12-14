@@ -8,6 +8,7 @@ import 'package:mp/extension/num.ext.dart';
 import 'package:mp/extension/widget.ext.dart';
 import 'package:mp/generated/locales.g.dart';
 import 'package:mp/router/routes.dart';
+import 'package:mp/utils/toast.utils.dart';
 import 'package:shimmer_animation/shimmer_animation.dart';
 
 class IndexFirst extends StatefulWidget {
@@ -132,7 +133,8 @@ class _IndexFirstState extends State<IndexFirst> {
                 ),
               ),
             ).onTap(() {
-              Get.toNamed("${AppRoutes.details}/1");
+              ToastUtils.showLoading("msg");
+              // Get.toNamed("${AppRoutes.details}/1");
             });
           }),
         )

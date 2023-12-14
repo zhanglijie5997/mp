@@ -15,8 +15,8 @@ class BaseTheme {
   static Color get fontLight => '#000000'.color();
 
   /// 选中文字
-  static Color get activeDark => '#7B61FF'.color();
-  static Color get activeLight => '#7B61FF'.color();
+  static Color get activeDark => '#1662DF'.color();
+  static Color get activeLight => '#1662DF'.color();
 
   /// 二级文字颜色
   static Color get subTitleDark => '#828282'.color();

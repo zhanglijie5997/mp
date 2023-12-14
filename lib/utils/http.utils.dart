@@ -9,6 +9,7 @@ import 'package:mp/extension/num.ext.dart';
 import 'package:mp/extension/string.ext.dart';
 import 'package:mp/models/response.dart';
 import 'package:mp/utils/log.utils.dart';
+import 'package:mp/utils/toast.utils.dart';
 // ignore: depend_on_referenced_packages
 import 'package:path_provider/path_provider.dart';
 
@@ -111,7 +112,7 @@ class HttpUtil {
       responseType: responseType,
       cancelToken: cancelToken,
     );
-
+    ToastUtils.close();
     final Json? resBody = response.data;
     if (resBody?.isNotEmpty ?? false) {
       final ResponseModel<T> model = ResponseModel<T>.fromJson(

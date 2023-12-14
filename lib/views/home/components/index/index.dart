@@ -79,7 +79,7 @@ class _HomeIndexPageState extends State<HomeIndexPage> with AutomaticKeepAliveCl
                   // 首发
                   IndexFirst(label: LocaleKeys.firstCollection.tr,),
                   // 精选
-                  IndexFirst(label: LocaleKeys.selectedCollection.tr,),
+                  // IndexFirst(label: LocaleKeys.selectedCollection.tr,),
                   // 交易区块
                   const IndexTradeHex(),
                 ],

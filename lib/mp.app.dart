@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
 import 'package:get/get.dart';
+import 'package:mp/components/custom.loading.dart';
 import 'package:mp/extension/widget.ext.dart';
 import 'package:mp/generated/locales.g.dart';
 import 'package:mp/router/router.observer.dart';
@@ -75,10 +76,12 @@ class _MpAppState extends State<MpApp> {
       translationsKeys: AppTranslation.translations,
       theme: ThemeServices.to.light,
       darkTheme: ThemeServices.to.dark,
-      builder: FlutterSmartDialog.init(builder: (context, child) {
-        _buildAnnotatedRegion(context, child!);
-        _buildBottomPaddingVerticalShield(context);
-        return _buildFontSize(context, child);
+      builder: FlutterSmartDialog.init(
+        loadingBuilder: (msg) => CustomLoading(msg: msg),
+        builder: (context, child) {
+          _buildAnnotatedRegion(context, child!);
+          _buildBottomPaddingVerticalShield(context);
+          return _buildFontSize(context, child);
       }),
     ).onTap(() {
       // 全局键盘回落
