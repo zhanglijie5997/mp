@@ -34,17 +34,25 @@ class _CustomFiledState extends State<CustomFiled> {
   bool passwordStatus = true;
   late final TextEditingController controller = TextEditingController()..addListener(() {
     final text = controller.text;
-    setState(() {
-      switch (widget.keyboardType) {
-        case TextInputType.emailAddress:
-          status = !RegCore.emailReg.hasMatch(text);
-          break;
-        case TextInputType.visiblePassword:
-          status = !RegCore.passwrodReg.hasMatch(text);
-          break;
-        default:
-      }
-    });
+    print("object $text");
+    if (text.isNotEmpty) {
+      setState(() {
+        switch (widget.keyboardType) {
+          case TextInputType.emailAddress:
+            status = !RegCore.emailReg.hasMatch(text);
+            break;
+          case TextInputType.visiblePassword:
+            status = !RegCore.passwrodReg.hasMatch(text);
+            break;
+          default:
+        }
+      });
+    }else {
+      setState(() {
+        status=false;
+      });
+    }
+
     
     widget.onChange?.call(controller.text);
   });
@@ -58,8 +66,9 @@ class _CustomFiledState extends State<CustomFiled> {
   @override
   void didUpdateWidget(CustomFiled oldWidget) {
     setState(() {
-      print(widget.status);
-      status = widget.status ?? false;
+      if (widget.status != status) {
+        status = widget.status ?? false;
+      }
     });
     
     super.didUpdateWidget(oldWidget);

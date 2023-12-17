@@ -48,11 +48,9 @@ class ThemeServices extends GetxController{
     final currentTheme = StorageUtils().ready<String?>(StorageKeys.theme);
     if (currentTheme != null) {
       mode = themeLocal[currentTheme] ?? ThemeMode.system;
-
     }else {
       handleSetTheme("dark");
     }
-    updateStatusBar();
 
     super.onInit();
   }

@@ -22,10 +22,18 @@ class LoginPage extends GetView<LoginController> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            LocaleKeys.login.tr,
-            style: context.textTheme.bodyLarge
-                ?.copyWith(fontSize: 30, fontWeight: FontWeight.bold),
+          Row(
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(right: 20.0),
+                child: Icon(Icons.arrow_back, color: context.customTheme?.fontColor,),
+              ).onTap(() => Get.back()),
+              Text(
+                LocaleKeys.login.tr,
+                style: context.textTheme.bodyLarge
+                    ?.copyWith(fontSize: 30, fontWeight: FontWeight.bold),
+              ),
+            ],
           ),
           Padding(
             padding: const EdgeInsets.only(top: 32),

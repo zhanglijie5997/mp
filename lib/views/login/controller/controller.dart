@@ -8,7 +8,7 @@ class LoginController extends GetxController {
   static LoginController get to => Get.find<LoginController>();
   final GlobalKey<ShankAnimationState> privateKey = GlobalKey<ShankAnimationState>();
   final account = "".obs;
-  final passwrod = "".obs;
+  final password = "".obs;
   final accountStatus = false.obs;
   final passwordStatus = false.obs;
   final privateStatus = false.obs;
@@ -20,7 +20,7 @@ class LoginController extends GetxController {
   }
 
   changePassword(String value) {
-    passwrod.value = value;
+    password.value = value;
     if (RegCore.passwrodReg.hasMatch(value)) {
       accountStatus.value = false;
     }
@@ -37,16 +37,16 @@ class LoginController extends GetxController {
   // 登陆
   handleLogin() {
     final emailRes = !RegCore.emailReg.hasMatch(account.value);
-    final passwrodRes = !RegCore.passwrodReg.hasMatch(passwrod.value);
+    final passwordRes = !RegCore.passwrodReg.hasMatch(password.value);
     if (emailRes) {
       accountStatus.value = true;
     }
 
-    if (passwrodRes) {
+    if (passwordRes) {
       passwordStatus.value = true;
     }
     
-    if (emailRes || passwrodRes) {
+    if (emailRes || passwordRes) {
       return;
     }
     print(privateStatus.value);

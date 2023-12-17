@@ -8,9 +8,7 @@ class HomeAddPage extends GetView<HomeAddController> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-    body: SafeArea(
-      child: Text('HomeAddController'))
+    return const Scaffold(
     );
   }
 }

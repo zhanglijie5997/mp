@@ -3,7 +3,8 @@ import 'package:lottie/lottie.dart';
 
 class CustomLoading extends StatefulWidget {
   final String? msg;
-  const CustomLoading({super.key, this.msg});
+  final Size? size;
+  const CustomLoading({super.key, this.msg, this.size});
 
   @override
   State<CustomLoading> createState() => _CustomLoadingState();
@@ -26,8 +27,8 @@ class _CustomLoadingState extends State<CustomLoading> with TickerProviderStateM
           Lottie.asset(
             "assets/json/loading.json", 
             repeat: true,
-            width: 200,
-            height: 200,
+            width: widget.size?.width ?? 200,
+            height: widget.size?.height??200,
             controller: controller,
             onLoaded: (composition) {
               controller

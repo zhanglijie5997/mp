@@ -21,4 +21,9 @@ class EventUtils {
       });
     };
   }
+
+  /// 睡眠
+  static Future sleep(Duration delay) {
+    return Future.delayed(delay);
+  }
 }

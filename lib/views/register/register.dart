@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:mp/animation/shank.ani.dart';
 import 'package:mp/components/custom.checkbox.dart';
 import 'package:mp/components/custom.field.dart';
+import 'package:mp/constants/assets.dart';
 import 'package:mp/extension/context.ext.dart';
 import 'package:mp/extension/num.ext.dart';
 import 'package:mp/extension/widget.ext.dart';
@@ -22,10 +24,18 @@ class RegisterPage extends GetView<RegisterController> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            LocaleKeys.register.tr,
-            style: context.textTheme.bodyLarge
-                ?.copyWith(fontSize: 30, fontWeight: FontWeight.bold),
+          Row(
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(right: 20.0),
+                child: Icon(Icons.arrow_back, color: context.customTheme?.fontColor,),
+              ).onTap(() => Get.back()),
+              Text(
+                LocaleKeys.register.tr,
+                style: context.textTheme.bodyLarge
+                    ?.copyWith(fontSize: 30, fontWeight: FontWeight.bold),
+              ),
+            ],
           ),
           Padding(
             padding: const EdgeInsets.only(top: 32),
