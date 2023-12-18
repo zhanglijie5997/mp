@@ -29,5 +29,8 @@
   "and": "and",
   "service": "Terms of Service",
   "private": "privacy agreement",
-  "more": "More"
+  "more": "More",
+  "order": "Order",
+  "langChange": "Language",
+  "theme": "Theme"
 }

@@ -46,7 +46,7 @@ class _IndexFirstState extends State<IndexFirst> {
                     height: 3,
                     decoration: BoxDecoration(
                       borderRadius: 3.radius,
-                      color: context.customTheme?.active
+                      color: context.theme.primaryColor
                     ),
                   )
                 ],
@@ -85,7 +85,7 @@ class _IndexFirstState extends State<IndexFirst> {
             return Container(
               margin: const EdgeInsets.only(right: 12),
               decoration: BoxDecoration(
-                color: context.customTheme?.card,
+                color: context.theme.cardColor,
                 borderRadius: 12.radius
               ),
               width: 320, height: 311,

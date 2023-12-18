@@ -25,7 +25,7 @@ class _NavBarState extends State<NavBar> {
       ),
       decoration: BoxDecoration(
         border:  Border(top: BorderSide(
-          color: context.customTheme?.gray ?? Colors.grey,
+          color: context.theme.dividerColor,
           // color: Color.fromARGB(255, 245, 243, 243),
           width: 1.4,
         ))
@@ -38,7 +38,7 @@ class _NavBarState extends State<NavBar> {
               child: SvgPicture.asset(
                 e.assets!,
                 semanticsLabel: e.name,
-                color: e.index == (widget.active ??0) ? context.customTheme?.active : context.customTheme?.fontColor,
+                color: e.index == (widget.active ??0) ? context.theme.focusColor : context.textTheme.bodyMedium?.color,
                 width: 24,
                 height: 24,
               ),

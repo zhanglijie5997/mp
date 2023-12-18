@@ -42,6 +42,9 @@ class LocaleKeys {
   static const service = 'service';
   static const private = 'private';
   static const more = 'more';
+  static const order = 'order';
+  static const langChange = 'langChange';
+  static const theme = 'theme';
 }
 
 class Locales {
@@ -77,6 +80,9 @@ class Locales {
     'service': '服务条款',
     'private': '隐私协议',
     'more': '更多',
+    'order': '订单',
+    'langChange': '语言',
+    'theme': '主题',
   };
   static const en_US = {
     'hello': 'hello',
@@ -110,5 +116,8 @@ class Locales {
     'service': 'Terms of Service',
     'private': 'privacy agreement',
     'more': 'More',
+    'order': 'Order',
+    'langChange': 'Language',
+    'theme': 'Theme',
   };
 }

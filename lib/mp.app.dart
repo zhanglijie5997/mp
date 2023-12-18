@@ -52,6 +52,7 @@ class _MpAppState extends State<MpApp> {
 
   @override
   Widget build(BuildContext context) {
+    print("重构");
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       getPages: AppRoutes.routes,
@@ -75,8 +76,8 @@ class _MpAppState extends State<MpApp> {
       locale: LanguageServices.to.lang,
       themeMode: ThemeServices.to.mode,
       translationsKeys: AppTranslation.translations,
-      theme: ThemeServices.to.light,
-      darkTheme: ThemeServices.to.dark,
+      theme: ThemeServices.light,
+      darkTheme: ThemeServices.dark,
       builder: FlutterSmartDialog.init(
         loadingBuilder: (msg) => CustomLoading(msg: msg),
         builder: (context, child) {

@@ -9,10 +9,10 @@ class HomePage extends GetView<HomeController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      floatingActionButton: IconButton(onPressed: () {
-        print(ThemeServices.to.mode);
-        ThemeServices.to.handleSetTheme( ThemeServices.to.mode == ThemeMode.light ? "dark": "light") ;
-      }, icon: const Icon(Icons.abc_sharp)),
+      // floatingActionButton: IconButton(onPressed: () {
+      //   print(ThemeServices.to.mode);
+      //   ThemeServices.to.handleSetTheme( ThemeServices.to.mode == ThemeMode.light ? "dark": "light") ;
+      // }, icon: const Icon(Icons.abc_sharp)),
         body: PageView.builder(
           padEnds: false,
           allowImplicitScrolling: true,

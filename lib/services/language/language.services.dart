@@ -11,15 +11,20 @@ class LanguageServices extends GetxService{
   static LanguageServices get  to => Get.find<LanguageServices>();
   
   Locale lang =  const Locale("zh", "CN");
-  
+
+  final langCode = "zh".obs;
+
   handleSetLang(String value) {
     lang = localMap[value] ?? const Locale("zh", "CN");
-    Get.updateLocale(lang);
+    langCode.value = value;
     StorageUtils().save(StorageKeys.lang, value);
+    Get.updateLocale(lang);
   }
 
   @override
   void onInit() {
+    print("language services created");
+
     final currentLang = StorageUtils().ready<String?>(StorageKeys.lang);
     if (currentLang != null) {
       lang = localMap[currentLang] ?? const Locale("en", "US");

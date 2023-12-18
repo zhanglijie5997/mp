@@ -15,7 +15,8 @@ class ThemeServices extends GetxController{
   static ThemeServices get to => Get.find<ThemeServices>();
 
   ThemeMode mode = ThemeMode.system;
-
+  // 0 -> 夜间 1 -> 日间
+  final model = "dark".obs;
   updateStatusBar() {
     // #兼容web，非web直接打开
     if (!kIsWeb) {
@@ -37,6 +38,7 @@ class ThemeServices extends GetxController{
   handleSetTheme(String value) {
     final current = themeLocal[value] ?? ThemeMode.system;
     mode = current;
+    model.value = value;
     print(mode);
     Get.changeThemeMode(current);
     updateStatusBar();
@@ -45,6 +47,7 @@ class ThemeServices extends GetxController{
 
   @override
   void onInit() {
+    print("theme services created");
     final currentTheme = StorageUtils().ready<String?>(StorageKeys.theme);
     if (currentTheme != null) {
       mode = themeLocal[currentTheme] ?? ThemeMode.system;
@@ -55,7 +58,7 @@ class ThemeServices extends GetxController{
     super.onInit();
   }
 
-  ThemeData get dark => ThemeData(
+  static ThemeData get dark => ThemeData(
     appBarTheme: AppBarTheme(
       systemOverlayStyle: SystemUiOverlayStyle.dark,
       backgroundColor: BaseTheme.dark2Dark,
@@ -63,7 +66,9 @@ class ThemeServices extends GetxController{
         color: Get.context!.customTheme?.fontColor
       )
     ),
-    extensions: [CustomTheme.dark()],
+    focusColor: BaseTheme.activeDark,
+    extensions: [CustomTheme.dark],
+    cardColor: BaseTheme.cardDark,
     scaffoldBackgroundColor: BaseTheme.dark2Dark,
     textTheme: TextTheme(
       bodyMedium: TextStyle(color: BaseTheme.fontDark),
@@ -73,10 +78,14 @@ class ThemeServices extends GetxController{
     textSelectionTheme: TextSelectionThemeData(
       cursorColor: BaseTheme.cursorColorDark
     ),
-
+    dividerColor: BaseTheme.borderDark,
+    iconTheme: IconThemeData(
+        color: BaseTheme.fontDark
+    ),
+    primaryColor: BaseTheme.activeDark
   );
 
-  ThemeData get light => ThemeData(
+  static ThemeData get light => ThemeData(
     appBarTheme:  AppBarTheme(
       systemOverlayStyle: SystemUiOverlayStyle.light,
       backgroundColor: BaseTheme.dark2Light,
@@ -84,8 +93,9 @@ class ThemeServices extends GetxController{
         color: Get.context!.customTheme?.fontColor
       )
     ),
-    
-    extensions: [CustomTheme.light()],
+    focusColor: BaseTheme.activeLight,
+    extensions: [CustomTheme.light],
+    cardColor: BaseTheme.cardLight,
     scaffoldBackgroundColor: BaseTheme.dark2Light,
     textTheme: TextTheme(
       bodyMedium: TextStyle(color: BaseTheme.fontLight),
@@ -94,8 +104,14 @@ class ThemeServices extends GetxController{
     ),
     textSelectionTheme: TextSelectionThemeData(
       cursorColor: BaseTheme.cursorColorLight
-    )
-  ); 
+    ),
+    dividerColor: BaseTheme.borderLight,
+    iconTheme: IconThemeData(
+      color: BaseTheme.fontLight
+    ),
+    primaryColor: BaseTheme.activeLight
+
+  );
 }
 
 
@@ -143,7 +159,7 @@ class CustomTheme extends ThemeExtension<CustomTheme>{
   }
   
 
-   static CustomTheme light() => CustomTheme(
+   static CustomTheme get light => CustomTheme(
     gray: BaseTheme.borderLight,
     dark2: BaseTheme.dark2Light,
     fontColor: BaseTheme.fontLight,
@@ -153,7 +169,7 @@ class CustomTheme extends ThemeExtension<CustomTheme>{
     card: BaseTheme.cardLight
    );
 
-   static CustomTheme dark() => CustomTheme(
+   static  CustomTheme get dark => CustomTheme(
     gray: BaseTheme.borderDark,
     dark2: BaseTheme.dark2Dark,
     fontColor: BaseTheme.fontDark,

@@ -32,12 +32,7 @@ class _CustomAppBarState extends State<CustomAppBar> {
                   minWidth: 50,
                 ),
                 child: widget.leading ??
-                    SvgPicture.asset(
-                      Assets.assetsImagesSvgIconHeaderBack,
-                      width: 24,
-                      height: 24,
-                      color: context.customTheme?.fontColor,
-                    ).onTap(() {
+                    const Icon(Icons.arrow_back_rounded).onTap(() {
                       Get.back();
                     })),
             Expanded(
