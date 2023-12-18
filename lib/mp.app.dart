@@ -52,7 +52,6 @@ class _MpAppState extends State<MpApp> {
 
   @override
   Widget build(BuildContext context) {
-    print("重构");
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       getPages: AppRoutes.routes,

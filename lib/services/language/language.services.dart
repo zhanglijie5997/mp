@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:mp/utils/log.utils.dart';
 import 'package:mp/utils/storage.utils.dart';
 
 const localMap = {
@@ -17,14 +18,13 @@ class LanguageServices extends GetxService{
   handleSetLang(String value) {
     lang = localMap[value] ?? const Locale("zh", "CN");
     langCode.value = value;
+    LogUtil.w("语言切换 $value");
     StorageUtils().save(StorageKeys.lang, value);
     Get.updateLocale(lang);
   }
 
   @override
   void onInit() {
-    print("language services created");
-
     final currentLang = StorageUtils().ready<String?>(StorageKeys.lang);
     if (currentLang != null) {
       lang = localMap[currentLang] ?? const Locale("en", "US");

@@ -20,7 +20,8 @@ final class AppRoutes {
   /// 需要登陆的页面 在GetPage middlewares: [AuthMiddleWare()]
   static var routes = [
     GetPage(name: AppRoutes.home, page:()=> const HomePage(), binding:HomeBinding()),
-    GetPage(name: AppRoutes.order, page:()=> const OrderPage(), binding:OrderBinding(), middlewares: [AuthMiddleWare()]),
+    // middlewares: [AuthMiddleWare()]
+    GetPage(name: AppRoutes.order, page:()=> const OrderPage(), binding:OrderBinding(), ),
     GetPage(name: AppRoutes.login, page:()=> const LoginPage(), binding: LoginBinding(), transition: Transition.downToUp, showCupertinoParallax:false, transitionDuration: 0.milliseconds ),
     GetPage(name: AppRoutes.register, page:()=> const RegisterPage(), binding: RegisterBinding(), transition: Transition.downToUp , showCupertinoParallax:false, transitionDuration: 0.milliseconds),
     GetPage(name: "${AppRoutes.details}/:id", page:()=> const DetailPage(), binding: DetailsBinding() ),

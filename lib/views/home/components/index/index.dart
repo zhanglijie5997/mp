@@ -37,7 +37,6 @@ class _HomeIndexPageState extends State<HomeIndexPage> with AutomaticKeepAliveCl
               return EventUtils.sleep(3000.milliseconds);
             },
             builder: (BuildContext context, Widget child, IndicatorController controller) {
-              print(controller.value);
               return Column(
                 children: [
                   CustomRefreshHeader(controller: controller,),

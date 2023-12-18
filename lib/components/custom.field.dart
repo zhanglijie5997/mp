@@ -34,7 +34,6 @@ class _CustomFiledState extends State<CustomFiled> {
   bool passwordStatus = true;
   late final TextEditingController controller = TextEditingController()..addListener(() {
     final text = controller.text;
-    print("object $text");
     if (text.isNotEmpty) {
       setState(() {
         switch (widget.keyboardType) {

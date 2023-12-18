@@ -32,5 +32,9 @@
   "more": "更多",
   "order": "订单",
   "langChange": "语言",
-  "theme": "主题"
+  "theme": "主题",
+  "all": "全部",
+  "finished": "已完成",
+  "progressIn": "进行中",
+  "cancel": "取消"
 }

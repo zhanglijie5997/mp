@@ -2,8 +2,12 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
+import 'package:mp/components/custom.scroll.behavior.dart';
 import 'package:mp/constants/base.theme.dart';
 import 'package:mp/extension/context.ext.dart';
+import 'package:mp/extension/num.ext.dart';
+import 'package:mp/utils/log.utils.dart';
 import 'package:mp/utils/storage.utils.dart';
 
 const themeLocal = {
@@ -17,6 +21,15 @@ class ThemeServices extends GetxController{
   ThemeMode mode = ThemeMode.system;
   // 0 -> 夜间 1 -> 日间
   final model = "dark".obs;
+
+  SystemUiOverlayStyle get systemOverlay => model.value == "dark" ? SystemUiOverlayStyle.light.copyWith(
+      statusBarColor: Colors.transparent,
+      systemNavigationBarColor: Colors.black,
+      statusBarIconBrightness: Brightness.light):SystemUiOverlayStyle.dark.copyWith(
+      statusBarColor: Colors.transparent,
+      systemNavigationBarColor: Colors.white,
+      statusBarIconBrightness: Brightness.dark);
+
   updateStatusBar() {
     // #兼容web，非web直接打开
     if (!kIsWeb) {
@@ -39,7 +52,7 @@ class ThemeServices extends GetxController{
     final current = themeLocal[value] ?? ThemeMode.system;
     mode = current;
     model.value = value;
-    print(mode);
+    LogUtil.w("主题切换 $mode");
     Get.changeThemeMode(current);
     updateStatusBar();
 
@@ -51,14 +64,14 @@ class ThemeServices extends GetxController{
     final currentTheme = StorageUtils().ready<String?>(StorageKeys.theme);
     if (currentTheme != null) {
       mode = themeLocal[currentTheme] ?? ThemeMode.system;
-    }else {
-      handleSetTheme("dark");
     }
-
+    handleSetTheme("dark");
     super.onInit();
   }
 
   static ThemeData get dark => ThemeData(
+    splashColor: Colors.transparent,
+    splashFactory: NoSplashFactory(),
     appBarTheme: AppBarTheme(
       systemOverlayStyle: SystemUiOverlayStyle.dark,
       backgroundColor: BaseTheme.dark2Dark,
@@ -82,10 +95,28 @@ class ThemeServices extends GetxController{
     iconTheme: IconThemeData(
         color: BaseTheme.fontDark
     ),
-    primaryColor: BaseTheme.activeDark
+    primaryColor: BaseTheme.activeDark,
+    brightness: Brightness.dark,
+    tabBarTheme: TabBarTheme(
+      dividerColor: Colors.transparent,
+      // indicator: BoxDecoration(
+      //   borderRadius: 5.radius,
+      // ),
+      indicatorColor: BaseTheme.activeDark,
+      labelColor: BaseTheme.activeDark,
+      unselectedLabelColor: BaseTheme.fontDark,
+      labelStyle: const TextStyle(
+        fontSize: 16,
+        fontWeight: FontWeight.bold
+      ),
+      unselectedLabelStyle: const TextStyle(
+          fontSize: 16,
+      ),
+    )
   );
 
   static ThemeData get light => ThemeData(
+    splashFactory: NoSplashFactory(),
     appBarTheme:  AppBarTheme(
       systemOverlayStyle: SystemUiOverlayStyle.light,
       backgroundColor: BaseTheme.dark2Light,
@@ -109,8 +140,24 @@ class ThemeServices extends GetxController{
     iconTheme: IconThemeData(
       color: BaseTheme.fontLight
     ),
-    primaryColor: BaseTheme.activeLight
-
+    primaryColor: BaseTheme.activeLight,
+    brightness: Brightness.light,
+    tabBarTheme: TabBarTheme(
+      dividerColor: Colors.transparent,
+      // indicator: BoxDecoration(
+      //     borderRadius: 5.radius,
+      // ),
+      indicatorColor: BaseTheme.activeLight,
+      labelColor: BaseTheme.activeLight,
+      unselectedLabelColor: BaseTheme.fontLight,
+      labelStyle: const TextStyle(
+          fontSize: 16,
+          fontWeight: FontWeight.bold
+      ),
+      unselectedLabelStyle: const TextStyle(
+        fontSize: 16,
+      ),
+    )
   );
 }
 

@@ -45,6 +45,10 @@ class LocaleKeys {
   static const order = 'order';
   static const langChange = 'langChange';
   static const theme = 'theme';
+  static const all = 'all';
+  static const finished = 'finished';
+  static const progressIn = 'progressIn';
+  static const cancel = 'cancel';
 }
 
 class Locales {
@@ -83,6 +87,10 @@ class Locales {
     'order': '订单',
     'langChange': '语言',
     'theme': '主题',
+    'all': '全部',
+    'finished': '已完成',
+    'progressIn': '进行中',
+    'cancel': '取消',
   };
   static const en_US = {
     'hello': 'hello',
@@ -119,5 +127,9 @@ class Locales {
     'order': 'Order',
     'langChange': 'Language',
     'theme': 'Theme',
+    'all': 'All',
+    'finished': 'Finished',
+    'progressIn': 'In Progress',
+    'cancel': 'Cancel',
   };
 }

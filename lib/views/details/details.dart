@@ -55,12 +55,8 @@ class DetailPage extends GetView<DetailsController> {
                     children: [
                       Padding(
                         padding: const EdgeInsets.only(left: 15.0),
-                        child: SvgPicture.asset(
-                          Assets.assetsImagesSvgIconHeaderBack,
-                          width: 24,
-                          height: 24,
-                          color: context.customTheme?.fontColor,
-                        ),
+                        child: Icon(Icons.arrow_back_rounded, color: Colors.white,)
+
                       ).onTap(() => Get.back()),
                     ],
                   ),

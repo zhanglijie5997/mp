@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -27,6 +25,7 @@ class HomeMePage extends GetView<HomeMeController> {
           // physics: const AlwaysScrollableScrollPhysics(),
           slivers: [
             SliverAppBar(
+              systemOverlayStyle: ThemeServices.to.systemOverlay,
               expandedHeight: controller.expandedHeight.value + controller.scrollHeight.value ,
               toolbarHeight: 44,
               backgroundColor: context.customTheme?.dark2,
@@ -77,8 +76,8 @@ class HomeMePage extends GetView<HomeMeController> {
                       left: Text(LocaleKeys.order.tr, style: context.textTheme.bodyMedium?.copyWith(
                         fontWeight: FontWeight.bold, fontSize: 14
                       )),
-                      right: const Icon(Icons.arrow_right_alt_outlined, ),
-                    ),
+                      right: const Icon(Icons.keyboard_arrow_right_rounded,),
+                    ).onTap(() => Get.toNamed(AppRoutes.order)),
                     // 语言切换
                     CustomAction(
                       left: Text(LocaleKeys.langChange.tr, style: context.textTheme.bodyMedium?.copyWith(
@@ -107,7 +106,8 @@ class HomeMePage extends GetView<HomeMeController> {
                               ThemeServices.to.handleSetTheme(ThemeServices.to.model.value == "dark" ? "light":"dark");
                         }),
                       ),
-                    )
+                    ),
+                    const SizedBox(height: 1000,)
                   ],
                 ),
               ),

@@ -32,5 +32,9 @@
   "more": "More",
   "order": "Order",
   "langChange": "Language",
-  "theme": "Theme"
+  "theme": "Theme",
+  "all": "All",
+  "finished": "Finished",
+  "progressIn": "In Progress",
+  "cancel": "Cancel"
 }
