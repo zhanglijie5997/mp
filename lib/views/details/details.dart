@@ -5,7 +5,6 @@ import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:mp/components/custom.image.dart';
 import 'package:mp/components/custom.loading.dart';
-import 'package:mp/components/custom.refresh.header.dart';
 import 'package:mp/components/custom.vip.text.dart';
 import 'package:mp/constants/assets.dart';
 import 'package:mp/extension/context.ext.dart';
@@ -14,7 +13,6 @@ import 'package:mp/extension/widget.ext.dart';
 import 'package:mp/generated/locales.g.dart';
 import 'package:mp/utils/event.utils.dart';
 import 'package:mp/views/details/controller/controller.dart';
-import 'dart:math' as math;
 class DetailPage extends GetView<DetailsController> {
   const DetailPage({super.key});
   final img = "https://static.ibox.art/file/oss/test/image/nft-goods/144ea876bf184bb180b9be8c7626e132.png?style=st6";

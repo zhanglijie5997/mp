@@ -8,6 +8,8 @@ import 'package:mp/views/login/binds/binds.dart';
 import 'package:mp/views/login/login.dart';
 import 'package:mp/views/order/binds/binds.dart';
 import 'package:mp/views/order/order.dart';
+import 'package:mp/views/orderDetail/binds/binds.dart';
+import 'package:mp/views/orderDetail/orderDetail.dart';
 import 'package:mp/views/register/binds/binds.dart';
 import 'package:mp/views/register/register.dart';
 
@@ -17,6 +19,7 @@ final class AppRoutes {
   static String register = "/register";
   static String order = "/order";
   static String details = "/details";
+  static String orderDetail = "/orderDetail";
   /// 需要登陆的页面 在GetPage middlewares: [AuthMiddleWare()]
   static var routes = [
     GetPage(name: AppRoutes.home, page:()=> const HomePage(), binding:HomeBinding()),
@@ -25,5 +28,7 @@ final class AppRoutes {
     GetPage(name: AppRoutes.login, page:()=> const LoginPage(), binding: LoginBinding(), transition: Transition.downToUp, showCupertinoParallax:false, transitionDuration: 0.milliseconds ),
     GetPage(name: AppRoutes.register, page:()=> const RegisterPage(), binding: RegisterBinding(), transition: Transition.downToUp , showCupertinoParallax:false, transitionDuration: 0.milliseconds),
     GetPage(name: "${AppRoutes.details}/:id", page:()=> const DetailPage(), binding: DetailsBinding() ),
+    GetPage(name: "${AppRoutes.orderDetail}/:id", page:()=> const OrderDetailPage(), binding: OrderDetailBinding()),
+
   ];
 }
