@@ -51,8 +51,8 @@ class DetailPage extends GetView<DetailsController> {
                     // mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      Padding(
-                        padding: const EdgeInsets.only(left: 15.0),
+                      const Padding(
+                        padding: EdgeInsets.only(left: 15.0),
                         child: Icon(Icons.arrow_back_rounded, color: Colors.white,)
 
                       ).onTap(() => Get.back()),

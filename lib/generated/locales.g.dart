@@ -90,7 +90,7 @@ class Locales {
     'all': '全部',
     'finished': '已完成',
     'progressIn': '进行中',
-    'cancel': '取消',
+    'cancel': '已取消',
   };
   static const en_US = {
     'hello': 'hello',
