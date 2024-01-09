@@ -15,7 +15,7 @@ class OrderPageViewList extends StatefulWidget {
 class _OrderPageViewListState extends State<OrderPageViewList> with AutomaticKeepAliveClientMixin{
   @override
   Widget build(BuildContext context) {
-    // super.build(context);
+    super.build(context);
     return CustomRefreshIndicator(
       offsetToArmed: 100,
       autoRebuild: false,

@@ -26,8 +26,8 @@ class _OrderItemState extends State<OrderItem> {
       child: Row(
         children: [
           ClipRRect(
-            borderRadius: 12.radius,
-            child: CustomImage(url: url, size:const Size(64, 98))
+            borderRadius: 6.radius,
+            child: CustomImage(url: url, size:const Size(64, 98), fit: BoxFit.fitHeight,)
           ),
           Expanded(
             child: Container(
