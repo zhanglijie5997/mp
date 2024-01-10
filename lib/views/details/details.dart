@@ -55,9 +55,9 @@ class DetailPage extends GetView<DetailsController> {
                     // mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      const Padding(
-                        padding: EdgeInsets.only(left: 15.0),
-                        child: Icon(Icons.arrow_back_rounded, color: Colors.white,)
+                       Padding(
+                        padding:const EdgeInsets.only(left: 15.0),
+                        child: Icon(Icons.arrow_back_rounded, color: context.customTheme?.fontColor,)
 
                       ).onTap(() => Get.back()),
                     ],
@@ -266,7 +266,7 @@ A handcrafted collection of 10,000 characters developed by artist DirtyRobot. Ea
                         child: Text("购买", textAlign: TextAlign.center, style: context.textTheme.bodyMedium?.copyWith(
                           fontSize: 18, fontWeight: FontWeight.bold
                         )),
-                      ),
+                      ).onTap(() => Get.toNamed("${AppRoutes.buy}/${controller.params["id"]}")),
                     )
                   ],
                 ),
@@ -277,7 +277,7 @@ A handcrafted collection of 10,000 characters developed by artist DirtyRobot. Ea
 
            
         ),
-      ).onTap(() => Get.toNamed("${AppRoutes.buy}/${controller.params["id"]}"));
+      );
     
   }
 }

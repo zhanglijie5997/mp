@@ -141,6 +141,14 @@ class Assets {
   /// assets/images/svg/Icon/Icon/Hamburgermenu_2.svg
   static const String assetsImagesSvgIconIconHamburgermenu2 = "assets/images/svg/Icon/Icon/Hamburgermenu_2.svg";
 
+  /// Assets for assetsImagesSvgIconIconIconAdd
+  /// assets/images/svg/Icon/Icon/icon_add.svg
+  static const String assetsImagesSvgIconIconIconAdd = "assets/images/svg/Icon/Icon/icon_add.svg";
+
+  /// Assets for assetsImagesSvgIconIconIconCut
+  /// assets/images/svg/Icon/Icon/icon_cut.svg
+  static const String assetsImagesSvgIconIconIconCut = "assets/images/svg/Icon/Icon/icon_cut.svg";
+
   /// Assets for assetsImagesSvgIconIconInfo
   /// assets/images/svg/Icon/Icon/info.svg
   static const String assetsImagesSvgIconIconInfo = "assets/images/svg/Icon/Icon/info.svg";

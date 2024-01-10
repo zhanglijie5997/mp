@@ -107,7 +107,7 @@ class HomeMePage extends GetView<HomeMeController> {
                         }),
                       ),
                     ),
-                    const SizedBox(height: 1000,)
+                    // const SizedBox(height: 1000,)
                   ],
                 ),
               ),
