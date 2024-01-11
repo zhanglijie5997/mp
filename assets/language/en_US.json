@@ -36,5 +36,7 @@
   "all": "All",
   "finished": "Finished",
   "progressIn": "In Progress",
-  "cancel": "Cancel"
+  "cancel": "Cancel",
+  "introduction": "NFT Introduction",
+  "buy": "Buy"
 }

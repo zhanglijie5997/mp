@@ -193,8 +193,9 @@ class DetailPage extends GetView<DetailsController> {
                                             color: context.customTheme?.active,
                                             borderRadius: 4.radius
                                           ),
+
                                         ),
-                                        Text("藏品简介", style: context.textTheme.bodyMedium?.copyWith(
+                                        Text(LocaleKeys.introduction.tr, style: context.textTheme.bodyMedium?.copyWith(
                                           fontSize: 16, fontWeight: FontWeight.bold
                                         )),
                                       ],
@@ -263,7 +264,7 @@ A handcrafted collection of 10,000 characters developed by artist DirtyRobot. Ea
                           borderRadius: 12.radius,
                           color: context.customTheme?.card
                         ),
-                        child: Text("购买", textAlign: TextAlign.center, style: context.textTheme.bodyMedium?.copyWith(
+                        child: Text(LocaleKeys.buy.tr, textAlign: TextAlign.center, style: context.textTheme.bodyMedium?.copyWith(
                           fontSize: 18, fontWeight: FontWeight.bold
                         )),
                       ).onTap(() => Get.toNamed("${AppRoutes.buy}/${controller.params["id"]}")),

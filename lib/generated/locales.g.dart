@@ -49,6 +49,8 @@ class LocaleKeys {
   static const finished = 'finished';
   static const progressIn = 'progressIn';
   static const cancel = 'cancel';
+  static const introduction = 'introduction';
+  static const buy = 'buy';
 }
 
 class Locales {
@@ -91,6 +93,8 @@ class Locales {
     'finished': '已完成',
     'progressIn': '进行中',
     'cancel': '已取消',
+    'introduction': 'NFT 简介',
+    'buy': '购买',
   };
   static const en_US = {
     'hello': 'hello',
@@ -131,5 +135,7 @@ class Locales {
     'finished': 'Finished',
     'progressIn': 'In Progress',
     'cancel': 'Cancel',
+    'introduction': 'NFT Introduction',
+    'buy': 'Buy',
   };
 }
