@@ -51,6 +51,7 @@ class LocaleKeys {
   static const cancel = 'cancel';
   static const introduction = 'introduction';
   static const buy = 'buy';
+  static const integration = 'integration';
 }
 
 class Locales {
@@ -95,6 +96,7 @@ class Locales {
     'cancel': '已取消',
     'introduction': 'NFT 简介',
     'buy': '购买',
+    'integration': '积分兑换',
   };
   static const en_US = {
     'hello': 'hello',
@@ -137,5 +139,6 @@ class Locales {
     'cancel': 'Cancel',
     'introduction': 'NFT Introduction',
     'buy': 'Buy',
+    'integration': 'Integration',
   };
 }

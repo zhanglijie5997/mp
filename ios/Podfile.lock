@@ -1,5 +1,11 @@
 PODS:
+  - Ads-CN-Beta (5.8.0.7):
+    - Ads-CN-Beta/BUAdSDK (= 5.8.0.7)
+  - Ads-CN-Beta/BUAdSDK (5.8.0.7)
   - Flutter (1.0.0)
+  - flutter_unionad (0.0.1):
+    - Ads-CN-Beta (= 5.8.0.7)
+    - Flutter
   - path_provider_foundation (0.0.1):
     - Flutter
     - FlutterMacOS
@@ -8,19 +14,28 @@ PODS:
 
 DEPENDENCIES:
   - Flutter (from `Flutter`)
+  - flutter_unionad (from `.symlinks/plugins/flutter_unionad/ios`)
   - path_provider_foundation (from `.symlinks/plugins/path_provider_foundation/darwin`)
   - permission_handler_apple (from `.symlinks/plugins/permission_handler_apple/ios`)
+
+SPEC REPOS:
+  trunk:
+    - Ads-CN-Beta
 
 EXTERNAL SOURCES:
   Flutter:
     :path: Flutter
+  flutter_unionad:
+    :path: ".symlinks/plugins/flutter_unionad/ios"
   path_provider_foundation:
     :path: ".symlinks/plugins/path_provider_foundation/darwin"
   permission_handler_apple:
     :path: ".symlinks/plugins/permission_handler_apple/ios"
 
 SPEC CHECKSUMS:
+  Ads-CN-Beta: 10f45519e756d384f213484a0ddb28dc03ad5016
   Flutter: f04841e97a9d0b0a8025694d0796dd46242b2854
+  flutter_unionad: 431a65308b154a93486f58e9b9b6bc308cc79ccc
   path_provider_foundation: 29f094ae23ebbca9d3d0cec13889cd9060c0e943
   permission_handler_apple: e76247795d700c14ea09e3a2d8855d41ee80a2e6
 

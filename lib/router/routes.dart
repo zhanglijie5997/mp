@@ -6,6 +6,8 @@ import 'package:mp/views/details/binds/binds.dart';
 import 'package:mp/views/details/details.dart';
 import 'package:mp/views/home/binds/binds.dart';
 import 'package:mp/views/home/home.dart';
+import 'package:mp/views/integration/binds/binds.dart';
+import 'package:mp/views/integration/integration.dart';
 import 'package:mp/views/login/binds/binds.dart';
 import 'package:mp/views/login/login.dart';
 import 'package:mp/views/order/binds/binds.dart';
@@ -23,16 +25,18 @@ final class AppRoutes {
   static String details = "/details";
   static String orderDetail = "/orderDetail";
   static String buy = "/buy";
+  static String integration = "/integration";
   /// 需要登陆的页面 在GetPage middlewares: [AuthMiddleWare()]
   static var routes = [
     GetPage(name: AppRoutes.home, page:()=> const HomePage(), binding:HomeBinding()),
     // middlewares: [AuthMiddleWare()]
-    GetPage(name: AppRoutes.order, page:()=> const OrderPage(), binding:OrderBinding(), ),
+    GetPage(name: AppRoutes.order, page:()=> const OrderPage(), binding:OrderBinding(),  middlewares: [AuthMiddleWare()]),
     GetPage(name: AppRoutes.login, page:()=> const LoginPage(), binding: LoginBinding(), transition: Transition.downToUp, showCupertinoParallax:false, transitionDuration: 0.milliseconds ),
     GetPage(name: AppRoutes.register, page:()=> const RegisterPage(), binding: RegisterBinding(), transition: Transition.downToUp , showCupertinoParallax:false, transitionDuration: 0.milliseconds),
     GetPage(name: "${AppRoutes.details}/:id", page:()=> const DetailPage(), binding: DetailsBinding() ),
     GetPage(name: "${AppRoutes.orderDetail}/:id", page:()=> const OrderDetailPage(), binding: OrderDetailBinding()),
     GetPage(name: "${AppRoutes.buy}/:id", page:()=> const BuyPage(), binding: BuyBinding()),
+    GetPage(name: AppRoutes.integration, page:()=> const IntegrationPage(), binding: IntegrationBinding()),
 
   ];
 }
