@@ -4,6 +4,7 @@ import 'package:mp/animation/shank.ani.dart';
 import 'package:mp/core/reg.core.dart';
 import 'package:mp/router/routes.dart';
 
+
 class LoginController extends GetxController {
   static LoginController get to => Get.find<LoginController>();
   final GlobalKey<ShankAnimationState> privateKey = GlobalKey<ShankAnimationState>();

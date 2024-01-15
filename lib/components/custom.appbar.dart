@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
-import 'package:mp/constants/assets.dart';
 import 'package:mp/extension/context.ext.dart';
 import 'package:mp/extension/widget.ext.dart';
 
@@ -9,7 +7,8 @@ class CustomAppBar extends StatefulWidget implements PreferredSizeWidget {
   final Widget? leading;
   final Widget? title;
   final Widget? actions;
-  const CustomAppBar({super.key, this.actions, this.leading, this.title});
+  final String? header;
+  const CustomAppBar({super.key, this.actions, this.leading, this.title, this.header});
 
   @override
   State<CustomAppBar> createState() => _CustomAppBarState();
@@ -38,7 +37,10 @@ class _CustomAppBarState extends State<CustomAppBar> {
             Expanded(
                 child: Container(
                     alignment: Alignment.center,
-                    child: widget.title ?? Text("头"))),
+                    child: widget.title ?? Text(
+                      widget.header ?? "", style: context.textTheme.bodyMedium?.copyWith(
+                      fontSize: 18, overflow: TextOverflow.ellipsis
+                    ),))),
             Container(
               constraints: const BoxConstraints(
                 minWidth: 0,

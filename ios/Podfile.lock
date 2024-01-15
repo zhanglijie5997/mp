@@ -3,9 +3,17 @@ PODS:
     - Ads-CN-Beta/BUAdSDK (= 5.8.0.7)
   - Ads-CN-Beta/BUAdSDK (5.8.0.7)
   - Flutter (1.0.0)
+  - flutter_inappwebview_ios (0.0.1):
+    - Flutter
+    - flutter_inappwebview_ios/Core (= 0.0.1)
+    - OrderedSet (~> 5.0)
+  - flutter_inappwebview_ios/Core (0.0.1):
+    - Flutter
+    - OrderedSet (~> 5.0)
   - flutter_unionad (0.0.1):
     - Ads-CN-Beta (= 5.8.0.7)
     - Flutter
+  - OrderedSet (5.0.0)
   - path_provider_foundation (0.0.1):
     - Flutter
     - FlutterMacOS
@@ -14,6 +22,7 @@ PODS:
 
 DEPENDENCIES:
   - Flutter (from `Flutter`)
+  - flutter_inappwebview_ios (from `.symlinks/plugins/flutter_inappwebview_ios/ios`)
   - flutter_unionad (from `.symlinks/plugins/flutter_unionad/ios`)
   - path_provider_foundation (from `.symlinks/plugins/path_provider_foundation/darwin`)
   - permission_handler_apple (from `.symlinks/plugins/permission_handler_apple/ios`)
@@ -21,10 +30,13 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - Ads-CN-Beta
+    - OrderedSet
 
 EXTERNAL SOURCES:
   Flutter:
     :path: Flutter
+  flutter_inappwebview_ios:
+    :path: ".symlinks/plugins/flutter_inappwebview_ios/ios"
   flutter_unionad:
     :path: ".symlinks/plugins/flutter_unionad/ios"
   path_provider_foundation:
@@ -35,10 +47,12 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   Ads-CN-Beta: 10f45519e756d384f213484a0ddb28dc03ad5016
   Flutter: f04841e97a9d0b0a8025694d0796dd46242b2854
+  flutter_inappwebview_ios: 97215cf7d4677db55df76782dbd2930c5e1c1ea0
   flutter_unionad: 431a65308b154a93486f58e9b9b6bc308cc79ccc
+  OrderedSet: aaeb196f7fef5a9edf55d89760da9176ad40b93c
   path_provider_foundation: 29f094ae23ebbca9d3d0cec13889cd9060c0e943
   permission_handler_apple: e76247795d700c14ea09e3a2d8855d41ee80a2e6
 
-PODFILE CHECKSUM: 02caaa843f6501172c0d470d80e72f61175c8b93
+PODFILE CHECKSUM: a9c0a79937f8e9ed1ac2fe8c300918c3f628ba50
 
 COCOAPODS: 1.14.3

@@ -9,6 +9,7 @@ import 'package:mp/extension/widget.ext.dart';
 import 'package:mp/generated/locales.g.dart';
 import 'package:mp/views/login/controller/controller.dart';
 
+
 class LoginPage extends GetView<LoginController> {
   const LoginPage({super.key});
 

@@ -7,7 +7,10 @@ import 'package:mp/components/custom.refresh.header.dart';
 import 'package:mp/constants/assets.dart';
 import 'package:mp/extension/context.ext.dart';
 import 'package:mp/extension/num.ext.dart';
+import 'package:mp/extension/string.ext.dart';
+import 'package:mp/extension/widget.ext.dart';
 import 'package:mp/generated/locales.g.dart';
+import 'package:mp/router/routes.dart';
 import 'package:mp/utils/event.utils.dart';
 import 'package:mp/views/home/components/index/components/announcement.dart';
 import 'package:mp/views/home/components/index/components/first.dart';
@@ -99,7 +102,7 @@ class _HomeIndexPageState extends State<HomeIndexPage> with AutomaticKeepAliveCl
                       // 精选
                       IndexFirst(label: LocaleKeys.selectedCollection.tr,),
                       // 交易区块
-                      const IndexTradeHex(),
+                      const IndexTradeHex().onTap(() => Get.toNamed("${AppRoutes.webview}?url=${'https://www.baidu.com'.encode()}")),
                     ],
                   ),
                 ),

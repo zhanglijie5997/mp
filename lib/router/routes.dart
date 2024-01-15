@@ -16,6 +16,8 @@ import 'package:mp/views/orderDetail/binds/binds.dart';
 import 'package:mp/views/orderDetail/orderDetail.dart';
 import 'package:mp/views/register/binds/binds.dart';
 import 'package:mp/views/register/register.dart';
+import 'package:mp/views/webview/binds/binds.dart';
+import 'package:mp/views/webview/webview.dart';
 
 final class AppRoutes {
   static String home = "/home";
@@ -26,6 +28,7 @@ final class AppRoutes {
   static String orderDetail = "/orderDetail";
   static String buy = "/buy";
   static String integration = "/integration";
+  static String webview = "/webview";
   /// 需要登陆的页面 在GetPage middlewares: [AuthMiddleWare()]
   static var routes = [
     GetPage(name: AppRoutes.home, page:()=> const HomePage(), binding:HomeBinding()),
@@ -37,6 +40,6 @@ final class AppRoutes {
     GetPage(name: "${AppRoutes.orderDetail}/:id", page:()=> const OrderDetailPage(), binding: OrderDetailBinding()),
     GetPage(name: "${AppRoutes.buy}/:id", page:()=> const BuyPage(), binding: BuyBinding()),
     GetPage(name: AppRoutes.integration, page:()=> const IntegrationPage(), binding: IntegrationBinding()),
-
+    GetPage(name: AppRoutes.webview, page:()=> const AppWebviewPage(), binding: AppWebviewBinding()),
   ];
 }

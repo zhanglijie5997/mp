@@ -17,4 +17,12 @@ extension StringExt on String {
   String removeFirst(Pattern pattern, [int startIndex = 0]) =>
       replaceFirst(pattern, '', startIndex);
   String removeAll(Pattern pattern) => replaceAll(pattern, '');
+
+  String encode() {
+    return jsonEncode(this);
+  }
+
+  T decode<T>() {
+    return jsonDecode(this);
+  }
 }
