@@ -102,7 +102,7 @@ class _HomeIndexPageState extends State<HomeIndexPage> with AutomaticKeepAliveCl
                       // 精选
                       IndexFirst(label: LocaleKeys.selectedCollection.tr,),
                       // 交易区块
-                      const IndexTradeHex().onTap(() => Get.toNamed("${AppRoutes.webview}?url=${'https://www.baidu.com'.encode()}")),
+                      const IndexTradeHex().onTap(() => Get.toNamed("${AppRoutes.webview}?url=${'https://www.jingdong.com'.encode()}")),
                     ],
                   ),
                 ),

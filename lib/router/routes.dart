@@ -34,7 +34,7 @@ final class AppRoutes {
     GetPage(name: AppRoutes.home, page:()=> const HomePage(), binding:HomeBinding()),
     // middlewares: [AuthMiddleWare()]
     GetPage(name: AppRoutes.order, page:()=> const OrderPage(), binding:OrderBinding(),  middlewares: [AuthMiddleWare()]),
-    GetPage(name: AppRoutes.login, page:()=> const LoginPage(), binding: LoginBinding(), transition: Transition.downToUp, showCupertinoParallax:false, transitionDuration: 0.milliseconds ),
+    GetPage(name: AppRoutes.login, page:()=> const LoginPage(), binding: LoginBinding(), transition: Transition.downToUp, showCupertinoParallax:false ),
     GetPage(name: AppRoutes.register, page:()=> const RegisterPage(), binding: RegisterBinding(), transition: Transition.downToUp , showCupertinoParallax:false, transitionDuration: 0.milliseconds),
     GetPage(name: "${AppRoutes.details}/:id", page:()=> const DetailPage(), binding: DetailsBinding() ),
     GetPage(name: "${AppRoutes.orderDetail}/:id", page:()=> const OrderDetailPage(), binding: OrderDetailBinding()),

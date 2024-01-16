@@ -27,7 +27,7 @@ class RegisterController extends GetxController {
   }
 
   handleLoginPage() {
-    Get.offAndToNamed(AppRoutes.login);
+    Get.back();
   }
 
   handlePrivite(bool value) {

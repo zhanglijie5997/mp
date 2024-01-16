@@ -59,7 +59,7 @@ class LoginController extends GetxController {
   }
 
   handleRegisterPage() {
-    Get.offAndToNamed(AppRoutes.register);
+    Get.toNamed(AppRoutes.register);
   }
 
  
