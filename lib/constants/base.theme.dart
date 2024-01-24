@@ -30,7 +30,7 @@ class BaseTheme {
   static Color get errorColorDark => '#F14B4B'.color();
   static Color get errorColorLight => '#F14B4B'.color();
 
-  /// 卡片
+  /// 卡片1
   static Color get cardDark => '#36373F'.color();
   static Color get cardLight => '#EBEDF2'.color();
 }

@@ -40,4 +40,10 @@ class AppWebviewController extends GetxController {
 
   final title = "".obs;
   final progress = (0.0).obs;
+
+  @override
+  void onClose() {
+    webViewController?.dispose();
+    super.onClose();
+  }
 }
