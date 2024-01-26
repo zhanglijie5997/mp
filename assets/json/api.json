@@ -3,5 +3,10 @@
         "url": "/home/list",
         "method": "post",
         "desc": "首页列表"    
+    },
+    {
+        "url": "/home/banner",
+        "method": "get",
+        "desc": "首页banner"    
     }
 ]
