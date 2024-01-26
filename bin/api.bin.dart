@@ -24,11 +24,12 @@ class ApiFileModel {
 }
 
 
-
+/// 写入路径
 String writeFilePath = "./lib/api/api.dart";
-
+/// 读取路径
+String readFilePath = "./assets/json/api.json";
 void main() async{
-  File file = File("./assets/json/api.json");  
+  File file = File(readFilePath);  
   String res = await file.readAsString();
   final apiJson = (jsonDecode(res) as List<dynamic>);
   final api = apiJson.map((e) => ApiFileModel.fromJson(e));
