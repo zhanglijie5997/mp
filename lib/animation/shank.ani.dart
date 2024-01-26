@@ -2,7 +2,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
+/// 抖动动画
 class ShankAnimation extends StatefulWidget {
   final Widget child;
   const ShankAnimation({super.key, required this.child});

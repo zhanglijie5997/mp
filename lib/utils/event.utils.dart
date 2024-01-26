@@ -1,14 +1,15 @@
 import 'dart:async';
 
 class EventUtils {
-  static debounce(Function fn, Duration delay) {
+  /// 防抖
+  static debounce(Function? fn, Duration delay) {
     Timer? timer;
     // 第一次触发
     bool status = false;
     
     return () {
       if (!status) {
-        fn.call();
+        fn?.call();
       }
       // ignore: unnecessary_null_comparison
       if (timer != null) {
@@ -16,7 +17,7 @@ class EventUtils {
       }
       timer = Timer(delay, () { 
         print("object");
-        fn.call();
+        fn?.call();
         status = false;
       });
     };
