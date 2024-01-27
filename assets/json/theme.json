@@ -18,8 +18,8 @@
       "name": "fontColor"
     },
     "active": {
-      "dark": "#9F72FF",
-      "light": "#9F72FF",
+      "dark": "#000000",
+      "light": "#000000",
       "///": "选中文字",
       "name": "active"
     },
@@ -64,5 +64,35 @@
       "light": "#F2F5FF",
       "///": "输入框边框",
       "name": "fieldBorder"
+    },
+    "homeBodyStart": {
+      "dark": "#F5F5FB",
+      "light": "#F5F5FB",
+      "///": "首页渐变左侧",
+      "name": "homeBodyStart"
+    },
+    "homeBodyEnd": {
+      "dark": "#f5f5fb",
+      "light": "#f5f5fb",
+      "///": "首页渐变右侧",
+      "name": "homeBodyEnd"
+    },
+    "homeTopLeft": {
+      "dark": "#FFE5EF",
+      "light": "#FFE5EF",
+      "///": "首页顶部高斯模糊",
+      "name": "homeTopLeft"
+    },
+    "homeTopRight": {
+      "dark": "#F3F0FF",
+      "light": "#F3F0FF",
+      "///": "首页顶部高斯模糊",
+      "name": "homeTopRight"
+    },
+    "navbarBg": {
+      "dark": "#ffffff",
+      "light": "#ffffff",
+      "///": "底部导航背景",
+      "name": "navbarBg"
     }
-  }
+}

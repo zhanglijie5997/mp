@@ -15,8 +15,8 @@ class BaseTheme {
   static Color get fontLight => '#000000'.color();
 
   /// 选中文字
-  static Color get activeDark => '#9F72FF'.color();
-  static Color get activeLight => '#9F72FF'.color();
+  static Color get activeDark => '#000000'.color();
+  static Color get activeLight => '#000000'.color();
 
   /// 二级文字颜色
   static Color get subTitleDark => '#A5A8B4'.color();
@@ -45,4 +45,24 @@ class BaseTheme {
   /// 输入框边框
   static Color get fieldBorderDark => '#F2F5FF'.color();
   static Color get fieldBorderLight => '#F2F5FF'.color();
+
+  /// 首页渐变左侧
+  static Color get homeBodyStartDark => '#F5F5FB'.color();
+  static Color get homeBodyStartLight => '#F5F5FB'.color();
+
+  /// 首页渐变右侧
+  static Color get homeBodyEndDark => '#f5f5fb'.color();
+  static Color get homeBodyEndLight => '#f5f5fb'.color();
+
+  /// 首页顶部高斯模糊
+  static Color get homeTopLeftDark => '#FFE5EF'.color();
+  static Color get homeTopLeftLight => '#FFE5EF'.color();
+
+  /// 首页顶部高斯模糊
+  static Color get homeTopRightDark => '#F3F0FF'.color();
+  static Color get homeTopRightLight => '#F3F0FF'.color();
+
+  /// 底部导航背景
+  static Color get navbarBgDark => '#ffffff'.color();
+  static Color get navbarBgLight => '#ffffff'.color();
 }

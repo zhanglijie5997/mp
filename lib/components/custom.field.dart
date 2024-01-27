@@ -94,8 +94,8 @@ class _CustomFiledState extends State<CustomFiled> {
       obscureText: widget.keyboardType == TextInputType.visiblePassword &&
           passwordStatus,
       decoration: InputDecoration(
-        fillColor:  context.customTheme?.fieldBorder,
-        filled: true,
+        // fillColor:  context.customTheme?.fieldBorder,
+        // filled: true,
         labelText: widget.labelText ?? "",
         labelStyle: context.textTheme.bodyMedium
             ?.copyWith(color: context.customTheme?.gray3),
@@ -144,7 +144,7 @@ class _CustomFiledState extends State<CustomFiled> {
           ///用来配置边框的样式
           borderSide: BorderSide(
             ///设置边框的颜色
-            color: context.customTheme?.fieldBorder ?? Colors.transparent,
+            color: context.customTheme?.fontColor ?? Colors.transparent,
 
             ///设置边框的粗细
             width: 2.0,
@@ -159,7 +159,7 @@ class _CustomFiledState extends State<CustomFiled> {
           ///用来配置边框的样式
           borderSide: BorderSide(
             ///设置边框的颜色
-             color: context.customTheme?.fieldBorder ?? Colors.transparent,
+             color: context.customTheme?.fontColor ?? Colors.transparent,
 
             ///设置边框的粗细
             width: 2.0,

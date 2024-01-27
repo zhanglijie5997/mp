@@ -20,166 +20,124 @@ class LoginPage extends GetView<LoginController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        resizeToAvoidBottomInset: false,
-        body: Stack(
+      resizeToAvoidBottomInset: false,
+      body: Padding(
+        padding: EdgeInsets.only(
+            left: 24, right: 24, top: context.mediaQueryPadding.top + 30),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Positioned(
-                left: 0,
-                top: 0,
-                child: Row(
-                  children: [
-                    // 左侧渐变
-                    SizedBox(
-                      child: Container(
-                        width: 194,
-                        height: 229,
-                        decoration: BoxDecoration(
-                          color: context.customTheme?.purple,
-                        ),
-                        child: BackdropFilter(
-                          filter: ImageFilter.blur(sigmaX: 100, sigmaY: 100),
-                          child: const SizedBox(),
-                        ),
-                      ),
-                    ),
-                    // 右侧渐变
-                    SizedBox(
-                      child: Container(
-                        width: 194,
-                        height: 229,
-                        decoration: BoxDecoration(
-                          color: context.customTheme?.purple2,
-                        ),
-                        child: BackdropFilter(
-                          filter: ImageFilter.blur(sigmaX: 100, sigmaY: 100),
-                          child: const SizedBox(),
-                        ),
-                      ),
-                    )
-                  ],
-                )),
+            Row(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(right: 20.0),
+                  child: Icon(
+                    Icons.close,
+                    color: context.customTheme?.fontColor,
+                  ),
+                ).onTap(() => Get.back()),
+              ],
+            ),
+            // 登陆
             Padding(
-              padding: EdgeInsets.only(
-                  left: 24, right: 24, top: context.mediaQueryPadding.top + 30),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+              padding: const EdgeInsets.only(top: 46.5),
+              child: Row(
                 children: [
-                  Row(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.only(right: 20.0),
-                        child: Icon(
-                          Icons.close,
-                          color: context.customTheme?.fontColor,
-                        ),
-                      ).onTap(() => Get.back()),
-                    ],
+                  Text(
+                    LocaleKeys.login.tr,
+                    style: context.textTheme.bodyLarge
+                        ?.copyWith(fontSize: 30, fontWeight: FontWeight.bold),
                   ),
-                  // 登陆
-                  Padding(
-                    padding: const EdgeInsets.only(top: 46.5),
-                    child: Row(
-                      children: [
-                        Text(
-                          LocaleKeys.login.tr,
-                          style: context.textTheme.bodyLarge?.copyWith(
-                              fontSize: 30, fontWeight: FontWeight.bold),
-                        ),
-                        Image.asset(
-                          Assets.assetsImagesLoginHand,
-                          width: 44,
-                          height: 44,
-                        )
-                      ],
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(top: 32),
-                    child: Obx(() => CustomFiled(
-                          labelText: LocaleKeys.phone.tr,
-                          onChange: controller.changeCount,
-                          keyboardType: TextInputType.phone,
-                          status: controller.accountStatus.value,
-                        )),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(top: 16),
-                    child: Obx(() => CustomFiled(
-                          labelText: LocaleKeys.password.tr,
-                          onChange: controller.changePassword,
-                          helperText: LocaleKeys.passwrodHelp.tr,
-                          keyboardType: TextInputType.visiblePassword,
-                          status: controller.passwordStatus.value,
-                        )),
-                  ),
-                  Padding(
-                    padding:
-                        const EdgeInsets.only(top: 20, left: 10, right: 10),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(LocaleKeys.forgetPassword.tr,  style: context.textTheme.bodyMedium?.copyWith(
-                                    color: context.customTheme?.gray3))
-                            .onTap(controller.handleForgetPassword),
-                        Text(LocaleKeys.dontHaveAccountTip.tr,
-                                style: context.textTheme.bodyMedium?.copyWith(
-                                    color: context.customTheme?.gray3))
-                            .onTap(controller.handleRegisterPage),
-                      ],
-                    ),
-                  ),
-
-                  // 分割线
-                  Padding(
-                      padding: const EdgeInsets.only(top: 32, right: 10),
-                      child: ShankAnimation(
-                        key: controller.privateKey,
-                        child: Row(
-                          children: [
-                            CustomCheckbox(onChange: controller.handlePrivite),
-                            Padding(
-                              padding: const EdgeInsets.only(left: 10.0),
-                              child: Text.rich(TextSpan(
-                                  text: LocaleKeys.privateText.tr,
-                                  children: [
-                                    TextSpan(
-                                        text: " ${LocaleKeys.private.tr} ",
-                                        style: context.textTheme.bodyMedium
-                                            ?.copyWith(
-                                                color: context
-                                                    .customTheme?.active)),
-                                    TextSpan(text: LocaleKeys.and.tr),
-                                    TextSpan(
-                                        text: " ${LocaleKeys.service.tr}",
-                                        style: context.textTheme.bodyMedium
-                                            ?.copyWith(
-                                                color: context
-                                                    .customTheme?.active)),
-                                  ])),
-                            )
-                          ],
-                        ),
-                      )),
-
-                  Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 32),
-                    child: Container(
-                      padding: const EdgeInsets.symmetric(vertical: 18),
-                      decoration: BoxDecoration(
-                        color: context.customTheme?.active,
-                        borderRadius: 16.radius,
-                      ),
-                      alignment: Alignment.center,
-                      child: Text(LocaleKeys.login.tr,
-                          style: context.textTheme.bodyMedium?.copyWith(
-                              color: context.customTheme?.dark2,
-                              fontWeight: FontWeight.bold)),
-                    ).onTap(controller.handleLogin),
-                  ),
+                  Image.asset(
+                    Assets.assetsImagesLoginHand,
+                    width: 44,
+                    height: 44,
+                  )
                 ],
               ),
             ),
+            Padding(
+              padding: const EdgeInsets.only(top: 32),
+              child: Obx(() => CustomFiled(
+                    labelText: LocaleKeys.phone.tr,
+                    onChange: controller.changeCount,
+                    keyboardType: TextInputType.phone,
+                    status: controller.accountStatus.value,
+                  )),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(top: 16),
+              child: Obx(() => CustomFiled(
+                    labelText: LocaleKeys.password.tr,
+                    onChange: controller.changePassword,
+                    helperText: LocaleKeys.passwrodHelp.tr,
+                    keyboardType: TextInputType.visiblePassword,
+                    status: controller.passwordStatus.value,
+                  )),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(top: 20, left: 10, right: 10),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(LocaleKeys.forgetPassword.tr,
+                          style: context.textTheme.bodyMedium
+                              ?.copyWith(color: context.customTheme?.gray3))
+                      .onTap(controller.handleForgetPassword),
+                  Text(LocaleKeys.dontHaveAccountTip.tr,
+                          style: context.textTheme.bodyMedium
+                              ?.copyWith(color: context.customTheme?.gray3))
+                      .onTap(controller.handleRegisterPage),
+                ],
+              ),
+            ),
+
+            // 分割线
+            Padding(
+                padding: const EdgeInsets.only(top: 32, right: 10),
+                child: ShankAnimation(
+                  key: controller.privateKey,
+                  child: Row(
+                    children: [
+                      CustomCheckbox(onChange: controller.handlePrivite),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 10.0),
+                        child: Text.rich(TextSpan(
+                            text: LocaleKeys.privateText.tr,
+                            children: [
+                              TextSpan(
+                                  text: " ${LocaleKeys.private.tr} ",
+                                  style: context.textTheme.bodyMedium?.copyWith(
+                                      color: context.customTheme?.active)),
+                              TextSpan(text: LocaleKeys.and.tr),
+                              TextSpan(
+                                  text: " ${LocaleKeys.service.tr}",
+                                  style: context.textTheme.bodyMedium?.copyWith(
+                                      color: context.customTheme?.active)),
+                            ])),
+                      )
+                    ],
+                  ),
+                )),
+
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 32),
+              child: Container(
+                padding: const EdgeInsets.symmetric(vertical: 18),
+                decoration: BoxDecoration(
+                  color: context.customTheme?.active,
+                  borderRadius: 16.radius,
+                ),
+                alignment: Alignment.center,
+                child: Text(LocaleKeys.login.tr,
+                    style: context.textTheme.bodyMedium?.copyWith(
+                        color: context.customTheme?.dark2,
+                        fontWeight: FontWeight.bold)),
+              ).onTap(controller.handleLogin),
+            ),
           ],
-        ));
+        ),
+      ),
+    );
   }
 }

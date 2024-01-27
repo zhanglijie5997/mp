@@ -34,6 +34,21 @@ class CustomTheme extends ThemeExtension<CustomTheme> {
 
   /// 输入框边框
   Color? fieldBorder;
+
+  /// 首页渐变左侧
+  Color? homeBodyStart;
+
+  /// 首页渐变右侧
+  Color? homeBodyEnd;
+
+  /// 首页顶部高斯模糊
+  Color? homeTopLeft;
+
+  /// 首页顶部高斯模糊
+  Color? homeTopRight;
+
+  /// 底部导航背景
+  Color? navbarBg;
   CustomTheme({
     /// 边框
     this.gray,
@@ -67,6 +82,21 @@ class CustomTheme extends ThemeExtension<CustomTheme> {
 
     /// 输入框边框
     this.fieldBorder,
+
+    /// 首页渐变左侧
+    this.homeBodyStart,
+
+    /// 首页渐变右侧
+    this.homeBodyEnd,
+
+    /// 首页顶部高斯模糊
+    this.homeTopLeft,
+
+    /// 首页顶部高斯模糊
+    this.homeTopRight,
+
+    /// 底部导航背景
+    this.navbarBg,
   });
   @override
   ThemeExtension<CustomTheme> copyWith({
@@ -81,6 +111,11 @@ class CustomTheme extends ThemeExtension<CustomTheme> {
     Color? purple,
     Color? purple2,
     Color? fieldBorder,
+    Color? homeBodyStart,
+    Color? homeBodyEnd,
+    Color? homeTopLeft,
+    Color? homeTopRight,
+    Color? navbarBg,
   }) {
     return CustomTheme(
       gray: gray ?? this.gray,
@@ -94,6 +129,11 @@ class CustomTheme extends ThemeExtension<CustomTheme> {
       purple: purple ?? this.purple,
       purple2: purple2 ?? this.purple2,
       fieldBorder: fieldBorder ?? this.fieldBorder,
+      homeBodyStart: homeBodyStart ?? this.homeBodyStart,
+      homeBodyEnd: homeBodyEnd ?? this.homeBodyEnd,
+      homeTopLeft: homeTopLeft ?? this.homeTopLeft,
+      homeTopRight: homeTopRight ?? this.homeTopRight,
+      navbarBg: navbarBg ?? this.navbarBg,
     );
   }
 
@@ -115,6 +155,11 @@ class CustomTheme extends ThemeExtension<CustomTheme> {
         purple: BaseTheme.purpleLight,
         purple2: BaseTheme.purple2Light,
         fieldBorder: BaseTheme.fieldBorderLight,
+        homeBodyStart: BaseTheme.homeBodyStartLight,
+        homeBodyEnd: BaseTheme.homeBodyEndLight,
+        homeTopLeft: BaseTheme.homeTopLeftLight,
+        homeTopRight: BaseTheme.homeTopRightLight,
+        navbarBg: BaseTheme.navbarBgLight,
       );
   static CustomTheme get dark => CustomTheme(
         gray: BaseTheme.borderDark,
@@ -128,5 +173,10 @@ class CustomTheme extends ThemeExtension<CustomTheme> {
         purple: BaseTheme.purpleDark,
         purple2: BaseTheme.purple2Dark,
         fieldBorder: BaseTheme.fieldBorderDark,
+        homeBodyStart: BaseTheme.homeBodyStartDark,
+        homeBodyEnd: BaseTheme.homeBodyEndDark,
+        homeTopLeft: BaseTheme.homeTopLeftDark,
+        homeTopRight: BaseTheme.homeTopRightDark,
+        navbarBg: BaseTheme.navbarBgDark,
       );
 }

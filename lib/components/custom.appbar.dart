@@ -8,8 +8,9 @@ class CustomAppBar extends StatefulWidget implements PreferredSizeWidget {
   final Widget? title;
   final Widget? actions;
   final String? header;
+  final Color? background;
   const CustomAppBar(
-      {super.key, this.actions, this.leading, this.title, this.header});
+      {super.key, this.actions, this.leading, this.title, this.header, this.background});
 
   @override
   State<CustomAppBar> createState() => _CustomAppBarState();
@@ -22,7 +23,7 @@ class _CustomAppBarState extends State<CustomAppBar> {
   @override
   Widget build(BuildContext context) {
     return ColoredBox(
-      color: context.customTheme?.dark2 ?? Colors.transparent,
+      color: widget.background ?? context.customTheme?.dark2 ?? Colors.transparent,
       child: SafeArea(
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,

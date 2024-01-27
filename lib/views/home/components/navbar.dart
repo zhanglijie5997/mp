@@ -21,12 +21,25 @@ class _NavBarState extends State<NavBar> {
     return Container(
       padding: EdgeInsets.only(bottom: context.mediaQueryPadding.bottom),
       decoration: BoxDecoration(
-          border: Border(
-              top: BorderSide(
-        color: context.theme.dividerColor,
-        // color: Color.fromARGB(255, 245, 243, 243),
-        width: 1.4,
-      ))),
+          color: context.customTheme?.navbarBg,
+          borderRadius: const BorderRadius.only(
+            topLeft: Radius.circular(28),
+            topRight: Radius.circular(28),
+          ),
+          boxShadow: const [
+            BoxShadow(
+              color: Color.fromRGBO(0, 0, 0, 0.06),
+              offset: Offset(0, 0),
+              blurRadius: 20,
+            ),
+          ],
+          // border: Border(
+          //     top: BorderSide(
+          //   color: context.theme.dividerColor,
+          //   // color: Color.fromARGB(255, 245, 243, 243),
+          //   width: 1.4,
+          // ))
+          ),
       child: Row(
         children: widget.navbar
             .map((e) => Expanded(
@@ -34,11 +47,11 @@ class _NavBarState extends State<NavBar> {
                 child: Padding(
                   padding: const EdgeInsets.symmetric(vertical: 13),
                   child: SvgPicture.asset(
-                    e.assets!,
+                     e.index == (widget.active ?? 0) ? e.assetsActive!:e.assets!,
                     semanticsLabel: e.name,
-                    color: e.index == (widget.active ?? 0)
-                        ? context.theme.focusColor
-                        : context.textTheme.bodyMedium?.color,
+                    // color: e.index == (widget.active ?? 0)
+                    //     ? context.theme.focusColor
+                    //     : context.textTheme.bodyMedium?.color,
                     width: 24,
                     height: 24,
                   ),

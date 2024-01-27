@@ -1,6 +1,30 @@
 class Assets {
   Assets._();
   
+  /// Assets for assetsImagesActive
+  /// assets/images/active.svg
+  static const String assetsImagesActive = "assets/images/active.svg";
+
+  /// Assets for assetsImagesActiveActive
+  /// assets/images/active-active.svg
+  static const String assetsImagesActiveActive = "assets/images/active-active.svg";
+
+  /// Assets for assetsImagesHome
+  /// assets/images/home.svg
+  static const String assetsImagesHome = "assets/images/home.svg";
+
+  /// Assets for assetsImagesHomeActive
+  /// assets/images/home-active.svg
+  static const String assetsImagesHomeActive = "assets/images/home-active.svg";
+
+  /// Assets for assetsImagesHomeTopLeft
+  /// assets/images/home_top_left.png
+  static const String assetsImagesHomeTopLeft = "assets/images/home_top_left.png";
+
+  /// Assets for assetsImagesHomeTopRight
+  /// assets/images/home_top_right.png
+  static const String assetsImagesHomeTopRight = "assets/images/home_top_right.png";
+
   /// Assets for assetsImagesImage
   /// assets/images/image.png
   static const String assetsImagesImage = "assets/images/image.png";
@@ -8,6 +32,26 @@ class Assets {
   /// Assets for assetsImagesLoginHand
   /// assets/images/login/hand.png
   static const String assetsImagesLoginHand = "assets/images/login/hand.png";
+
+  /// Assets for assetsImagesMarket
+  /// assets/images/market.svg
+  static const String assetsImagesMarket = "assets/images/market.svg";
+
+  /// Assets for assetsImagesMarketActive
+  /// assets/images/market-active.svg
+  static const String assetsImagesMarketActive = "assets/images/market-active.svg";
+
+  /// Assets for assetsImagesMe
+  /// assets/images/me.svg
+  static const String assetsImagesMe = "assets/images/me.svg";
+
+  /// Assets for assetsImagesMeActive
+  /// assets/images/me-active.svg
+  static const String assetsImagesMeActive = "assets/images/me-active.svg";
+
+  /// Assets for assetsImagesSvgIconAccounment
+  /// assets/images/svg/Icon/accounment.svg
+  static const String assetsImagesSvgIconAccounment = "assets/images/svg/Icon/accounment.svg";
 
   /// Assets for assetsImagesSvgIconAdd
   /// assets/images/svg/Icon/add.svg
