@@ -32,6 +32,80 @@ class BaseTheme {
   });
   list += '}';
   writeFile(writePath, list, type: '📌theme ');
+  createCustomTheme(themeJson);
+}
+
+createCustomTheme(Map<String, dynamic> themeJson) {
+  String customWriteText = ''' 
+      import 'package:flutter/material.dart';
+      import 'package:mp/constants/base.theme.dart';
+      class CustomTheme extends ThemeExtension<CustomTheme> {
+  ''';
+  themeJson.forEach((key, value) { 
+    customWriteText += '''
+      /// ${value['///']}
+      Color? ${value['name']};
+    ''';
+  });
+  
+  customWriteText += " CustomTheme({";
+  themeJson.forEach((key, value) { 
+    customWriteText += '''
+      /// ${value['///']}
+      this.${value['name']},
+    ''';
+  });
+  customWriteText += "});";
+  
+  customWriteText += ''' 
+    @override
+    ThemeExtension<CustomTheme> copyWith({
+  ''';
+  themeJson.forEach((key, value) { 
+    customWriteText += "Color? ${value['name']},";
+  });
+  customWriteText += '''
+    }) {
+      return CustomTheme(
+  ''';
+  themeJson.forEach((key, value) { 
+    customWriteText += ''' 
+      ${value['name']}: ${value["name"]} ?? this.${value["name"]},
+    ''';
+  });
+  customWriteText += ''');}''';
+
+
+  customWriteText += ''' 
+    @override
+    ThemeExtension<CustomTheme> lerp(ThemeExtension<CustomTheme>? other, double t) {
+    return CustomTheme();
+    }
+  ''';
+
+  customWriteText += ''' 
+    static CustomTheme get light => CustomTheme(
+  ''';
+  themeJson.forEach((key, value) { 
+    customWriteText+= '''
+      ${value['name']}: BaseTheme.${key}Light,
+    ''';
+  });
+  customWriteText += ''' );''';
+
+  customWriteText += ''' 
+    static  CustomTheme get dark => CustomTheme(
+  ''';
+  themeJson.forEach((key, value) { 
+    customWriteText+= '''
+      ${value['name']}: BaseTheme.${key}Dark,
+    ''';
+  });
+  customWriteText += '''  ); ''';
+
+  customWriteText += "}";
+  print(customWriteText);
+  writeFile('./lib/constants/theme.custom.dart', customWriteText, type: "自定义颜色");
 }
 
 writeFile(String path, String v, {String type = ''}) async {

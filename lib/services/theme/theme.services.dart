@@ -2,11 +2,12 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
-import 'package:get_storage/get_storage.dart';
+// import 'package:get_storage/get_storage.dart';
 import 'package:mp/components/custom.scroll.behavior.dart';
 import 'package:mp/constants/base.theme.dart';
+import 'package:mp/constants/theme.custom.dart';
 import 'package:mp/extension/context.ext.dart';
-import 'package:mp/extension/num.ext.dart';
+// import 'package:mp/extension/num.ext.dart';
 import 'package:mp/utils/log.utils.dart';
 import 'package:mp/utils/storage.utils.dart';
 
@@ -65,7 +66,7 @@ class ThemeServices extends GetxController{
     if (currentTheme != null) {
       mode = themeLocal[currentTheme] ?? ThemeMode.system;
     }
-    handleSetTheme("dark");
+    handleSetTheme("light");
     super.onInit();
   }
 
@@ -162,68 +163,5 @@ class ThemeServices extends GetxController{
 }
 
 
-class CustomTheme extends ThemeExtension<CustomTheme>{
-  Color? gray;
-  Color? dark2;
-  Color? fontColor;
-  Color? active;
-  Color? gray3;
-  Color? error;
-  Color? card;
-  CustomTheme({
-    this.gray,
-    this.dark2,
-    this.fontColor,
-    this.active,
-    this.gray3,
-    this.error,
-    this.card
-  });
-  @override
-  ThemeExtension<CustomTheme> copyWith({
-    Color? gray, 
-    Color? dark2,
-    Color? fontColor,
-    Color? active,
-    Color? gray3,
-    Color? error,
-    Color? card,
-  }) {
-    return CustomTheme(
-      gray: gray ?? this.gray,
-      dark2: dark2 ?? this.dark2,
-      fontColor: fontColor ?? this.fontColor,
-      active: active ?? this.active,
-      gray3: gray3 ?? this.gray3,
-      error: error ?? this.error,
-      card: card ?? this.card,
-    );
-  }
 
-  @override
-  ThemeExtension<CustomTheme> lerp(ThemeExtension<CustomTheme>? other, double t) {
-   return CustomTheme();
-  }
-  
-
-   static CustomTheme get light => CustomTheme(
-    gray: BaseTheme.borderLight,
-    dark2: BaseTheme.dark2Light,
-    fontColor: BaseTheme.fontLight,
-    active: BaseTheme.activeLight,
-    gray3: BaseTheme.subTitleLight,
-    error: BaseTheme.errorColorLight,
-    card: BaseTheme.cardLight
-   );
-
-   static  CustomTheme get dark => CustomTheme(
-    gray: BaseTheme.borderDark,
-    dark2: BaseTheme.dark2Dark,
-    fontColor: BaseTheme.fontDark,
-    active: BaseTheme.activeDark,
-    gray3: BaseTheme.subTitleDark,
-    error: BaseTheme.errorColorDark,
-    card: BaseTheme.cardDark
-
-   ); 
-}
+ 

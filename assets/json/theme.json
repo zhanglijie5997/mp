@@ -2,41 +2,61 @@
     "border": {
       "dark": "#36373F",
       "light": "#fff5f3",
-      "///": "边框"
+      "///": "边框",
+      "name": "gray"
     },
     "dark2": {
       "dark": "#191B23",
       "light": "#f6f6f6",
-      "///": "body颜色"
+      "///": "body颜色",
+      "name": "dark2"
     },
     "font": {
       "dark": "#ffffff",
       "light": "#000000",
-      "///": "基础文字颜色"
+      "///": "基础文字颜色",
+      "name": "fontColor"
     },
     "active": {
       "dark": "#1662DF",
       "light": "#1662DF",
-      "///": "选中文字"
+      "///": "选中文字",
+      "name": "active"
     },
     "subTitle": {
       "dark": "#828282",
       "light": "#828282",
-      "///": "二级文字颜色"
+      "///": "二级文字颜色",
+      "name": "gray3"
     },
     "cursorColor": {
       "dark": "#ffffff",
       "light": "#000000",
-      "///": "光标"
+      "///": "光标",
+      "name": "costomColor"
     },
     "errorColor": {
       "dark": "#F14B4B",
       "light": "#F14B4B",
-      "///": "错误"
+      "///": "错误",
+      "name": "error"
     },
     "card": {
       "dark": "#36373F",
       "light": "#EBEDF2",
-      "///": "卡片1"
+      "///": "卡片1",
+      "name": "card"
+    },
+    "purple": {
+      "dark": "#EAEDFF",
+      "light": "#EAEDFF",
+      "///": "紫色渐变底色 -- 登陆左上角",
+      "name": "purple"
+    },
+    "purple2": {
+      "dark": "#F7F0FF",
+      "light": "#F7F0FF",
+      "///": "紫色渐变底色 -- 登陆右上角",
+      "name": "purple2"
     }
   }
