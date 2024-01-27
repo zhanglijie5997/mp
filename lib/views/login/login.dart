@@ -23,8 +23,8 @@ class LoginPage extends GetView<LoginController> {
                 top: 0,
                 child: Container(
                   decoration: BoxDecoration(
-                      // color:
-                      ),
+                      color: context.customTheme?.purple
+                  ),
                 )),
             Padding(
               padding: EdgeInsets.only(
