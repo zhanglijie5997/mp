@@ -69,9 +69,10 @@ class DetailPage extends GetView<DetailsController> {
                         child: CustomPopup(
                         backgroundColor: context.customTheme?.card,
                         arrowColor: context.customTheme?.card,
-                        content: Text('George says everything looks fine'),
+                        content: const Text('George says everything looks fine'),
                         child: SvgPicture.asset(
                                 Assets.assetsImagesSvgIconHeadrMore,
+                                // ignore: deprecated_member_use
                                 color: context.customTheme?.fontColor,
                                 width: 20, height: 20,
                               ),
