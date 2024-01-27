@@ -20,7 +20,8 @@ class IndexFirst extends StatefulWidget {
 }
 
 class _IndexFirstState extends State<IndexFirst> {
-  final img = "https://static.ibox.art/file/oss/test/image/nft-goods/144ea876bf184bb180b9be8c7626e132.png?style=st6";
+  final img =
+      "https://static.ibox.art/file/oss/test/image/nft-goods/144ea876bf184bb180b9be8c7626e132.png?style=st6";
 
   @override
   Widget build(BuildContext context) {
@@ -32,22 +33,20 @@ class _IndexFirstState extends State<IndexFirst> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-
               Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(widget.label,
-                      style: context.textTheme.bodyMedium
-                          ?.copyWith(fontSize: 18, fontWeight: FontWeight.bold)),
+                      style: context.textTheme.bodyMedium?.copyWith(
+                          fontSize: 18, fontWeight: FontWeight.bold)),
                   Container(
                     margin: const EdgeInsets.only(top: 4),
                     width: 40,
                     height: 3,
                     decoration: BoxDecoration(
-                      borderRadius: 3.radius,
-                      color: context.theme.primaryColor
-                    ),
+                        borderRadius: 3.radius,
+                        color: context.theme.primaryColor),
                   )
                 ],
               ),
@@ -77,66 +76,86 @@ class _IndexFirstState extends State<IndexFirst> {
         SizedBox(
           height: 390,
           child: ListView.builder(
-            padding: const EdgeInsets.only(left: 15),
-            shrinkWrap: true,
-            itemCount: 10,
-            scrollDirection: Axis.horizontal,
-            itemBuilder: (c, i) {
-            return Container(
-              margin: const EdgeInsets.only(right: 12),
-              decoration: BoxDecoration(
-                color: context.theme.cardColor,
-                borderRadius: 12.radius
-              ),
-              width: 320, height: 311,
-              child: ClipRRect(
-                borderRadius: 12.radius,
-                child: Shimmer(
-                  child: Column(
-                    // crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.only(top: 20.0),
-                        child: ClipRRect(
-                          borderRadius: 14.radius,
-                          child: CustomImage(url: img, size: const Size(279, 279), fit: BoxFit.fill,)),
-                      ),
-                      Container(
-                        padding: const EdgeInsets.only(top: 15, left: 20),
-                        child: Row(
-                          children: [
-                            Text("图片名称", style: context.textTheme.bodyMedium?.copyWith(
-                              fontWeight: FontWeight.bold, 
-                            )),
-                            Padding(
-                              padding: const EdgeInsets.only(left: 8.0),
-                              child: CustomImage(url: "", size: const Size(16, 16),),
-                            )
-                          ],
-                        ), 
-                        alignment: Alignment.centerLeft, 
-                      ),
-                      // 价格
-                      Container(
-                        padding: const EdgeInsets.only(top: 15, left: 20),
-                        child: Row(
-                          children: [
-                            Padding(
-                              padding: const EdgeInsets.only(top: 4.0, right: 4),
-                              child:Text('¥', style: context.textTheme.bodyMedium?.copyWith(fontSize: 12, fontWeight: FontWeight.bold),)
+              padding: const EdgeInsets.only(left: 15),
+              shrinkWrap: true,
+              itemCount: 10,
+              scrollDirection: Axis.horizontal,
+              itemBuilder: (c, i) {
+                return Container(
+                  margin: const EdgeInsets.only(right: 12),
+                  decoration: BoxDecoration(
+                      color: context.theme.cardColor, borderRadius: 12.radius),
+                  width: 320,
+                  height: 311,
+                  child: ClipRRect(
+                    borderRadius: 12.radius,
+                    child: Shimmer(
+                      child: Column(
+                        // crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.only(top: 20.0),
+                            child: ClipRRect(
+                                borderRadius: 14.radius,
+                                child: CustomImage(
+                                  url: img,
+                                  size: const Size(279, 279),
+                                  fit: BoxFit.fill,
+                                )),
+                          ),
+                          Container(
+                            padding: const EdgeInsets.only(top: 15, left: 20),
+                            child: Row(
+                              children: [
+                                Text("图片名称",
+                                    style:
+                                        context.textTheme.bodyMedium?.copyWith(
+                                      fontWeight: FontWeight.bold,
+                                    )),
+                                Padding(
+                                  padding: const EdgeInsets.only(left: 8.0),
+                                  child: CustomImage(
+                                    url: "",
+                                    size: const Size(16, 16),
+                                  ),
+                                )
+                              ],
                             ),
-                            Text("100",style: context.textTheme.bodyMedium?.copyWith(fontSize: 20, fontWeight: FontWeight.bold),),
-                          ],
-                        ))
-                    ],
+                            alignment: Alignment.centerLeft,
+                          ),
+                          // 价格
+                          Container(
+                              padding: const EdgeInsets.only(top: 15, left: 20),
+                              child: Row(
+                                children: [
+                                  Padding(
+                                      padding: const EdgeInsets.only(
+                                          top: 4.0, right: 4),
+                                      child: Text(
+                                        '¥',
+                                        style: context.textTheme.bodyMedium
+                                            ?.copyWith(
+                                                fontSize: 12,
+                                                fontWeight: FontWeight.bold),
+                                      )),
+                                  Text(
+                                    "100",
+                                    style: context.textTheme.bodyMedium
+                                        ?.copyWith(
+                                            fontSize: 20,
+                                            fontWeight: FontWeight.bold),
+                                  ),
+                                ],
+                              ))
+                        ],
+                      ),
+                    ),
                   ),
-                ),
-              ),
-            ).onTap(() {
-              // ToastUtils.showLoading("msg");
-              Get.toNamed("${AppRoutes.details}/$i");
-            });
-          }),
+                ).onTap(() {
+                  // ToastUtils.showLoading("msg");
+                  Get.toNamed("${AppRoutes.details}/$i");
+                });
+              }),
         )
       ],
     );

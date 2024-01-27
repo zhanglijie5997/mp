@@ -4,7 +4,6 @@ import 'package:equatable/equatable.dart';
 import 'package:mp/constants/data.model.factories.dart';
 import 'package:mp/utils/log.utils.dart';
 
-
 const JsonEncoder globalJsonEncoder = JsonEncoder.withIndent('  ');
 
 typedef Json = Map<String, dynamic>;

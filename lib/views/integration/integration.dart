@@ -10,7 +10,6 @@ class IntegrationPage extends GetView<IntegrationController> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: CustomAppBar(title: Text(LocaleKeys.integration.tr)),
-        body: const SafeArea(child: Text('IntegrationController'))
-    );
+        body: const SafeArea(child: Text('IntegrationController')));
   }
 }

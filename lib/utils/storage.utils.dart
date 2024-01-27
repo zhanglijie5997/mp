@@ -1,6 +1,5 @@
 import 'package:get_storage/get_storage.dart';
 
-
 final class StorageKeys {
   static String lang = "lang";
   static String theme = "theme";

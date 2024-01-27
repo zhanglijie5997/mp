@@ -38,8 +38,8 @@ class HttpUtil {
     return BaseOptions(
       baseUrl: AppConfig.httpUrl,
       connectTimeout: AppConfig.connectTimeout.milliseconds,
-      sendTimeout:  AppConfig.connectTimeout.milliseconds,
-      receiveTimeout:  AppConfig.connectTimeout.milliseconds,
+      sendTimeout: AppConfig.connectTimeout.milliseconds,
+      receiveTimeout: AppConfig.connectTimeout.milliseconds,
       receiveDataWhenStatusError: true,
     );
   }

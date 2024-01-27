@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
 /// 抖动动画
 class ShankAnimation extends StatefulWidget {
   final Widget child;
@@ -14,12 +15,13 @@ class ShankAnimation extends StatefulWidget {
 class ShankAnimationState extends State<ShankAnimation>
     with TickerProviderStateMixin {
   late final shakeController =
-      AnimationController(vsync: this, duration: 400.milliseconds)..addListener(listener);
+      AnimationController(vsync: this, duration: 400.milliseconds)
+        ..addListener(listener);
 
   listener() {
     if (shakeController.status == AnimationStatus.completed) {
-        shakeController.reset();
-      }
+      shakeController.reset();
+    }
   }
 
   play() {

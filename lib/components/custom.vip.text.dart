@@ -25,10 +25,13 @@ class CustomVipText extends StatelessWidget {
               fontSize: 14,
               fontWeight: FontWeight.bold,
               foreground: Paint()
-                ..shader =  LinearGradient(colors: colors ?? [
-                  Colors.red,
-                  Colors.yellow,
-                ]).createShader(const Rect.fromLTWH(0, 0, 150, 0)),
+                ..shader = LinearGradient(
+                        colors: colors ??
+                            [
+                              Colors.red,
+                              Colors.yellow,
+                            ])
+                    .createShader(const Rect.fromLTWH(0, 0, 150, 0)),
             )),
       ),
     );

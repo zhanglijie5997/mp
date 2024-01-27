@@ -8,10 +8,10 @@ const localMap = {
   "en": Locale("en", "US"),
 };
 
-class LanguageServices extends GetxService{
-  static LanguageServices get  to => Get.find<LanguageServices>();
-  
-  Locale lang =  const Locale("zh", "CN");
+class LanguageServices extends GetxService {
+  static LanguageServices get to => Get.find<LanguageServices>();
+
+  Locale lang = const Locale("zh", "CN");
 
   final langCode = "zh".obs;
 

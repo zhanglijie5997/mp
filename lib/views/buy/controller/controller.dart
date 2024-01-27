@@ -8,7 +8,7 @@ class BuyController extends GetxController {
       if (number.value > 1) {
         number.value--;
       }
-    }else {
+    } else {
       number.value++;
     }
   }

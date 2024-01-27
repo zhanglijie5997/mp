@@ -18,7 +18,11 @@ class DetailsController extends GetxController {
     if (scrollController.offset <= 0) {
       scrollHeight.value = -scrollController.offset;
     }
-    opacity.value = res >= 1 ? 1 : res <= 0 ? 0 : res;
+    opacity.value = res >= 1
+        ? 1
+        : res <= 0
+            ? 0
+            : res;
   }
 
   refreshListener() {

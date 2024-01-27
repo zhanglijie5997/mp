@@ -3,7 +3,6 @@ import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:get/get.dart';
 import 'package:mp/extension/string.ext.dart';
 
-
 class AppWebviewParams {
   String? url;
 
@@ -20,20 +19,19 @@ class AppWebviewParams {
   }
 }
 
-
 class AppWebviewController extends GetxController {
   final params = AppWebviewParams.fromJson(Get.parameters);
 
   InAppWebViewController? webViewController;
   InAppWebViewSettings settings = InAppWebViewSettings(
-      isInspectable: kDebugMode,
-      mediaPlaybackRequiresUserGesture: false,
-      allowsInlineMediaPlayback: true,
-      iframeAllow: "camera; microphone",
-      iframeAllowFullscreen: true,
-      allowsLinkPreview: true,
-      allowsPictureInPictureMediaPlayback: true,
-      cacheMode: CacheMode.LOAD_DEFAULT,
+    isInspectable: kDebugMode,
+    mediaPlaybackRequiresUserGesture: false,
+    allowsInlineMediaPlayback: true,
+    iframeAllow: "camera; microphone",
+    iframeAllowFullscreen: true,
+    allowsLinkPreview: true,
+    allowsPictureInPictureMediaPlayback: true,
+    cacheMode: CacheMode.LOAD_DEFAULT,
   );
   // webview路径
   String get webUri => (params.url ?? "").decode<String>();

@@ -12,7 +12,8 @@ class OrderPageViewList extends StatefulWidget {
   State<OrderPageViewList> createState() => _OrderPageViewListState();
 }
 
-class _OrderPageViewListState extends State<OrderPageViewList> with AutomaticKeepAliveClientMixin{
+class _OrderPageViewListState extends State<OrderPageViewList>
+    with AutomaticKeepAliveClientMixin {
   @override
   Widget build(BuildContext context) {
     super.build(context);
@@ -26,14 +27,18 @@ class _OrderPageViewListState extends State<OrderPageViewList> with AutomaticKee
         padding: EdgeInsets.only(top: 10),
         itemBuilder: (_, index) => OrderItem(),
       ),
-      builder: (BuildContext context, Widget child, IndicatorController controller) {
+      builder:
+          (BuildContext context, Widget child, IndicatorController controller) {
         return Column(
           children: [
-            CustomRefreshHeader(controller: controller,),
+            CustomRefreshHeader(
+              controller: controller,
+            ),
             Expanded(child: child)
           ],
         );
-      },);
+      },
+    );
   }
 
   @override

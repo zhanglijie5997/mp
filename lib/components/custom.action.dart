@@ -17,16 +17,9 @@ class _CustomActionState extends State<CustomAction> {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        borderRadius: 10.radius,
-        color: context.theme.cardColor
-      ),
-      margin: const EdgeInsets.only(
-        left: 10, right: 10,
-        bottom: 10
-      ),
-      padding: const EdgeInsets.symmetric(
-        horizontal: 10, vertical: 15
-      ),
+          borderRadius: 10.radius, color: context.theme.cardColor),
+      margin: const EdgeInsets.only(left: 10, right: 10, bottom: 10),
+      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 15),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [

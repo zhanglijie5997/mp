@@ -26,57 +26,61 @@ class HomeIndexPage extends StatefulWidget {
   State<HomeIndexPage> createState() => _HomeIndexPageState();
 }
 
-class _HomeIndexPageState extends State<HomeIndexPage> with AutomaticKeepAliveClientMixin{
+class _HomeIndexPageState extends State<HomeIndexPage>
+    with AutomaticKeepAliveClientMixin {
   final controller = HomeController.to;
   @override
   Widget build(BuildContext context) {
     super.build(context);
     return Scaffold(
-        body: SafeArea(
-          child:  CustomRefreshIndicator(
-            offsetToArmed: 100,
-            autoRebuild: false,
-            onRefresh: () {
-              return EventUtils.sleep(3000.milliseconds);
-            },
-            builder: (BuildContext context, Widget child, IndicatorController controller) {
-              return Column(
+      body: SafeArea(
+        child: CustomRefreshIndicator(
+          offsetToArmed: 100,
+          autoRebuild: false,
+          onRefresh: () {
+            return EventUtils.sleep(3000.milliseconds);
+          },
+          builder: (BuildContext context, Widget child,
+              IndicatorController controller) {
+            return Column(
+              children: [
+                CustomRefreshHeader(
+                  controller: controller,
+                ),
+                Expanded(child: child)
+              ],
+            );
+          },
+          child: SingleChildScrollView(
+            child: Padding(
+              padding: const EdgeInsets.only(bottom: 10.0),
+              child: Column(
                 children: [
-                  CustomRefreshHeader(controller: controller,),
-                  Expanded(child: child)
-                ],
-              );
-            },
-            child: SingleChildScrollView(
-                child: Padding(
-                  padding: const EdgeInsets.only(bottom: 10.0),
-                  child: Column(
-                    children: [
-                      // 热门
-                      Container(
-                        padding: const EdgeInsets.only(top: 16),
-                        height: 90,
-                        width: double.infinity,
-                        child: const IndexHot()),
+                  // 热门
+                  Container(
+                      padding: const EdgeInsets.only(top: 16),
+                      height: 90,
+                      width: double.infinity,
+                      child: const IndexHot()),
 
-
-                      // 公告
-                      Container(
-                        margin: const EdgeInsets.only(top: 16, left: 13, right: 13),
-                        decoration: BoxDecoration(
+                  // 公告
+                  Container(
+                      margin:
+                          const EdgeInsets.only(top: 16, left: 13, right: 13),
+                      decoration: BoxDecoration(
                           color: context.customTheme?.card,
-                          borderRadius: 10.radius
-                        ),
-                        width: double.infinity,
-                        height: 50,
-                        child: Row(
-
-                          children: [
-                            Padding(
-                              padding: const EdgeInsets.symmetric(horizontal: 15),
+                          borderRadius: 10.radius),
+                      width: double.infinity,
+                      height: 50,
+                      child: Row(
+                        children: [
+                          Padding(
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 15),
                               child: ShakeAnimationWidget(
                                 //微旋转的抖动
-                                shakeAnimationType: ShakeAnimationType.RoateShake,
+                                shakeAnimationType:
+                                    ShakeAnimationType.RoateShake,
                                 //设置不开启抖动
                                 isForward: true,
                                 //默认为 0 无限执行
@@ -92,26 +96,30 @@ class _HomeIndexPageState extends State<HomeIndexPage> with AutomaticKeepAliveCl
                                   color: context.customTheme?.fontColor,
                                 ),
                               )),
-                            const Expanded(child: IndexAnnouncement())
-                          ],
-                        )
-                      ),
+                          const Expanded(child: IndexAnnouncement())
+                        ],
+                      )),
 
-                      // 首发
-                      IndexFirst(label: LocaleKeys.firstCollection.tr,),
-                      // 精选
-                      IndexFirst(label: LocaleKeys.selectedCollection.tr,),
-                      // 交易区块
-                      const IndexTradeHex().onTap(() => Get.toNamed("${AppRoutes.webview}?url=${'https://www.jingdong.com'.encode()}")),
-                    ],
+                  // 首发
+                  IndexFirst(
+                    label: LocaleKeys.firstCollection.tr,
                   ),
-                ),
+                  // 精选
+                  IndexFirst(
+                    label: LocaleKeys.selectedCollection.tr,
+                  ),
+                  // 交易区块
+                  const IndexTradeHex().onTap(() => Get.toNamed(
+                      "${AppRoutes.webview}?url=${'https://www.jingdong.com'.encode()}")),
+                ],
               ),
+            ),
           ),
-          ),
-        );
+        ),
+      ),
+    );
   }
-  
+
   @override
   bool get wantKeepAlive => true;
 }

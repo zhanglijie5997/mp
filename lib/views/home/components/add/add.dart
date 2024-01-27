@@ -5,10 +5,8 @@ import 'package:mp/views/home/components/add/controller/controller.dart';
 class HomeAddPage extends GetView<HomeAddController> {
   const HomeAddPage({super.key});
 
-
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-    );
+    return const Scaffold();
   }
 }

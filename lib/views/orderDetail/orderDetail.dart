@@ -13,9 +13,9 @@ class OrderDetailPage extends GetView<OrderDetailController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: CustomAppBar(
-        title: Text("订单详情", style: context.textTheme.titleMedium?.copyWith(
-            fontWeight: FontWeight.bold
-        )),
+        title: Text("订单详情",
+            style: context.textTheme.titleMedium
+                ?.copyWith(fontWeight: FontWeight.bold)),
       ),
     );
   }

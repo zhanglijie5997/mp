@@ -6,7 +6,7 @@ class EventUtils {
     Timer? timer;
     // 第一次触发
     bool status = false;
-    
+
     return () {
       if (!status) {
         fn?.call();
@@ -15,7 +15,7 @@ class EventUtils {
       if (timer != null) {
         timer?.cancel();
       }
-      timer = Timer(delay, () { 
+      timer = Timer(delay, () {
         print("object");
         fn?.call();
         status = false;

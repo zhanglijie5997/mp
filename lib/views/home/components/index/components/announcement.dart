@@ -15,7 +15,6 @@ class IndexAnnouncement extends StatefulWidget {
 class _IndexAnnouncementState extends State<IndexAnnouncement> {
   @override
   Widget build(BuildContext context) {
-
     return Swiper(
       scrollDirection: Axis.vertical,
       loop: true,
@@ -25,9 +24,11 @@ class _IndexAnnouncementState extends State<IndexAnnouncement> {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text("公告${index}", style: context.textTheme.bodyMedium?.copyWith(
-                fontSize: 16, color: context.customTheme?.fontColor
-              ),),
+              Text(
+                "公告${index}",
+                style: context.textTheme.bodyMedium?.copyWith(
+                    fontSize: 16, color: context.customTheme?.fontColor),
+              ),
               Padding(
                 padding: const EdgeInsets.only(right: 15.0),
                 child: SvgPicture.asset(

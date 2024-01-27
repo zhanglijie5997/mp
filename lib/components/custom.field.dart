@@ -16,45 +16,47 @@ class CustomFiled extends StatefulWidget {
   final List<TextInputFormatter>? inputFormatters;
   final String? helperText;
   final bool? status;
-  const CustomFiled({super.key, 
-    this.labelText, this.onChange, 
-    this.keyboardType, this.inputFormatters,
-    this.helperText, this.status
-  });
+  const CustomFiled(
+      {super.key,
+      this.labelText,
+      this.onChange,
+      this.keyboardType,
+      this.inputFormatters,
+      this.helperText,
+      this.status});
 
   @override
   State<CustomFiled> createState() => _CustomFiledState();
 }
 
 class _CustomFiledState extends State<CustomFiled> {
-
   // 错误显示
   late bool status = false;
   // 密码状态显示
   bool passwordStatus = true;
-  late final TextEditingController controller = TextEditingController()..addListener(() {
-    final text = controller.text;
-    if (text.isNotEmpty) {
-      setState(() {
-        switch (widget.keyboardType) {
-          case TextInputType.emailAddress:
-            status = !RegCore.emailReg.hasMatch(text);
-            break;
-          case TextInputType.visiblePassword:
-            status = !RegCore.passwrodReg.hasMatch(text);
-            break;
-          default:
-        }
-      });
-    }else {
-      setState(() {
-        status=false;
-      });
-    }
+  late final TextEditingController controller = TextEditingController()
+    ..addListener(() {
+      final text = controller.text;
+      if (text.isNotEmpty) {
+        setState(() {
+          switch (widget.keyboardType) {
+            case TextInputType.emailAddress:
+              status = !RegCore.emailReg.hasMatch(text);
+              break;
+            case TextInputType.visiblePassword:
+              status = !RegCore.passwrodReg.hasMatch(text);
+              break;
+            default:
+          }
+        });
+      } else {
+        setState(() {
+          status = false;
+        });
+      }
 
-    
-    widget.onChange?.call(controller.text);
-  });
+      widget.onChange?.call(controller.text);
+    });
 
   changePasswordStatus() {
     setState(() {
@@ -69,7 +71,7 @@ class _CustomFiledState extends State<CustomFiled> {
         status = widget.status ?? false;
       }
     });
-    
+
     super.didUpdateWidget(oldWidget);
   }
 
@@ -79,40 +81,44 @@ class _CustomFiledState extends State<CustomFiled> {
       controller: controller,
       inputFormatters: widget.inputFormatters,
       keyboardType: widget.keyboardType,
-      obscureText: widget.keyboardType == TextInputType.visiblePassword && passwordStatus,
+      obscureText: widget.keyboardType == TextInputType.visiblePassword &&
+          passwordStatus,
       decoration: InputDecoration(
         labelText: widget.labelText ?? "",
-        labelStyle: context.textTheme.bodyMedium?.copyWith(
-          color: context.customTheme?.gray3
-        ),
-        suffixIconConstraints: const BoxConstraints(
-          maxWidth: 36,
-          maxHeight: 16
-        ),
-        suffixIcon: widget.keyboardType == TextInputType.visiblePassword ? Padding(
-          padding:const EdgeInsets.only(right: 10),
-          child: SvgPicture.asset(
-            passwordStatus ? Assets.assetsImagesSvgIconIconEyeClosed : Assets.assetsImagesSvgIconIconEye,
-            color: context.customTheme?.fontColor,
-            width: 16, height: 16,
-          ),
-        ).onTap(changePasswordStatus):null,
-        helperText: status? (widget.helperText ?? "${LocaleKeys.pleaseEnterSure.tr}${widget.labelText}"): "",
-        helperStyle: context.textTheme.bodyMedium?.copyWith(
-          color: context.customTheme?.error
-        ),
-        
-        hintText:  "${LocaleKeys.pleaseEnter.tr}${widget.labelText}",
-        hintStyle: context.textTheme.bodyMedium?.copyWith(
-          color: context.customTheme?.gray3
-        ),
+        labelStyle: context.textTheme.bodyMedium
+            ?.copyWith(color: context.customTheme?.gray3),
+        suffixIconConstraints:
+            const BoxConstraints(maxWidth: 36, maxHeight: 16),
+        suffixIcon: widget.keyboardType == TextInputType.visiblePassword
+            ? Padding(
+                padding: const EdgeInsets.only(right: 10),
+                child: SvgPicture.asset(
+                  passwordStatus
+                      ? Assets.assetsImagesSvgIconIconEyeClosed
+                      : Assets.assetsImagesSvgIconIconEye,
+                  color: context.customTheme?.fontColor,
+                  width: 16,
+                  height: 16,
+                ),
+              ).onTap(changePasswordStatus)
+            : null,
+        helperText: status
+            ? (widget.helperText ??
+                "${LocaleKeys.pleaseEnterSure.tr}${widget.labelText}")
+            : "",
+        helperStyle: context.textTheme.bodyMedium
+            ?.copyWith(color: context.customTheme?.error),
+
+        hintText: "${LocaleKeys.pleaseEnter.tr}${widget.labelText}",
+        hintStyle: context.textTheme.bodyMedium
+            ?.copyWith(color: context.customTheme?.gray3),
 
         border: OutlineInputBorder(
           ///设置边框四个角的弧度
           borderRadius: 16.radius,
 
           ///用来配置边框的样式
-          borderSide:const BorderSide(
+          borderSide: const BorderSide(
             ///设置边框的颜色
             ///设置边框的粗细
             width: 2.0,
@@ -142,6 +148,7 @@ class _CustomFiledState extends State<CustomFiled> {
           borderSide: BorderSide(
             ///设置边框的颜色
             color: context.customTheme?.fontColor ?? Colors.transparent,
+
             ///设置边框的粗细
             width: 2.0,
           ),

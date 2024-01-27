@@ -7,8 +7,6 @@ import 'package:mp/views/home/components/index/index.dart';
 import 'package:mp/views/home/components/me/me.dart';
 import 'package:mp/views/home/components/search/search.dart';
 
-
-
 class HomeController extends GetxController {
   static HomeController get to => Get.find<HomeController>();
   final count = 0.obs;
@@ -35,6 +33,7 @@ class HomeController extends GetxController {
     // 手动更新，细粒控制
     update();
   }
+
   /// 修改tab
   handleActive(int index) {
     active.value = index;

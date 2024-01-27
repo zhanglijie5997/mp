@@ -8,7 +8,8 @@ class CustomAppBar extends StatefulWidget implements PreferredSizeWidget {
   final Widget? title;
   final Widget? actions;
   final String? header;
-  const CustomAppBar({super.key, this.actions, this.leading, this.title, this.header});
+  const CustomAppBar(
+      {super.key, this.actions, this.leading, this.title, this.header});
 
   @override
   State<CustomAppBar> createState() => _CustomAppBarState();
@@ -37,17 +38,15 @@ class _CustomAppBarState extends State<CustomAppBar> {
             Expanded(
                 child: Container(
                     alignment: Alignment.center,
-                    child: widget.title ?? Text(
-                      widget.header ?? "", style: context.textTheme.bodyMedium?.copyWith(
-                      fontSize: 18, overflow: TextOverflow.ellipsis
-                    ),))),
+                    child: widget.title ??
+                        Text(
+                          widget.header ?? "",
+                          style: context.textTheme.bodyMedium?.copyWith(
+                              fontSize: 18, overflow: TextOverflow.ellipsis),
+                        ))),
             Container(
               constraints: const BoxConstraints(
-                minWidth: 0,
-                minHeight: 0,
-                maxWidth: 44,
-                maxHeight: 50
-              ),
+                  minWidth: 0, minHeight: 0, maxWidth: 44, maxHeight: 50),
               child: widget.actions,
             )
           ],

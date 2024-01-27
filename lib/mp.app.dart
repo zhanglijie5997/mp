@@ -36,8 +36,7 @@ class _MpAppState extends State<MpApp> {
       bottom: 0,
       height: MediaQuery.of(context).padding.bottom,
       child: GestureDetector(
-        onTap: () {
-        },
+        onTap: () {},
         behavior: HitTestBehavior.translucent,
         onVerticalDragStart: (_) {},
       ),
@@ -78,12 +77,12 @@ class _MpAppState extends State<MpApp> {
       theme: ThemeServices.light,
       darkTheme: ThemeServices.dark,
       builder: FlutterSmartDialog.init(
-        loadingBuilder: (msg) => CustomLoading(msg: msg),
-        builder: (context, child) {
-          _buildAnnotatedRegion(context, child!);
-          _buildBottomPaddingVerticalShield(context);
-          return _buildFontSize(context, child);
-      }),
+          loadingBuilder: (msg) => CustomLoading(msg: msg),
+          builder: (context, child) {
+            _buildAnnotatedRegion(context, child!);
+            _buildBottomPaddingVerticalShield(context);
+            return _buildFontSize(context, child);
+          }),
     ).onTap(() {
       // 全局键盘回落
       FocusScope.of(context).requestFocus(FocusNode());

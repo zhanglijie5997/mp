@@ -14,7 +14,6 @@ class CustomCheckbox extends StatefulWidget {
 }
 
 class _CustomCheckboxState extends State<CustomCheckbox> {
-
   bool status = false;
 
   handleStatus() {
@@ -27,19 +26,23 @@ class _CustomCheckboxState extends State<CustomCheckbox> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 20, height: 20,
+      width: 20,
+      height: 20,
       decoration: BoxDecoration(
-        borderRadius: 3.radius,
-        border: Border.all(
-          width: 2, color: context.customTheme?.fontColor ?? Colors.transparent,
-        )
-      ),
+          borderRadius: 3.radius,
+          border: Border.all(
+            width: 2,
+            color: context.customTheme?.fontColor ?? Colors.transparent,
+          )),
       child: Padding(
         padding: const EdgeInsets.all(2.0),
         child: SvgPicture.asset(
           Assets.assetsImagesSvgIconIconCheck1,
-          color: status ? context.customTheme?.fontColor ?? Colors.transparent : Colors.transparent,
-          width: 16, height: 16,
+          color: status
+              ? context.customTheme?.fontColor ?? Colors.transparent
+              : Colors.transparent,
+          width: 16,
+          height: 16,
         ),
       ).onTap(handleStatus),
     );

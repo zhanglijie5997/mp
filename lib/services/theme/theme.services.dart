@@ -16,20 +16,23 @@ const themeLocal = {
   "dark": ThemeMode.dark,
   "system": ThemeMode.system
 };
-class ThemeServices extends GetxController{
+
+class ThemeServices extends GetxController {
   static ThemeServices get to => Get.find<ThemeServices>();
 
   ThemeMode mode = ThemeMode.system;
   // 0 -> 夜间 1 -> 日间
   final model = "dark".obs;
 
-  SystemUiOverlayStyle get systemOverlay => model.value == "dark" ? SystemUiOverlayStyle.light.copyWith(
-      statusBarColor: Colors.transparent,
-      systemNavigationBarColor: Colors.black,
-      statusBarIconBrightness: Brightness.light):SystemUiOverlayStyle.dark.copyWith(
-      statusBarColor: Colors.transparent,
-      systemNavigationBarColor: Colors.white,
-      statusBarIconBrightness: Brightness.dark);
+  SystemUiOverlayStyle get systemOverlay => model.value == "dark"
+      ? SystemUiOverlayStyle.light.copyWith(
+          statusBarColor: Colors.transparent,
+          systemNavigationBarColor: Colors.black,
+          statusBarIconBrightness: Brightness.light)
+      : SystemUiOverlayStyle.dark.copyWith(
+          statusBarColor: Colors.transparent,
+          systemNavigationBarColor: Colors.white,
+          statusBarIconBrightness: Brightness.dark);
 
   updateStatusBar() {
     // #兼容web，非web直接打开
@@ -56,7 +59,6 @@ class ThemeServices extends GetxController{
     LogUtil.w("主题切换 $mode");
     Get.changeThemeMode(current);
     updateStatusBar();
-
   }
 
   @override
@@ -71,97 +73,75 @@ class ThemeServices extends GetxController{
   }
 
   static ThemeData get dark => ThemeData(
-    splashColor: Colors.transparent,
-    splashFactory: NoSplashFactory(),
-    appBarTheme: AppBarTheme(
-      systemOverlayStyle: SystemUiOverlayStyle.dark,
-      backgroundColor: BaseTheme.dark2Dark,
-      titleTextStyle: Get.context?.theme.appBarTheme.titleTextStyle?.copyWith(
-        color: Get.context!.customTheme?.fontColor
-      )
-    ),
-    focusColor: BaseTheme.activeDark,
-    extensions: [CustomTheme.dark],
-    cardColor: BaseTheme.cardDark,
-    scaffoldBackgroundColor: BaseTheme.dark2Dark,
-    textTheme: TextTheme(
-      bodyMedium: TextStyle(color: BaseTheme.fontDark),
-      bodyLarge: TextStyle(color: BaseTheme.fontDark),
-      bodySmall: TextStyle(color: BaseTheme.fontDark),
-    ),
-    textSelectionTheme: TextSelectionThemeData(
-      cursorColor: BaseTheme.cursorColorDark
-    ),
-    dividerColor: BaseTheme.borderDark,
-    iconTheme: IconThemeData(
-        color: BaseTheme.fontDark
-    ),
-    primaryColor: BaseTheme.activeDark,
-    brightness: Brightness.dark,
-    tabBarTheme: TabBarTheme(
-      dividerColor: Colors.transparent,
-      // indicator: BoxDecoration(
-      //   borderRadius: 5.radius,
-      // ),
-      indicatorColor: BaseTheme.activeDark,
-      labelColor: BaseTheme.activeDark,
-      unselectedLabelColor: BaseTheme.fontDark,
-      labelStyle: const TextStyle(
-        fontSize: 16,
-        fontWeight: FontWeight.bold
+      splashColor: Colors.transparent,
+      splashFactory: NoSplashFactory(),
+      appBarTheme: AppBarTheme(
+          systemOverlayStyle: SystemUiOverlayStyle.dark,
+          backgroundColor: BaseTheme.dark2Dark,
+          titleTextStyle: Get.context?.theme.appBarTheme.titleTextStyle
+              ?.copyWith(color: Get.context!.customTheme?.fontColor)),
+      focusColor: BaseTheme.activeDark,
+      extensions: [CustomTheme.dark],
+      cardColor: BaseTheme.cardDark,
+      scaffoldBackgroundColor: BaseTheme.dark2Dark,
+      textTheme: TextTheme(
+        bodyMedium: TextStyle(color: BaseTheme.fontDark),
+        bodyLarge: TextStyle(color: BaseTheme.fontDark),
+        bodySmall: TextStyle(color: BaseTheme.fontDark),
       ),
-      unselectedLabelStyle: const TextStyle(
+      textSelectionTheme:
+          TextSelectionThemeData(cursorColor: BaseTheme.cursorColorDark),
+      dividerColor: BaseTheme.borderDark,
+      iconTheme: IconThemeData(color: BaseTheme.fontDark),
+      primaryColor: BaseTheme.activeDark,
+      brightness: Brightness.dark,
+      tabBarTheme: TabBarTheme(
+        dividerColor: Colors.transparent,
+        // indicator: BoxDecoration(
+        //   borderRadius: 5.radius,
+        // ),
+        indicatorColor: BaseTheme.activeDark,
+        labelColor: BaseTheme.activeDark,
+        unselectedLabelColor: BaseTheme.fontDark,
+        labelStyle: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+        unselectedLabelStyle: const TextStyle(
           fontSize: 16,
-      ),
-    )
-  );
+        ),
+      ));
 
   static ThemeData get light => ThemeData(
-    splashFactory: NoSplashFactory(),
-    appBarTheme:  AppBarTheme(
-      systemOverlayStyle: SystemUiOverlayStyle.light,
-      backgroundColor: BaseTheme.dark2Light,
-      titleTextStyle: Get.context?.theme.appBarTheme.titleTextStyle?.copyWith(
-        color: Get.context!.customTheme?.fontColor
-      )
-    ),
-    focusColor: BaseTheme.activeLight,
-    extensions: [CustomTheme.light],
-    cardColor: BaseTheme.cardLight,
-    scaffoldBackgroundColor: BaseTheme.dark2Light,
-    textTheme: TextTheme(
-      bodyMedium: TextStyle(color: BaseTheme.fontLight),
-      bodyLarge: TextStyle(color: BaseTheme.fontLight),
-      bodySmall: TextStyle(color: BaseTheme.fontLight),
-    ),
-    textSelectionTheme: TextSelectionThemeData(
-      cursorColor: BaseTheme.cursorColorLight
-    ),
-    dividerColor: BaseTheme.borderLight,
-    iconTheme: IconThemeData(
-      color: BaseTheme.fontLight
-    ),
-    primaryColor: BaseTheme.activeLight,
-    brightness: Brightness.light,
-    tabBarTheme: TabBarTheme(
-      dividerColor: Colors.transparent,
-      // indicator: BoxDecoration(
-      //     borderRadius: 5.radius,
-      // ),
-      indicatorColor: BaseTheme.activeLight,
-      labelColor: BaseTheme.activeLight,
-      unselectedLabelColor: BaseTheme.fontLight,
-      labelStyle: const TextStyle(
+      splashFactory: NoSplashFactory(),
+      appBarTheme: AppBarTheme(
+          systemOverlayStyle: SystemUiOverlayStyle.light,
+          backgroundColor: BaseTheme.dark2Light,
+          titleTextStyle: Get.context?.theme.appBarTheme.titleTextStyle
+              ?.copyWith(color: Get.context!.customTheme?.fontColor)),
+      focusColor: BaseTheme.activeLight,
+      extensions: [CustomTheme.light],
+      cardColor: BaseTheme.cardLight,
+      scaffoldBackgroundColor: BaseTheme.dark2Light,
+      textTheme: TextTheme(
+        bodyMedium: TextStyle(color: BaseTheme.fontLight),
+        bodyLarge: TextStyle(color: BaseTheme.fontLight),
+        bodySmall: TextStyle(color: BaseTheme.fontLight),
+      ),
+      textSelectionTheme:
+          TextSelectionThemeData(cursorColor: BaseTheme.cursorColorLight),
+      dividerColor: BaseTheme.borderLight,
+      iconTheme: IconThemeData(color: BaseTheme.fontLight),
+      primaryColor: BaseTheme.activeLight,
+      brightness: Brightness.light,
+      tabBarTheme: TabBarTheme(
+        dividerColor: Colors.transparent,
+        // indicator: BoxDecoration(
+        //     borderRadius: 5.radius,
+        // ),
+        indicatorColor: BaseTheme.activeLight,
+        labelColor: BaseTheme.activeLight,
+        unselectedLabelColor: BaseTheme.fontLight,
+        labelStyle: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+        unselectedLabelStyle: const TextStyle(
           fontSize: 16,
-          fontWeight: FontWeight.bold
-      ),
-      unselectedLabelStyle: const TextStyle(
-        fontSize: 16,
-      ),
-    )
-  );
+        ),
+      ));
 }
-
-
-
- 

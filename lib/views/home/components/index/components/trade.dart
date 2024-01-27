@@ -15,22 +15,17 @@ class _IndexTradeHexState extends State<IndexTradeHex> {
     return Container(
       margin: const EdgeInsets.all(10),
       decoration: BoxDecoration(
-        color: context.customTheme?.card,
-        borderRadius: 8.radius
-      ),
+          color: context.customTheme?.card, borderRadius: 8.radius),
       width: double.infinity,
       height: 150,
       child: ListView.builder(
-        physics: const NeverScrollableScrollPhysics(),
-        itemBuilder: (c, i) {
-          return const Padding(
-            padding: EdgeInsets.symmetric(
-              horizontal: 10, vertical: 5
-            ),
-            child: Text("交易hex："),
-          );
-        }
-      ),
+          physics: const NeverScrollableScrollPhysics(),
+          itemBuilder: (c, i) {
+            return const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+              child: Text("交易hex："),
+            );
+          }),
     );
   }
 }

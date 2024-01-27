@@ -4,10 +4,10 @@ import 'package:mp/animation/shank.ani.dart';
 import 'package:mp/core/reg.core.dart';
 import 'package:mp/router/routes.dart';
 
-
 class LoginController extends GetxController {
   static LoginController get to => Get.find<LoginController>();
-  final GlobalKey<ShankAnimationState> privateKey = GlobalKey<ShankAnimationState>();
+  final GlobalKey<ShankAnimationState> privateKey =
+      GlobalKey<ShankAnimationState>();
   final account = "".obs;
   final password = "".obs;
   final accountStatus = false.obs;
@@ -32,9 +32,7 @@ class LoginController extends GetxController {
   }
 
   // 点击忘记密码
-  handleForgetPassword() {
-    
-  }
+  handleForgetPassword() {}
   // 登陆
   handleLogin() {
     final emailRes = !RegCore.emailReg.hasMatch(account.value);
@@ -46,7 +44,7 @@ class LoginController extends GetxController {
     if (passwordRes) {
       passwordStatus.value = true;
     }
-    
+
     if (emailRes || passwordRes) {
       return;
     }
@@ -55,12 +53,9 @@ class LoginController extends GetxController {
       privateKey.currentState?.play();
     }
     // 登陆
-    
   }
 
   handleRegisterPage() {
     Get.toNamed(AppRoutes.register);
   }
-
- 
 }

@@ -10,8 +10,10 @@ class CustomRefreshHeader extends StatefulWidget {
   State<CustomRefreshHeader> createState() => _CustomRefreshHeaderState();
 }
 
-class _CustomRefreshHeaderState extends State<CustomRefreshHeader> with TickerProviderStateMixin{
-  late final AnimationController lottieController = AnimationController(vsync: this);
+class _CustomRefreshHeaderState extends State<CustomRefreshHeader>
+    with TickerProviderStateMixin {
+  late final AnimationController lottieController =
+      AnimationController(vsync: this);
 
   IndicatorController get controller => widget.controller;
 
@@ -20,6 +22,7 @@ class _CustomRefreshHeaderState extends State<CustomRefreshHeader> with TickerPr
     lottieController.dispose();
     super.dispose();
   }
+
   @override
   Widget build(BuildContext context) {
     return AnimatedBuilder(
@@ -29,18 +32,15 @@ class _CustomRefreshHeaderState extends State<CustomRefreshHeader> with TickerPr
           scale: (controller.value),
           child: SizedBox(
             height: 80 * controller.value,
-            child: Lottie.asset(
-                "assets/json/loading.json",
+            child: Lottie.asset("assets/json/loading.json",
                 repeat: true,
                 width: 200,
                 height: 200,
-                controller: lottieController,
-                onLoaded: (composition) {
-                  lottieController
-                    ..duration = composition.duration
-                    ..repeat();
-                }
-            ),
+                controller: lottieController, onLoaded: (composition) {
+              lottieController
+                ..duration = composition.duration
+                ..repeat();
+            }),
           ),
         );
       },

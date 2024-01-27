@@ -6,7 +6,8 @@ import 'package:mp/router/routes.dart';
 
 class RegisterController extends GetxController {
   static RegisterController get to => Get.find<RegisterController>();
-  final GlobalKey<ShankAnimationState> privateKey = GlobalKey<ShankAnimationState>();
+  final GlobalKey<ShankAnimationState> privateKey =
+      GlobalKey<ShankAnimationState>();
   final account = "".obs;
   final passwrod = "".obs;
   final accountStatus = false.obs;
@@ -20,7 +21,7 @@ class RegisterController extends GetxController {
   }
 
   changePassword(String value) {
-     passwrod.value = value;
+    passwrod.value = value;
     if (RegCore.passwrodReg.hasMatch(value)) {
       accountStatus.value = false;
     }
@@ -45,7 +46,7 @@ class RegisterController extends GetxController {
     if (passwrodRes) {
       passwordStatus.value = true;
     }
-    
+
     if (emailRes || passwrodRes) {
       return;
     }
