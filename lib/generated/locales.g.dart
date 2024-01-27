@@ -52,6 +52,10 @@ class LocaleKeys {
   static const introduction = 'introduction';
   static const buy = 'buy';
   static const integration = 'integration';
+  static const phoneTip = 'phoneTip';
+  static const codeTip = 'codeTip';
+  static const phone = 'phone';
+  static const code = 'code';
 }
 
 class Locales {
@@ -97,6 +101,10 @@ class Locales {
     'introduction': 'NFT 简介',
     'buy': '购买',
     'integration': '积分兑换',
+    'phoneTip': '请输入手机号',
+    'codeTip': '请输入验证码',
+    'phone': '手机号',
+    'code': '密码',
   };
   static const en_US = {
     'hello': 'hello',
@@ -140,5 +148,9 @@ class Locales {
     'introduction': 'NFT Introduction',
     'buy': 'Buy',
     'integration': 'Integration',
+    'phoneTip': 'Please enter phone number',
+    'codeTip': 'Please enter code',
+    'phone': 'Phone number',
+    'code': 'Code',
   };
 }

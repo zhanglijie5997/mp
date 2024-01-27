@@ -31,15 +31,15 @@ class _CustomCheckboxState extends State<CustomCheckbox> {
       decoration: BoxDecoration(
           borderRadius: 3.radius,
           border: Border.all(
-            width: 2,
-            color: context.customTheme?.fontColor ?? Colors.transparent,
+            width: 1,
+            color: context.customTheme?.active ?? Colors.transparent,
           )),
       child: Padding(
         padding: const EdgeInsets.all(2.0),
         child: SvgPicture.asset(
-          Assets.assetsImagesSvgIconIconCheck1,
+          Assets.assetsImagesSvgChecked,
           color: status
-              ? context.customTheme?.fontColor ?? Colors.transparent
+              ? context.customTheme?.active ?? Colors.transparent
               : Colors.transparent,
           width: 16,
           height: 16,

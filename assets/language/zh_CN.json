@@ -39,5 +39,9 @@
   "cancel": "已取消",
   "introduction": "NFT 简介",
   "buy": "购买",
-  "integration": "积分兑换"
+  "integration": "积分兑换",
+  "phoneTip": "请输入手机号",
+  "codeTip": "请输入验证码",
+  "phone": "手机号",
+  "code": "密码"
 }

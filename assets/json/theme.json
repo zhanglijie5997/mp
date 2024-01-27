@@ -18,14 +18,14 @@
       "name": "fontColor"
     },
     "active": {
-      "dark": "#1662DF",
-      "light": "#1662DF",
+      "dark": "#9F72FF",
+      "light": "#9F72FF",
       "///": "选中文字",
       "name": "active"
     },
     "subTitle": {
-      "dark": "#828282",
-      "light": "#828282",
+      "dark": "#A5A8B4",
+      "light": "#A5A8B4",
       "///": "二级文字颜色",
       "name": "gray3"
     },
@@ -58,5 +58,11 @@
       "light": "#F7F0FF",
       "///": "紫色渐变底色 -- 登陆右上角",
       "name": "purple2"
+    },
+    "fieldBorder": {
+      "dark": "#F2F5FF",
+      "light": "#F2F5FF",
+      "///": "输入框边框",
+      "name": "fieldBorder"
     }
   }

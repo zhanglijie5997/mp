@@ -51,41 +51,44 @@ class _MpAppState extends State<MpApp> {
 
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
-      debugShowCheckedModeBanner: false,
-      getPages: AppRoutes.routes,
-      initialRoute: AppRoutes.home,
-      fallbackLocale: const Locale('en', 'US'),
-      localizationsDelegates: const [
-        GlobalMaterialLocalizations.delegate,
-        GlobalWidgetsLocalizations.delegate,
-        GlobalCupertinoLocalizations.delegate,
-      ],
-      navigatorObservers: [
-        GetXRouterObserver(),
-        routeObserver,
-        FlutterSmartDialog.observer
-      ],
-      supportedLocales: const [
-        Locale('en', 'US'), // English, no country code
-        Locale('es', ''), // Spanish, no country code
-        Locale('zh', 'CN'), // Chinese, no country code
-      ],
-      locale: LanguageServices.to.lang,
-      themeMode: ThemeServices.to.mode,
-      translationsKeys: AppTranslation.translations,
-      theme: ThemeServices.light,
-      darkTheme: ThemeServices.dark,
-      builder: FlutterSmartDialog.init(
-          loadingBuilder: (msg) => CustomLoading(msg: msg),
-          builder: (context, child) {
-            _buildAnnotatedRegion(context, child!);
-            _buildBottomPaddingVerticalShield(context);
-            return _buildFontSize(context, child);
-          }),
-    ).onTap(() {
-      // 全局键盘回落
-      FocusScope.of(context).requestFocus(FocusNode());
-    });
+    return Listener(
+      onPointerDown:(event) {
+        // 全局键盘回落
+        FocusScope.of(context).requestFocus(FocusNode());
+      },
+      child: GetMaterialApp(
+        debugShowCheckedModeBanner: false,
+        getPages: AppRoutes.routes,
+        initialRoute: AppRoutes.home,
+        fallbackLocale: const Locale('en', 'US'),
+        localizationsDelegates: const [
+          GlobalMaterialLocalizations.delegate,
+          GlobalWidgetsLocalizations.delegate,
+          GlobalCupertinoLocalizations.delegate,
+        ],
+        navigatorObservers: [
+          GetXRouterObserver(),
+          routeObserver,
+          FlutterSmartDialog.observer
+        ],
+        supportedLocales: const [
+          Locale('en', 'US'), // English, no country code
+          Locale('es', ''), // Spanish, no country code
+          Locale('zh', 'CN'), // Chinese, no country code
+        ],
+        locale: LanguageServices.to.lang,
+        themeMode: ThemeServices.to.mode,
+        translationsKeys: AppTranslation.translations,
+        theme: ThemeServices.light,
+        darkTheme: ThemeServices.dark,
+        builder: FlutterSmartDialog.init(
+            loadingBuilder: (msg) => CustomLoading(msg: msg),
+            builder: (context, child) {
+              _buildAnnotatedRegion(context, child!);
+              _buildBottomPaddingVerticalShield(context);
+              return _buildFontSize(context, child);
+            }),
+      )
+    );
   }
 }

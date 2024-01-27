@@ -15,12 +15,12 @@ class BaseTheme {
   static Color get fontLight => '#000000'.color();
 
   /// 选中文字
-  static Color get activeDark => '#1662DF'.color();
-  static Color get activeLight => '#1662DF'.color();
+  static Color get activeDark => '#9F72FF'.color();
+  static Color get activeLight => '#9F72FF'.color();
 
   /// 二级文字颜色
-  static Color get subTitleDark => '#828282'.color();
-  static Color get subTitleLight => '#828282'.color();
+  static Color get subTitleDark => '#A5A8B4'.color();
+  static Color get subTitleLight => '#A5A8B4'.color();
 
   /// 光标
   static Color get cursorColorDark => '#ffffff'.color();
@@ -41,4 +41,8 @@ class BaseTheme {
   /// 紫色渐变底色 -- 登陆右上角
   static Color get purple2Dark => '#F7F0FF'.color();
   static Color get purple2Light => '#F7F0FF'.color();
+
+  /// 输入框边框
+  static Color get fieldBorderDark => '#F2F5FF'.color();
+  static Color get fieldBorderLight => '#F2F5FF'.color();
 }

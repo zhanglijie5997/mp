@@ -1,8 +1,13 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:mp/animation/shank.ani.dart';
+import 'package:mp/components/custom.blur.dart';
 import 'package:mp/components/custom.checkbox.dart';
 import 'package:mp/components/custom.field.dart';
+import 'package:mp/constants/assets.dart';
 import 'package:mp/extension/context.ext.dart';
 import 'package:mp/extension/num.ext.dart';
 import 'package:mp/extension/widget.ext.dart';
@@ -21,10 +26,37 @@ class LoginPage extends GetView<LoginController> {
             Positioned(
                 left: 0,
                 top: 0,
-                child: Container(
-                  decoration: BoxDecoration(
-                      color: context.customTheme?.purple
-                  ),
+                child: Row(
+                  children: [
+                    // 左侧渐变
+                    SizedBox(
+                      child: Container(
+                        width: 194,
+                        height: 229,
+                        decoration: BoxDecoration(
+                          color: context.customTheme?.purple,
+                        ),
+                        child: BackdropFilter(
+                          filter: ImageFilter.blur(sigmaX: 100, sigmaY: 100),
+                          child: const SizedBox(),
+                        ),
+                      ),
+                    ),
+                    // 右侧渐变
+                    SizedBox(
+                      child: Container(
+                        width: 194,
+                        height: 229,
+                        decoration: BoxDecoration(
+                          color: context.customTheme?.purple2,
+                        ),
+                        child: BackdropFilter(
+                          filter: ImageFilter.blur(sigmaX: 100, sigmaY: 100),
+                          child: const SizedBox(),
+                        ),
+                      ),
+                    )
+                  ],
                 )),
             Padding(
               padding: EdgeInsets.only(
@@ -37,23 +69,36 @@ class LoginPage extends GetView<LoginController> {
                       Padding(
                         padding: const EdgeInsets.only(right: 20.0),
                         child: Icon(
-                          Icons.arrow_back,
+                          Icons.close,
                           color: context.customTheme?.fontColor,
                         ),
                       ).onTap(() => Get.back()),
-                      Text(
-                        LocaleKeys.login.tr,
-                        style: context.textTheme.bodyLarge?.copyWith(
-                            fontSize: 30, fontWeight: FontWeight.bold),
-                      ),
                     ],
+                  ),
+                  // 登陆
+                  Padding(
+                    padding: const EdgeInsets.only(top: 46.5),
+                    child: Row(
+                      children: [
+                        Text(
+                          LocaleKeys.login.tr,
+                          style: context.textTheme.bodyLarge?.copyWith(
+                              fontSize: 30, fontWeight: FontWeight.bold),
+                        ),
+                        Image.asset(
+                          Assets.assetsImagesLoginHand,
+                          width: 44,
+                          height: 44,
+                        )
+                      ],
+                    ),
                   ),
                   Padding(
                     padding: const EdgeInsets.only(top: 32),
                     child: Obx(() => CustomFiled(
-                          labelText: LocaleKeys.email.tr,
+                          labelText: LocaleKeys.phone.tr,
                           onChange: controller.changeCount,
-                          keyboardType: TextInputType.emailAddress,
+                          keyboardType: TextInputType.phone,
                           status: controller.accountStatus.value,
                         )),
                   ),
@@ -73,7 +118,8 @@ class LoginPage extends GetView<LoginController> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text(LocaleKeys.forgetPassword.tr)
+                        Text(LocaleKeys.forgetPassword.tr,  style: context.textTheme.bodyMedium?.copyWith(
+                                    color: context.customTheme?.gray3))
                             .onTap(controller.handleForgetPassword),
                         Text(LocaleKeys.dontHaveAccountTip.tr,
                                 style: context.textTheme.bodyMedium?.copyWith(
@@ -120,7 +166,7 @@ class LoginPage extends GetView<LoginController> {
                     child: Container(
                       padding: const EdgeInsets.symmetric(vertical: 18),
                       decoration: BoxDecoration(
-                        color: context.customTheme?.fontColor,
+                        color: context.customTheme?.active,
                         borderRadius: 16.radius,
                       ),
                       alignment: Alignment.center,

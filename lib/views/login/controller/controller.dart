@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:mp/animation/shank.ani.dart';
 import 'package:mp/core/reg.core.dart';
 import 'package:mp/router/routes.dart';
+import 'package:mp/utils/log.utils.dart';
 
 class LoginController extends GetxController {
   static LoginController get to => Get.find<LoginController>();
@@ -15,15 +16,16 @@ class LoginController extends GetxController {
   final privateStatus = false.obs;
   changeCount(String value) {
     account.value = value;
-    if (RegCore.emailReg.hasMatch(value)) {
+    if (RegCore.phoneReg.hasMatch(value)) {
       accountStatus.value = false;
     }
   }
 
   changePassword(String value) {
     password.value = value;
+    LogUtil.w("code --- ${RegCore.passwrodReg.hasMatch(value)} $value");
     if (RegCore.passwrodReg.hasMatch(value)) {
-      accountStatus.value = false;
+      passwordStatus.value = false;
     }
   }
 
@@ -35,7 +37,7 @@ class LoginController extends GetxController {
   handleForgetPassword() {}
   // 登陆
   handleLogin() {
-    final emailRes = !RegCore.emailReg.hasMatch(account.value);
+    final emailRes = !RegCore.phoneReg.hasMatch(account.value);
     final passwordRes = !RegCore.passwrodReg.hasMatch(password.value);
     if (emailRes) {
       accountStatus.value = true;

@@ -41,6 +41,7 @@ flutter:
   assets:
     - assets/json/
     - assets/images/
+    - assets/images/login/
     - assets/images/svg/Icon/
     - assets/images/svg/Icon/Icon/
 flutter_assets:

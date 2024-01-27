@@ -8,6 +8,7 @@ import 'package:mp/extension/context.ext.dart';
 import 'package:mp/extension/num.ext.dart';
 import 'package:mp/extension/widget.ext.dart';
 import 'package:mp/generated/locales.g.dart';
+import 'package:mp/utils/log.utils.dart';
 
 class CustomFiled extends StatefulWidget {
   final String? labelText;
@@ -35,7 +36,15 @@ class _CustomFiledState extends State<CustomFiled> {
   // 密码状态显示
   bool passwordStatus = true;
   late final TextEditingController controller = TextEditingController()
-    ..addListener(() {
+    ..addListener(listener);
+
+  changePasswordStatus() {
+    setState(() {
+      passwordStatus = !passwordStatus;
+    });
+  }
+
+  listener() {
       final text = controller.text;
       if (text.isNotEmpty) {
         setState(() {
@@ -45,6 +54,9 @@ class _CustomFiledState extends State<CustomFiled> {
               break;
             case TextInputType.visiblePassword:
               status = !RegCore.passwrodReg.hasMatch(text);
+              break;
+            case TextInputType.phone:
+              status = !RegCore.phoneReg.hasMatch(text);
               break;
             default:
           }
@@ -56,23 +68,21 @@ class _CustomFiledState extends State<CustomFiled> {
       }
 
       widget.onChange?.call(controller.text);
-    });
-
-  changePasswordStatus() {
-    setState(() {
-      passwordStatus = !passwordStatus;
-    });
-  }
+    }
 
   @override
   void didUpdateWidget(CustomFiled oldWidget) {
     setState(() {
-      if (widget.status != status) {
-        status = widget.status ?? false;
-      }
+        status = widget.status ?? true;
     });
 
     super.didUpdateWidget(oldWidget);
+  }
+
+  @override
+  void dispose() {
+    controller.removeListener(listener);
+    super.dispose();
   }
 
   @override
@@ -84,6 +94,8 @@ class _CustomFiledState extends State<CustomFiled> {
       obscureText: widget.keyboardType == TextInputType.visiblePassword &&
           passwordStatus,
       decoration: InputDecoration(
+        fillColor:  context.customTheme?.fieldBorder,
+        filled: true,
         labelText: widget.labelText ?? "",
         labelStyle: context.textTheme.bodyMedium
             ?.copyWith(color: context.customTheme?.gray3),
@@ -132,7 +144,7 @@ class _CustomFiledState extends State<CustomFiled> {
           ///用来配置边框的样式
           borderSide: BorderSide(
             ///设置边框的颜色
-            color: context.customTheme?.fontColor ?? Colors.transparent,
+            color: context.customTheme?.fieldBorder ?? Colors.transparent,
 
             ///设置边框的粗细
             width: 2.0,
@@ -147,7 +159,7 @@ class _CustomFiledState extends State<CustomFiled> {
           ///用来配置边框的样式
           borderSide: BorderSide(
             ///设置边框的颜色
-            color: context.customTheme?.fontColor ?? Colors.transparent,
+             color: context.customTheme?.fieldBorder ?? Colors.transparent,
 
             ///设置边框的粗细
             width: 2.0,

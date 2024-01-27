@@ -31,6 +31,9 @@ class CustomTheme extends ThemeExtension<CustomTheme> {
 
   /// 紫色渐变底色 -- 登陆右上角
   Color? purple2;
+
+  /// 输入框边框
+  Color? fieldBorder;
   CustomTheme({
     /// 边框
     this.gray,
@@ -61,6 +64,9 @@ class CustomTheme extends ThemeExtension<CustomTheme> {
 
     /// 紫色渐变底色 -- 登陆右上角
     this.purple2,
+
+    /// 输入框边框
+    this.fieldBorder,
   });
   @override
   ThemeExtension<CustomTheme> copyWith({
@@ -74,6 +80,7 @@ class CustomTheme extends ThemeExtension<CustomTheme> {
     Color? card,
     Color? purple,
     Color? purple2,
+    Color? fieldBorder,
   }) {
     return CustomTheme(
       gray: gray ?? this.gray,
@@ -86,6 +93,7 @@ class CustomTheme extends ThemeExtension<CustomTheme> {
       card: card ?? this.card,
       purple: purple ?? this.purple,
       purple2: purple2 ?? this.purple2,
+      fieldBorder: fieldBorder ?? this.fieldBorder,
     );
   }
 
@@ -106,6 +114,7 @@ class CustomTheme extends ThemeExtension<CustomTheme> {
         card: BaseTheme.cardLight,
         purple: BaseTheme.purpleLight,
         purple2: BaseTheme.purple2Light,
+        fieldBorder: BaseTheme.fieldBorderLight,
       );
   static CustomTheme get dark => CustomTheme(
         gray: BaseTheme.borderDark,
@@ -118,5 +127,6 @@ class CustomTheme extends ThemeExtension<CustomTheme> {
         card: BaseTheme.cardDark,
         purple: BaseTheme.purpleDark,
         purple2: BaseTheme.purple2Dark,
+        fieldBorder: BaseTheme.fieldBorderDark,
       );
 }

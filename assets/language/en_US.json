@@ -39,5 +39,9 @@
   "cancel": "Cancel",
   "introduction": "NFT Introduction",
   "buy": "Buy",
-  "integration": "Integration"
+  "integration": "Integration",
+  "phoneTip": "Please enter phone number",
+  "codeTip": "Please enter code",
+  "phone": "Phone number",
+  "code": "Code"
 }
