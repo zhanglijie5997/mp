@@ -23,7 +23,6 @@ class LoginController extends GetxController {
 
   changePassword(String value) {
     password.value = value;
-    LogUtil.w("code --- ${RegCore.passwrodReg.hasMatch(value)} $value");
     if (RegCore.passwrodReg.hasMatch(value)) {
       passwordStatus.value = false;
     }
