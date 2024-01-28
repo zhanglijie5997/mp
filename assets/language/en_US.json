@@ -54,5 +54,6 @@
   "myInvite": "My Invite",
   "loading": "Loading",
   "success": "The operation is successful",
-  "saveSucces": "Save success"
+  "saveSucces": "Save success",
+  "copySuccess": "Copy success"
 }

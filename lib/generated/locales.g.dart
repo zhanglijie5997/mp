@@ -67,6 +67,7 @@ class LocaleKeys {
   static const loading = 'loading';
   static const success = 'success';
   static const saveSucces = 'saveSucces';
+  static const copySuccess = 'copySuccess';
 }
 
 class Locales {
@@ -127,6 +128,7 @@ class Locales {
     'loading': '加载中',
     'success': '操作成功',
     'saveSucces': '保存成功',
+    'copySuccess': '复制成功',
   };
   static const en_US = {
     'hello': 'hello',
@@ -185,5 +187,6 @@ class Locales {
     'loading': 'Loading',
     'success': 'The operation is successful',
     'saveSucces': 'Save success',
+    'copySuccess': 'Copy success',
   };
 }

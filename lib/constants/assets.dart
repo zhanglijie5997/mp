@@ -53,6 +53,10 @@ class Assets {
   /// assets/images/me-active.svg
   static const String assetsImagesMeActive = "assets/images/me-active.svg";
 
+  /// Assets for assetsImagesMeMeBg
+  /// assets/images/me/me_bg.png
+  static const String assetsImagesMeMeBg = "assets/images/me/me_bg.png";
+
   /// Assets for assetsImagesSvgIconAccounment
   /// assets/images/svg/Icon/accounment.svg
   static const String assetsImagesSvgIconAccounment = "assets/images/svg/Icon/accounment.svg";
@@ -61,6 +65,10 @@ class Assets {
   /// assets/images/svg/Icon/add.svg
   static const String assetsImagesSvgIconAdd = "assets/images/svg/Icon/add.svg";
 
+  /// Assets for assetsImagesSvgIconArrow
+  /// assets/images/svg/Icon/arrow.svg
+  static const String assetsImagesSvgIconArrow = "assets/images/svg/Icon/arrow.svg";
+
   /// Assets for assetsImagesSvgIconCart
   /// assets/images/svg/Icon/cart.svg
   static const String assetsImagesSvgIconCart = "assets/images/svg/Icon/cart.svg";
@@ -68,6 +76,10 @@ class Assets {
   /// Assets for assetsImagesSvgIconClose
   /// assets/images/svg/Icon/close.svg
   static const String assetsImagesSvgIconClose = "assets/images/svg/Icon/close.svg";
+
+  /// Assets for assetsImagesSvgIconCopy
+  /// assets/images/svg/Icon/copy.svg
+  static const String assetsImagesSvgIconCopy = "assets/images/svg/Icon/copy.svg";
 
   /// Assets for assetsImagesSvgIconEveryDayNotify
   /// assets/images/svg/Icon/every_day_notify.svg
@@ -380,6 +392,26 @@ class Assets {
   /// Assets for assetsImagesSvgIconMe
   /// assets/images/svg/Icon/me.svg
   static const String assetsImagesSvgIconMe = "assets/images/svg/Icon/me.svg";
+
+  /// Assets for assetsImagesSvgIconMeInvite
+  /// assets/images/svg/Icon/me_invite.svg
+  static const String assetsImagesSvgIconMeInvite = "assets/images/svg/Icon/me_invite.svg";
+
+  /// Assets for assetsImagesSvgIconMeOrder
+  /// assets/images/svg/Icon/me_order.svg
+  static const String assetsImagesSvgIconMeOrder = "assets/images/svg/Icon/me_order.svg";
+
+  /// Assets for assetsImagesSvgIconMeSearch
+  /// assets/images/svg/Icon/me_search.svg
+  static const String assetsImagesSvgIconMeSearch = "assets/images/svg/Icon/me_search.svg";
+
+  /// Assets for assetsImagesSvgIconMeSetting
+  /// assets/images/svg/Icon/me_setting.svg
+  static const String assetsImagesSvgIconMeSetting = "assets/images/svg/Icon/me_setting.svg";
+
+  /// Assets for assetsImagesSvgIconMeWallet
+  /// assets/images/svg/Icon/me_wallet.svg
+  static const String assetsImagesSvgIconMeWallet = "assets/images/svg/Icon/me_wallet.svg";
 
   /// Assets for assetsImagesSvgIconNodata
   /// assets/images/svg/Icon/nodata.svg

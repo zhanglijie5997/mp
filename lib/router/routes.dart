@@ -18,6 +18,10 @@ import 'package:mp/views/orderDetail/binds/binds.dart';
 import 'package:mp/views/orderDetail/orderDetail.dart';
 import 'package:mp/views/register/binds/binds.dart';
 import 'package:mp/views/register/register.dart';
+import 'package:mp/views/setting/binds/binds.dart';
+import 'package:mp/views/setting/setting.dart';
+import 'package:mp/views/wallet/binds/binds.dart';
+import 'package:mp/views/wallet/wallet.dart';
 import 'package:mp/views/webview/binds/binds.dart';
 import 'package:mp/views/webview/webview.dart';
 
@@ -32,6 +36,8 @@ final class AppRoutes {
   static String integration = "/integration";
   static String webview = "/webview";
   static String invite = "/invite";
+  static String setting = "/setting";
+  static String wallet = "/wallet";
 
   /// 需要登陆的页面 在GetPage middlewares: [AuthMiddleWare()]
   static var routes = [
@@ -44,7 +50,8 @@ final class AppRoutes {
         name: AppRoutes.order,
         page: () => const OrderPage(),
         binding: OrderBinding(),
-        middlewares: [AuthMiddleWare()]),
+        // middlewares: [AuthMiddleWare()]
+    ),
     GetPage(
         name: AppRoutes.login,
         page: () => const LoginPage(),
@@ -82,5 +89,13 @@ final class AppRoutes {
         name: AppRoutes.invite,
         page: () => const InvitePage(),
         binding: InviteBinding()),
+    GetPage(
+        name: AppRoutes.setting,
+        page: () => const SettingPage(),
+        binding: SettingBinding()),
+    GetPage(
+        name: AppRoutes.wallet,
+        page: () => const WalletPage(),
+        binding: WalletBinding()),
   ];
 }

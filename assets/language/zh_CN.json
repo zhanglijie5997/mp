@@ -54,5 +54,7 @@
   "myInvite": "我的邀请",
   "loading": "加载中",
   "success": "操作成功",
-  "saveSucces": "保存成功"
+  "saveSucces": "保存成功",
+  "copySuccess": "复制成功"
+
 }

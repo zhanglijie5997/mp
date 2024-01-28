@@ -42,6 +42,5 @@ class _OrderPageViewListState extends State<OrderPageViewList>
   }
 
   @override
-  // TODO: implement wantKeepAlive
   bool get wantKeepAlive => true;
 }

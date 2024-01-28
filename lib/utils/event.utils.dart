@@ -73,4 +73,8 @@ class EventUtils {
     LogUtil.w(file.path);
     await Share.shareXFiles([XFile(file.path)]);
   }
+  // 保存到剪贴板
+  static saveToClipboard(String value) {
+    Clipboard.setData(ClipboardData(text: value));
+  }
 }

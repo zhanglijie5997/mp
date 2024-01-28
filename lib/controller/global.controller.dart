@@ -5,5 +5,5 @@ class GlobalController extends GetxController {
   static GlobalController get to => Get.find<GlobalController>();
 
   /// 用户token
-  String token = "";
+  final token = "".obs;
 }
