@@ -31,20 +31,20 @@ class HomeActivityController extends GetxController {
     ActivityData(
       name: "每日任务",
       svgPath: Assets.assetsImagesSvgIconTask,
-      url: "",
-      type: 1,
+      url: "https://www.baidu.com",
+      type: 2,
     ),
     ActivityData(
       name: "积分商城",
       svgPath: Assets.assetsImagesSvgIconIntegra,
-      url: "",
-      type: 1,
+      url: "https://www.baidu.com",
+      type: 2,
     ),
     ActivityData(
       name: "每日公告",
       svgPath: Assets.assetsImagesSvgIconEveryDayNotify,
-      url: "",
-      type: 1,
+      url: "https://www.baidu.com",
+      type: 2,
     ),
     ActivityData(
       name: "邀请好友",

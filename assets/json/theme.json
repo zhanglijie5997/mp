@@ -112,6 +112,13 @@
       "light": "#DFE5FF",
       "///": "邀请码背景颜色",
       "name": "inviteCodeBg"
+    },
+    "meBg": {
+      "dark": "#F4F1FF",
+      "light": "#F4F1FF",
+      "///": "个人页面背景",
+      "name": "meBg"
     }
+
 
 }

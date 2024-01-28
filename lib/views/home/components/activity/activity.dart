@@ -8,10 +8,13 @@ import 'package:mp/components/custom.refresh.dart';
 import 'package:mp/constants/assets.dart';
 import 'package:mp/extension/context.ext.dart';
 import 'package:mp/extension/num.ext.dart';
+import 'package:mp/extension/string.ext.dart';
 import 'package:mp/extension/widget.ext.dart';
 import 'package:mp/generated/locales.g.dart';
+import 'package:mp/router/routes.dart';
 import 'package:mp/utils/event.utils.dart';
 import 'package:mp/views/home/components/activity/controller/controller.dart';
+import 'package:mp/views/webview/controller/controller.dart';
 
 class HomeActivityPage extends GetView<HomeActivityController> {
   const HomeActivityPage({super.key});
@@ -115,6 +118,9 @@ class HomeActivityPage extends GetView<HomeActivityController> {
                                   Get.toNamed(element.url ?? "");
                                 }else {
                                   // webview页面
+                                  Get.toNamed("${AppRoutes.webview}", parameters: {
+                                    "url": (element.url ?? "").encode()
+                                  });
                                 }
                               }),
                             )).toList(),

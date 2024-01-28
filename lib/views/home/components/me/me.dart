@@ -1,15 +1,13 @@
+import 'dart:ui';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:mp/components/custom.action.dart';
 import 'package:mp/components/custom.image.dart';
+import 'package:mp/components/custom.refresh.dart';
 import 'package:mp/extension/context.ext.dart';
 import 'package:mp/extension/num.ext.dart';
-import 'package:mp/extension/widget.ext.dart';
-import 'package:mp/generated/locales.g.dart';
-import 'package:mp/router/routes.dart';
-import 'package:mp/services/language/language.services.dart';
-import 'package:mp/services/theme/theme.services.dart';
+import 'package:mp/utils/event.utils.dart';
 import 'package:mp/views/home/components/me/controller/controller.dart';
 
 class HomeMePage extends GetView<HomeMeController> {
@@ -20,121 +18,87 @@ class HomeMePage extends GetView<HomeMeController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Obx(
-      () => CustomScrollView(
-        controller: controller.scrollController,
-        // physics: const AlwaysScrollableScrollPhysics(),
-        slivers: [
-          SliverAppBar(
-            systemOverlayStyle: ThemeServices.to.systemOverlay,
-            expandedHeight:
-                controller.expandedHeight.value + controller.scrollHeight.value,
-            toolbarHeight: 44,
-            backgroundColor: context.customTheme?.dark2,
-            snap: false,
-            floating: false,
-            pinned: true,
-            flexibleSpace: FlexibleSpaceBar(
-              expandedTitleScale: 1,
-              stretchModes: const [StretchMode.blurBackground],
-              centerTitle: true,
-              title: Opacity(
-                opacity: controller.opacity.value,
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
+      body: NestedScrollView(
+        floatHeaderSlivers: true,
+        headerSliverBuilder: (c, child) {
+          return [
+            SliverToBoxAdapter(
+              child: Container(
+                // color: Colors.red,
+                height: 258.5 + context.mediaQueryPadding.top,
+                child: Stack(
                   children: [
-                    Padding(
-                      padding: const EdgeInsets.only(left: 70.0),
-                      child: ClipRRect(
-                          borderRadius: 30.radius,
-                          child: CustomImage(
-                            url: img,
-                            size: const Size(30, 30),
-                          )),
+                    Positioned(
+                      top: -48,
+                      left: -118,
+                      child: Container(
+                        color: context.customTheme?.meBg,
+                        height: 375.5,
+                        width: context.mediaQuerySize.width,
+                        // color: Colors.red,
+                        child: BackdropFilter(
+                          filter: ImageFilter.blur(
+                            sigmaY: 100, sigmaX: 100
+                          ),
+                          child: const SizedBox(),
+                        ),
+                      ),
                     ),
-                    Container(
-                      constraints: const BoxConstraints(maxWidth: 100),
-                      margin: const EdgeInsets.only(left: 15),
-                      child: Text("测试一号",
-                          style: context.textTheme.bodyMedium?.copyWith(
-                              color: context.customTheme?.fontColor,
-                              overflow: TextOverflow.ellipsis)),
-                    ),
+                    SafeArea(
+                      child: Padding(
+                        padding: const EdgeInsets.only(top: 10, left: 16),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text("我的", style: context.textTheme.bodyMedium?.copyWith(
+                              fontSize: 23, fontWeight: FontWeight.bold
+                            )),
+                            /// 个人信息
+                            Row(
+                              children: [
+                                ClipRRect(
+                                  borderRadius: 30.radius,
+                                  child: Container(
+                                    width: 60, height: 60,
+                                    decoration: BoxDecoration(
+                                      borderRadius: 30.radius,
+                                      border: Border.all(
+                                        width: 1, color: context.customTheme?.navbarBg ?? Colors.transparent,
+                                      ),
+                                      boxShadow: const [
+                                        BoxShadow(
+                                          color: Color.fromRGBO(188, 185, 204, 0.5),
+                                          offset: Offset(0, 2),
+                                          blurRadius: 10,
+                                        ),
+                                      ],
+                                    ),
+                                    child: UnconstrainedBox(
+                                      child: CustomImage(
+                                        url: "https://cos.yanjie.art/platform/banner/1713810683965079552.jpg",
+                                        size: Size(54, 54),
+                                        fit: BoxFit.cover,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+
+                                // 用户信息，未登陆显示登陆/注册
+                              ],
+                            )
+                          ],
+                        ),
+                      ),
+                    )
+
                   ],
                 ),
               ),
-              background: Transform.scale(
-                  scale: (controller.expandedHeight.value +
-                          controller.scrollHeight.value) /
-                      controller.expandedHeight.value,
-                  child: CustomImage(
-                    url: img,
-                    fit: BoxFit.cover,
-                    size: Size(
-                        double.infinity,
-                        controller.expandedHeight.value +
-                            controller.scrollHeight.value),
-                  )),
-            ),
-          ),
-          SliverToBoxAdapter(
-            child: Container(
-              margin: const EdgeInsets.only(top: 20),
-              child: Column(
-                children: [
-                  // 订单
-                  CustomAction(
-                    left: Text(LocaleKeys.order.tr,
-                        style: context.textTheme.bodyMedium?.copyWith(
-                            fontWeight: FontWeight.bold, fontSize: 14)),
-                    right: const Icon(
-                      Icons.keyboard_arrow_right_rounded,
-                    ),
-                  ).onTap(() => Get.toNamed(AppRoutes.order)),
-                  // 语言切换
-                  CustomAction(
-                    left: Text(LocaleKeys.langChange.tr,
-                        style: context.textTheme.bodyMedium?.copyWith(
-                            fontWeight: FontWeight.bold, fontSize: 14)),
-                    right: SizedBox(
-                      height: 25,
-                      child: CupertinoSwitch(
-                          activeColor: context.theme.primaryColor,
-                          value: LanguageServices.to.langCode.value == "zh",
-                          onChanged: (value) {
-                            LanguageServices.to.handleSetLang(
-                                LanguageServices.to.langCode.value == "zh"
-                                    ? 'en'
-                                    : 'zh');
-                          }),
-                    ),
-                  ),
-
-                  // 主题切换
-                  CustomAction(
-                    left: Text(LocaleKeys.theme.tr,
-                        style: context.textTheme.bodyMedium?.copyWith(
-                            fontWeight: FontWeight.bold, fontSize: 14)),
-                    right: SizedBox(
-                      height: 25,
-                      child: CupertinoSwitch(
-                          activeColor: context.theme.primaryColor,
-                          value: ThemeServices.to.model.value == "dark",
-                          onChanged: (value) {
-                            ThemeServices.to.handleSetTheme(
-                                ThemeServices.to.model.value == "dark"
-                                    ? "light"
-                                    : "dark");
-                          }),
-                    ),
-                  ),
-                  // const SizedBox(height: 1000,)
-                ],
-              ),
-            ),
-          )
-        ],
+            )
+          ];
+        },
+        body: ListView.builder(itemBuilder: (c, i) => Text("i")),
       ),
-    ));
+    );
   }
 }

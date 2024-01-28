@@ -77,4 +77,8 @@ class BaseTheme {
   /// 邀请码背景颜色
   static Color get inviteCodeBgDark => '#DFE5FF'.color();
   static Color get inviteCodeBgLight => '#DFE5FF'.color();
+
+  /// 个人页面背景
+  static Color get meBgDark => '#F4F1FF'.color();
+  static Color get meBgLight => '#F4F1FF'.color();
 }

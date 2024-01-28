@@ -58,6 +58,9 @@ class CustomTheme extends ThemeExtension<CustomTheme> {
 
   /// 邀请码背景颜色
   Color? inviteCodeBg;
+
+  /// 个人页面背景
+  Color? meBg;
   CustomTheme({
     /// 边框
     this.gray,
@@ -115,6 +118,9 @@ class CustomTheme extends ThemeExtension<CustomTheme> {
 
     /// 邀请码背景颜色
     this.inviteCodeBg,
+
+    /// 个人页面背景
+    this.meBg,
   });
   @override
   ThemeExtension<CustomTheme> copyWith({
@@ -137,6 +143,7 @@ class CustomTheme extends ThemeExtension<CustomTheme> {
     Color? inviteText,
     Color? inviteCodeText,
     Color? inviteCodeBg,
+    Color? meBg,
   }) {
     return CustomTheme(
       gray: gray ?? this.gray,
@@ -158,6 +165,7 @@ class CustomTheme extends ThemeExtension<CustomTheme> {
       inviteText: inviteText ?? this.inviteText,
       inviteCodeText: inviteCodeText ?? this.inviteCodeText,
       inviteCodeBg: inviteCodeBg ?? this.inviteCodeBg,
+      meBg: meBg ?? this.meBg,
     );
   }
 
@@ -187,6 +195,7 @@ class CustomTheme extends ThemeExtension<CustomTheme> {
         inviteText: BaseTheme.inviteTextLight,
         inviteCodeText: BaseTheme.inviteCodeTextLight,
         inviteCodeBg: BaseTheme.inviteCodeBgLight,
+        meBg: BaseTheme.meBgLight,
       );
   static CustomTheme get dark => CustomTheme(
         gray: BaseTheme.borderDark,
@@ -208,5 +217,6 @@ class CustomTheme extends ThemeExtension<CustomTheme> {
         inviteText: BaseTheme.inviteTextDark,
         inviteCodeText: BaseTheme.inviteCodeTextDark,
         inviteCodeBg: BaseTheme.inviteCodeBgDark,
+        meBg: BaseTheme.meBgDark,
       );
 }
