@@ -8,7 +8,6 @@ import 'package:mp/extension/num.ext.dart';
 import 'package:mp/extension/widget.ext.dart';
 import 'package:mp/generated/locales.g.dart';
 import 'package:mp/router/routes.dart';
-import 'package:mp/utils/toast.utils.dart';
 import 'package:shimmer_animation/shimmer_animation.dart';
 
 class IndexFirst extends StatefulWidget {
@@ -105,23 +104,23 @@ class _IndexFirstState extends State<IndexFirst> {
                           ),
                           Container(
                             padding: const EdgeInsets.only(top: 15, left: 20),
-                            child: Row(
+                            alignment: Alignment.centerLeft,
+                            child:  Row(
                               children: [
-                                Text("图片名称",
+                               Text("图片名称",
                                     style:
                                         context.textTheme.bodyMedium?.copyWith(
                                       fontWeight: FontWeight.bold,
                                     )),
-                                Padding(
-                                  padding: const EdgeInsets.only(left: 8.0),
+                                const Padding(
+                                  padding:  EdgeInsets.only(left: 8.0),
                                   child: CustomImage(
                                     url: "",
-                                    size: const Size(16, 16),
+                                    size:  Size(16, 16),
                                   ),
                                 )
                               ],
                             ),
-                            alignment: Alignment.centerLeft,
                           ),
                           // 价格
                           Container(

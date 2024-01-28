@@ -11,10 +11,26 @@ class HomeController extends GetxController {
   static HomeController get to => Get.find<HomeController>();
   final count = 0.obs;
   final tabbar = [
-    NavBarModel(name: "首页", assets: Assets.assetsImagesHome, index: 0, assetsActive: Assets.assetsImagesHomeActive),
-    NavBarModel(name: "搜索", assets: Assets.assetsImagesActive, index: 1, assetsActive: Assets.assetsImagesActiveActive),
-    NavBarModel(name: "添加", assets: Assets.assetsImagesMarket, index: 2, assetsActive: Assets.assetsImagesMarketActive),
-    NavBarModel(name: "我的", assets: Assets.assetsImagesMe, index: 3, assetsActive: Assets.assetsImagesMeActive),
+    NavBarModel(
+        name: "首页",
+        assets: Assets.assetsImagesHome,
+        index: 0,
+        assetsActive: Assets.assetsImagesHomeActive),
+    NavBarModel(
+        name: "搜索",
+        assets: Assets.assetsImagesActive,
+        index: 1,
+        assetsActive: Assets.assetsImagesActiveActive),
+    NavBarModel(
+        name: "添加",
+        assets: Assets.assetsImagesMarket,
+        index: 2,
+        assetsActive: Assets.assetsImagesMarketActive),
+    NavBarModel(
+        name: "我的",
+        assets: Assets.assetsImagesMe,
+        index: 3,
+        assetsActive: Assets.assetsImagesMeActive),
   ].cast<NavBarModel>();
 
   final tabView = [

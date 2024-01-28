@@ -3,7 +3,6 @@ import 'package:get/get.dart';
 import 'package:mp/animation/shank.ani.dart';
 import 'package:mp/core/reg.core.dart';
 import 'package:mp/router/routes.dart';
-import 'package:mp/utils/log.utils.dart';
 
 class LoginController extends GetxController {
   static LoginController get to => Get.find<LoginController>();

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mp/animation/shank.ani.dart';
 import 'package:mp/core/reg.core.dart';
-import 'package:mp/router/routes.dart';
 
 class RegisterController extends GetxController {
   static RegisterController get to => Get.find<RegisterController>();

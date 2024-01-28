@@ -1,6 +1,4 @@
 import 'dart:convert';
-
-import 'package:equatable/equatable.dart';
 import 'package:mp/constants/data.model.factories.dart';
 import 'package:mp/utils/log.utils.dart';
 
@@ -10,7 +8,7 @@ typedef Json = Map<String, dynamic>;
 
 class ModelError extends TypeError {}
 
-abstract class DataModel extends Equatable {
+abstract class DataModel {
   const DataModel();
 
   Json toJson();

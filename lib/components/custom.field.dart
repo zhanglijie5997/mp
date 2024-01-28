@@ -8,7 +8,6 @@ import 'package:mp/extension/context.ext.dart';
 import 'package:mp/extension/num.ext.dart';
 import 'package:mp/extension/widget.ext.dart';
 import 'package:mp/generated/locales.g.dart';
-import 'package:mp/utils/log.utils.dart';
 
 class CustomFiled extends StatefulWidget {
   final String? labelText;
@@ -45,35 +44,35 @@ class _CustomFiledState extends State<CustomFiled> {
   }
 
   listener() {
-      final text = controller.text;
-      if (text.isNotEmpty) {
-        setState(() {
-          switch (widget.keyboardType) {
-            case TextInputType.emailAddress:
-              status = !RegCore.emailReg.hasMatch(text);
-              break;
-            case TextInputType.visiblePassword:
-              status = !RegCore.passwrodReg.hasMatch(text);
-              break;
-            case TextInputType.phone:
-              status = !RegCore.phoneReg.hasMatch(text);
-              break;
-            default:
-          }
-        });
-      } else {
-        setState(() {
-          status = false;
-        });
-      }
-
-      widget.onChange?.call(controller.text);
+    final text = controller.text;
+    if (text.isNotEmpty) {
+      setState(() {
+        switch (widget.keyboardType) {
+          case TextInputType.emailAddress:
+            status = !RegCore.emailReg.hasMatch(text);
+            break;
+          case TextInputType.visiblePassword:
+            status = !RegCore.passwrodReg.hasMatch(text);
+            break;
+          case TextInputType.phone:
+            status = !RegCore.phoneReg.hasMatch(text);
+            break;
+          default:
+        }
+      });
+    } else {
+      setState(() {
+        status = false;
+      });
     }
+
+    widget.onChange?.call(controller.text);
+  }
 
   @override
   void didUpdateWidget(CustomFiled oldWidget) {
     setState(() {
-        status = widget.status ?? true;
+      status = widget.status ?? true;
     });
 
     super.didUpdateWidget(oldWidget);
@@ -108,6 +107,7 @@ class _CustomFiledState extends State<CustomFiled> {
                   passwordStatus
                       ? Assets.assetsImagesSvgIconIconEyeClosed
                       : Assets.assetsImagesSvgIconIconEye,
+                  // ignore: deprecated_member_use
                   color: context.customTheme?.fontColor,
                   width: 16,
                   height: 16,
@@ -159,7 +159,7 @@ class _CustomFiledState extends State<CustomFiled> {
           ///用来配置边框的样式
           borderSide: BorderSide(
             ///设置边框的颜色
-             color: context.customTheme?.fontColor ?? Colors.transparent,
+            color: context.customTheme?.fontColor ?? Colors.transparent,
 
             ///设置边框的粗细
             width: 2.0,

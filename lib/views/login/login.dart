@@ -1,10 +1,6 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:mp/animation/shank.ani.dart';
-import 'package:mp/components/custom.blur.dart';
 import 'package:mp/components/custom.checkbox.dart';
 import 'package:mp/components/custom.field.dart';
 import 'package:mp/constants/assets.dart';
