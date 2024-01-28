@@ -43,7 +43,7 @@ class _IndexAnnouncementState extends State<IndexAnnouncement> {
                       ),
                       child: UnconstrainedBox(
                         child: SvgPicture.asset(
-                          Assets.assetsImagesSvgIconNotify,
+                          Assets.assetsImagesSvgIconEveryDayNotify,
                           width: 20, height: 20,
                           color: context.customTheme?.purple,
                         ),

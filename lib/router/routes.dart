@@ -8,6 +8,8 @@ import 'package:mp/views/home/binds/binds.dart';
 import 'package:mp/views/home/home.dart';
 import 'package:mp/views/integration/binds/binds.dart';
 import 'package:mp/views/integration/integration.dart';
+import 'package:mp/views/invite/binds/binds.dart';
+import 'package:mp/views/invite/invite.dart';
 import 'package:mp/views/login/binds/binds.dart';
 import 'package:mp/views/login/login.dart';
 import 'package:mp/views/order/binds/binds.dart';
@@ -29,6 +31,7 @@ final class AppRoutes {
   static String buy = "/buy";
   static String integration = "/integration";
   static String webview = "/webview";
+  static String invite = "/invite";
 
   /// 需要登陆的页面 在GetPage middlewares: [AuthMiddleWare()]
   static var routes = [
@@ -75,5 +78,9 @@ final class AppRoutes {
         name: AppRoutes.webview,
         page: () => const AppWebviewPage(),
         binding: AppWebviewBinding()),
+    GetPage(
+        name: AppRoutes.invite,
+        page: () => const InvitePage(),
+        binding: InviteBinding()),
   ];
 }

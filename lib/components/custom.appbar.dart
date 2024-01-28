@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mp/extension/context.ext.dart';
 import 'package:mp/extension/widget.ext.dart';
+import 'package:mp/services/theme/theme.services.dart';
 
 class CustomAppBar extends StatefulWidget implements PreferredSizeWidget {
   final Widget? leading;
@@ -25,6 +26,17 @@ class CustomAppBar extends StatefulWidget implements PreferredSizeWidget {
 }
 
 class _CustomAppBarState extends State<CustomAppBar> {
+
+  setBringer() {
+    ThemeServices.to.updateStatusBar();
+  }
+
+  @override
+  void initState() {
+    setBringer();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return ColoredBox(
