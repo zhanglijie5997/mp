@@ -43,5 +43,8 @@
   "phoneTip": "Please enter phone number",
   "codeTip": "Please enter code",
   "phone": "Phone number",
-  "code": "Code"
+  "code": "Code",
+  "digitalCollection": "Collection",
+  "bindBox": "Box",
+  "noData": "No Data"
 }

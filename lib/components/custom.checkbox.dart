@@ -38,6 +38,7 @@ class _CustomCheckboxState extends State<CustomCheckbox> {
         padding: const EdgeInsets.all(2.0),
         child: SvgPicture.asset(
           Assets.assetsImagesSvgIconIconCheck1,
+          // ignore: deprecated_member_use
           color: status
               ? context.customTheme?.active ?? Colors.transparent
               : Colors.transparent,

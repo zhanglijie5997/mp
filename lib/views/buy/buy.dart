@@ -79,6 +79,7 @@ class BuyPage extends GetView<BuyController> {
                                                   .assetsImagesSvgIconIconIconCut,
                                               width: 20,
                                               height: 20,
+                                              // ignore: deprecated_member_use
                                               color: context
                                                   .textTheme.bodyMedium?.color,
                                             ),

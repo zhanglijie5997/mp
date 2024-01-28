@@ -2,8 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:mp/components/custom.appbar.dart';
+import 'package:mp/components/custom.nodata.dart';
+import 'package:mp/components/custom.refresh.dart';
 import 'package:mp/constants/assets.dart';
 import 'package:mp/extension/context.ext.dart';
+import 'package:mp/utils/event.utils.dart';
+import 'package:mp/views/home/components/index/components/announcement.dart';
+import 'package:mp/views/home/components/index/components/banner.dart';
+import 'package:mp/views/home/components/index/components/tabs.dart';
 import 'package:mp/views/home/controller/controller.dart';
 
 class HomeIndexPage extends StatefulWidget {
@@ -42,11 +48,36 @@ class _HomeIndexPageState extends State<HomeIndexPage>
           ),
         ),
         body: Container(
-          margin: EdgeInsets.only(top: context.mediaQueryPadding.top),
-          child:const  CustomScrollView(
-            slivers: [
-              // SliverPersistentHeader(floating: true, delegate: SliverHeader())
-            ],
+          padding: const EdgeInsets.symmetric(horizontal:  16.5),
+          child: CustomRefresh(
+          refresh: () {
+            return EventUtils.sleep(3.seconds);
+          },
+          child: NestedScrollView(
+              headerSliverBuilder: (c, child) {
+                return [
+                  SliverToBoxAdapter(
+                    child: HomeBanner(),
+                  ),
+                  SliverToBoxAdapter(
+                    child: IndexAnnouncement(),
+                  ),
+                  // 吸顶tabbar
+                  SliverPersistentHeader(
+                      floating: true,
+                      pinned: true,
+                      delegate: SliverTabHeader(
+                          tabs: controller.tabs,
+                          controller: controller.tabsController
+                      )
+                  ),
+                ];
+              },
+              body: CustomNoData()
+              // ListView.builder(
+              //   physics: const ClampingScrollPhysics(),
+              //   itemBuilder: (c, i) => Text("i")),
+            ),
           ),
         ));
   }
@@ -55,41 +86,4 @@ class _HomeIndexPageState extends State<HomeIndexPage>
   bool get wantKeepAlive => true;
 }
 
-class SliverHeader extends SliverPersistentHeaderDelegate {
-  @override
-  Widget build(
-      BuildContext context, double shrinkOffset, bool overlapsContent) {
-    return CustomAppBar(
-      background: Colors.transparent,
-      leading: Padding(
-        padding: const EdgeInsets.only(left: 16),
-        child: Text(
-          "Meta-U",
-          style: context.textTheme.bodyMedium
-              ?.copyWith(fontSize: 23, fontWeight: FontWeight.bold),
-        ),
-      ),
-      actions: Padding(
-        padding: const EdgeInsets.only(right: 16),
-        child: SvgPicture.asset(
-          Assets.assetsImagesSvgIconAccounment,
-          // ignore: deprecated_member_use
-          color: context.customTheme?.fontColor,
-          width: 26,
-          height: 26,
-        ),
-      ),
-    );
-  }
 
-  @override
-  double get maxExtent => 88;
-
-  @override
-  double get minExtent => 44;
-
-  @override
-  bool shouldRebuild(covariant SliverPersistentHeaderDelegate oldDelegate) {
-    return true;
-  }
-}

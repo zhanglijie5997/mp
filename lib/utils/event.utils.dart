@@ -24,7 +24,7 @@ class EventUtils {
   }
 
   /// 睡眠
-  static Future sleep(Duration delay) {
+  static Future<void> sleep(Duration delay) {
     return Future.delayed(delay);
   }
 }

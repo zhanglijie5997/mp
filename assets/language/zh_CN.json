@@ -43,5 +43,8 @@
   "phoneTip": "请输入手机号",
   "codeTip": "请输入验证码",
   "phone": "手机号",
-  "code": "密码"
+  "code": "密码",
+  "digitalCollection": "数字藏品",
+  "bindBox": "数字盲盒",
+  "noData": "暂无数据"
 }

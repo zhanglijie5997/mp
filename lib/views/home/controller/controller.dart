@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mp/constants/assets.dart';
+import 'package:mp/generated/locales.g.dart';
 import 'package:mp/models/home/navbar.model.dart';
 import 'package:mp/views/home/components/add/add.dart';
 import 'package:mp/views/home/components/index/index.dart';
 import 'package:mp/views/home/components/me/me.dart';
 import 'package:mp/views/home/components/search/search.dart';
 
-class HomeController extends GetxController {
+class HomeController extends GetxController with GetTickerProviderStateMixin{
   static HomeController get to => Get.find<HomeController>();
   final count = 0.obs;
   final tabbar = [
@@ -41,6 +42,10 @@ class HomeController extends GetxController {
   ];
 
   final tabController = PageController();
+
+  final tabs = [LocaleKeys.digitalCollection, LocaleKeys.bindBox];
+
+  late final tabsController = TabController(length: 2, vsync: this);
 
   ///  选中的tab
   final active = 0.obs;

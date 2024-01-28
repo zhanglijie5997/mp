@@ -31,7 +31,7 @@ class _CustomRefreshHeaderState extends State<CustomRefreshHeader>
         return Transform.scale(
           scale: (controller.value),
           child: SizedBox(
-            height: 80 * controller.value,
+            height: 50 * controller.value,
             child: Lottie.asset("assets/json/loading.json",
                 repeat: true,
                 width: 200,

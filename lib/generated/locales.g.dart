@@ -56,6 +56,9 @@ class LocaleKeys {
   static const codeTip = 'codeTip';
   static const phone = 'phone';
   static const code = 'code';
+  static const digitalCollection = 'digitalCollection';
+  static const bindBox = 'bindBox';
+  static const noData = 'noData';
 }
 
 class Locales {
@@ -105,6 +108,9 @@ class Locales {
     'codeTip': '请输入验证码',
     'phone': '手机号',
     'code': '密码',
+    'digitalCollection': '数字藏品',
+    'bindBox': '数字盲盒',
+    'noData': '暂无数据',
   };
   static const en_US = {
     'hello': 'hello',
@@ -152,5 +158,8 @@ class Locales {
     'codeTip': 'Please enter code',
     'phone': 'Phone number',
     'code': 'Code',
+    'digitalCollection': 'Collection',
+    'bindBox': 'Box',
+    'noData': 'No Data',
   };
 }
