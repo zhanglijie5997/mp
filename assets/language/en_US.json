@@ -46,5 +46,6 @@
   "code": "Code",
   "digitalCollection": "Collection",
   "bindBox": "Box",
-  "noData": "No Data"
+  "noData": "Empty",
+  "activity": "Activity"
 }

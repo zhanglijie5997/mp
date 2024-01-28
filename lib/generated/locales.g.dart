@@ -59,6 +59,7 @@ class LocaleKeys {
   static const digitalCollection = 'digitalCollection';
   static const bindBox = 'bindBox';
   static const noData = 'noData';
+  static const activity = 'activity';
 }
 
 class Locales {
@@ -110,7 +111,8 @@ class Locales {
     'code': '密码',
     'digitalCollection': '数字藏品',
     'bindBox': '数字盲盒',
-    'noData': '暂无数据',
+    'noData': '空空如也',
+    'activity': '活动',
   };
   static const en_US = {
     'hello': 'hello',
@@ -160,6 +162,7 @@ class Locales {
     'code': 'Code',
     'digitalCollection': 'Collection',
     'bindBox': 'Box',
-    'noData': 'No Data',
+    'noData': 'Empty',
+    'activity': 'Activity',
   };
 }

@@ -3,10 +3,10 @@ import 'package:get/get.dart';
 import 'package:mp/constants/assets.dart';
 import 'package:mp/generated/locales.g.dart';
 import 'package:mp/models/home/navbar.model.dart';
-import 'package:mp/views/home/components/add/add.dart';
+import 'package:mp/views/home/components/market/add.dart';
 import 'package:mp/views/home/components/index/index.dart';
 import 'package:mp/views/home/components/me/me.dart';
-import 'package:mp/views/home/components/search/search.dart';
+import 'package:mp/views/home/components/activity/activity.dart';
 
 class HomeController extends GetxController with GetTickerProviderStateMixin{
   static HomeController get to => Get.find<HomeController>();
@@ -36,8 +36,8 @@ class HomeController extends GetxController with GetTickerProviderStateMixin{
 
   final tabView = [
     const HomeIndexPage(),
-    const HomeSearchPage(),
-    const HomeAddPage(),
+    const HomeActivityPage(),
+    const HomeMarketPage(),
     const HomeMePage(),
   ];
 
