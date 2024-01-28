@@ -60,6 +60,13 @@ class LocaleKeys {
   static const bindBox = 'bindBox';
   static const noData = 'noData';
   static const activity = 'activity';
+  static const inviteFriends = 'inviteFriends';
+  static const shareFriends = 'shareFriends';
+  static const downloadimg = 'downloadimg';
+  static const myInvite = 'myInvite';
+  static const loading = 'loading';
+  static const success = 'success';
+  static const saveSucces = 'saveSucces';
 }
 
 class Locales {
@@ -113,6 +120,13 @@ class Locales {
     'bindBox': '数字盲盒',
     'noData': '空空如也',
     'activity': '活动',
+    'inviteFriends': '邀请好友',
+    'shareFriends': '分享好友',
+    'downloadimg': '下载图片',
+    'myInvite': '我的邀请',
+    'loading': '加载中',
+    'success': '操作成功',
+    'saveSucces': '保存成功',
   };
   static const en_US = {
     'hello': 'hello',
@@ -164,5 +178,12 @@ class Locales {
     'bindBox': 'Box',
     'noData': 'Empty',
     'activity': 'Activity',
+    'inviteFriends': 'Invite Friends',
+    'shareFriends': 'Share Friends',
+    'downloadimg': 'Download',
+    'myInvite': 'My Invite',
+    'loading': 'Loading',
+    'success': 'The operation is successful',
+    'saveSucces': 'Save success',
   };
 }

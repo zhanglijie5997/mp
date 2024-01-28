@@ -26,6 +26,10 @@ dependencies:
   flutter_inappwebview: ^6.0.0
   json_serializable: ^6.7.0
   loadmore: ^2.1.0
+  qr_flutter: ^4.1.0
+  image_gallery_saver: ^2.0.3
+  share_plus: ^7.2.1
+  uuid: ^4.3.3
   flutter:
     sdk: flutter
   flutter_localizations:

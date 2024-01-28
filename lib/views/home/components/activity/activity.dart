@@ -56,7 +56,10 @@ class HomeActivityPage extends GetView<HomeActivityController> {
                           borderRadius: 18.radius,
                           child: SizedBox(
                             height: 134,
-                            child: CustomImage(url: "https://cos.yanjie.art/platform/banner/1713810683965079552.jpg",),
+                            child: CustomImage(
+                              url: "https://cos.yanjie.art/platform/banner/1713810683965079552.jpg",
+                              fit: BoxFit.fitWidth,
+                            ),
                           ),
                         ),
                         Padding(

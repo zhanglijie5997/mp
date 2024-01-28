@@ -65,4 +65,16 @@ class BaseTheme {
   /// 底部导航背景
   static Color get navbarBgDark => '#ffffff'.color();
   static Color get navbarBgLight => '#ffffff'.color();
+
+  /// 邀请文字颜色
+  static Color get inviteTextDark => '#647AE0'.color();
+  static Color get inviteTextLight => '#647AE0'.color();
+
+  /// 邀请码颜色
+  static Color get inviteCodeTextDark => '#4459CC'.color();
+  static Color get inviteCodeTextLight => '#4459CC'.color();
+
+  /// 邀请码背景颜色
+  static Color get inviteCodeBgDark => '#DFE5FF'.color();
+  static Color get inviteCodeBgLight => '#DFE5FF'.color();
 }

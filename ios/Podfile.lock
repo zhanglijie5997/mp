@@ -13,19 +13,25 @@ PODS:
   - flutter_unionad (0.0.1):
     - Ads-CN-Beta (= 5.8.0.7)
     - Flutter
+  - image_gallery_saver (2.0.2):
+    - Flutter
   - OrderedSet (5.0.0)
   - path_provider_foundation (0.0.1):
     - Flutter
     - FlutterMacOS
   - permission_handler_apple (9.1.1):
     - Flutter
+  - share_plus (0.0.1):
+    - Flutter
 
 DEPENDENCIES:
   - Flutter (from `Flutter`)
   - flutter_inappwebview_ios (from `.symlinks/plugins/flutter_inappwebview_ios/ios`)
   - flutter_unionad (from `.symlinks/plugins/flutter_unionad/ios`)
+  - image_gallery_saver (from `.symlinks/plugins/image_gallery_saver/ios`)
   - path_provider_foundation (from `.symlinks/plugins/path_provider_foundation/darwin`)
   - permission_handler_apple (from `.symlinks/plugins/permission_handler_apple/ios`)
+  - share_plus (from `.symlinks/plugins/share_plus/ios`)
 
 SPEC REPOS:
   trunk:
@@ -39,19 +45,25 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/flutter_inappwebview_ios/ios"
   flutter_unionad:
     :path: ".symlinks/plugins/flutter_unionad/ios"
+  image_gallery_saver:
+    :path: ".symlinks/plugins/image_gallery_saver/ios"
   path_provider_foundation:
     :path: ".symlinks/plugins/path_provider_foundation/darwin"
   permission_handler_apple:
     :path: ".symlinks/plugins/permission_handler_apple/ios"
+  share_plus:
+    :path: ".symlinks/plugins/share_plus/ios"
 
 SPEC CHECKSUMS:
   Ads-CN-Beta: 10f45519e756d384f213484a0ddb28dc03ad5016
   Flutter: f04841e97a9d0b0a8025694d0796dd46242b2854
   flutter_inappwebview_ios: 97215cf7d4677db55df76782dbd2930c5e1c1ea0
   flutter_unionad: 431a65308b154a93486f58e9b9b6bc308cc79ccc
+  image_gallery_saver: cb43cc43141711190510e92c460eb1655cd343cb
   OrderedSet: aaeb196f7fef5a9edf55d89760da9176ad40b93c
   path_provider_foundation: 29f094ae23ebbca9d3d0cec13889cd9060c0e943
   permission_handler_apple: e76247795d700c14ea09e3a2d8855d41ee80a2e6
+  share_plus: c3fef564749587fc939ef86ffb283ceac0baf9f5
 
 PODFILE CHECKSUM: a9c0a79937f8e9ed1ac2fe8c300918c3f628ba50
 

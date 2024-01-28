@@ -29,6 +29,10 @@ class Assets {
   /// assets/images/image.png
   static const String assetsImagesImage = "assets/images/image.png";
 
+  /// Assets for assetsImagesInviteBg
+  /// assets/images/invite_bg.png
+  static const String assetsImagesInviteBg = "assets/images/invite_bg.png";
+
   /// Assets for assetsImagesLoginHand
   /// assets/images/login/hand.png
   static const String assetsImagesLoginHand = "assets/images/login/hand.png";

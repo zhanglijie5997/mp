@@ -49,6 +49,15 @@ class CustomTheme extends ThemeExtension<CustomTheme> {
 
   /// 底部导航背景
   Color? navbarBg;
+
+  /// 邀请文字颜色
+  Color? inviteText;
+
+  /// 邀请码颜色
+  Color? inviteCodeText;
+
+  /// 邀请码背景颜色
+  Color? inviteCodeBg;
   CustomTheme({
     /// 边框
     this.gray,
@@ -97,6 +106,15 @@ class CustomTheme extends ThemeExtension<CustomTheme> {
 
     /// 底部导航背景
     this.navbarBg,
+
+    /// 邀请文字颜色
+    this.inviteText,
+
+    /// 邀请码颜色
+    this.inviteCodeText,
+
+    /// 邀请码背景颜色
+    this.inviteCodeBg,
   });
   @override
   ThemeExtension<CustomTheme> copyWith({
@@ -116,6 +134,9 @@ class CustomTheme extends ThemeExtension<CustomTheme> {
     Color? homeTopLeft,
     Color? homeTopRight,
     Color? navbarBg,
+    Color? inviteText,
+    Color? inviteCodeText,
+    Color? inviteCodeBg,
   }) {
     return CustomTheme(
       gray: gray ?? this.gray,
@@ -134,6 +155,9 @@ class CustomTheme extends ThemeExtension<CustomTheme> {
       homeTopLeft: homeTopLeft ?? this.homeTopLeft,
       homeTopRight: homeTopRight ?? this.homeTopRight,
       navbarBg: navbarBg ?? this.navbarBg,
+      inviteText: inviteText ?? this.inviteText,
+      inviteCodeText: inviteCodeText ?? this.inviteCodeText,
+      inviteCodeBg: inviteCodeBg ?? this.inviteCodeBg,
     );
   }
 
@@ -160,6 +184,9 @@ class CustomTheme extends ThemeExtension<CustomTheme> {
         homeTopLeft: BaseTheme.homeTopLeftLight,
         homeTopRight: BaseTheme.homeTopRightLight,
         navbarBg: BaseTheme.navbarBgLight,
+        inviteText: BaseTheme.inviteTextLight,
+        inviteCodeText: BaseTheme.inviteCodeTextLight,
+        inviteCodeBg: BaseTheme.inviteCodeBgLight,
       );
   static CustomTheme get dark => CustomTheme(
         gray: BaseTheme.borderDark,
@@ -178,5 +205,8 @@ class CustomTheme extends ThemeExtension<CustomTheme> {
         homeTopLeft: BaseTheme.homeTopLeftDark,
         homeTopRight: BaseTheme.homeTopRightDark,
         navbarBg: BaseTheme.navbarBgDark,
+        inviteText: BaseTheme.inviteTextDark,
+        inviteCodeText: BaseTheme.inviteCodeTextDark,
+        inviteCodeBg: BaseTheme.inviteCodeBgDark,
       );
 }

@@ -47,5 +47,12 @@
   "digitalCollection": "Collection",
   "bindBox": "Box",
   "noData": "Empty",
-  "activity": "Activity"
+  "activity": "Activity",
+  "inviteFriends": "Invite Friends",
+  "shareFriends": "Share Friends",
+  "downloadimg": "Download",
+  "myInvite": "My Invite",
+  "loading": "Loading",
+  "success": "The operation is successful",
+  "saveSucces": "Save success"
 }

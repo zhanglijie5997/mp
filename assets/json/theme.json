@@ -94,5 +94,24 @@
       "light": "#ffffff",
       "///": "底部导航背景",
       "name": "navbarBg"
+    },
+    "inviteText": {
+      "dark": "#647AE0",
+      "light": "#647AE0",
+      "///": "邀请文字颜色",
+      "name": "inviteText"
+    },
+    "inviteCodeText": {
+      "dark": "#4459CC",
+      "light": "#4459CC",
+      "///": "邀请码颜色",
+      "name": "inviteCodeText"
+    },
+    "inviteCodeBg": {
+      "dark": "#DFE5FF",
+      "light": "#DFE5FF",
+      "///": "邀请码背景颜色",
+      "name": "inviteCodeBg"
     }
+
 }
