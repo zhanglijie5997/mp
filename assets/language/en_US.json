@@ -55,5 +55,8 @@
   "loading": "Loading",
   "success": "The operation is successful",
   "saveSucces": "Save success",
-  "copySuccess": "Copy success"
+  "copySuccess": "Copy success",
+  "everyDayTask": "Task",
+  "pointsMall": "Mall",
+  "everyDayAnnouncement": "Announcement"
 }

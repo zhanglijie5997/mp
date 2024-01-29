@@ -10,6 +10,7 @@ import 'package:mp/utils/event.utils.dart';
 import 'package:mp/views/home/components/index/components/announcement.dart';
 import 'package:mp/views/home/components/index/components/banner.dart';
 import 'package:mp/views/home/components/index/components/tabs.dart';
+import 'package:mp/views/home/components/index/components/tabview.dart';
 import 'package:mp/views/home/controller/controller.dart';
 
 class HomeIndexPage extends StatefulWidget {
@@ -73,7 +74,13 @@ class _HomeIndexPageState extends State<HomeIndexPage>
                   ),
                 ];
               },
-              body: CustomNoData()
+              body: TabBarView(
+                controller: controller.tabsController,
+                children: [
+                  IndexTabView(),
+                  IndexTabView()
+                ],
+              )
               // ListView.builder(
               //   physics: const ClampingScrollPhysics(),
               //   itemBuilder: (c, i) => Text("i")),

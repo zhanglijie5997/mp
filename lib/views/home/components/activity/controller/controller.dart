@@ -1,5 +1,7 @@
+import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:mp/constants/assets.dart';
+import 'package:mp/generated/locales.g.dart';
 import 'package:mp/router/routes.dart';
 class ActivityData {
   String? name;
@@ -29,25 +31,25 @@ class ActivityData {
 class HomeActivityController extends GetxController {
   final list = [
     ActivityData(
-      name: "每日任务",
+      name: LocaleKeys.everyDayTask,
       svgPath: Assets.assetsImagesSvgIconTask,
-      url: "https://www.baidu.com",
+      url: "https://blog.p2hp.com/archives/6605",
       type: 2,
     ),
     ActivityData(
-      name: "积分商城",
+      name: LocaleKeys.pointsMall,
       svgPath: Assets.assetsImagesSvgIconIntegra,
       url: "https://www.baidu.com",
       type: 2,
     ),
     ActivityData(
-      name: "每日公告",
+      name: LocaleKeys.everyDayAnnouncement,
       svgPath: Assets.assetsImagesSvgIconEveryDayNotify,
       url: "https://www.baidu.com",
       type: 2,
     ),
     ActivityData(
-      name: "邀请好友",
+      name: LocaleKeys.inviteFriends,
       svgPath: Assets.assetsImagesSvgIconInvite,
       url: AppRoutes.invite,
       type: 1,

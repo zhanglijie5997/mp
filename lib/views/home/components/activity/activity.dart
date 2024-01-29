@@ -82,7 +82,7 @@ class HomeActivityPage extends GetView<HomeActivityController> {
                                 children: [
                                   Padding(
                                     padding: const EdgeInsets.only(left: 16.0),
-                                    child: Text(element.name ?? "", style: context.textTheme.bodyMedium?.copyWith(
+                                    child: Text((element.name ?? "").tr, style: context.textTheme.bodyMedium?.copyWith(
                                       fontSize: 15, fontWeight: FontWeight.w600
                                     )),
                                   ),

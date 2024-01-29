@@ -13,12 +13,13 @@ class AppWebviewPage extends GetView<AppWebviewController> {
 
   @override
   Widget build(BuildContext context) {
-    return WillPopScope(
-      onWillPop: () async {
-        return false;
-      },
-      child: Obx(
-        () => Scaffold(
+    return Obx(
+      () => WillPopScope(
+        onWillPop: () async {
+          // return controller.canBack.value;
+          return false;
+        },
+        child: Scaffold(
           appBar: CustomAppBar(
             header: controller.title.value,
             leading: Container(
@@ -60,8 +61,9 @@ class AppWebviewPage extends GetView<AppWebviewController> {
                     keepAlive: InAppWebViewKeepAlive(),
                     initialUrlRequest:
                         URLRequest(url: WebUri(controller.webUri)),
-                    onProgressChanged: (webviewController, progress) {
-                      LogUtil.w("progress $progress");
+                    onProgressChanged: (webviewController, progress) async {
+                      final canBack = await webviewController.canGoBack();
+                      controller.canBack.value = canBack;
                       controller.progress.value =
                           double.parse(progress.toStringAsFixed(2));
                     },

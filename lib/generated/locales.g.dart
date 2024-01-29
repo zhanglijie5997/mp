@@ -68,6 +68,9 @@ class LocaleKeys {
   static const success = 'success';
   static const saveSucces = 'saveSucces';
   static const copySuccess = 'copySuccess';
+  static const everyDayTask = 'everyDayTask';
+  static const pointsMall = 'pointsMall';
+  static const everyDayAnnouncement = 'everyDayAnnouncement';
 }
 
 class Locales {
@@ -129,6 +132,9 @@ class Locales {
     'success': '操作成功',
     'saveSucces': '保存成功',
     'copySuccess': '复制成功',
+    'everyDayTask': '每日任务',
+    'pointsMall': '积分商城',
+    'everyDayAnnouncement': '每日公告',
   };
   static const en_US = {
     'hello': 'hello',
@@ -188,5 +194,8 @@ class Locales {
     'success': 'The operation is successful',
     'saveSucces': 'Save success',
     'copySuccess': 'Copy success',
+    'everyDayTask': 'Task',
+    'pointsMall': 'Mall',
+    'everyDayAnnouncement': 'Announcement',
   };
 }
