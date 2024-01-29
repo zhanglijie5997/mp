@@ -81,4 +81,12 @@ class BaseTheme {
   /// 个人页面背景
   static Color get meBgDark => '#F4F1FF'.color();
   static Color get meBgLight => '#F4F1FF'.color();
+
+  /// 搜索框背景色
+  static Color get marketSearchBgDark => '#F6F6FC'.color();
+  static Color get marketSearchBgLight => '#F6F6FC'.color();
+
+  /// 市场界面背景色
+  static Color get marketBgDark => '#f0f4ff'.color();
+  static Color get marketBgLight => '#f0f4ff'.color();
 }

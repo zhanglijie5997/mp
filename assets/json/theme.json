@@ -118,5 +118,17 @@
       "light": "#F4F1FF",
       "///": "个人页面背景",
       "name": "meBg"
+    },
+    "marketSearchBg": {
+      "dark": "#F6F6FC",
+      "light": "#F6F6FC",
+      "///": "搜索框背景色",
+      "name": "marketSearchBg"
+    },
+    "marketBg": {
+      "dark": "#f0f4ff",
+      "light": "#f0f4ff",
+      "///": "市场界面背景色",
+      "name": "marketBg"
     }
 }

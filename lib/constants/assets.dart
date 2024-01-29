@@ -85,6 +85,10 @@ class Assets {
   /// assets/images/svg/Icon/every_day_notify.svg
   static const String assetsImagesSvgIconEveryDayNotify = "assets/images/svg/Icon/every_day_notify.svg";
 
+  /// Assets for assetsImagesSvgIconFilter
+  /// assets/images/svg/Icon/filter.svg
+  static const String assetsImagesSvgIconFilter = "assets/images/svg/Icon/filter.svg";
+
   /// Assets for assetsImagesSvgIconHeaderBack
   /// assets/images/svg/Icon/header_back.svg
   static const String assetsImagesSvgIconHeaderBack = "assets/images/svg/Icon/header_back.svg";
@@ -388,6 +392,10 @@ class Assets {
   /// Assets for assetsImagesSvgIconInvite
   /// assets/images/svg/Icon/invite.svg
   static const String assetsImagesSvgIconInvite = "assets/images/svg/Icon/invite.svg";
+
+  /// Assets for assetsImagesSvgIconMarketSearch
+  /// assets/images/svg/Icon/market_search.svg
+  static const String assetsImagesSvgIconMarketSearch = "assets/images/svg/Icon/market_search.svg";
 
   /// Assets for assetsImagesSvgIconMe
   /// assets/images/svg/Icon/me.svg

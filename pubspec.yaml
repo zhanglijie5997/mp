@@ -30,6 +30,7 @@ dependencies:
   image_gallery_saver: ^2.0.3
   share_plus: ^7.2.1
   uuid: ^4.3.3
+  dartx: ^1.2.0
   flutter:
     sdk: flutter
   flutter_localizations:

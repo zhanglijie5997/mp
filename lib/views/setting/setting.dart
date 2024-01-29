@@ -251,7 +251,7 @@ class SettingPage extends GetView<SettingController> {
                                           borderRadius: 32.radius,
                                           child: CustomImage(
                                             url: e.img!,
-                                            size: Size(32, 32),
+                                            size: const Size(32, 32),
                                           ))
                                       : Text(e.value ?? ""),
                                   Visibility(
@@ -274,7 +274,7 @@ class SettingPage extends GetView<SettingController> {
               ),
             ),
             Container(
-              margin: EdgeInsets.symmetric(horizontal: 12, vertical: 10),
+              margin: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
               decoration: BoxDecoration(
                 color: context.customTheme?.navbarBg,
                 borderRadius: 16.radius,
