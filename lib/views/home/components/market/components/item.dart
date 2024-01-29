@@ -3,6 +3,8 @@ import 'package:get/get.dart';
 import 'package:mp/components/custom.image.dart';
 import 'package:mp/extension/context.ext.dart';
 import 'package:mp/extension/num.ext.dart';
+import 'package:mp/extension/widget.ext.dart';
+import 'package:mp/router/routes.dart';
 
 class MarketItem extends StatelessWidget {
   const MarketItem({super.key});
@@ -94,6 +96,8 @@ class MarketItem extends StatelessWidget {
               ))
         ],
       ),
-    );
+    ).onTap(() {
+      Get.toNamed("${AppRoutes.details}/2");
+    });
   }
 }

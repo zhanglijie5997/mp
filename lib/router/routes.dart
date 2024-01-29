@@ -16,6 +16,8 @@ import 'package:mp/views/order/binds/binds.dart';
 import 'package:mp/views/order/order.dart';
 import 'package:mp/views/orderDetail/binds/binds.dart';
 import 'package:mp/views/orderDetail/orderDetail.dart';
+import 'package:mp/views/realy/binds/binds.dart';
+import 'package:mp/views/realy/realy.dart';
 import 'package:mp/views/register/binds/binds.dart';
 import 'package:mp/views/register/register.dart';
 import 'package:mp/views/setting/binds/binds.dart';
@@ -38,6 +40,7 @@ final class AppRoutes {
   static String invite = "/invite";
   static String setting = "/setting";
   static String wallet = "/wallet";
+  static String realy = "/realy";
 
   /// 需要登陆的页面 在GetPage middlewares: [AuthMiddleWare()]
   static var routes = [
@@ -97,5 +100,9 @@ final class AppRoutes {
         name: AppRoutes.wallet,
         page: () => const WalletPage(),
         binding: WalletBinding()),
+    GetPage(
+        name: AppRoutes.realy,
+        page: () => const RealyPage(),
+        binding: RealyBinding()),
   ];
 }

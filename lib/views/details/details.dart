@@ -27,6 +27,7 @@ class DetailPage extends GetView<DetailsController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      // backgroundColor: Colors.transparent,
       body: Obx(
         () => CustomRefreshIndicator(
           onRefresh: () {
@@ -41,7 +42,7 @@ class DetailPage extends GetView<DetailsController> {
           },
           child: CustomScrollView(
               controller: controller.scrollController,
-              physics: const AlwaysScrollableScrollPhysics(),
+              physics: const BouncingScrollPhysics(),
               slivers: [
                 SliverAppBar(
                     systemOverlayStyle: ThemeServices.to.systemOverlay,
@@ -115,175 +116,182 @@ class DetailPage extends GetView<DetailsController> {
                           )),
                     )),
                 SliverToBoxAdapter(
-                  child: Column(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 15),
-                        child: MediaQuery.removePadding(
-                          context: context,
-                          removeTop: true,
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              // ClipRRect(
-                              //   borderRadius:13.radius,
-                              //   child: CustomImage(url: img, size: const Size(double.infinity, 366), fit: BoxFit.fitWidth,)
-                              // ),
-                              // 图片
-                              Container(
-                                padding:
-                                    const EdgeInsets.symmetric(vertical: 15),
-                                alignment: Alignment.centerLeft,
-                                child: Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Text("一枝梅",
-                                        style: context.textTheme.bodyLarge
-                                            ?.copyWith(
-                                                fontSize: 30,
-                                                fontWeight: FontWeight.bold)),
-                                    // 价格
-                                    Container(
-                                        padding: const EdgeInsets.only(
-                                            top: 15, left: 10, right: 5),
-                                        child: Row(
-                                          children: [
-                                            Padding(
-                                              padding: const EdgeInsets.only(
-                                                  top: 5.0, right: 4),
-                                              child: Text("市价",
-                                                  style: context
-                                                      .textTheme.bodyMedium
-                                                      ?.copyWith(
-                                                          fontSize: 12,
-                                                          fontWeight:
-                                                              FontWeight.bold,
-                                                          color: context
-                                                              .customTheme
-                                                              ?.gray3)),
-                                            ),
-                                            Padding(
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.horizontal(
+                      left: Radius.circular(12),
+                      right: Radius.circular(12),
+                    ),
+                    child: Column(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 15),
+
+                          child: MediaQuery.removePadding(
+                            context: context,
+                            removeTop: true,
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                // ClipRRect(
+                                //   borderRadius:13.radius,
+                                //   child: CustomImage(url: img, size: const Size(double.infinity, 366), fit: BoxFit.fitWidth,)
+                                // ),
+                                // 图片
+                                Container(
+                                  padding:
+                                      const EdgeInsets.symmetric(vertical: 15),
+                                  alignment: Alignment.centerLeft,
+                                  child: Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Text("一枝梅",
+                                          style: context.textTheme.bodyLarge
+                                              ?.copyWith(
+                                                  fontSize: 30,
+                                                  fontWeight: FontWeight.bold)),
+                                      // 价格
+                                      Container(
+                                          padding: const EdgeInsets.only(
+                                              top: 15, left: 10, right: 5),
+                                          child: Row(
+                                            children: [
+                                              Padding(
                                                 padding: const EdgeInsets.only(
-                                                    top: 4.0, right: 4),
-                                                child: Text(
-                                                  '¥',
-                                                  style: context
-                                                      .textTheme.bodyMedium
-                                                      ?.copyWith(
-                                                          fontSize: 12,
-                                                          fontWeight:
-                                                              FontWeight.bold),
-                                                )),
-                                            Text(
-                                              "100",
-                                              style: context
-                                                  .textTheme.bodyMedium
-                                                  ?.copyWith(
-                                                      fontSize: 20,
-                                                      fontWeight:
-                                                          FontWeight.bold),
-                                            ),
-                                          ],
-                                        ))
-                                  ],
-                                ),
-                              ),
-
-                              // 创作者
-                              Row(
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: [
-                                  ClipRRect(
-                                      borderRadius: 30.radius,
-                                      child: CustomImage(
-                                          url: img, size: const Size(30, 30))),
-                                  const SizedBox(
-                                    width: 10,
+                                                    top: 5.0, right: 4),
+                                                child: Text("市价",
+                                                    style: context
+                                                        .textTheme.bodyMedium
+                                                        ?.copyWith(
+                                                            fontSize: 12,
+                                                            fontWeight:
+                                                                FontWeight.bold,
+                                                            color: context
+                                                                .customTheme
+                                                                ?.gray3)),
+                                              ),
+                                              Padding(
+                                                  padding: const EdgeInsets.only(
+                                                      top: 4.0, right: 4),
+                                                  child: Text(
+                                                    '¥',
+                                                    style: context
+                                                        .textTheme.bodyMedium
+                                                        ?.copyWith(
+                                                            fontSize: 12,
+                                                            fontWeight:
+                                                                FontWeight.bold),
+                                                  )),
+                                              Text(
+                                                "100",
+                                                style: context
+                                                    .textTheme.bodyMedium
+                                                    ?.copyWith(
+                                                        fontSize: 20,
+                                                        fontWeight:
+                                                            FontWeight.bold),
+                                              ),
+                                            ],
+                                          ))
+                                    ],
                                   ),
-                                  Text(LocaleKeys.creator.tr,
-                                      style: context.textTheme.bodyMedium
-                                          ?.copyWith(
-                                              fontSize: 14,
-                                              fontWeight: FontWeight.bold)),
-                                  const SizedBox(
-                                    width: 5,
-                                  ),
-                                  const CustomVipText(
-                                    name: "XP",
-                                  )
-                                ],
-                              ),
-
-                              // 信息
-                              Padding(
-                                padding: const EdgeInsets.only(top: 10),
-                                child: Text(
-                                  "A handcrafted collection of 10,000 characters developed by artist DirtyRobot. Each with their own identity to be discovered within the wider stories of RENGA. In its purest form, RENGA is the art of storytelling. ",
-                                  style: context.textTheme.bodyMedium?.copyWith(
-                                      fontSize: 14,
-                                      color: context.textTheme.bodyMedium?.color
-                                          ?.withOpacity(.7)),
                                 ),
-                                // height: 600,
-                              ),
 
-                              // 作品简介
-                              Container(
-                                width: double.infinity,
-                                padding: const EdgeInsets.only(top: 20),
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  mainAxisAlignment: MainAxisAlignment.start,
+                                // 创作者
+                                Row(
+                                  crossAxisAlignment: CrossAxisAlignment.center,
                                   children: [
-                                    Row(
-                                      children: [
-                                        Container(
-                                          margin:
-                                              const EdgeInsets.only(right: 5),
-                                          width: 3,
-                                          height: 15,
-                                          decoration: BoxDecoration(
-                                              color:
-                                                  context.customTheme?.active,
-                                              borderRadius: 4.radius),
-                                        ),
-                                        Text(LocaleKeys.introduction.tr,
-                                            style: context.textTheme.bodyMedium
-                                                ?.copyWith(
-                                                    fontSize: 16,
-                                                    fontWeight:
-                                                        FontWeight.bold)),
-                                      ],
+                                    ClipRRect(
+                                        borderRadius: 30.radius,
+                                        child: CustomImage(
+                                            url: img, size: const Size(30, 30))),
+                                    const SizedBox(
+                                      width: 10,
                                     ),
-                                    Padding(
-                                      padding: const EdgeInsets.only(top: 8.0),
-                                      child: Text(
-                                        """
-A handcrafted collection of 10,000 characters developed by artist DirtyRobot. Each with their own identity to be discovered within the wider stories of RENGA. In its purest form, RENGA is the art of storytelling. 
-                                    A handcrafted collection of 10,000 characters developed by artist DirtyRobot. Each with their own identity to be discovered within the wider stories of RENGA. In its purest form, RENGA is the art of storytelling.
-                                    A handcrafted collection of 10,000 characters developed by artist DirtyRobot. Each with their own identity to be discovered within the wider stories of RENGA. In its purest form, RENGA is the art of storytelling.
-                                    A handcrafted collection of 10,000 characters developed by artist DirtyRobot. Each with their own identity to be discovered within the wider stories of RENGA. In its purest form, RENGA is the art of storytelling.
-                                    A handcrafted collection of 10,000 characters developed by artist DirtyRobot. Each with their own identity to be discovered within the wider stories of RENGA. In its purest form, RENGA is the art of storytelling.
-                                    A handcrafted collection of 10,000 characters developed by artist DirtyRobot. Each with their own identity to be discovered within the wider stories of RENGA. In its purest form, RENGA is the art of storytelling.
-                                    """,
+                                    Text(LocaleKeys.creator.tr,
                                         style: context.textTheme.bodyMedium
                                             ?.copyWith(
                                                 fontSize: 14,
-                                                color: context
-                                                    .textTheme.bodyMedium?.color
-                                                    ?.withOpacity(.7)),
-                                      ),
+                                                fontWeight: FontWeight.bold)),
+                                    const SizedBox(
+                                      width: 5,
+                                    ),
+                                    const CustomVipText(
+                                      name: "XP",
                                     )
                                   ],
                                 ),
-                              )
-                            ],
+
+                                // 信息
+                                Padding(
+                                  padding: const EdgeInsets.only(top: 10),
+                                  child: Text(
+                                    "A handcrafted collection of 10,000 characters developed by artist DirtyRobot. Each with their own identity to be discovered within the wider stories of RENGA. In its purest form, RENGA is the art of storytelling. ",
+                                    style: context.textTheme.bodyMedium?.copyWith(
+                                        fontSize: 14,
+                                        color: context.textTheme.bodyMedium?.color
+                                            ?.withOpacity(.7)),
+                                  ),
+                                  // height: 600,
+                                ),
+
+                                // 作品简介
+                                Container(
+                                  width: double.infinity,
+                                  padding: const EdgeInsets.only(top: 20),
+                                  child: Column(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    children: [
+                                      Row(
+                                        children: [
+                                          Container(
+                                            margin:
+                                                const EdgeInsets.only(right: 5),
+                                            width: 3,
+                                            height: 15,
+                                            decoration: BoxDecoration(
+                                                color:
+                                                    context.customTheme?.active,
+                                                borderRadius: 4.radius),
+                                          ),
+                                          Text(LocaleKeys.introduction.tr,
+                                              style: context.textTheme.bodyMedium
+                                                  ?.copyWith(
+                                                      fontSize: 16,
+                                                      fontWeight:
+                                                          FontWeight.bold)),
+                                        ],
+                                      ),
+                                      Padding(
+                                        padding: const EdgeInsets.only(top: 8.0),
+                                        child: Text(
+                                          """
+                    A handcrafted collection of 10,000 characters developed by artist DirtyRobot. Each with their own identity to be discovered within the wider stories of RENGA. In its purest form, RENGA is the art of storytelling. 
+                                      A handcrafted collection of 10,000 characters developed by artist DirtyRobot. Each with their own identity to be discovered within the wider stories of RENGA. In its purest form, RENGA is the art of storytelling.
+                                      A handcrafted collection of 10,000 characters developed by artist DirtyRobot. Each with their own identity to be discovered within the wider stories of RENGA. In its purest form, RENGA is the art of storytelling.
+                                      A handcrafted collection of 10,000 characters developed by artist DirtyRobot. Each with their own identity to be discovered within the wider stories of RENGA. In its purest form, RENGA is the art of storytelling.
+                                      A handcrafted collection of 10,000 characters developed by artist DirtyRobot. Each with their own identity to be discovered within the wider stories of RENGA. In its purest form, RENGA is the art of storytelling.
+                                      A handcrafted collection of 10,000 characters developed by artist DirtyRobot. Each with their own identity to be discovered within the wider stories of RENGA. In its purest form, RENGA is the art of storytelling.
+                                      """,
+                                          style: context.textTheme.bodyMedium
+                                              ?.copyWith(
+                                                  fontSize: 14,
+                                                  color: context
+                                                      .textTheme.bodyMedium?.color
+                                                      ?.withOpacity(.7)),
+                                        ),
+                                      )
+                                    ],
+                                  ),
+                                )
+                              ],
+                            ),
                           ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                 )
               ]),

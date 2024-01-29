@@ -7,9 +7,6 @@ import 'package:mp/components/custom.refresh.dart';
 import 'package:mp/constants/assets.dart';
 import 'package:mp/extension/context.ext.dart';
 import 'package:mp/extension/num.ext.dart';
-import 'package:mp/extension/string.ext.dart';
-import 'package:mp/utils/event.utils.dart';
-import 'package:mp/views/home/components/market/components/item.dart';
 import 'package:mp/views/home/components/market/components/tab.pageview.dart';
 import 'package:mp/views/home/components/market/controller/controller.dart';
 

@@ -19,7 +19,6 @@ class InvitePage extends GetView<InviteController> {
           key: controller.repaintBoundaryKey,
           child: Stack(
             children: [
-
               Column(
                 children: [
                   Image.asset(
