@@ -13,12 +13,12 @@ class SettingPage extends GetView<SettingController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: CustomAppBar(header: "设置"),
+        appBar: const CustomAppBar(header: "设置"),
         body: SingleChildScrollView(
             child: Column(
           children: [
             Container(
-              margin: EdgeInsets.symmetric(horizontal: 12, vertical: 10),
+              margin: const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
               decoration: BoxDecoration(
                 color: context.customTheme?.navbarBg,
                 borderRadius: 16.radius,
@@ -33,7 +33,7 @@ class SettingPage extends GetView<SettingController> {
               child: Column(
                 children: controller.list
                     .map((e) => Container(
-                          height: 46,
+
                           decoration: BoxDecoration(
                               border: Border(
                                   bottom: BorderSide(
@@ -41,7 +41,7 @@ class SettingPage extends GetView<SettingController> {
                                       color: (context.customTheme?.gray3 ??
                                               Colors.transparent)
                                           .withOpacity(.2)))),
-                          padding: const EdgeInsets.symmetric(horizontal: 12),
+                          padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 14),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             crossAxisAlignment: CrossAxisAlignment.center,
@@ -61,7 +61,9 @@ class SettingPage extends GetView<SettingController> {
                                             url: e.img!,
                                             size: Size(32, 32),
                                           ))
-                                      : Text(e.value ?? ""),
+                                      : Text(e.value ?? "", style: context.textTheme.bodyMedium?.copyWith(
+                                    fontSize: 14
+                                  )),
                                   Visibility(
                                       visible: e.svgPath != null,
                                       child: Padding(
@@ -69,8 +71,8 @@ class SettingPage extends GetView<SettingController> {
                                             const EdgeInsets.only(left: 3.0),
                                         child: SvgPicture.asset(
                                           e.svgPath!,
-                                          width: 10,
-                                          height: 10,
+                                          width: 13,
+                                          height: 13,
                                         ),
                                       ))
                                 ],
@@ -105,8 +107,8 @@ class SettingPage extends GetView<SettingController> {
                                       color: (context.customTheme?.gray3 ??
                                               Colors.transparent)
                                           .withOpacity(.2)))),
-                          padding: const EdgeInsets.symmetric(horizontal: 12),
-                          child: Row(
+                  padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 14),
+                  child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
@@ -169,8 +171,9 @@ class SettingPage extends GetView<SettingController> {
                                       color: (context.customTheme?.gray3 ??
                                               Colors.transparent)
                                           .withOpacity(.2)))),
-                          padding: const EdgeInsets.symmetric(horizontal: 12),
-                          child: Row(
+                  padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 14),
+
+                  child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
@@ -233,8 +236,9 @@ class SettingPage extends GetView<SettingController> {
                                       color: (context.customTheme?.gray3 ??
                                               Colors.transparent)
                                           .withOpacity(.2)))),
-                          padding: const EdgeInsets.symmetric(horizontal: 12),
-                          child: Row(
+                  padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 14),
+
+                  child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [

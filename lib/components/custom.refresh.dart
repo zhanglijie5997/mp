@@ -22,7 +22,7 @@ class _CustomRefreshState extends State<CustomRefresh> {
       onRefresh: () async{
         return await widget.refresh?.call();
       } , // Your refresh logic
-      offsetToArmed: 100,
+      offsetToArmed: 50,
       autoRebuild: false,
       builder: (BuildContext context, Widget child, IndicatorController controller) {
         return Column(
