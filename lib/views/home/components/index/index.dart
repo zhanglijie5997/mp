@@ -51,6 +51,7 @@ class _HomeIndexPageState extends State<HomeIndexPage>
         body: Container(
           padding: const EdgeInsets.symmetric(horizontal:  16.5),
           child: CustomRefresh(
+            length: 2,
           refresh: () {
             return EventUtils.sleep(3.seconds);
           },

@@ -17,6 +17,10 @@ class Assets {
   /// assets/images/home-active.svg
   static const String assetsImagesHomeActive = "assets/images/home-active.svg";
 
+  /// Assets for assetsImagesHomeListBottom
+  /// assets/images/home_list_bottom.png
+  static const String assetsImagesHomeListBottom = "assets/images/home_list_bottom.png";
+
   /// Assets for assetsImagesHomeTopLeft
   /// assets/images/home_top_left.png
   static const String assetsImagesHomeTopLeft = "assets/images/home_top_left.png";
