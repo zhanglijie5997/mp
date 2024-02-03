@@ -19,7 +19,7 @@ class _IndexAnnouncementState extends State<IndexAnnouncement> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 16.0),
+      padding: const EdgeInsets.only(top: 16.0),
       child: ClipRRect(
         borderRadius: 18.radius,
         child: Container(

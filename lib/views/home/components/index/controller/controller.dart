@@ -1,7 +1,5 @@
 import 'package:get/get.dart';
-import 'package:get_storage/get_storage.dart';
 import 'package:mp/api/home/home.request.dart';
-import 'package:mp/generated/locales.g.dart';
 import 'package:mp/models/accomoun_model/accomoun_model.dart';
 import 'package:mp/models/accomoun_params/accomoun_params.dart';
 import 'package:mp/models/home_banner_model/home_banner_model.dart';
@@ -13,15 +11,21 @@ class HomeIndexController extends GetxController {
 
   final announcementData = (const AccomounModel()).obs;
   final bannerData = (const HomeBannerModel()).obs;
-  getAccomoun() async {
+  Future getAccomoun() async {
     final res = await HomeRequest.apiAnnouncementList(
-        const AccomounParams(current: 1, row: 5));
+        const AccomounParams(current: 1, row: 5, type: ""));
+    
     announcementData.value = res.data!;
   }
 
-  getBannerData() async {
+  Future getBannerData() async {
     final res = await HomeRequest.apiRotationChartSelectRotationChartList();
     bannerData.value = res.data!;
+  }
+
+  onRefresh() {
+    LogUtil.w("refresh");
+    return Future.wait([getBannerData(),  getAccomoun()]);
   }
 
   @override

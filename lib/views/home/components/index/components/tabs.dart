@@ -9,6 +9,7 @@ class SliverTabHeader extends SliverPersistentHeaderDelegate {
   Widget build(
       BuildContext context, double shrinkOffset, bool overlapsContent) {
     return Container(
+      padding: const EdgeInsets.only(top: 16),
       color: context.theme.scaffoldBackgroundColor,
       child: TabBar(
           controller: controller,
@@ -22,7 +23,7 @@ class SliverTabHeader extends SliverPersistentHeaderDelegate {
   }
 
   @override
-  double get maxExtent => 44;
+  double get maxExtent => 60;
 
   @override
   double get minExtent => 44;

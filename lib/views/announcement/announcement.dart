@@ -3,10 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:mp/components/custom.appbar.dart';
+import 'package:mp/components/custom.refresh.dart';
 import 'package:mp/constants/assets.dart';
 import 'package:mp/extension/context.ext.dart';
 import 'package:mp/extension/num.ext.dart';
 import 'package:mp/extension/widget.ext.dart';
+import 'package:mp/utils/event.utils.dart';
+import 'package:mp/views/announcement/component/tabview.dart';
 import 'package:mp/views/announcement/controller/controller.dart';
 
 class AnnouncementPage extends GetView<AnnouncementController> {
@@ -101,7 +104,18 @@ class AnnouncementPage extends GetView<AnnouncementController> {
                   ).toList(),
                   isScrollable: true,
               ) : const SizedBox();
-            })
+            }),
+
+            Expanded(
+              child: Obx(
+                () => controller.tabData.value.data != null ? TabBarView(
+                  controller: controller.tabController,
+                  children: (controller.tabData.value.data ?? []).mapIndexed((i, e) =>
+                   AnnouncementTabView(data: e)
+                  ).toList()
+                ) : const SizedBox(),
+              )
+            )
           ],
         ));
   }

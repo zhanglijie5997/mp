@@ -19,7 +19,7 @@ class HomeRequest {
   static Future<ResponseModel<AccomounModel>> apiAnnouncementList(
       AccomounParams v) {
     return HttpUtil.fetchModel<AccomounModel>(FetchType.get,
-        url: ApiName.ApiAnnouncementList, body: v.toJson());
+        url: ApiName.ApiAnnouncementList, queryParameters: v.toJson());
   }
 
   /// banner列表

@@ -1,9 +1,10 @@
 import 'package:get/get.dart';
-import 'package:mp/views/announcement/controller/controller.dart';
+import 'package:mp/views/announcement_detail/controller/controller.dart';
 
 class AnnouncementDetailBinding implements Bindings {
 @override
 void dependencies() {
-  Get.lazyPut<AnnouncementController>(() => AnnouncementController());
+   final params = Get.parameters;
+  Get.lazyPut<AnnouncementDetailController>(() => AnnouncementDetailController(), tag: params['id']);
   }
 }

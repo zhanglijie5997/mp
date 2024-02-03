@@ -6,11 +6,11 @@ part 'accomoun_params.g.dart';
 class AccomounParams {
   final int? current;
   final int? row;
-
-  const AccomounParams({this.current, this.row});
+  final String? type;
+  const AccomounParams({this.current, this.row, this.type});
 
   @override
-  String toString() => 'AccomounParams(current: $current, row: $row)';
+  String toString() => 'AccomounParams(current: $current, row: $row, type: $type)';
 
   factory AccomounParams.fromJson(Map<String, dynamic> json) {
     return _$AccomounParamsFromJson(json);
@@ -21,10 +21,12 @@ class AccomounParams {
   AccomounParams copyWith({
     int? current,
     int? row,
+    String? type,
   }) {
     return AccomounParams(
       current: current ?? this.current,
       row: row ?? this.row,
+      type: type ?? this.type
     );
   }
 }

@@ -25,4 +25,8 @@ extension StringExt on String {
   T decode<T>() {
     return jsonDecode(this);
   }
+
+  String nowrap() {
+    return (Characters(this).join('\u{200B}'));
+  }
 }

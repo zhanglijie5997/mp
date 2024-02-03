@@ -59,9 +59,7 @@ class _HomeIndexPageState extends State<HomeIndexPage>
           padding: const EdgeInsets.symmetric(horizontal: 16.5),
           child: CustomRefresh(
             length: 2,
-            refresh: () {
-              return EventUtils.sleep(3.seconds);
-            },
+            refresh: indexController.onRefresh,
             child: NestedScrollView(
                 headerSliverBuilder: (c, child) {
                   return [
@@ -70,8 +68,11 @@ class _HomeIndexPageState extends State<HomeIndexPage>
                           HomeBanner(data: indexController.bannerData.value)),
                     ),
                     SliverToBoxAdapter(
-                      child: Obx(() => IndexAnnouncement(
-                          data: indexController.announcementData.value)),
+                      child: Obx(() => Visibility(
+                        visible:( indexController.announcementData.value.total  ?? 0 )> 0,
+                        child: IndexAnnouncement(
+                          data: indexController.announcementData.value)
+                        )),
                     ),
                     // 吸顶tabbar
                     SliverPersistentHeader(

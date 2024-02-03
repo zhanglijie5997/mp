@@ -104,6 +104,7 @@ class HttpUtil {
       CancelToken? cancelToken,
       bool Function(Json json)? modelFilter,
       bool toastError = true}) async {
+    _log(body);
     final Response<Json> response = await getResponse(
       fetchType,
       url: url,
