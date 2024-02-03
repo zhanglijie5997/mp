@@ -2,11 +2,25 @@
     {
         "url": "/home/list",
         "method": "post",
-        "desc": "首页列表"    
+        "desc": "首页列表",
+        "name": "/home/list"
     },
     {
-        "url": "/home/banner",
+        "url": "/api/announcement/list",
         "method": "get",
-        "desc": "首页banner"    
+        "desc": "公告",
+        "name": "/api/announcement/list"
+    },
+    {
+        "url": "/api/rotationChart/selectRotationChartList",
+        "method": "get",
+        "desc": "首页banner",
+        "name": "/api/rotationChart/selectRotationChartList"
+    },
+    {
+        "url": "/api/homePosition/selectNftHomePositionList",
+        "method": "get",
+        "desc": "金刚区",
+        "name": "/api/homePosition/selectNftHomePositionList"
     }
 ]

@@ -8,7 +8,7 @@ import 'package:mp/views/home/components/index/index.dart';
 import 'package:mp/views/home/components/me/me.dart';
 import 'package:mp/views/home/components/activity/activity.dart';
 
-class HomeController extends GetxController with GetTickerProviderStateMixin{
+class HomeController extends GetxController with GetTickerProviderStateMixin {
   static HomeController get to => Get.find<HomeController>();
   final count = 0.obs;
   final tabbar = [

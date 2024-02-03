@@ -35,8 +35,9 @@ class EventUtils {
   static Future<void> sleep(Duration delay) {
     return Future.delayed(delay);
   }
+
   /// 保存图片到相册
-  static saveImageToLibary(ByteData byteData) async{
+  static saveImageToLibary(ByteData byteData) async {
     /// 检测是否开启了相册权限
     final res = await Permission.phone.request();
     if (res.isDenied) {
@@ -44,25 +45,24 @@ class EventUtils {
       return;
     }
     try {
-      final res = await ImageGallerySaver.saveImage(byteData.buffer.asUint8List());
+      final res =
+          await ImageGallerySaver.saveImage(byteData.buffer.asUint8List());
       LogUtil.w("图片保存成功");
-    } catch(e) {
+    } catch (e) {
       LogUtil.w("保存失败");
     }
   }
-  /// 保存图片到沙盒
-  static saveImageToLocal({
-    required String name,
-    required ByteData byteData
-  }) async{
 
+  /// 保存图片到沙盒
+  static saveImageToLocal(
+      {required String name, required ByteData byteData}) async {
     final res = await Permission.storage.request();
     if (res.isDenied) {
       LogUtil.w("沙盒存储权限未开启，请开去沙盒权限");
       return;
     }
     final documentsDir = await getApplicationDocumentsDirectory();
-    final imgDir =  Directory('${documentsDir.path}/images');
+    final imgDir = Directory('${documentsDir.path}/images');
     final imgDirExits = await imgDir.exists();
     if (!imgDirExits) {
       await Directory('${documentsDir.path}/images').create();
@@ -73,6 +73,7 @@ class EventUtils {
     LogUtil.w(file.path);
     await Share.shareXFiles([XFile(file.path)]);
   }
+
   // 保存到剪贴板
   static saveToClipboard(String value) {
     Clipboard.setData(ClipboardData(text: value));

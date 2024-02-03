@@ -21,8 +21,8 @@ class MarketTab {
   }
 }
 
-
-class HomeMarketController extends GetxController with GetTickerProviderStateMixin{
+class HomeMarketController extends GetxController
+    with GetTickerProviderStateMixin {
   final tabList = [
     MarketTab(
       name: "数字藏品",
@@ -49,14 +49,14 @@ class HomeMarketController extends GetxController with GetTickerProviderStateMix
       type: 2,
     ),
   ].cast<MarketTab>().obs;
-  
-  final marketTabSelect = 0.obs;  
-  late TabController marketTabController = TabController(length: 3, vsync: this)..addListener(marketTabListener);
+
+  final marketTabSelect = 0.obs;
+  late TabController marketTabController = TabController(length: 3, vsync: this)
+    ..addListener(marketTabListener);
   marketTabListener() {
     LogUtil.w(marketTabController.index);
     marketTabSelect.value = marketTabController.index;
   }
-
 
   @override
   void onClose() {

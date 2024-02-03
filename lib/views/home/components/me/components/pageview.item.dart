@@ -60,25 +60,27 @@ class _MePageViewItemState extends State<MePageViewItem>
                       child: Row(
                         children: [
                           Container(
-                            child: Text('寄售10', style: context.textTheme.bodyMedium?.copyWith(
-                              fontSize: 12, color: context.customTheme?.navbarBg
-                            )),
-                            padding: EdgeInsets.symmetric(vertical: 2, horizontal: 4),
+                            child: Text('寄售10',
+                                style: context.textTheme.bodyMedium?.copyWith(
+                                    fontSize: 12,
+                                    color: context.customTheme?.navbarBg)),
+                            padding: EdgeInsets.symmetric(
+                                vertical: 2, horizontal: 4),
                             decoration: BoxDecoration(
-                              color: context.customTheme?.fontColor,
-                              borderRadius: 12.radius
-                            ),
+                                color: context.customTheme?.fontColor,
+                                borderRadius: 12.radius),
                           ),
                           Container(
                             margin: EdgeInsets.only(left: 5),
-                            child: Text('数量10', style: context.textTheme.bodyMedium?.copyWith(
-                                fontSize: 12, color: context.customTheme?.navbarBg
-                            )),
-                            padding: EdgeInsets.symmetric(vertical: 2, horizontal: 4),
+                            child: Text('数量10',
+                                style: context.textTheme.bodyMedium?.copyWith(
+                                    fontSize: 12,
+                                    color: context.customTheme?.navbarBg)),
+                            padding: EdgeInsets.symmetric(
+                                vertical: 2, horizontal: 4),
                             decoration: BoxDecoration(
                                 color: context.customTheme?.fontColor,
-                                borderRadius: 12.radius
-                            ),
+                                borderRadius: 12.radius),
                           ),
                         ],
                       ),

@@ -5,13 +5,14 @@ class ApiFileModel {
   String? url;
   String? method;
   String? desc;
-
-  ApiFileModel({this.url, this.method, this.desc});
+  String? name;
+  ApiFileModel({this.url, this.method, this.desc, this.name});
 
   ApiFileModel.fromJson(Map<String, dynamic> json) {
     url = json['url'];
     method = json['method'];
     desc = json['desc'];
+    name = json['name'];
   }
 
   Map<String, dynamic> toJson() {
@@ -19,6 +20,7 @@ class ApiFileModel {
     data['url'] = url;
     data['method'] = method;
     data['desc'] = desc;
+    data['name'] = name;
     return data;
   }
 }
@@ -38,7 +40,7 @@ void main() async{
   ''';
   for (var element in api) {
     String url = "";
-    element.url?.split("/").forEach((e) { 
+    ((element.name??element.url))?.split("/").forEach((e) {
       if (e.isNotEmpty) {
         if (e[0].runtimeType == String) {
           url += e[0].toUpperCase() + e.substring(1);

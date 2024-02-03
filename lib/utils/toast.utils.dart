@@ -5,12 +5,10 @@ import 'package:mp/extension/widget.ext.dart';
 
 class ToastUtils {
   static show(String value) {
-    SmartDialog.showToast(
-        value,
-      alignment: Alignment.center,
-      usePenetrate: false,
-      maskColor: Colors.transparent
-    );
+    SmartDialog.showToast(value,
+        alignment: Alignment.center,
+        usePenetrate: false,
+        maskColor: Colors.transparent);
   }
 
   static showLoading(String? msg) {

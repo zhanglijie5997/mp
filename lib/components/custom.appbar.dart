@@ -26,7 +26,6 @@ class CustomAppBar extends StatefulWidget implements PreferredSizeWidget {
 }
 
 class _CustomAppBarState extends State<CustomAppBar> {
-
   setBringer() {
     ThemeServices.to.updateStatusBar();
   }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter_swiper_view/flutter_swiper_view.dart';
 import 'package:get/get.dart';
 import 'package:mp/components/custom.appbar.dart';
 import 'package:mp/components/custom.nodata.dart';
@@ -11,6 +12,7 @@ import 'package:mp/views/home/components/index/components/announcement.dart';
 import 'package:mp/views/home/components/index/components/banner.dart';
 import 'package:mp/views/home/components/index/components/tabs.dart';
 import 'package:mp/views/home/components/index/components/tabview.dart';
+import 'package:mp/views/home/components/index/controller/controller.dart';
 import 'package:mp/views/home/controller/controller.dart';
 
 class HomeIndexPage extends StatefulWidget {
@@ -23,6 +25,7 @@ class HomeIndexPage extends StatefulWidget {
 class _HomeIndexPageState extends State<HomeIndexPage>
     with AutomaticKeepAliveClientMixin {
   final controller = HomeController.to;
+  final indexController = HomeIndexController.to;
   @override
   Widget build(BuildContext context) {
     super.build(context);
@@ -49,43 +52,40 @@ class _HomeIndexPageState extends State<HomeIndexPage>
           ),
         ),
         body: Container(
-          padding: const EdgeInsets.symmetric(horizontal:  16.5),
+          padding: const EdgeInsets.symmetric(horizontal: 16.5),
           child: CustomRefresh(
             length: 2,
-          refresh: () {
-            return EventUtils.sleep(3.seconds);
-          },
-          child: NestedScrollView(
-              headerSliverBuilder: (c, child) {
-                return [
-                  SliverToBoxAdapter(
-                    child: HomeBanner(),
-                  ),
-                  SliverToBoxAdapter(
-                    child: IndexAnnouncement(),
-                  ),
-                  // 吸顶tabbar
-                  SliverPersistentHeader(
-                      floating: true,
-                      pinned: true,
-                      delegate: SliverTabHeader(
-                          tabs: controller.tabs,
-                          controller: controller.tabsController
-                      )
-                  ),
-                ];
-              },
-              body: TabBarView(
-                controller: controller.tabsController,
-                children: [
-                  IndexTabView(),
-                  IndexTabView()
-                ],
-              )
-              // ListView.builder(
-              //   physics: const ClampingScrollPhysics(),
-              //   itemBuilder: (c, i) => Text("i")),
-            ),
+            refresh: () {
+              return EventUtils.sleep(3.seconds);
+            },
+            child: NestedScrollView(
+                headerSliverBuilder: (c, child) {
+                  return [
+                    SliverToBoxAdapter(
+                      child: Obx(() =>
+                          HomeBanner(data: indexController.bannerData.value)),
+                    ),
+                    SliverToBoxAdapter(
+                      child: Obx(() => IndexAnnouncement(
+                          data: indexController.announcementData.value)),
+                    ),
+                    // 吸顶tabbar
+                    SliverPersistentHeader(
+                        floating: true,
+                        pinned: true,
+                        delegate: SliverTabHeader(
+                            tabs: controller.tabs,
+                            controller: controller.tabsController)),
+                  ];
+                },
+                body: TabBarView(
+                  controller: controller.tabsController,
+                  children: [IndexTabView(), IndexTabView()],
+                )
+                // ListView.builder(
+                //   physics: const ClampingScrollPhysics(),
+                //   itemBuilder: (c, i) => Text("i")),
+                ),
           ),
         ));
   }
@@ -93,5 +93,3 @@ class _HomeIndexPageState extends State<HomeIndexPage>
   @override
   bool get wantKeepAlive => true;
 }
-
-

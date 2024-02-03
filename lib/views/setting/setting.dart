@@ -33,7 +33,6 @@ class SettingPage extends GetView<SettingController> {
               child: Column(
                 children: controller.list
                     .map((e) => Container(
-
                           decoration: BoxDecoration(
                               border: Border(
                                   bottom: BorderSide(
@@ -41,7 +40,8 @@ class SettingPage extends GetView<SettingController> {
                                       color: (context.customTheme?.gray3 ??
                                               Colors.transparent)
                                           .withOpacity(.2)))),
-                          padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 14),
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 14, vertical: 14),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             crossAxisAlignment: CrossAxisAlignment.center,
@@ -61,9 +61,9 @@ class SettingPage extends GetView<SettingController> {
                                             url: e.img!,
                                             size: Size(32, 32),
                                           ))
-                                      : Text(e.value ?? "", style: context.textTheme.bodyMedium?.copyWith(
-                                    fontSize: 14
-                                  )),
+                                      : Text(e.value ?? "",
+                                          style: context.textTheme.bodyMedium
+                                              ?.copyWith(fontSize: 14)),
                                   Visibility(
                                       visible: e.svgPath != null,
                                       child: Padding(
@@ -107,8 +107,9 @@ class SettingPage extends GetView<SettingController> {
                                       color: (context.customTheme?.gray3 ??
                                               Colors.transparent)
                                           .withOpacity(.2)))),
-                  padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 14),
-                  child: Row(
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 14, vertical: 14),
+                          child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
@@ -171,9 +172,9 @@ class SettingPage extends GetView<SettingController> {
                                       color: (context.customTheme?.gray3 ??
                                               Colors.transparent)
                                           .withOpacity(.2)))),
-                  padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 14),
-
-                  child: Row(
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 14, vertical: 14),
+                          child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
@@ -236,9 +237,9 @@ class SettingPage extends GetView<SettingController> {
                                       color: (context.customTheme?.gray3 ??
                                               Colors.transparent)
                                           .withOpacity(.2)))),
-                  padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 14),
-
-                  child: Row(
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 14, vertical: 14),
+                          child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [

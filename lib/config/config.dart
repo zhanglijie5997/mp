@@ -9,7 +9,7 @@ class AppConfig {
   static String get appName => "Meta-U";
 
   /// http请求基础路径
-  static String get httpUrl => "";
+  static String get httpUrl => "https://prodaiapi.hunanjiyun.com";
 
   /// http 请求超时时间
   static int get connectTimeout => 10000;

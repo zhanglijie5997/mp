@@ -7,12 +7,8 @@ class RealyPage extends GetView<RealyController> {
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
-    appBar: AppBar(title: Text('RealyPage')),
-
-    body: SafeArea(
-      child: Text('RealyController'))
-    );
+        appBar: AppBar(title: Text('RealyPage')),
+        body: SafeArea(child: Text('RealyController')));
   }
 }

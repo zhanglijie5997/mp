@@ -89,9 +89,9 @@ class MarketItem extends StatelessWidget {
                   ),
 
                   // 流通
-                  Text("流通1200份", style: context.textTheme.bodyMedium?.copyWith(
-                    fontSize: 11, color: context.customTheme?.gray3
-                  ))
+                  Text("流通1200份",
+                      style: context.textTheme.bodyMedium?.copyWith(
+                          fontSize: 11, color: context.customTheme?.gray3))
                 ],
               ))
         ],

@@ -70,39 +70,36 @@ class InvitePage extends GetView<InviteController> {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text(LocaleKeys.myInvite.tr, style: context.textTheme.bodyMedium?.copyWith(
-                        fontSize: 16, color: context.customTheme?.inviteText
-                      )),
+                      Text(LocaleKeys.myInvite.tr,
+                          style: context.textTheme.bodyMedium?.copyWith(
+                              fontSize: 16,
+                              color: context.customTheme?.inviteText)),
 
                       // 邀请码
                       Container(
-                        margin: const EdgeInsets.symmetric(
-                          vertical: 18
-                        ),
+                        margin: const EdgeInsets.symmetric(vertical: 18),
                         padding: const EdgeInsets.symmetric(
-                          vertical: 20, horizontal: 76
-                        ),
+                            vertical: 20, horizontal: 76),
                         decoration: BoxDecoration(
-                          borderRadius: 24.radius,
-                          color: context.customTheme?.inviteCodeBg
-
-                        ),
-                        child: Text("123456", style: context.textTheme?.bodyMedium?.copyWith(
-                          color: context.customTheme?.inviteCodeText, fontWeight: FontWeight.w500,
-                          fontSize: 26
-                        )),
+                            borderRadius: 24.radius,
+                            color: context.customTheme?.inviteCodeBg),
+                        child: Text("123456",
+                            style: context.textTheme?.bodyMedium?.copyWith(
+                                color: context.customTheme?.inviteCodeText,
+                                fontWeight: FontWeight.w500,
+                                fontSize: 26)),
                       ),
 
                       // 邀请码图片
                       Container(
-                        width: 165, height: 165,
+                        width: 165,
+                        height: 165,
                         decoration: BoxDecoration(
-                          borderRadius: 24.radius,
-                          border: Border.all(
-                            width: 7.5,
-                            color: context.customTheme?.inviteCodeBg ?? Colors.transparent
-                          )
-                        ),
+                            borderRadius: 24.radius,
+                            border: Border.all(
+                                width: 7.5,
+                                color: context.customTheme?.inviteCodeBg ??
+                                    Colors.transparent)),
                         child: ClipRRect(
                           borderRadius: 24.radius,
                           child: QrImageView(
@@ -114,8 +111,7 @@ class InvitePage extends GetView<InviteController> {
                         ),
                       )
                     ],
-                  )
-              ),
+                  )),
             ],
           ),
         ));

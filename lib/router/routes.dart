@@ -50,10 +50,10 @@ final class AppRoutes {
         binding: HomeBinding()),
     // middlewares: [AuthMiddleWare()]
     GetPage(
-        name: AppRoutes.order,
-        page: () => const OrderPage(),
-        binding: OrderBinding(),
-        // middlewares: [AuthMiddleWare()]
+      name: AppRoutes.order,
+      page: () => const OrderPage(),
+      binding: OrderBinding(),
+      // middlewares: [AuthMiddleWare()]
     ),
     GetPage(
         name: AppRoutes.login,

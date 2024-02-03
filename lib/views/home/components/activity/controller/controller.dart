@@ -1,8 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
+import 'package:mp/api/home/home.request.dart';
 import 'package:mp/constants/assets.dart';
 import 'package:mp/generated/locales.g.dart';
 import 'package:mp/router/routes.dart';
+import 'package:mp/utils/log.utils.dart';
+
 class ActivityData {
   String? name;
   String? svgPath;
@@ -29,6 +32,7 @@ class ActivityData {
 }
 
 class HomeActivityController extends GetxController {
+  static HomeActivityController get to => Get.find<HomeActivityController>();
   final list = [
     ActivityData(
       name: LocaleKeys.everyDayTask,
@@ -55,4 +59,17 @@ class HomeActivityController extends GetxController {
       type: 1,
     ),
   ].cast<ActivityData>().obs;
+
+  getListData() async{
+    final res = await HomeRequest.apiHomePositionSelectNftHomePositionList();
+    LogUtil.w(res.data);
+
+    LogUtil.w("getListData");
+  }
+
+  @override
+  void onInit() {
+    getListData();
+    super.onInit();
+  }
 }

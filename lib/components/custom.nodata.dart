@@ -16,7 +16,8 @@ class CustomNoData extends StatelessWidget {
       children: [
         SvgPicture.asset(
           Assets.assetsImagesSvgIconNodata,
-          width: 90, height: 90,
+          width: 90,
+          height: 90,
         ),
         Text(text ?? LocaleKeys.noData.tr)
       ],

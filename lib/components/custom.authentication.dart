@@ -16,7 +16,7 @@ class CustomAuthenticationWidget extends StatelessWidget {
     return Obx(() => !GlobalController.to.token.isNotEmpty
         ? loginWidget
         : notLoginWidget.onTap(() {
-      Get.toNamed(AppRoutes.login);
-    }));
+            Get.toNamed(AppRoutes.login);
+          }));
   }
 }

@@ -6,15 +6,10 @@ import 'package:mp/views/wallet/controller/controller.dart';
 class WalletPage extends GetView<WalletController> {
   const WalletPage({super.key});
 
-
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
-    appBar: CustomAppBar(header: "钱包"),
-
-    body: SafeArea(
-      child: Text('WalletController'))
-    );
+        appBar: CustomAppBar(header: "钱包"),
+        body: SafeArea(child: Text('WalletController')));
   }
 }

@@ -125,7 +125,6 @@ class DetailPage extends GetView<DetailsController> {
                       children: [
                         Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 15),
-
                           child: MediaQuery.removePadding(
                             context: context,
                             removeTop: true,
@@ -172,8 +171,9 @@ class DetailPage extends GetView<DetailsController> {
                                                                 ?.gray3)),
                                               ),
                                               Padding(
-                                                  padding: const EdgeInsets.only(
-                                                      top: 4.0, right: 4),
+                                                  padding:
+                                                      const EdgeInsets.only(
+                                                          top: 4.0, right: 4),
                                                   child: Text(
                                                     '¥',
                                                     style: context
@@ -181,7 +181,8 @@ class DetailPage extends GetView<DetailsController> {
                                                         ?.copyWith(
                                                             fontSize: 12,
                                                             fontWeight:
-                                                                FontWeight.bold),
+                                                                FontWeight
+                                                                    .bold),
                                                   )),
                                               Text(
                                                 "100",
@@ -205,7 +206,8 @@ class DetailPage extends GetView<DetailsController> {
                                     ClipRRect(
                                         borderRadius: 30.radius,
                                         child: CustomImage(
-                                            url: img, size: const Size(30, 30))),
+                                            url: img,
+                                            size: const Size(30, 30))),
                                     const SizedBox(
                                       width: 10,
                                     ),
@@ -228,10 +230,12 @@ class DetailPage extends GetView<DetailsController> {
                                   padding: const EdgeInsets.only(top: 10),
                                   child: Text(
                                     "A handcrafted collection of 10,000 characters developed by artist DirtyRobot. Each with their own identity to be discovered within the wider stories of RENGA. In its purest form, RENGA is the art of storytelling. ",
-                                    style: context.textTheme.bodyMedium?.copyWith(
-                                        fontSize: 14,
-                                        color: context.textTheme.bodyMedium?.color
-                                            ?.withOpacity(.7)),
+                                    style: context.textTheme.bodyMedium
+                                        ?.copyWith(
+                                            fontSize: 14,
+                                            color: context
+                                                .textTheme.bodyMedium?.color
+                                                ?.withOpacity(.7)),
                                   ),
                                   // height: 600,
                                 ),
@@ -241,7 +245,8 @@ class DetailPage extends GetView<DetailsController> {
                                   width: double.infinity,
                                   padding: const EdgeInsets.only(top: 20),
                                   child: Column(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
                                     mainAxisAlignment: MainAxisAlignment.start,
                                     children: [
                                       Row(
@@ -257,7 +262,8 @@ class DetailPage extends GetView<DetailsController> {
                                                 borderRadius: 4.radius),
                                           ),
                                           Text(LocaleKeys.introduction.tr,
-                                              style: context.textTheme.bodyMedium
+                                              style: context
+                                                  .textTheme.bodyMedium
                                                   ?.copyWith(
                                                       fontSize: 16,
                                                       fontWeight:
@@ -265,7 +271,8 @@ class DetailPage extends GetView<DetailsController> {
                                         ],
                                       ),
                                       Padding(
-                                        padding: const EdgeInsets.only(top: 8.0),
+                                        padding:
+                                            const EdgeInsets.only(top: 8.0),
                                         child: Text(
                                           """
                     A handcrafted collection of 10,000 characters developed by artist DirtyRobot. Each with their own identity to be discovered within the wider stories of RENGA. In its purest form, RENGA is the art of storytelling. 
@@ -278,8 +285,8 @@ class DetailPage extends GetView<DetailsController> {
                                           style: context.textTheme.bodyMedium
                                               ?.copyWith(
                                                   fontSize: 14,
-                                                  color: context
-                                                      .textTheme.bodyMedium?.color
+                                                  color: context.textTheme
+                                                      .bodyMedium?.color
                                                       ?.withOpacity(.7)),
                                         ),
                                       )

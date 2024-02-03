@@ -11,7 +11,8 @@ class MarketTabPageView extends StatefulWidget {
   State<MarketTabPageView> createState() => _MarketTabPageViewState();
 }
 
-class _MarketTabPageViewState extends State<MarketTabPageView> with AutomaticKeepAliveClientMixin {
+class _MarketTabPageViewState extends State<MarketTabPageView>
+    with AutomaticKeepAliveClientMixin {
   @override
   Widget build(BuildContext context) {
     super.build(context);
@@ -22,16 +23,11 @@ class _MarketTabPageViewState extends State<MarketTabPageView> with AutomaticKee
       child: GridView.builder(
         padding: const EdgeInsets.only(left: 12, top: 11, right: 12),
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 2,
-            crossAxisSpacing: 12,
-            childAspectRatio: 0.623
-        ),
+            crossAxisCount: 2, crossAxisSpacing: 12, childAspectRatio: 0.623),
         itemBuilder: (BuildContext context, int index) {
           return Padding(
-              padding: const EdgeInsets.only(bottom: 12),
-              child: MarketItem());
+              padding: const EdgeInsets.only(bottom: 12), child: MarketItem());
         },
-
       ),
     );
   }
