@@ -1,5 +1,9 @@
 import 'package:get/get.dart';
 import 'package:mp/middleware/auth.middleware.dart';
+import 'package:mp/views/announcement/announcement.dart';
+import 'package:mp/views/announcement/binds/binds.dart';
+import 'package:mp/views/announcement_detail/announcement_detail.dart';
+import 'package:mp/views/announcement_detail/binds/binds.dart';
 import 'package:mp/views/buy/binds/binds.dart';
 import 'package:mp/views/buy/buy.dart';
 import 'package:mp/views/details/binds/binds.dart';
@@ -14,8 +18,8 @@ import 'package:mp/views/login/binds/binds.dart';
 import 'package:mp/views/login/login.dart';
 import 'package:mp/views/order/binds/binds.dart';
 import 'package:mp/views/order/order.dart';
-import 'package:mp/views/orderDetail/binds/binds.dart';
-import 'package:mp/views/orderDetail/orderDetail.dart';
+import 'package:mp/views/order_detail/binds/binds.dart';
+import 'package:mp/views/order_detail/order_detail.dart';
 import 'package:mp/views/realy/binds/binds.dart';
 import 'package:mp/views/realy/realy.dart';
 import 'package:mp/views/register/binds/binds.dart';
@@ -41,6 +45,8 @@ final class AppRoutes {
   static String setting = "/setting";
   static String wallet = "/wallet";
   static String realy = "/realy";
+  static String announcement = "/announcement";
+  static String announcementDetail = "/announcementDetail";
 
   /// 需要登陆的页面 在GetPage middlewares: [AuthMiddleWare()]
   static var routes = [
@@ -104,5 +110,13 @@ final class AppRoutes {
         name: AppRoutes.realy,
         page: () => const RealyPage(),
         binding: RealyBinding()),
+    GetPage(
+        name: AppRoutes.announcement,
+        page: () => const AnnouncementPage(),
+        binding: AnnounmentBinding()),
+    GetPage(
+        name: "${AppRoutes.announcementDetail}/:id",
+        page: () => const AnnouncementDetailPage(),
+        binding: AnnouncementDetailBinding()),
   ];
 }

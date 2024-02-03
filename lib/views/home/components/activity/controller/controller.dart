@@ -60,7 +60,7 @@ class HomeActivityController extends GetxController {
     ),
   ].cast<ActivityData>().obs;
 
-  getListData() async{
+  getListData() async {
     final res = await HomeRequest.apiHomePositionSelectNftHomePositionList();
     LogUtil.w(res.data);
 

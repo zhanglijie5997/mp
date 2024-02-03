@@ -7,6 +7,8 @@ import 'package:mp/components/custom.nodata.dart';
 import 'package:mp/components/custom.refresh.dart';
 import 'package:mp/constants/assets.dart';
 import 'package:mp/extension/context.ext.dart';
+import 'package:mp/extension/widget.ext.dart';
+import 'package:mp/router/routes.dart';
 import 'package:mp/utils/event.utils.dart';
 import 'package:mp/views/home/components/index/components/announcement.dart';
 import 'package:mp/views/home/components/index/components/banner.dart';
@@ -49,7 +51,9 @@ class _HomeIndexPageState extends State<HomeIndexPage>
               width: 26,
               height: 26,
             ),
-          ),
+          ).onTap(() {
+            Get.toNamed(AppRoutes.announcement);
+          }),
         ),
         body: Container(
           padding: const EdgeInsets.symmetric(horizontal: 16.5),

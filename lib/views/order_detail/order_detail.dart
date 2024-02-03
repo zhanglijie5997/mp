@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mp/components/custom.appbar.dart';
-import 'package:mp/views/orderDetail/controller/controller.dart';
+import 'package:mp/views/order_detail/controller/controller.dart';
 
 class OrderDetailPage extends GetView<OrderDetailController> {
   const OrderDetailPage({super.key});

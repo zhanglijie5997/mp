@@ -22,5 +22,11 @@
         "method": "get",
         "desc": "金刚区",
         "name": "/api/homePosition/selectNftHomePositionList"
+    },
+    {
+        "url": "/api/announcement/type/selectAnnouncementTypeList",
+        "method": "get",
+        "desc": "公告Tab",
+        "name": "/api/announcement/type/selectAnnouncementTypeList"
     }
 ]

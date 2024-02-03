@@ -12,4 +12,8 @@ class ApiName {
   /// * 名称: 金刚区 请求方式: get
   static String get ApiHomePositionSelectNftHomePositionList =>
       "/api/homePosition/selectNftHomePositionList";
+
+  /// * 名称: 公告Tab 请求方式: get
+  static String get ApiAnnouncementTypeSelectAnnouncementTypeList =>
+      "/api/announcement/type/selectAnnouncementTypeList";
 }
