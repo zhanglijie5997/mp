@@ -10,7 +10,7 @@ AccomounParams _$AccomounParamsFromJson(Map<String, dynamic> json) =>
     AccomounParams(
       current: json['current'] as int?,
       row: json['row'] as int?,
-      type: json['type'] as String?
+      type: json['type'] as String?,
     );
 
 Map<String, dynamic> _$AccomounParamsToJson(AccomounParams instance) =>

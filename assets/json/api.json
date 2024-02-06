@@ -28,5 +28,17 @@
         "method": "get",
         "desc": "公告Tab",
         "name": "/api/announcement/type/selectAnnouncementTypeList"
+    },
+    {
+        "url": "/nft/market/getPlateList",
+        "method": "get",
+        "desc": "寄售市场二级分类",
+        "name": "/nft/market/getPlateList"
+    },
+    {
+        "url": "/nft/market/getConsignmentProductList",
+        "method": "post",
+        "desc": "寄售市场二级藏品列表",
+        "name": "/nft/market/getConsignmentProductList"
     }
 ]

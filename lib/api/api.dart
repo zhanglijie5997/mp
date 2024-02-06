@@ -16,4 +16,11 @@ class ApiName {
   /// * 名称: 公告Tab 请求方式: get
   static String get ApiAnnouncementTypeSelectAnnouncementTypeList =>
       "/api/announcement/type/selectAnnouncementTypeList";
+
+  /// * 名称: 寄售市场二级分类 请求方式: get
+  static String get NftMarketGetPlateList => "/nft/market/getPlateList";
+
+  /// * 名称: 寄售市场二级藏品列表 请求方式: get
+  static String get NftMarketGetConsignmentProductList =>
+      "/nft/market/getConsignmentProductList";
 }

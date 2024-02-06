@@ -3,11 +3,13 @@ import 'package:get/get.dart';
 import 'package:mp/components/custom.image.dart';
 import 'package:mp/extension/context.ext.dart';
 import 'package:mp/extension/num.ext.dart';
+import 'package:mp/extension/string.ext.dart';
 import 'package:mp/extension/widget.ext.dart';
 import 'package:mp/router/routes.dart';
-
+import 'package:mp/models/product_list_model/row.dart' as productListModelItem;
 class MarketItem extends StatelessWidget {
-  const MarketItem({super.key});
+  final productListModelItem.Row? item;
+  const MarketItem({super.key, this.item});
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +37,7 @@ class MarketItem extends StatelessWidget {
                 ClipRRect(
                   child: CustomImage(
                     url:
-                        "https://cos.yanjie.art/exhibition/paint/setting/1719606915065053184.jpg",
+                        item?.productCover ?? "",
                     size: Size(
                       169.5,
                       169.5,
@@ -50,7 +52,7 @@ class MarketItem extends StatelessWidget {
           // 名称
           Padding(
             padding: const EdgeInsets.only(left: 10, top: 12),
-            child: Text("温度系列暖心手办",
+            child: Text(item?.productName ?? "",
                 style: context.textTheme.bodyMedium
                     ?.copyWith(fontSize: 15, fontWeight: FontWeight.bold)),
           ),
@@ -64,7 +66,7 @@ class MarketItem extends StatelessWidget {
                     width: .5,
                     color: context.textTheme.bodyMedium?.color ??
                         Colors.transparent)),
-            child: Text("发行100",
+            child: Text("发行${item?.issueNumber}",
                 style: context.textTheme.bodyMedium?.copyWith(fontSize: 11)),
           ),
           // 价格/流通
@@ -82,14 +84,14 @@ class MarketItem extends StatelessWidget {
                               fontSize: 12,
                               fontWeight: FontWeight.w800,
                               height: 1.8)),
-                      Text("28",
+                      Text("${item?.price.toString().price()}",
                           style: context.textTheme.bodyMedium?.copyWith(
                               fontSize: 19, fontWeight: FontWeight.bold)),
                     ],
                   ),
 
                   // 流通
-                  Text("流通1200份",
+                  Text("流通${item?.circulateNumber}份",
                       style: context.textTheme.bodyMedium?.copyWith(
                           fontSize: 11, color: context.customTheme?.gray3))
                 ],
@@ -97,7 +99,9 @@ class MarketItem extends StatelessWidget {
         ],
       ),
     ).onTap(() {
-      Get.toNamed("${AppRoutes.details}/2");
+      if (item?.isResell == 1) {
+        Get.toNamed("${AppRoutes.details}/${item?.productId}");
+      }
     });
   }
 }

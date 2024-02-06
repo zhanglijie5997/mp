@@ -69,10 +69,12 @@ class _HomeIndexPageState extends State<HomeIndexPage>
                     ),
                     SliverToBoxAdapter(
                       child: Obx(() => Visibility(
-                        visible:( indexController.announcementData.value.total  ?? 0 )> 0,
-                        child: IndexAnnouncement(
-                          data: indexController.announcementData.value)
-                        )),
+                          visible:
+                              (indexController.announcementData.value.total ??
+                                      0) >
+                                  0,
+                          child: IndexAnnouncement(
+                              data: indexController.announcementData.value))),
                     ),
                     // 吸顶tabbar
                     SliverPersistentHeader(

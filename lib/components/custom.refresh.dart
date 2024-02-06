@@ -21,6 +21,7 @@ class _CustomRefreshState extends State<CustomRefresh> {
   Widget build(BuildContext context) {
     return CustomRefreshIndicator(
       notificationPredicate: (ScrollNotification notification) {
+        // LogUtil.w("notificationdepth__${notification.depth}" );
         return notification.depth == widget.length;
       },
       onRefresh: () async {

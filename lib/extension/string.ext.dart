@@ -29,4 +29,8 @@ extension StringExt on String {
   String nowrap() {
     return (Characters(this).join('\u{200B}'));
   }
+
+  String price() {
+    return this == "0" ? '--':this;
+  }
 }

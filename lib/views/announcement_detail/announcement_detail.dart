@@ -11,12 +11,8 @@ class AnnouncementDetailPage extends GetView<AnnouncementDetailController> {
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
-    appBar: CustomAppBar(header: controller.title),
-
-    body: SafeArea(
-      child: Text('AnnouncementDetailController'))
-    );
+        appBar: CustomAppBar(header: controller.title),
+        body: SafeArea(child: Text('AnnouncementDetailController')));
   }
 }

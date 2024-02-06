@@ -23,6 +23,7 @@ class MarketTab {
 
 class HomeMarketController extends GetxController
     with GetTickerProviderStateMixin {
+  static HomeMarketController get to => Get.find<HomeMarketController>();
   final tabList = [
     MarketTab(
       name: "数字藏品",

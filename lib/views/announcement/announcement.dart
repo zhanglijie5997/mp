@@ -30,9 +30,8 @@ class AnnouncementPage extends GetView<AnnouncementController> {
                   color: context.customTheme?.marketSearchBg,
                   border: Border.all(
                       width: 1,
-                      color: context.customTheme?.navbarBg ??
-                          Colors.transparent)
-              ),
+                      color:
+                          context.customTheme?.navbarBg ?? Colors.transparent)),
               child: Row(
                 children: [
                   SvgPicture.asset(
@@ -48,14 +47,13 @@ class AnnouncementPage extends GetView<AnnouncementController> {
                             border: InputBorder.none,
                             hintText: '请输入公告名称搜索',
                           ),
-                          style: context.textTheme.bodyMedium?.copyWith(
-                              fontWeight: FontWeight.w500
-                          ),
+                          style: context.textTheme.bodyMedium
+                              ?.copyWith(fontWeight: FontWeight.w500),
                         )
-                      // Text("搜索藏品/盲盒",
-                      //     style: context.textTheme.bodyMedium?.copyWith(
-                      //         fontSize: 13, color: context.customTheme?.gray3)),
-                    ),
+                        // Text("搜索藏品/盲盒",
+                        //     style: context.textTheme.bodyMedium?.copyWith(
+                        //         fontSize: 13, color: context.customTheme?.gray3)),
+                        ),
                   )
                 ],
               ),
@@ -63,59 +61,62 @@ class AnnouncementPage extends GetView<AnnouncementController> {
 
             // Tab导航
             Obx(() {
-              return controller.tabData.value.data != null ? TabBar(
-                labelPadding: const EdgeInsets.only(
-                    left: 12, right: 0, top: 5),
-                  tabAlignment: TabAlignment.start,
-                  controller: controller.tabController,
-                  indicatorColor: Colors.transparent,
-                  tabs: (controller.tabData.value.data ?? []).mapIndexed((i, e) =>
-                      Container(
-                        padding: const EdgeInsets.symmetric(
-                            vertical: 5, horizontal: 10),
-                        decoration: BoxDecoration(
-                          color: controller.tabSelect.value !=
-                              i
-                              ? context.customTheme?.navbarBg
-                              : context.customTheme?.fontColor,
-                          borderRadius: 25.radius,
-                          boxShadow: const [
-                            BoxShadow(
-                              color: Color.fromRGBO(
-                                  236, 236, 241, 0.6),
-                              offset: Offset(0, 5),
-                              blurRadius: 25,
-                            ),
-                          ],
-                        ),
-                        child: Text((controller.tabData.value.data ?? [])[i].name ?? "",
-                            style: context.textTheme.bodyMedium
-                                ?.copyWith(
-                              fontSize: 14,
-                              color: controller
-                                  .tabSelect.value == i
-                                  ? context.customTheme?.navbarBg
-                                  : context.customTheme?.fontColor,
-                            ))
-                        // Text((controller.tabData.value.data ?? [])[i].name ?? ""),
-                      ).onTap(() {
-                        controller.tabSelect.value = i;
-                      })
-                  ).toList(),
-                  isScrollable: true,
-              ) : const SizedBox();
+              return controller.tabData.value.data != null
+                  ? TabBar(
+                      labelPadding:
+                          const EdgeInsets.only(left: 12, right: 0, top: 5),
+                      tabAlignment: TabAlignment.start,
+                      controller: controller.tabController,
+                      indicatorColor: Colors.transparent,
+                      tabs: (controller.tabData.value.data ?? [])
+                          .mapIndexed((i, e) => Container(
+                                  padding: const EdgeInsets.symmetric(
+                                      vertical: 5, horizontal: 10),
+                                  decoration: BoxDecoration(
+                                    color: controller.tabSelect.value != i
+                                        ? context.customTheme?.navbarBg
+                                        : context.customTheme?.fontColor,
+                                    borderRadius: 25.radius,
+                                    boxShadow: const [
+                                      BoxShadow(
+                                        color:
+                                            Color.fromRGBO(236, 236, 241, 0.6),
+                                        offset: Offset(0, 5),
+                                        blurRadius: 25,
+                                      ),
+                                    ],
+                                  ),
+                                  child: Text(
+                                      (controller.tabData.value.data ?? [])[i]
+                                              .name ??
+                                          "",
+                                      style: context.textTheme.bodyMedium
+                                          ?.copyWith(
+                                        fontSize: 14,
+                                        color: controller.tabSelect.value == i
+                                            ? context.customTheme?.navbarBg
+                                            : context.customTheme?.fontColor,
+                                      ))
+                                  // Text((controller.tabData.value.data ?? [])[i].name ?? ""),
+                                  ).onTap(() {
+                                controller.tabSelect.value = i;
+                              }))
+                          .toList(),
+                      isScrollable: true,
+                    )
+                  : const SizedBox();
             }),
 
             Expanded(
-              child: Obx(
-                () => controller.tabData.value.data != null ? TabBarView(
-                  controller: controller.tabController,
-                  children: (controller.tabData.value.data ?? []).mapIndexed((i, e) =>
-                   AnnouncementTabView(data: e)
-                  ).toList()
-                ) : const SizedBox(),
-              )
-            )
+                child: Obx(
+              () => controller.tabData.value.data != null
+                  ? TabBarView(
+                      controller: controller.tabController,
+                      children: (controller.tabData.value.data ?? [])
+                          .mapIndexed((i, e) => AnnouncementTabView(data: e))
+                          .toList())
+                  : const SizedBox(),
+            ))
           ],
         ));
   }

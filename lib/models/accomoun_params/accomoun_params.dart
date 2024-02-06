@@ -10,7 +10,8 @@ class AccomounParams {
   const AccomounParams({this.current, this.row, this.type});
 
   @override
-  String toString() => 'AccomounParams(current: $current, row: $row, type: $type)';
+  String toString() =>
+      'AccomounParams(current: $current, row: $row, type: $type)';
 
   factory AccomounParams.fromJson(Map<String, dynamic> json) {
     return _$AccomounParamsFromJson(json);
@@ -24,9 +25,8 @@ class AccomounParams {
     String? type,
   }) {
     return AccomounParams(
-      current: current ?? this.current,
-      row: row ?? this.row,
-      type: type ?? this.type
-    );
+        current: current ?? this.current,
+        row: row ?? this.row,
+        type: type ?? this.type);
   }
 }

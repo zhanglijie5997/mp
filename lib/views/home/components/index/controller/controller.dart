@@ -14,7 +14,7 @@ class HomeIndexController extends GetxController {
   Future getAccomoun() async {
     final res = await HomeRequest.apiAnnouncementList(
         const AccomounParams(current: 1, row: 5, type: ""));
-    
+
     announcementData.value = res.data!;
   }
 
@@ -25,7 +25,7 @@ class HomeIndexController extends GetxController {
 
   onRefresh() {
     LogUtil.w("refresh");
-    return Future.wait([getBannerData(),  getAccomoun()]);
+    return Future.wait([getBannerData(), getAccomoun()]);
   }
 
   @override
