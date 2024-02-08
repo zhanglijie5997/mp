@@ -6,6 +6,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
 import 'package:mp/config/config.dart';
 import 'package:mp/constants/data.model.factories.dart';
+import 'package:mp/controller/global.controller.dart';
 import 'package:mp/extension/num.ext.dart';
 import 'package:mp/extension/string.ext.dart';
 import 'package:mp/models/response.dart';
@@ -354,6 +355,12 @@ class HttpUtil {
     }
     // 本地获取token，塞入请求头
     // final _user = Storage.read<AccountLoginRes>(StoreName.userMsg);
+    final token = GlobalController.to.token.value;
+    if (token.isNotEmpty) {
+      headers ??= <String, String?>{"token": token};
+    } else {
+      headers = {};
+    }
     // if (StorageUtils().token.isNotEmpty) {
     //   headers ??= <String, String?>{
     //     "token": StorageUtils.token,

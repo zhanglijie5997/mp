@@ -11,16 +11,16 @@ class CustomNoData extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          SvgPicture.asset(
-            Assets.assetsImagesSvgIconNodata,
-            width: 90,
-            height: 90,
-          ),
-          Text(text ?? LocaleKeys.noData.tr)
-        ],
+      crossAxisAlignment: CrossAxisAlignment.center,
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        SvgPicture.asset(
+          Assets.assetsImagesSvgIconNodata,
+          width: 90,
+          height: 90,
+        ),
+        Text(text ?? LocaleKeys.noData.tr)
+      ],
     );
   }
 }

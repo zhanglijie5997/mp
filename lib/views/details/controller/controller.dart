@@ -1,6 +1,8 @@
 import 'package:custom_refresh_indicator/custom_refresh_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:mp/api/product/product.dart';
+import 'package:mp/models/product_detail_model/product_detail_model.dart';
 
 class DetailsController extends GetxController {
   final params = Get.parameters;
@@ -10,6 +12,7 @@ class DetailsController extends GetxController {
   final scrollHeight = (0.0).obs;
   late final ScrollController scrollController = ScrollController();
   IndicatorController? refreshController;
+  final detail = (const ProductDetailModel()).obs;
   // 下拉刷新状态
   final refreshState = (IndicatorState.idle).obs;
   listener() {
@@ -23,6 +26,13 @@ class DetailsController extends GetxController {
         : res <= 0
             ? 0
             : res;
+  }
+
+  getData() async{
+    final res = await ProductRequest.nftMarketGetProductMintDetails(params['id'] ?? "");
+    if (res.data != null) {
+      detail.value = res.data!;
+    }
   }
 
   refreshListener() {
@@ -41,6 +51,7 @@ class DetailsController extends GetxController {
     WidgetsBinding.instance.addPersistentFrameCallback((timeStamp) {
       refreshController?.addListener(refreshListener);
     });
+    getData();
     scrollController.addListener(listener);
     super.onInit();
   }

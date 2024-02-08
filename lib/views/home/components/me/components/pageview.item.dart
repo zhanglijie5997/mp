@@ -1,11 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:get/get.dart';
+import 'package:mp/api/home/home.request.dart';
 import 'package:mp/components/custom.image.dart';
+import 'package:mp/components/custom.loaddata.dart';
 import 'package:mp/components/custom.refresh.dart';
 import 'package:mp/extension/context.ext.dart';
 import 'package:mp/extension/num.ext.dart';
 import 'package:mp/utils/event.utils.dart';
+import 'package:mp/utils/log.utils.dart';
+import 'package:mp/views/home/components/me/controller/controller.dart';
+import 'package:mp/models/user_product_list_model/datum.dart'
+    as userProductListModel;
 
 class MePageViewItem extends StatefulWidget {
   final int? status;
@@ -17,81 +23,119 @@ class MePageViewItem extends StatefulWidget {
 
 class _MePageViewItemState extends State<MePageViewItem>
     with AutomaticKeepAliveClientMixin {
+  List<userProductListModel.Datum>? list;
+  getData() async {
+    final userId = HomeMeController.to.user.value.data?.id;
+    final res = await HomeRequest.nftUserProductGetProductList(userId ?? "");
+    LogUtil.w(res.data);
+    setState(() {
+      list = [...(res.data?.data ?? [])];
+      LogUtil.w("length__${list?.length}");
+    });
+  }
+
+  @override
+  void initState() {
+    if (HomeMeController.to.user.value.data?.id != null) {
+      getData();
+    }
+    debounce(HomeMeController.to.user, (callback) {
+      getData();
+    });
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     super.build(context);
     return CustomRefresh(
       refresh: () {
-        return EventUtils.sleep(3.seconds);
+        return getData();
       },
-      child: ListView.builder(itemBuilder: (c, index) {
-        return Container(
-          margin: const EdgeInsets.only(top: 12, left: 12, right: 12),
-          padding: const EdgeInsets.all(12),
-          decoration: BoxDecoration(
-            borderRadius: 16.radius,
-            color: context.customTheme?.navbarBg,
-            boxShadow: const [
-              BoxShadow(
-                color: Color.fromRGBO(236, 236, 241, 0.6),
-                offset: Offset(0, 5),
-                blurRadius: 25,
-              ),
-            ],
-          ),
-          child: Row(
-            children: [
-              ClipRRect(
-                  borderRadius: 12.radius,
-                  child: CustomImage(
-                    url: "https://cos.yanjie.art/login/1698876641784233984.png",
-                    size: Size(78, 78),
-                  )),
-              Padding(
-                padding: const EdgeInsets.only(left: 10),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+      child: CustomLoadData(
+        length: list?.length,
+        top: 150,
+        bottom: 150,
+        child: ListView.builder(
+            padding: const EdgeInsets.only(bottom: 20),
+            itemCount: list?.length,
+            itemBuilder: (c, index) {
+              final item = list?[index];
+              return Container(
+                margin: const EdgeInsets.only(top: 12, left: 12, right: 12),
+                padding: const EdgeInsets.all(12),
+                decoration: BoxDecoration(
+                  borderRadius: 16.radius,
+                  color: context.customTheme?.navbarBg,
+                  boxShadow: const [
+                    BoxShadow(
+                      color: Color.fromRGBO(236, 236, 241, 0.6),
+                      offset: Offset(0, 5),
+                      blurRadius: 25,
+                    ),
+                  ],
+                ),
+                child: Row(
                   children: [
-                    Text("测试藏品",
-                        style: context.textTheme.bodyMedium?.copyWith(
-                            fontSize: 15, fontWeight: FontWeight.bold)),
+                    ClipRRect(
+                        borderRadius: 12.radius,
+                        child: CustomImage(
+                          url: item?.productCover ?? "",
+                          size: const Size(78, 78),
+                        )),
                     Padding(
-                      padding: EdgeInsets.only(top: 10),
-                      child: Row(
+                      padding: const EdgeInsets.only(left: 10),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Container(
-                            child: Text('寄售10',
-                                style: context.textTheme.bodyMedium?.copyWith(
-                                    fontSize: 12,
-                                    color: context.customTheme?.navbarBg)),
-                            padding: EdgeInsets.symmetric(
-                                vertical: 2, horizontal: 4),
-                            decoration: BoxDecoration(
-                                color: context.customTheme?.fontColor,
-                                borderRadius: 12.radius),
-                          ),
-                          Container(
-                            margin: EdgeInsets.only(left: 5),
-                            child: Text('数量10',
-                                style: context.textTheme.bodyMedium?.copyWith(
-                                    fontSize: 12,
-                                    color: context.customTheme?.navbarBg)),
-                            padding: EdgeInsets.symmetric(
-                                vertical: 2, horizontal: 4),
-                            decoration: BoxDecoration(
-                                color: context.customTheme?.fontColor,
-                                borderRadius: 12.radius),
-                          ),
+                          Text("${item?.productName}",
+                              style: context.textTheme.bodyMedium?.copyWith(
+                                  fontSize: 15, fontWeight: FontWeight.bold)),
+                          Padding(
+                            padding: const EdgeInsets.only(top: 10),
+                            child: Row(
+                              children: [
+                                Visibility(
+                                  visible: (item?.consignmentNumber ?? 0) > 0,
+                                  child: Container(
+                                    padding: const EdgeInsets.symmetric(
+                                        vertical: 2, horizontal: 4),
+                                    decoration: BoxDecoration(
+                                        color: context.customTheme?.fontColor,
+                                        borderRadius: 12.radius),
+                                    child: Text('寄售${item?.consignmentNumber}',
+                                        style: context.textTheme.bodyMedium
+                                            ?.copyWith(
+                                                fontSize: 12,
+                                                color: context
+                                                    .customTheme?.navbarBg)),
+                                  ),
+                                ),
+                                Container(
+                                  margin: const EdgeInsets.only(left: 5),
+                                  padding: const EdgeInsets.symmetric(
+                                      vertical: 2, horizontal: 4),
+                                  decoration: BoxDecoration(
+                                      color: context.customTheme?.fontColor,
+                                      borderRadius: 12.radius),
+                                  child: Text('数量${item?.sumNumber}',
+                                      style: context.textTheme.bodyMedium
+                                          ?.copyWith(
+                                              fontSize: 12,
+                                              color: context
+                                                  .customTheme?.navbarBg)),
+                                ),
+                              ],
+                            ),
+                          )
                         ],
                       ),
                     )
                   ],
                 ),
-              )
-            ],
-          ),
-        );
-      }),
+              );
+            }),
+      ),
     );
   }
 

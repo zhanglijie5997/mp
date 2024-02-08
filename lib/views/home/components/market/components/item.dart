@@ -7,6 +7,7 @@ import 'package:mp/extension/string.ext.dart';
 import 'package:mp/extension/widget.ext.dart';
 import 'package:mp/router/routes.dart';
 import 'package:mp/models/product_list_model/row.dart' as productListModelItem;
+
 class MarketItem extends StatelessWidget {
   final productListModelItem.Row? item;
   const MarketItem({super.key, this.item});
@@ -36,8 +37,7 @@ class MarketItem extends StatelessWidget {
               children: [
                 ClipRRect(
                   child: CustomImage(
-                    url:
-                        item?.productCover ?? "",
+                    url: item?.productCover ?? "",
                     size: Size(
                       169.5,
                       169.5,

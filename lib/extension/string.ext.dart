@@ -31,6 +31,10 @@ extension StringExt on String {
   }
 
   String price() {
-    return this == "0" ? '--':this;
+    return this == "0" ? '--' : this;
+  }
+
+  String address() {
+    return "${substring(0, 4)}***${substring(length - 6, length)}";
   }
 }

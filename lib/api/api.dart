@@ -20,7 +20,21 @@ class ApiName {
   /// * 名称: 寄售市场二级分类 请求方式: get
   static String get NftMarketGetPlateList => "/nft/market/getPlateList";
 
-  /// * 名称: 寄售市场二级藏品列表 请求方式: get
+  /// * 名称: 寄售市场二级藏品列表 请求方式: post
   static String get NftMarketGetConsignmentProductList =>
       "/nft/market/getConsignmentProductList";
+
+  /// * 名称: 个人信息 请求方式: get
+  static String get WxUser => "/wx/user";
+
+  /// * 名称: 数字藏品列表 请求方式: get
+  static String get NftUserProductGetProductList =>
+      "/nft/user/product/getProductList";
+
+  /// * 名称: 登陆 请求方式: post
+  static String get ApiAppLoginPhone => "/api/app/login/phone";
+
+  /// * 名称: 藏品详情 请求方式: get
+  static String get NftMarketGetProductMintDetails =>
+      "/nft/market/getProductMintDetails";
 }

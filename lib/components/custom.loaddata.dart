@@ -63,11 +63,12 @@ class _CustomLoadDataState extends State<CustomLoadData>
         : widget.length == 0
             ? SingleChildScrollView(
                 physics: const AlwaysScrollableScrollPhysics(),
-                child:  Container(
+                child: Container(
                     width: double.infinity,
-                    padding: EdgeInsets.only(bottom: widget.bottom ?? 0, top: widget.top ?? 0),
+                    padding: EdgeInsets.only(
+                        bottom: widget.bottom ?? 0, top: widget.top ?? 0),
                     child: const CustomNoData()),
-                )
+              )
             : widget.child ?? const SizedBox();
   }
 }

@@ -22,11 +22,11 @@ class _MarketTabPageViewState extends State<MarketTabPageView>
   int rows = 10;
   getData() async {
     LogUtil.w("message ${widget.platId}");
-    final res = await HomeRequest.nftMarketGetConsignmentProductList(NftMarketGetConsignmentProductListParams(
-      current: page, rows: rows, type: 1, plateId: widget.platId ?? ""
-    ));
+    final res = await HomeRequest.nftMarketGetConsignmentProductList(
+        NftMarketGetConsignmentProductListParams(
+            current: page, rows: rows, type: 1, plateId: widget.platId ?? ""));
     setState(() {
-      list =  res.data?.rows;
+      list = res.data?.rows;
     });
   }
 

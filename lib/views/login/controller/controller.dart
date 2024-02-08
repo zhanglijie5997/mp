@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:get/get.dart';
 import 'package:mp/animation/shank.ani.dart';
+import 'package:mp/api/login/login.dart';
+import 'package:mp/controller/global.controller.dart';
 import 'package:mp/core/reg.core.dart';
 import 'package:mp/router/routes.dart';
+import 'package:mp/utils/log.utils.dart';
 
 class LoginController extends GetxController {
   static LoginController get to => Get.find<LoginController>();
@@ -34,7 +38,7 @@ class LoginController extends GetxController {
   // 点击忘记密码
   handleForgetPassword() {}
   // 登陆
-  handleLogin() {
+  handleLogin() async {
     final emailRes = !RegCore.phoneReg.hasMatch(account.value);
     final passwordRes = !RegCore.passwrodReg.hasMatch(password.value);
     if (emailRes) {
@@ -53,6 +57,10 @@ class LoginController extends GetxController {
       privateKey.currentState?.play();
     }
     // 登陆
+    final res = await AppLoginRequest.apiAppLoginPhone(
+        UserPhoneLoginParams(phone: account.value, code: password.value));
+    GlobalController.to.changeUserMsg(res.data!);
+    LogUtil.w("登陆成功___${res.data?.data?.token}");
   }
 
   handleRegisterPage() {

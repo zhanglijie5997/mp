@@ -1,4 +1,5 @@
 import 'package:get_storage/get_storage.dart';
+import 'package:mp/utils/log.utils.dart';
 
 final class StorageKeys {
   static String lang = "lang";
@@ -16,9 +17,14 @@ class StorageUtils {
 
   StorageUtils._internal();
 
-  final GetStorage box = GetStorage('mp.storage');
+  final GetStorage box = GetStorage("meta-u");
 
-  ready<T>(String key) {
+  Future<bool> init() {
+    LogUtil.w("存储初始化成功");
+    return GetStorage.init();
+  }
+
+  T? ready<T>(String key) {
     return box.read<T>(key);
   }
 

@@ -10,7 +10,9 @@ import 'package:mp/extension/num.ext.dart';
 import 'package:mp/models/get_plate_list_model/get_plate_list_model.dart';
 import 'package:mp/views/home/components/market/components/tab.pageview.dart';
 import 'package:mp/views/home/components/market/controller/controller.dart';
-import 'package:mp/models/get_plate_list_model/datum.dart' as platListModelDatum;
+import 'package:mp/models/get_plate_list_model/datum.dart'
+    as platListModelDatum;
+
 class MarketParentPageView extends StatefulWidget {
   const MarketParentPageView({super.key});
 
@@ -34,10 +36,8 @@ class _MarketParentPageViewState extends State<MarketParentPageView>
     final res = await HomeRequest.nftMarketGetPlateList();
     setState(() {
       marketTabController?.removeListener(listener);
-      res.data?.data?.insert(0, const platListModelDatum.Datum(
-        name: "全部",
-        plateId: ""
-      ));
+      res.data?.data
+          ?.insert(0, const platListModelDatum.Datum(name: "全部", plateId: ""));
       data = res.data;
       marketTabController =
           TabController(length: res.data?.data?.length ?? 0, vsync: this);
@@ -51,12 +51,12 @@ class _MarketParentPageViewState extends State<MarketParentPageView>
     super.initState();
   }
 
-
   @override
   void dispose() {
     marketTabController?.removeListener(listener);
     super.dispose();
   }
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -104,71 +104,78 @@ class _MarketParentPageViewState extends State<MarketParentPageView>
               ),
             ],
           ),
-          child: data != null ? Column(
-            children: [
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Expanded(
-                    child: TabBar(
-                        padding: const EdgeInsets.only(bottom: 5),
-                        controller: marketTabController,
-                        isScrollable: true,
-                        tabAlignment: TabAlignment.start,
-                        labelPadding:
-                            const EdgeInsets.only(left: 12, right: 0, top: 16),
-                        indicatorColor: Colors.transparent,
-                        tabs: (data?.data ?? [])
-                            .mapIndexed((index, element) => Container(
-                                padding: const EdgeInsets.symmetric(
-                                    vertical: 5, horizontal: 10),
-                                decoration: BoxDecoration(
-                                  color: select != index
-                                      ? context.customTheme?.navbarBg
-                                      : context.customTheme?.fontColor,
-                                  borderRadius: 25.radius,
-                                  boxShadow: const [
-                                    BoxShadow(
-                                      color: Color.fromRGBO(236, 236, 241, 0.6),
-                                      offset: Offset(0, 5),
-                                      blurRadius: 25,
-                                    ),
-                                  ],
-                                ),
-                                child: Text(element.name ?? "",
-                                    style:
-                                        context.textTheme.bodyMedium?.copyWith(
-                                      fontSize: 14,
-                                      color: select == index
-                                          ? context.customTheme?.navbarBg
-                                          : context.customTheme?.fontColor,
-                                    ))))
-                            .toList()),
-                  ),
-                  Container(
-                    padding: const EdgeInsets.only(top: 5),
-                    width: 39,
-                    height: 37,
-                    child: UnconstrainedBox(
-                      child: SvgPicture.asset(
-                        Assets.assetsImagesSvgIconFilter,
-                        width: 18,
-                        height: 18,
-                      ),
+          child: data != null
+              ? Column(
+                  children: [
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Expanded(
+                          child: TabBar(
+                              padding: const EdgeInsets.only(bottom: 5),
+                              controller: marketTabController,
+                              isScrollable: true,
+                              tabAlignment: TabAlignment.start,
+                              labelPadding: const EdgeInsets.only(
+                                  left: 12, right: 0, top: 16),
+                              indicatorColor: Colors.transparent,
+                              tabs: (data?.data ?? [])
+                                  .mapIndexed((index, element) => Container(
+                                      padding: const EdgeInsets.symmetric(
+                                          vertical: 5, horizontal: 10),
+                                      decoration: BoxDecoration(
+                                        color: select != index
+                                            ? context.customTheme?.navbarBg
+                                            : context.customTheme?.fontColor,
+                                        borderRadius: 25.radius,
+                                        boxShadow: const [
+                                          BoxShadow(
+                                            color: Color.fromRGBO(
+                                                236, 236, 241, 0.6),
+                                            offset: Offset(0, 5),
+                                            blurRadius: 25,
+                                          ),
+                                        ],
+                                      ),
+                                      child: Text(element.name ?? "",
+                                          style: context.textTheme.bodyMedium
+                                              ?.copyWith(
+                                            fontSize: 14,
+                                            color: select == index
+                                                ? context.customTheme?.navbarBg
+                                                : context
+                                                    .customTheme?.fontColor,
+                                          ))))
+                                  .toList()),
+                        ),
+                        Container(
+                          padding: const EdgeInsets.only(top: 5),
+                          width: 39,
+                          height: 37,
+                          child: UnconstrainedBox(
+                            child: SvgPicture.asset(
+                              Assets.assetsImagesSvgIconFilter,
+                              width: 18,
+                              height: 18,
+                            ),
+                          ),
+                        )
+                      ],
                     ),
-                  )
-                ],
-              ),
-              Expanded(
-                  child: data?.data != null ? TabBarView(
-                controller: marketTabController,
-                children: (data?.data ?? [])
-                    .mapIndexed((i,element) =>
-                        MarketTabPageView(platId: data?.data?[i].plateId))
-                    .toList(),
-              ):const SizedBox())
-            ],
-          ): const CustomLoadData(),
+                    Expanded(
+                        child: data?.data != null
+                            ? TabBarView(
+                                controller: marketTabController,
+                                children: (data?.data ?? [])
+                                    .mapIndexed((i, element) =>
+                                        MarketTabPageView(
+                                            platId: data?.data?[i].plateId))
+                                    .toList(),
+                              )
+                            : const SizedBox())
+                  ],
+                )
+              : const CustomLoadData(),
         ))
       ],
     );

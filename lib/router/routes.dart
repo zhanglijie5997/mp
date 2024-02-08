@@ -6,6 +6,8 @@ import 'package:mp/views/announcement_detail/announcement_detail.dart';
 import 'package:mp/views/announcement_detail/binds/binds.dart';
 import 'package:mp/views/buy/binds/binds.dart';
 import 'package:mp/views/buy/buy.dart';
+import 'package:mp/views/consignment_list/binds/binds.dart';
+import 'package:mp/views/consignment_list/consignment_list.dart';
 import 'package:mp/views/details/binds/binds.dart';
 import 'package:mp/views/details/details.dart';
 import 'package:mp/views/home/binds/binds.dart';
@@ -47,7 +49,7 @@ final class AppRoutes {
   static String realy = "/realy";
   static String announcement = "/announcement";
   static String announcementDetail = "/announcementDetail";
-
+  static String consignmentDetail = "/consignmentDetail";
   /// 需要登陆的页面 在GetPage middlewares: [AuthMiddleWare()]
   static var routes = [
     GetPage(
@@ -56,11 +58,10 @@ final class AppRoutes {
         binding: HomeBinding()),
     // middlewares: [AuthMiddleWare()]
     GetPage(
-      name: AppRoutes.order,
-      page: () => const OrderPage(),
-      binding: OrderBinding(),
-      // middlewares: [AuthMiddleWare()]
-    ),
+        name: AppRoutes.order,
+        page: () => const OrderPage(),
+        binding: OrderBinding(),
+        middlewares: [AuthMiddleWare()]),
     GetPage(
         name: AppRoutes.login,
         page: () => const LoginPage(),
@@ -81,15 +82,18 @@ final class AppRoutes {
     GetPage(
         name: "${AppRoutes.orderDetail}/:id",
         page: () => const OrderDetailPage(),
-        binding: OrderDetailBinding()),
+        binding: OrderDetailBinding(),
+        middlewares: [AuthMiddleWare()]),
     GetPage(
         name: "${AppRoutes.buy}/:id",
         page: () => const BuyPage(),
-        binding: BuyBinding()),
+        binding: BuyBinding(),
+        middlewares: [AuthMiddleWare()]),
     GetPage(
         name: AppRoutes.integration,
         page: () => const IntegrationPage(),
-        binding: IntegrationBinding()),
+        binding: IntegrationBinding(),
+        middlewares: [AuthMiddleWare()]),
     GetPage(
         name: AppRoutes.webview,
         page: () => const AppWebviewPage(),
@@ -97,19 +101,23 @@ final class AppRoutes {
     GetPage(
         name: AppRoutes.invite,
         page: () => const InvitePage(),
-        binding: InviteBinding()),
+        binding: InviteBinding(),
+        middlewares: [AuthMiddleWare()]),
     GetPage(
         name: AppRoutes.setting,
         page: () => const SettingPage(),
-        binding: SettingBinding()),
+        binding: SettingBinding(),
+        middlewares: [AuthMiddleWare()]),
     GetPage(
         name: AppRoutes.wallet,
         page: () => const WalletPage(),
-        binding: WalletBinding()),
+        binding: WalletBinding(),
+        middlewares: [AuthMiddleWare()]),
     GetPage(
         name: AppRoutes.realy,
         page: () => const RealyPage(),
-        binding: RealyBinding()),
+        binding: RealyBinding(),
+        middlewares: [AuthMiddleWare()]),
     GetPage(
         name: AppRoutes.announcement,
         page: () => const AnnouncementPage(),
@@ -118,5 +126,9 @@ final class AppRoutes {
         name: "${AppRoutes.announcementDetail}/:id",
         page: () => const AnnouncementDetailPage(),
         binding: AnnouncementDetailBinding()),
+    GetPage(
+        name: "${AppRoutes.consignmentDetail}/:id",
+        page: () => const ConsignmentPage(),
+        binding: ConsignmentBinding()),
   ];
 }

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:mp/extension/widget.ext.dart';
+import 'package:mp/utils/log.utils.dart';
 import 'package:mp/views/home/components/navbar.dart';
 import 'package:mp/views/home/controller/controller.dart';
 
@@ -24,6 +26,9 @@ class HomePage extends GetView<HomeController> {
               navbar: controller.tabbar,
               active: controller.active.value,
               change: controller.handleActive,
-            )));
+            ))).onTap(() {
+      LogUtil.w("message");
+      FocusScope.of(context).unfocus();
+    });
   }
 }

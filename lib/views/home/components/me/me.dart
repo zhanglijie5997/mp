@@ -6,14 +6,12 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:mp/components/custom.authentication.dart';
 import 'package:mp/components/custom.image.dart';
-import 'package:mp/components/custom.nodata.dart';
-import 'package:mp/components/custom.refresh.dart';
 import 'package:mp/constants/assets.dart';
 import 'package:mp/extension/context.ext.dart';
 import 'package:mp/extension/num.ext.dart';
+import 'package:mp/extension/string.ext.dart';
 import 'package:mp/extension/widget.ext.dart';
 import 'package:mp/generated/locales.g.dart';
-import 'package:mp/router/routes.dart';
 import 'package:mp/utils/event.utils.dart';
 import 'package:mp/utils/toast.utils.dart';
 import 'package:mp/views/home/components/me/components/pageview.item.dart';
@@ -24,6 +22,7 @@ class HomeMePage extends GetView<HomeMeController> {
       "https://static.ibox.art/file/oss/test/image/nft-goods/144ea876bf184bb180b9be8c7626e132.png?style=st6";
 
   const HomeMePage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -44,7 +43,7 @@ class HomeMePage extends GetView<HomeMeController> {
           ),
           SafeArea(
             child: Padding(
-              padding: EdgeInsets.all(0),
+              padding: const EdgeInsets.all(0),
               // padding: const EdgeInsets.only(top: 10, left: 16),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -81,84 +80,90 @@ class HomeMePage extends GetView<HomeMeController> {
                             ],
                           ),
                           child: UnconstrainedBox(
-                            child: ClipRRect(
-                              borderRadius: 30.radius,
-                              child: CustomImage(
-                                url:
-                                    "https://cos.yanjie.art/login/1698876641784233984.png",
-                                size: Size(58, 58),
-                                fit: BoxFit.fill,
-                              ),
-                            ),
+                            child: Obx(() {
+                              return ClipRRect(
+                                borderRadius: 30.radius,
+                                child: CustomImage(
+                                  url: controller.user.value.data?.avatar ?? "",
+                                  size: const Size(58, 58),
+                                  fit: BoxFit.fill,
+                                ),
+                              );
+                            }),
                           ),
                         ),
                         // 用户信息，未登陆显示登陆/注册
                         Padding(
                           padding: const EdgeInsets.only(left: 10),
                           child: CustomAuthenticationWidget(
-                            loginWidget: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Row(
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: [
-                                    Text("测试一号",
-                                        style: context.textTheme.bodyMedium
-                                            ?.copyWith(
-                                                fontSize: 18,
-                                                fontWeight: FontWeight.w600)),
-                                    Container(
-                                      margin: const EdgeInsets.only(left: 8),
-                                      padding: const EdgeInsets.symmetric(
-                                          horizontal: 6, vertical: 2),
-                                      decoration: BoxDecoration(
-                                          borderRadius: 50.radius,
-                                          color:
-                                              context.customTheme?.fontColor),
-                                      child: Text('未实名',
-                                          style: context.textTheme.bodyMedium
-                                              ?.copyWith(
-                                                  fontSize: 11,
-                                                  color: context
-                                                      .customTheme?.navbarBg)),
-                                    )
-                                    // SvgPicture.asset(
-                                    //   Assets.assetsImagesSvgIconCopy,
-                                    //   width: 13, height: 13,
-                                    //   color: Colors.red,
-                                    // )
-                                  ],
-                                ),
-
-                                //   钱包地址
-                                Padding(
-                                  padding: const EdgeInsets.only(top: 4.0),
-                                  child: Row(
+                            loginWidget: Obx(() {
+                              final user = controller.user.value.data;
+                              return Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Row(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
                                     children: [
-                                      Text("区块链地址：254d4e4rerr4t4414c11df4",
+                                      Text(user?.nickName ?? "",
                                           style: context.textTheme.bodyMedium
                                               ?.copyWith(
-                                                  color: context
-                                                      .customTheme?.gray3,
-                                                  fontSize: 13)),
-                                      Padding(
-                                        padding:
-                                            const EdgeInsets.only(left: 3.0),
-                                        child: SvgPicture.asset(
-                                          Assets.assetsImagesSvgIconCopy,
-                                          width: 13,
-                                          height: 13,
-                                        ),
+                                                  fontSize: 18,
+                                                  fontWeight: FontWeight.w600)),
+                                      Container(
+                                        margin: const EdgeInsets.only(left: 8),
+                                        padding: const EdgeInsets.symmetric(
+                                            horizontal: 6, vertical: 2),
+                                        decoration: BoxDecoration(
+                                            borderRadius: 50.radius,
+                                            color:
+                                                context.customTheme?.fontColor),
+                                        child: Text('未实名',
+                                            style: context.textTheme.bodyMedium
+                                                ?.copyWith(
+                                                    fontSize: 11,
+                                                    color: context.customTheme
+                                                        ?.navbarBg)),
                                       )
+                                      // SvgPicture.asset(
+                                      //   Assets.assetsImagesSvgIconCopy,
+                                      //   width: 13, height: 13,
+                                      //   color: Colors.red,
+                                      // )
                                     ],
                                   ),
-                                ).onTap(() {
-                                  EventUtils.saveToClipboard(
-                                      "254d4e4rerr4t4414c11df4");
-                                  ToastUtils.show(LocaleKeys.copySuccess.tr);
-                                })
-                              ],
-                            ),
+
+                                  //   钱包地址
+                                  Padding(
+                                    padding: const EdgeInsets.only(top: 4.0),
+                                    child: Row(
+                                      children: [
+                                        Text(
+                                            "区块链地址：${(user?.nftWalletAddress ?? '').address()} ",
+                                            style: context.textTheme.bodyMedium
+                                                ?.copyWith(
+                                                    color: context
+                                                        .customTheme?.gray3,
+                                                    fontSize: 13)),
+                                        Padding(
+                                          padding:
+                                              const EdgeInsets.only(left: 3.0),
+                                          child: SvgPicture.asset(
+                                            Assets.assetsImagesSvgIconCopy,
+                                            width: 13,
+                                            height: 13,
+                                          ),
+                                        )
+                                      ],
+                                    ),
+                                  ).onTap(() {
+                                    EventUtils.saveToClipboard(
+                                        user?.nftWalletAddress ?? "");
+                                    ToastUtils.show(LocaleKeys.copySuccess.tr);
+                                  })
+                                ],
+                              );
+                            }),
                             notLoginWidget: Padding(
                               padding: const EdgeInsets.only(left: 10.0),
                               child: Text("登陆/注册",

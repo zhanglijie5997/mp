@@ -40,5 +40,29 @@
         "method": "post",
         "desc": "寄售市场二级藏品列表",
         "name": "/nft/market/getConsignmentProductList"
+    },
+    {
+        "url": "/wx/user",
+        "method": "get",
+        "desc": "个人信息",
+        "name": "/wx/user"
+    },
+    {
+        "url": "/nft/user/product/getProductList",
+        "method": "get",
+        "desc": "数字藏品列表",
+        "name": "/nft/user/product/getProductList"
+    },
+    {
+        "url": "/api/app/login/phone",
+        "method": "post",
+        "desc": "登陆",
+        "name": "/api/app/login/phone"
+    },
+    {
+        "url": "/nft/market/getProductMintDetails",
+        "method": "get",
+        "desc": "藏品详情",
+        "name": "/nft/market/getProductMintDetails"
     }
 ]

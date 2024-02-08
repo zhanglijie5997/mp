@@ -4,8 +4,12 @@ import 'package:mp/models/get_plate_list_model/get_plate_list_model.dart';
 import 'package:mp/models/home_banner_model/home_banner_model.dart';
 import 'package:mp/models/home_list_model/home_list_model.dart';
 import 'package:mp/models/home_position_model/home_position_model.dart';
+import 'package:mp/models/product_detail_model/product_detail_model.dart';
 import 'package:mp/models/product_list_model/product_list_model.dart';
 import 'package:mp/models/response.dart';
+import 'package:mp/models/user_phone_login_model/user_phone_login_model.dart';
+import 'package:mp/models/user_product_list_model/user_product_list_model.dart';
+import 'package:mp/models/wx_user_model/wx_user_model.dart';
 
 typedef DataFactory<T> = T Function(Json json);
 
@@ -17,5 +21,9 @@ final Map<Type, DataFactory> dataModelFactories = <Type, DataFactory>{
   HomePositionModel: HomePositionModel.fromJson,
   AccomounTabListModel: AccomounTabListModel.fromJson,
   GetPlateListModel: GetPlateListModel.fromJson,
-  ProductListModel: ProductListModel.fromJson
+  ProductListModel: ProductListModel.fromJson,
+  WxUserModel: WxUserModel.fromJson,
+  UserProductListModel: UserProductListModel.fromJson,
+  UserPhoneLoginModel: UserPhoneLoginModel.fromJson,
+  ProductDetailModel: ProductDetailModel.fromJson
 };
