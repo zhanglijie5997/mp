@@ -37,4 +37,8 @@ class ApiName {
   /// * 名称: 藏品详情 请求方式: get
   static String get NftMarketGetProductMintDetails =>
       "/nft/market/getProductMintDetails";
+
+  /// * 名称: 寄售市场列表 请求方式: get
+  static String get NftMarketGetConsignmentList =>
+      "/nft/market/getConsignmentList";
 }

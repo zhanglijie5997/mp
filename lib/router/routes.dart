@@ -50,6 +50,7 @@ final class AppRoutes {
   static String announcement = "/announcement";
   static String announcementDetail = "/announcementDetail";
   static String consignmentDetail = "/consignmentDetail";
+
   /// 需要登陆的页面 在GetPage middlewares: [AuthMiddleWare()]
   static var routes = [
     GetPage(

@@ -24,7 +24,6 @@ class GlobalController extends GetxController {
       StorageUtils().save(GlobalStorageKey.userMsg, value.toJson().encode());
 
       LogUtil.w("value__${StorageUtils().ready(GlobalStorageKey.userMsg)}");
-
     } catch (err) {
       LogUtil.w("err__$err");
     }

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mp/components/custom.image.dart';
 import 'package:mp/extension/context.ext.dart';
+import 'package:mp/extension/map.ext.dart';
 import 'package:mp/extension/num.ext.dart';
 import 'package:mp/extension/string.ext.dart';
 import 'package:mp/extension/widget.ext.dart';
@@ -100,7 +101,7 @@ class MarketItem extends StatelessWidget {
       ),
     ).onTap(() {
       if (item?.isResell == 1) {
-        Get.toNamed("${AppRoutes.details}/${item?.productId}");
+        Get.toNamed("${AppRoutes.consignmentDetail}/${item?.productId}?detail=${item?.toJson().encode()}");
       }
     });
   }

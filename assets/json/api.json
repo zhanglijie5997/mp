@@ -64,5 +64,11 @@
         "method": "get",
         "desc": "藏品详情",
         "name": "/nft/market/getProductMintDetails"
+    },
+    {
+        "url": "/nft/market/getConsignmentList",
+        "method": "get",
+        "desc": "寄售市场列表",
+        "name": "/nft/market/getConsignmentList"
     }
 ]

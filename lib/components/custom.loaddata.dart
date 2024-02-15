@@ -8,8 +8,9 @@ class CustomLoadData extends StatefulWidget {
   final Widget? child;
   final double? top;
   final double? bottom;
+  final ScrollPhysics? physics;
   const CustomLoadData(
-      {super.key, this.child, this.length, this.top, this.bottom});
+      {super.key, this.child, this.length, this.top, this.bottom, this.physics});
 
   @override
   State<CustomLoadData> createState() => _CustomLoadDataState();
@@ -62,7 +63,7 @@ class _CustomLoadDataState extends State<CustomLoadData>
           })
         : widget.length == 0
             ? SingleChildScrollView(
-                physics: const AlwaysScrollableScrollPhysics(),
+                physics: widget.physics ?? const AlwaysScrollableScrollPhysics(),
                 child: Container(
                     width: double.infinity,
                     padding: EdgeInsets.only(

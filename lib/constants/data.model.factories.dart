@@ -1,5 +1,6 @@
 import 'package:mp/models/accomoun_model/accomoun_model.dart';
 import 'package:mp/models/accomoun_tab_list_model/accomoun_tab_list_model.dart';
+import 'package:mp/models/consignment_list_model/consignment_list_model.dart';
 import 'package:mp/models/get_plate_list_model/get_plate_list_model.dart';
 import 'package:mp/models/home_banner_model/home_banner_model.dart';
 import 'package:mp/models/home_list_model/home_list_model.dart';
@@ -25,5 +26,6 @@ final Map<Type, DataFactory> dataModelFactories = <Type, DataFactory>{
   WxUserModel: WxUserModel.fromJson,
   UserProductListModel: UserProductListModel.fromJson,
   UserPhoneLoginModel: UserPhoneLoginModel.fromJson,
-  ProductDetailModel: ProductDetailModel.fromJson
+  ProductDetailModel: ProductDetailModel.fromJson,
+  ConsignmentListModel: ConsignmentListModel.fromJson
 };

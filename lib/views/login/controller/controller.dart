@@ -7,6 +7,7 @@ import 'package:mp/controller/global.controller.dart';
 import 'package:mp/core/reg.core.dart';
 import 'package:mp/router/routes.dart';
 import 'package:mp/utils/log.utils.dart';
+import 'package:mp/views/home/components/me/controller/controller.dart';
 
 class LoginController extends GetxController {
   static LoginController get to => Get.find<LoginController>();
@@ -61,6 +62,8 @@ class LoginController extends GetxController {
         UserPhoneLoginParams(phone: account.value, code: password.value));
     GlobalController.to.changeUserMsg(res.data!);
     LogUtil.w("登陆成功___${res.data?.data?.token}");
+    HomeMeController.to.refresh();
+    Get.back();
   }
 
   handleRegisterPage() {

@@ -28,8 +28,9 @@ class DetailsController extends GetxController {
             : res;
   }
 
-  getData() async{
-    final res = await ProductRequest.nftMarketGetProductMintDetails(params['id'] ?? "");
+  getData() async {
+    final res =
+        await ProductRequest.nftMarketGetProductMintDetails(params['id'] ?? "");
     if (res.data != null) {
       detail.value = res.data!;
     }
