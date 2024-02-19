@@ -11,6 +11,7 @@ import 'package:mp/extension/num.ext.dart';
 import 'package:mp/extension/string.ext.dart';
 import 'package:mp/models/response.dart';
 import 'package:mp/utils/log.utils.dart';
+import 'package:mp/utils/storage.utils.dart';
 import 'package:mp/utils/toast.utils.dart';
 // ignore: depend_on_referenced_packages
 import 'package:path_provider/path_provider.dart';
@@ -510,6 +511,7 @@ class HttpUtil {
         switch (e.response?.statusCode) {
           case 401:
             LogUtil.w('未登陆');
+            GlobalController.to.removeUserMsg();
             break;
         }
         if (e.type == DioExceptionType.badResponse) {

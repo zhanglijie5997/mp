@@ -29,6 +29,12 @@ class GlobalController extends GetxController {
     }
   }
 
+  removeUserMsg() {
+    StorageUtils().remove(GlobalStorageKey.userMsg);
+    userMsg.value = (const UserPhoneLoginModel());
+    token.value = "";
+  }
+
   @override
   void onInit() {
     final res = (StorageUtils().ready<String>(GlobalStorageKey.userMsg));

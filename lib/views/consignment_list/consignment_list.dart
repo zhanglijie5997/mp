@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:custom_refresh_indicator/custom_refresh_indicator.dart';
+import 'package:dartx/dartx.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_popup/flutter_popup.dart';
 import 'package:flutter_svg/svg.dart';
@@ -255,119 +256,200 @@ class ConsignmentPage extends GetView<ConsignmentController> {
                           })),
                     )),
 
-                SliverFillRemaining(
-                  child: Obx(() {
-                    return Container(
-
-                      child: Column(
-                        // mainAxisAlignment: MainAxisAlignment.center,
+                SliverPersistentHeader(
+                    pinned: true,
+                    floating: true,
+                    delegate: SliverHeader(
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Padding(
-                            padding: const EdgeInsets.symmetric(
-                              vertical: 20
-                            ),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Row(
-                                  children: [
-                                    Text("价格排序", style: context.textTheme.bodyMedium?.copyWith(
-                                      fontSize: 14,
-                                    )),
+                          Row(
+                            children: [
+                              Text("价格排序", style: context.textTheme.bodyMedium?.copyWith(
+                                fontSize: 14,
+                              )),
 
-                                  ],
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.only(left: 33.7),
-                                  child: Row(
-                                    children: [
-                                      Text("编号排序", style: context.textTheme.bodyMedium?.copyWith(
-                                        fontSize: 14,
-                                      )),
-                                    ],
-                                  ),
-                                ),
-                               ],
-                            ),
+                            ],
                           ),
-                          // Text("${controller.data.value.rows?.length}"),
-                          Expanded(
-                            child: CustomLoadData(
-                              top: 200,
-                              physics: const ClampingScrollPhysics(),
-                              child: ListView.builder(
-                                physics: const ClampingScrollPhysics(),
-                                // physics: const NeverScrollableScrollPhysics(),
-                                padding: const EdgeInsets.all(0),
-                                itemCount: controller.data.value.rows?.length,
-                                itemBuilder: (BuildContext context, int index) {
-                                  return Container(
-                                    margin: const EdgeInsets.fromLTRB(
-                                      12, 0, 12, 12
-                                    ),
-                                    // height: 50,
-                                    width: double.infinity,
-                                    decoration: BoxDecoration(
-                                      borderRadius: 16.radius,
-                                      color: context.customTheme?.navbarBg,
-                                      boxShadow: const [
-                                        BoxShadow(
-                                          color: Color.fromRGBO(
-                                              0, 0, 0, 0.06),
-                                          offset: Offset(0, 0),
-                                          blurRadius: 20,
-                                        ),
-                                      ],
-                                    ),
-                                    child: Row(
-                                      crossAxisAlignment: CrossAxisAlignment.start,
-                                      children: [
-                                        Column(
-                                          crossAxisAlignment: CrossAxisAlignment.start,
-                                          children: [
-                                            Container(
-                                              child: Row(
-                                                children: [
-                                                  Container(
-                                                    child: Text("寄售", style: context.textTheme.bodyMedium?.copyWith(
-                                                      color: context.customTheme?.navbarBg,
-                                                    )),
-                                                    padding: const EdgeInsets.symmetric(
-                                                      vertical: 3, horizontal: 5
-                                                    ),
-                                                    decoration: BoxDecoration(
-                                                      color: context.textTheme.bodyMedium?.color,
-                                                      borderRadius: 4.radius,
-
-                                                    ),
-                                                  ),
-                                                ],
-                                              ),
-                                              decoration: BoxDecoration(
-
-                                              ),
-                                              padding: EdgeInsets.symmetric(
-                                                vertical: 26, horizontal: 12
-                                              ),
-                                            )
-                                          ],
-                                        )
-                                      ],
-                                    )
-                                  );
-                                },
-                              ),
-                              length: controller.data.value.rows?.length,
+                          Padding(
+                            padding: const EdgeInsets.only(left: 33.7),
+                            child: Row(
+                              children: [
+                                Text("编号排序", style: context.textTheme.bodyMedium?.copyWith(
+                                  fontSize: 14,
+                                )),
+                              ],
                             ),
                           ),
                         ],
-                      ),
-                    );
-                  }),
+                      )
+                    )
+                ),
+                SliverToBoxAdapter(
+                  child: SizedBox(
+                    height: 10000,
+                  ),
                 )
+                // SliverFillRemaining(
+                //   child: Obx(() {
+                //     return Container(
+                //
+                //       child: Column(
+                //         // mainAxisAlignment: MainAxisAlignment.center,
+                //         children: [
+                //           // Padding(
+                //           //   padding: const EdgeInsets.symmetric(
+                //           //     vertical: 20
+                //           //   ),
+                //           //   child: ,
+                //           // ),
+                //           // Text("${controller.data.value.rows?.length}"),
+                //           Expanded(
+                //             child: CustomLoadData(
+                //               top: 200,
+                //               physics: const ClampingScrollPhysics(),
+                //               child: ListView.builder(
+                //                 physics: const ClampingScrollPhysics(),
+                //                 // physics: const NeverScrollableScrollPhysics(),
+                //                 padding: const EdgeInsets.all(0),
+                //                 itemCount: controller.data.value.rows?.length,
+                //                 itemBuilder: (BuildContext context, int index) {
+                //                   final item = controller.data.value.rows?[index];
+                //                   return Container(
+                //                     margin: const EdgeInsets.fromLTRB(
+                //                       12, 0, 12, 12
+                //                     ),
+                //                     // height: 50,
+                //                     width: context.mediaQuerySize.width,
+                //                     decoration: BoxDecoration(
+                //                       borderRadius: 16.radius,
+                //                       color: context.customTheme?.navbarBg,
+                //                       boxShadow: const [
+                //                         BoxShadow(
+                //                           color: Color.fromRGBO(
+                //                               0, 0, 0, 0.06),
+                //                           offset: Offset(0, 0),
+                //                           blurRadius: 20,
+                //                         ),
+                //                       ],
+                //                     ),
+                //                     child: Row(
+                //                       crossAxisAlignment: CrossAxisAlignment.start,
+                //                       children: [
+                //                         Expanded(
+                //                           child: Column(
+                //                             crossAxisAlignment: CrossAxisAlignment.start,
+                //                             children: [
+                //                               Container(
+                //                                 child: Row(
+                //                                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                //                                   children: [
+                //                                     Row(
+                //                                         children: [
+                //                                           // 寄售转售还是其他
+                //                                           Container(
+                //                                             child: Text("寄售", style: context.textTheme.bodyMedium?.copyWith(
+                //                                               color: context.customTheme?.navbarBg,
+                //                                             )),
+                //                                             padding: const EdgeInsets.symmetric(
+                //                                               vertical: 1, horizontal: 5
+                //                                             ),
+                //                                             decoration: BoxDecoration(
+                //                                               color: context.textTheme.bodyMedium?.color,
+                //                                               borderRadius: 4.radius,
+                //
+                //                                             ),
+                //                                           ),
+                //                                           // 名称
+                //                                           Container(
+                //                                             child: Text(item?.productName ?? ""),
+                //                                             padding: const EdgeInsets.only(left: 5),
+                //                                           )
+                //                                         ],
+                //                                       ),
+                //                                     Text("¥${item?.price}", style: context.textTheme.bodyMedium?.copyWith(
+                //                                       fontWeight: FontWeight.w600, fontSize: 15
+                //                                     ),)
+                //                                   ],
+                //                                 ),
+                //
+                //                                 padding: const EdgeInsets.only(
+                //                                   left: 12,right: 12, top: 26
+                //                                 ),
+                //                               ),
+                //
+                //                               // 编号等信息
+                //                               Container(
+                //                                 padding: const EdgeInsets.only(
+                //                                     left: 12,right: 12, top: 13, bottom: 16
+                //                                 ),
+                //                                 child: Row(
+                //                                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                //                                   children: [
+                //                                     Row(
+                //                                       children: [
+                //                                         Text("${item?.productCode}"),
+                //                                         // 支付方式
+                //                                         ...(item?.payWay ?? []).mapIndexed((i, e) => Container(
+                //                                           decoration: BoxDecoration(
+                //                                             color: context.textTheme.bodyMedium?.color,
+                //                                             borderRadius: 4.radius,
+                //                                           ),
+                //                                           margin: const EdgeInsets.only(left: 3),
+                //                                           child: Text(e.value == 1 ? '连' : '衫', style: context.textTheme.bodyMedium?.copyWith(
+                //                                             color: context.customTheme?.navbarBg, fontSize: 12
+                //                                           )),
+                //                                           padding: const EdgeInsets.symmetric(
+                //                                             vertical: 0, horizontal: 4,
+                //                                           ),
+                //                                         )).toList()
+                //
+                //                                       ],
+                //                                     )
+                //                                   ],
+                //                                 ),
+                //                               )
+                //                             ],
+                //                           ),
+                //                         )
+                //                       ],
+                //                     )
+                //                   );
+                //                 },
+                //               ),
+                //               length: controller.data.value.rows?.length,
+                //             ),
+                //           ),
+                //         ],
+                //       ),
+                //     );
+                //   }),
+                // )
               ]);
         }),
       ),
     );
+  }
+}
+
+class SliverHeader extends SliverPersistentHeaderDelegate {
+  final Widget child;
+
+  SliverHeader({required this.child});
+
+  @override
+  Widget build(BuildContext context, double shrinkOffset, bool overlapsContent) {
+    return child;
+  }
+
+  @override
+  double get maxExtent => 54;
+
+  @override
+  double get minExtent => 54;
+
+  @override
+  bool shouldRebuild(SliverPersistentHeaderDelegate oldDelegate) {
+    return true;
   }
 }
