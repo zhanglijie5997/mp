@@ -2,9 +2,11 @@ import 'package:custom_refresh_indicator/custom_refresh_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mp/api/product/product.dart';
+import 'package:mp/models/nft_create_buy_order_model/nft_create_buy_order_model.dart';
 import 'package:mp/models/product_detail_model/product_detail_model.dart';
+import 'package:mp/utils/log.utils.dart';
 
-class DetailsController extends GetxController {
+class DetailsController extends GetxController  {
   final params = Get.parameters;
   final expandedHeight = (300.0).obs;
   final opacity = (0.0).obs;
@@ -13,6 +15,7 @@ class DetailsController extends GetxController {
   late final ScrollController scrollController = ScrollController();
   IndicatorController? refreshController;
   final detail = (const ProductDetailModel()).obs;
+  final orderData = (const NftCreateBuyOrderModel()).obs;
   // 下拉刷新状态
   final refreshState = (IndicatorState.idle).obs;
   listener() {
@@ -33,6 +36,19 @@ class DetailsController extends GetxController {
         await ProductRequest.nftMarketGetProductMintDetails(params['id'] ?? "");
     if (res.data != null) {
       detail.value = res.data!;
+      // createOrder();
+    }
+  }
+
+  createOrder() async{
+    final res = await ProductRequest.nftOrderCreateBuyOrder(NftOrderCreateBuyOrderParams(
+      holdUserId: detail.value.data?.holderId,
+      productMintId: params['id'],
+      // 目前默认连连
+      walletSource: 1
+    ));
+    if (res.data!=null) {
+      orderData.value = res.data!;
     }
   }
 
@@ -46,6 +62,7 @@ class DetailsController extends GetxController {
     scrollController.removeListener(listener);
     super.onClose();
   }
+  
 
   @override
   void onInit() {

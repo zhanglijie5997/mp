@@ -7,28 +7,64 @@ import 'package:mp/components/custom.image.dart';
 import 'package:mp/components/custom.loading.dart';
 import 'package:mp/components/custom.vip.text.dart';
 import 'package:mp/constants/assets.dart';
+import 'package:mp/controller/global.controller.dart';
 import 'package:mp/extension/context.ext.dart';
 import 'package:mp/extension/map.ext.dart';
 import 'package:mp/extension/num.ext.dart';
 import 'package:mp/extension/widget.ext.dart';
 import 'package:mp/generated/locales.g.dart';
+import 'package:mp/router/router.ware.dart';
 import 'package:mp/router/routes.dart';
 import 'package:mp/services/theme/theme.services.dart';
 import 'package:mp/utils/event.utils.dart';
 import 'package:mp/utils/log.utils.dart';
+import 'package:mp/utils/toast.utils.dart';
 import 'package:mp/views/details/controller/controller.dart';
 import 'dart:ui' as ui;
 
-class DetailPage extends GetView<DetailsController> {
+enum PayStats {
+  buy(2, "立即购买"),
+  paying(3, "支付中"),
+  build(4, "已铸造"),
+  destory(5, "已销毁");
+
+  const PayStats(this.number, this.value);
+
+  final int number;
+
+  final String value;
+
+  static PayStats getType(int number) => PayStats.values.firstWhere((activity) => activity.number == number);
+
+  static String getValue(int number) => PayStats.values.firstWhere((activity) => activity.number == number).value;
+
+
+}
+
+class DetailPage extends StatefulWidget {
   const DetailPage({super.key});
 
-  final img =
-      "https://cos.yanjie.art/exhibition/paint/setting/1719231731908870144.jpg";
+  @override
+  State<DetailPage> createState() => _DetailPageState();
+}
+
+class _DetailPageState extends RouteAwareState<DetailPage> {
+  final tag = Get.parameters["id"];
+  late final controller = Get.put(DetailsController(), tag: tag);
 
   @override
-  String? get tag => Get.parameters["id"];
-
-  @override
+  void didPop() {
+    LogUtil.w("back");
+    super.didPop();
+  }
+  
+  // @override
+  // void didPopNext() {
+  //   LogUtil.w("didPopNext");
+  //   controller.getData();
+  //   super.didPopNext();
+  // }
+ @override
   Widget build(BuildContext context) {
     return Scaffold(
       // backgroundColor: Colors.transparent,
@@ -126,7 +162,7 @@ class DetailPage extends GetView<DetailsController> {
                     )),
                 SliverToBoxAdapter(
                   child: ClipRRect(
-                    borderRadius: BorderRadius.horizontal(
+                    borderRadius: const BorderRadius.horizontal(
                       left: Radius.circular(12),
                       right: Radius.circular(12),
                     ),
@@ -365,14 +401,33 @@ class DetailPage extends GetView<DetailsController> {
                     decoration: BoxDecoration(
                         borderRadius: 12.radius,
                         color: context.customTheme?.card),
-                    child: Text(LocaleKeys.buy.tr,
+                    child: Obx(() => Text(
+                        controller.detail.value.data?.status == 2 && GlobalController.to.currentUserMsg.value.data?.id == controller.detail.value.data?.holderId  ? '取消寄售': PayStats.getValue(int.parse("${controller.detail.value.data?.status ?? 2}")),
+                        // "${LocaleKeys.buy.tr} ${controller.detail.value.data?.status}",
                         textAlign: TextAlign.center,
                         style: context.textTheme.bodyMedium?.copyWith(
-                            fontSize: 18, fontWeight: FontWeight.bold)),
+                            fontSize: 18, fontWeight: FontWeight.bold))),
                   ).onTap(() {
                     // LogUtil.w(controller.detail.value.toJson().encode());
-                    Get.toNamed(
-                        "${AppRoutes.buy}/${controller.params["id"]}?data=${Uri.encodeComponent(controller.detail.value.toJson().encode())}");
+                    if (controller.detail.value.data?.status == 2) {
+                      if (controller.detail.value.data?.holderId == GlobalController.to.currentUserMsg.value.data?.id) {
+                        // 取消寄售
+                        ToastUtils.confirm(
+                          CustomConfirmParams(
+                            content: "取消寄售后，3分钟内将不能再寄售此藏品，您确认取消吗?",
+                            cancel: () {
+                              ToastUtils.close();
+                            },
+                            submit: () {
+                              ToastUtils.close();
+                            }
+                          )
+                        );
+                        return;
+                      }
+                      Get.toNamed(
+                          "${AppRoutes.buy}/${controller.params["id"]}?data=${Uri.encodeComponent(controller.detail.value.toJson().encode())}");
+                    }
                   }))
                 ],
               ),
@@ -382,4 +437,5 @@ class DetailPage extends GetView<DetailsController> {
       ),
     );
   }
+
 }

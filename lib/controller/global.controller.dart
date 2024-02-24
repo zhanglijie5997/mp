@@ -9,6 +9,7 @@ import 'package:mp/utils/storage.utils.dart';
 
 class GlobalStorageKey {
   static String get userMsg => "userMsg";
+  static String get currentUser =>  "currentUser";
 }
 
 /// 全局控制器
@@ -43,6 +44,7 @@ class GlobalController extends GetxController {
     LogUtil.w("用户信息");
     if (res.data != null) {
       currentUserMsg.value = res.data!;
+      StorageUtils().save(GlobalStorageKey.currentUser, res.data?.toJson().encode());
     }
   }
 
@@ -52,16 +54,26 @@ class GlobalController extends GetxController {
     token.value = "";
   }
 
+
+
   @override
   void onInit() {
     debounce(currentUserMsg, (value) {
       isAuth.value =
           (value.data?.realName != null) && (value.data?.cardNo != null);
     });
+    debounce(token, (callback) => getUserData());
     final res = (StorageUtils().ready<String>(GlobalStorageKey.userMsg));
     final json = UserPhoneLoginModel.fromJson((res ?? "{}").decode());
     userMsg.value = json;
+    final _currentUserMsg = (StorageUtils().ready<String>(GlobalStorageKey.currentUser));
+    final _currentUserMsgJson = WxUserModel.fromJson((_currentUserMsg ?? "{}").decode());
+    LogUtil.w(_currentUserMsgJson);
+    currentUserMsg.value = _currentUserMsgJson;
     token.value = json.data?.token ?? "";
+    if (token.value.isNotEmpty) {
+
+    }
     super.onInit();
   }
 }

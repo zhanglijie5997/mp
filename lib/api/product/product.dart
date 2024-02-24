@@ -29,7 +29,7 @@ class ProductRequest {
   nftOrderCreateBuyOrder(NftOrderCreateBuyOrderParams v) {
     return HttpUtil.fetchModel<NftCreateBuyOrderModel>(FetchType.post,
         url: ApiName.NftOrderCreateBuyOrder,
-        queryParameters: v.toJson());
+        body: v.toJson());
   }
 }
 
