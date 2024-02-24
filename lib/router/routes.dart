@@ -1,5 +1,6 @@
 import 'package:get/get.dart';
 import 'package:mp/middleware/auth.middleware.dart';
+import 'package:mp/middleware/real.middleware.dart';
 import 'package:mp/views/announcement/announcement.dart';
 import 'package:mp/views/announcement/binds/binds.dart';
 import 'package:mp/views/announcement_detail/announcement_detail.dart';
@@ -22,6 +23,7 @@ import 'package:mp/views/order/binds/binds.dart';
 import 'package:mp/views/order/order.dart';
 import 'package:mp/views/order_detail/binds/binds.dart';
 import 'package:mp/views/order_detail/order_detail.dart';
+import 'package:mp/views/real/real.dart';
 import 'package:mp/views/realy/binds/binds.dart';
 import 'package:mp/views/realy/realy.dart';
 import 'package:mp/views/register/binds/binds.dart';
@@ -50,8 +52,8 @@ final class AppRoutes {
   static String announcement = "/announcement";
   static String announcementDetail = "/announcementDetail";
   static String consignmentDetail = "/consignmentDetail";
-
-  /// 需要登陆的页面 在GetPage middlewares: [AuthMiddleWare()]
+  static String real = "/real";
+  /// 需要登陆的页面 在 GetPage middlewares: [AuthMiddleWare()]
   static var routes = [
     GetPage(
         name: AppRoutes.home,
@@ -131,5 +133,10 @@ final class AppRoutes {
         name: "${AppRoutes.consignmentDetail}/:id",
         page: () => const ConsignmentPage(),
         binding: ConsignmentBinding()),
+    GetPage(
+        name: AppRoutes.real,
+        page: () => const RealPage(),
+        middlewares: [AuthMiddleWare(), RealMiddleWare()],
+        binding: RealyBinding()),
   ];
 }

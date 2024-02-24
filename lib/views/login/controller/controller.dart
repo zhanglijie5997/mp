@@ -61,8 +61,9 @@ class LoginController extends GetxController {
     final res = await AppLoginRequest.apiAppLoginPhone(
         UserPhoneLoginParams(phone: account.value, code: password.value));
     GlobalController.to.changeUserMsg(res.data!);
+
     LogUtil.w("登陆成功___${res.data?.data?.token}");
-    HomeMeController.to.refresh();
+    HomeMeController.to.getUserData();
     Get.back();
   }
 

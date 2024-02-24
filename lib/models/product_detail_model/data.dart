@@ -12,9 +12,9 @@ class Data {
   final String? productAbbreviateImage;
   final String? productDetailsImage;
   final String? productShareImage;
-  final int? price;
+  final num? price;
   final String? issueNumber;
-  final int? circulateNumber;
+  final num? circulateNumber;
   final String? contractAddress;
   final String? chainMark;
   final String? creatorId;
@@ -35,24 +35,24 @@ class Data {
   final String? holderAvatar;
   final String? holderNickName;
   final String? holderWalletAddress;
-  final int? status;
-  final int? synthesisStatus;
+  final num? status;
+  final num? synthesisStatus;
   final dynamic activityStatus;
-  final int? transferType;
+  final num? transferType;
   final String? allowSellTime;
-  final int? isResale;
+  final num? isResale;
   final dynamic onSales;
   final dynamic stock;
-  final int? isRestrictionSell;
+  final num? isRestrictionSell;
   final String? payWay;
-  final int? isProductBatchTransfer;
-  final int? isUserBatchTransfer;
-  final int? type;
-  final int? isBoxPrize;
+  final num? isProductBatchTransfer;
+  final num? isUserBatchTransfer;
+  final num? type;
+  final num? isBoxPrize;
   final dynamic notOpenNumber;
   final dynamic productList;
   final dynamic dynamicImage;
-  final int? batchResale;
+  final num? batchResale;
 
   const Data({
     this.productSeriesId,
@@ -124,9 +124,9 @@ class Data {
     String? productAbbreviateImage,
     String? productDetailsImage,
     String? productShareImage,
-    int? price,
+    num? price,
     String? issueNumber,
-    int? circulateNumber,
+    num? circulateNumber,
     String? contractAddress,
     String? chainMark,
     String? creatorId,
@@ -147,24 +147,24 @@ class Data {
     String? holderAvatar,
     String? holderNickName,
     String? holderWalletAddress,
-    int? status,
-    int? synthesisStatus,
+    num? status,
+    num? synthesisStatus,
     dynamic activityStatus,
-    int? transferType,
+    num? transferType,
     String? allowSellTime,
-    int? isResale,
+    num? isResale,
     dynamic onSales,
     dynamic stock,
-    int? isRestrictionSell,
+    num? isRestrictionSell,
     String? payWay,
-    int? isProductBatchTransfer,
-    int? isUserBatchTransfer,
-    int? type,
-    int? isBoxPrize,
+    num? isProductBatchTransfer,
+    num? isUserBatchTransfer,
+    num? type,
+    num? isBoxPrize,
     dynamic notOpenNumber,
     dynamic productList,
     dynamic dynamicImage,
-    int? batchResale,
+    num? batchResale,
   }) {
     return Data(
       productSeriesId: productSeriesId ?? this.productSeriesId,

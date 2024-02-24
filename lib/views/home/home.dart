@@ -27,7 +27,6 @@ class HomePage extends GetView<HomeController> {
               active: controller.active.value,
               change: controller.handleActive,
             ))).onTap(() {
-      LogUtil.w("message");
       FocusScope.of(context).unfocus();
     });
   }
