@@ -30,7 +30,8 @@ class GlobalController extends GetxController {
       GlobalController.to.token.value = value.data?.token ?? "";
       userMsg.value = value;
       getUserData();
-      LogUtil.w("value__${StorageUtils().ready(GlobalStorageKey.userMsg)} __ ${GlobalController.to.token.value}");
+      LogUtil.w(
+          "value__${StorageUtils().ready(GlobalStorageKey.userMsg)} __ ${GlobalController.to.token.value}");
     } catch (err) {
       LogUtil.w("err__$err");
     }
@@ -54,7 +55,8 @@ class GlobalController extends GetxController {
   @override
   void onInit() {
     debounce(currentUserMsg, (value) {
-      isAuth.value = (value.data?.realName != null) && (value.data?.cardNo != null);
+      isAuth.value =
+          (value.data?.realName != null) && (value.data?.cardNo != null);
     });
     final res = (StorageUtils().ready<String>(GlobalStorageKey.userMsg));
     final json = UserPhoneLoginModel.fromJson((res ?? "{}").decode());

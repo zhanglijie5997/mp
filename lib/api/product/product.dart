@@ -1,5 +1,6 @@
 import 'package:mp/api/api.dart';
 import 'package:mp/models/consignment_list_model/consignment_list_model.dart';
+import 'package:mp/models/nft_create_buy_order_model/nft_create_buy_order_model.dart';
 import 'package:mp/models/product_detail_model/product_detail_model.dart';
 import 'package:mp/models/response.dart';
 import 'package:mp/utils/http.utils.dart';
@@ -20,6 +21,14 @@ class ProductRequest {
   nftMarketGetConsignmentList(NftMarketGetConsignmentProductListParams v) {
     return HttpUtil.fetchModel<ConsignmentListModel>(FetchType.get,
         url: ApiName.NftMarketGetConsignmentList,
+        queryParameters: v.toJson());
+  }
+
+  /// 创建订单
+  static Future<ResponseModel<NftCreateBuyOrderModel>>
+  nftOrderCreateBuyOrder(NftOrderCreateBuyOrderParams v) {
+    return HttpUtil.fetchModel<NftCreateBuyOrderModel>(FetchType.post,
+        url: ApiName.NftOrderCreateBuyOrder,
         queryParameters: v.toJson());
   }
 }
@@ -47,6 +56,30 @@ class NftMarketGetConsignmentProductListParams {
     data['rows'] = rows;
     data['productId'] = productId;
     data['price'] = price;
+    return data;
+  }
+}
+
+
+class NftOrderCreateBuyOrderParams {
+  String? holdUserId;
+  String? productMintId;
+  int? walletSource;
+
+  NftOrderCreateBuyOrderParams(
+      {this.holdUserId, this.productMintId, this.walletSource});
+
+  NftOrderCreateBuyOrderParams.fromJson(Map<String, dynamic> json) {
+    holdUserId = json['holdUserId'];
+    productMintId = json['productMintId'];
+    walletSource = json['walletSource'];
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['holdUserId'] = holdUserId;
+    data['productMintId'] = productMintId;
+    data['walletSource'] = walletSource;
     return data;
   }
 }

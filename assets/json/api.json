@@ -14,7 +14,7 @@
     {
         "url": "/api/rotationChart/selectRotationChartList",
         "method": "get",
-        "desc": "首页banner",
+        "desc": "首页 banner",
         "name": "/api/rotationChart/selectRotationChartList"
     },
     {
@@ -26,7 +26,7 @@
     {
         "url": "/api/announcement/type/selectAnnouncementTypeList",
         "method": "get",
-        "desc": "公告Tab",
+        "desc": "公告 Tab",
         "name": "/api/announcement/type/selectAnnouncementTypeList"
     },
     {
@@ -70,5 +70,11 @@
         "method": "get",
         "desc": "寄售市场列表",
         "name": "/nft/market/getConsignmentList"
+    },
+    {
+        "url": "/nft/order/createBuyOrder",
+        "method": "post",
+        "desc": "创建订单",
+        "name": "/nft/order/createBuyOrder"
     }
 ]

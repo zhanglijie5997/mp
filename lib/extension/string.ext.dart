@@ -35,6 +35,8 @@ extension StringExt on String {
   }
 
   String address() {
-    return isEmpty ? "" :  "${substring(0, 4)}***${substring(length - 6, length)}";
+    return isEmpty
+        ? ""
+        : "${substring(0, 4)}***${substring(length - 6, length)}";
   }
 }

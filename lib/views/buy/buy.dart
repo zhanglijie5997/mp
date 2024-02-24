@@ -2,11 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:mp/components/custom.appbar.dart';
+import 'package:mp/components/custom.checkbox.dart';
 import 'package:mp/components/custom.image.dart';
 import 'package:mp/constants/assets.dart';
 import 'package:mp/extension/context.ext.dart';
 import 'package:mp/extension/num.ext.dart';
 import 'package:mp/extension/widget.ext.dart';
+import 'package:mp/router/routes.dart';
 import 'package:mp/views/buy/controller/controller.dart';
 
 class BuyPage extends GetView<BuyController> {
@@ -22,124 +24,125 @@ class BuyPage extends GetView<BuyController> {
             style: context.textTheme.bodyMedium?.copyWith(fontSize: 18)),
       ),
       body: SingleChildScrollView(
-        child: Column(
-          children: [
-            Container(
-              padding: const EdgeInsets.all(16),
-              margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 15),
-              decoration: BoxDecoration(
-                  color: context.theme.cardColor, borderRadius: 8.radius),
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  ClipRRect(
-                      borderRadius: 6.radius,
-                      child: CustomImage(url: img, size: const Size(50, 50))),
-                  Expanded(
-                      child: Padding(
-                          padding: const EdgeInsets.only(left: 16.0),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Row(
-                                children: [
-                                  Expanded(
-                                    child: Text(
-                                        "测试一号测试一号测试一号测试一号测试一号测试一号测试一号测试一号测试一号",
-                                        style: context.textTheme.bodyMedium
-                                            ?.copyWith(
-                                                fontWeight: FontWeight.bold,
-                                                overflow:
-                                                    TextOverflow.ellipsis)),
-                                  ),
-                                ],
-                              ),
-                              // 加减操作
-                              Padding(
-                                padding: const EdgeInsets.only(top: 8.0),
-                                child: Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Row(
-                                      children: [
-                                        Container(
-                                          width: 30,
-                                          height: 30,
-                                          decoration: BoxDecoration(
-                                              borderRadius: 6.radius,
-                                              border: Border.all(
-                                                  width: 1,
-                                                  color: context
-                                                          .customTheme?.gray3 ??
-                                                      Colors.white)),
-                                          child: Center(
-                                            child: SvgPicture.asset(
-                                              Assets
-                                                  .assetsImagesSvgIconIconIconCut,
-                                              width: 20,
-                                              height: 20,
-                                              // ignore: deprecated_member_use
-                                              color: context
-                                                  .textTheme.bodyMedium?.color,
-                                            ),
-                                          ),
-                                        ).onTap(() => controller.add(-1)),
-                                        Padding(
-                                          padding: const EdgeInsets.symmetric(
-                                              horizontal: 8),
-                                          child: Obx(
-                                            () => Text(
-                                              "${controller.number.value}",
-                                              style: context
-                                                  .textTheme.bodyMedium
-                                                  ?.copyWith(
-                                                      fontWeight:
-                                                          FontWeight.bold,
-                                                      fontSize: 16),
-                                            ),
-                                          ),
-                                        ),
-                                        Container(
-                                          width: 30,
-                                          height: 30,
-                                          decoration: BoxDecoration(
-                                              borderRadius: 6.radius,
-                                              border: Border.all(
-                                                  width: 1,
-                                                  color: context
-                                                          .customTheme?.gray3 ??
-                                                      Colors.white)),
-                                          child: Center(
-                                            child: SvgPicture.asset(
-                                              Assets.assetsImagesSvgIconAdd,
-                                              width: 20,
-                                              height: 20,
-                                              color: context
-                                                  .textTheme.bodyMedium?.color,
-                                            ),
-                                          ),
-                                        ).onTap(() => controller.add(1)),
-                                      ],
-                                    ),
+        child: Obx(() => Column(
+              children: [
+                // 藏品信息
+                Container(
+                  padding: const EdgeInsets.all(12),
+                  margin:
+                      const EdgeInsets.symmetric(horizontal: 12, vertical: 20),
+                  decoration: BoxDecoration(
+                    borderRadius: 16.radius,
+                    color: context.customTheme?.navbarBg,
+                    boxShadow: const [
+                      BoxShadow(
+                        color: Color.fromRGBO(236, 236, 241, 0.6),
+                        offset: Offset(0, 5),
+                        blurRadius: 25,
+                      ),
+                    ],
+                  ),
+                  child: Row(children: [
+                    ClipRRect(
+                      borderRadius: 8.radius,
+                      child: CustomImage(
+                        url: controller.data.value.data?.productImage ?? "",
+                        size: const Size(70, 70),
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 10),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(controller.data.value.data?.productName ?? "",
+                              style: context.textTheme.bodyMedium?.copyWith(
+                                  fontWeight: FontWeight.bold, fontSize: 16)),
+                          Padding(
+                            padding: const EdgeInsets.only(top: 10),
+                            child: Text(
+                                controller.data.value.data?.productCode ?? "",
+                                style: context.textTheme.bodyMedium?.copyWith(
+                                    fontSize: 12,
+                                    color: context.customTheme?.gray3)),
+                          )
+                        ],
+                      ),
+                    )
+                  ]),
+                ),
 
-                                    // 单价
-                                    Text("单价: ¥100",
-                                        style: context.textTheme.bodyMedium
-                                            ?.copyWith(
-                                                color:
-                                                    context.customTheme?.gray3,
-                                                fontWeight: FontWeight.bold))
-                                  ],
-                                ),
+                // 支付方式
+                Container(
+                    padding: const EdgeInsets.all(12),
+                    margin: const EdgeInsets.symmetric(horizontal: 12),
+                    decoration: BoxDecoration(
+                      borderRadius: 16.radius,
+                      color: context.customTheme?.navbarBg,
+                      boxShadow: const [
+                        BoxShadow(
+                          color: Color.fromRGBO(236, 236, 241, 0.6),
+                          offset: Offset(0, 5),
+                          blurRadius: 25,
+                        ),
+                      ],
+                    ),
+                    child: Column(
+                      children: [
+                        Container(
+                          padding: const EdgeInsets.symmetric(vertical: 6),
+                          decoration: BoxDecoration(
+                              border: Border(
+                                  bottom: BorderSide(
+                                      width: .5,
+                                      color: (context.customTheme?.gray3 ??
+                                              Colors.transparent)
+                                          .withOpacity(.3)))),
+                          child: Row(
+                            children: [
+                              SvgPicture.asset(
+                                Assets.assetsImagesSvgIconWallet,
+                                width: 25,
+                                height: 25,
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.only(left: 10.0),
+                                child: Text("支付方式",
+                                    style: context.textTheme.bodyMedium
+                                        ?.copyWith(
+                                            fontSize: 14,
+                                            fontWeight: FontWeight.bold)),
                               )
                             ],
-                          )))
-                ],
-              ),
-            )
-          ],
-        ),
+                          ),
+                        ),
+                        Container(
+                          padding: const EdgeInsets.symmetric(vertical: 12),
+                          decoration: BoxDecoration(
+                              border: Border(
+                                  // bottom: BorderSide(
+                                  //   width: .5, color: (context.customTheme?.gray3 ?? Colors.transparent).withOpacity(.3)
+                                  // )
+                                  )),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text("连连支付",
+                                  style: context.textTheme.bodyMedium?.copyWith(
+                                      fontSize: 14,
+                                      fontWeight: FontWeight.bold)),
+                              CustomCheckbox(
+                                isSelect: true,
+                                onChange: (v) {},
+                              )
+                            ],
+                          ),
+                        )
+                      ],
+                    ))
+              ],
+            )),
       ),
       bottomNavigationBar: Padding(
         padding:
@@ -153,7 +156,7 @@ class BuyPage extends GetView<BuyController> {
                 Padding(
                   padding: const EdgeInsets.only(right: 8.0),
                   child: Obx(
-                    () => Text("总价 ¥${controller.number.value * 100}",
+                    () => Text("总价 ¥${controller.data.value.data?.price}",
                         style: context.textTheme.bodyMedium?.copyWith(
                           fontSize: 16,
                           fontWeight: FontWeight.bold,
@@ -166,11 +169,13 @@ class BuyPage extends GetView<BuyController> {
                     decoration: BoxDecoration(
                         borderRadius: 12.radius,
                         color: context.customTheme?.card),
-                    child: Text("购买",
+                    child: Text("支付",
                         textAlign: TextAlign.center,
                         style: context.textTheme.bodyMedium?.copyWith(
                             fontSize: 18, fontWeight: FontWeight.bold)),
-                  ),
+                  ).onTap(() {
+                    Get.toNamed("${AppRoutes.pay}");
+                  }),
                 )
               ],
             ),

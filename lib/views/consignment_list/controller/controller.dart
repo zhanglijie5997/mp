@@ -28,25 +28,20 @@ class ConsignmentController extends GetxController {
     opacity.value = res >= 1
         ? 1
         : res <= 0
-        ? 0
-        : res;
+            ? 0
+            : res;
   }
 
-  getData() async{
-    final res = await ProductRequest.nftMarketGetConsignmentList((NftMarketGetConsignmentProductListParams(
-      rows: 10,
-      current: 1,
-      price: 1,
-      productId: params['id']
-    )));
+  getData() async {
+    final res = await ProductRequest.nftMarketGetConsignmentList(
+        (NftMarketGetConsignmentProductListParams(
+            rows: 10, current: 1, price: 1, productId: params['id'])));
     data.value = res.data!;
-
   }
 
   refreshListener() {
     refreshState.value = refreshController?.state ?? IndicatorState.idle;
   }
-
 
   @override
   void onClose() {
@@ -58,7 +53,8 @@ class ConsignmentController extends GetxController {
   @override
   void onReady() {
     LogUtil.w("details__${params['detail']}");
-    detail.value = productListModelItem.Row.fromJson((params['detail'] ?? "{}").decode());
+    detail.value =
+        productListModelItem.Row.fromJson((params['detail'] ?? "{}").decode());
     WidgetsBinding.instance.addPersistentFrameCallback((timeStamp) {
       refreshController?.addListener(refreshListener);
     });

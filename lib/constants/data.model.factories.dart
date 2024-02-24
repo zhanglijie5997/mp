@@ -5,6 +5,7 @@ import 'package:mp/models/get_plate_list_model/get_plate_list_model.dart';
 import 'package:mp/models/home_banner_model/home_banner_model.dart';
 import 'package:mp/models/home_list_model/home_list_model.dart';
 import 'package:mp/models/home_position_model/home_position_model.dart';
+import 'package:mp/models/nft_create_buy_order_model/nft_create_buy_order_model.dart';
 import 'package:mp/models/product_detail_model/product_detail_model.dart';
 import 'package:mp/models/product_list_model/product_list_model.dart';
 import 'package:mp/models/response.dart';
@@ -27,5 +28,6 @@ final Map<Type, DataFactory> dataModelFactories = <Type, DataFactory>{
   UserProductListModel: UserProductListModel.fromJson,
   UserPhoneLoginModel: UserPhoneLoginModel.fromJson,
   ProductDetailModel: ProductDetailModel.fromJson,
-  ConsignmentListModel: ConsignmentListModel.fromJson
+  ConsignmentListModel: ConsignmentListModel.fromJson,
+  NftCreateBuyOrderModel: NftCreateBuyOrderModel.fromJson
 };

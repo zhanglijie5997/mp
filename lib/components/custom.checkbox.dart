@@ -7,14 +7,15 @@ import 'package:mp/extension/widget.ext.dart';
 
 class CustomCheckbox extends StatefulWidget {
   final Function(bool)? onChange;
-  const CustomCheckbox({super.key, this.onChange});
+  final bool? isSelect;
+  const CustomCheckbox({super.key, this.onChange, this.isSelect});
 
   @override
   State<CustomCheckbox> createState() => _CustomCheckboxState();
 }
 
 class _CustomCheckboxState extends State<CustomCheckbox> {
-  bool status = false;
+  late bool status = widget.isSelect ?? false;
 
   handleStatus() {
     setState(() {

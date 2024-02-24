@@ -101,7 +101,8 @@ class MarketItem extends StatelessWidget {
       ),
     ).onTap(() {
       if (item?.isResell == 1) {
-        Get.toNamed("${AppRoutes.consignmentDetail}/${item?.productId}?detail=${item?.toJson().encode()}");
+        Get.toNamed(
+            "${AppRoutes.consignmentDetail}/${item?.productId}?detail=${item?.toJson().encode()}");
       }
     });
   }

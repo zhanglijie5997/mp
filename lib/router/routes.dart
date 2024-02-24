@@ -23,6 +23,8 @@ import 'package:mp/views/order/binds/binds.dart';
 import 'package:mp/views/order/order.dart';
 import 'package:mp/views/order_detail/binds/binds.dart';
 import 'package:mp/views/order_detail/order_detail.dart';
+import 'package:mp/views/pay/bind/bind.dart';
+import 'package:mp/views/pay/pay.dart';
 import 'package:mp/views/real/real.dart';
 import 'package:mp/views/realy/binds/binds.dart';
 import 'package:mp/views/realy/realy.dart';
@@ -53,6 +55,8 @@ final class AppRoutes {
   static String announcementDetail = "/announcementDetail";
   static String consignmentDetail = "/consignmentDetail";
   static String real = "/real";
+  static String pay = "/pay";
+
   /// 需要登陆的页面 在 GetPage middlewares: [AuthMiddleWare()]
   static var routes = [
     GetPage(
@@ -138,5 +142,10 @@ final class AppRoutes {
         page: () => const RealPage(),
         middlewares: [AuthMiddleWare(), RealMiddleWare()],
         binding: RealyBinding()),
+    GetPage(
+        name: AppRoutes.pay,
+        page: () => const PayPage(),
+        middlewares: [AuthMiddleWare(), RealMiddleWare()],
+        binding: PayBinding()),
   ];
 }
