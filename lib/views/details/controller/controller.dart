@@ -2,11 +2,14 @@ import 'package:custom_refresh_indicator/custom_refresh_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mp/api/product/product.dart';
+import 'package:mp/extension/map.ext.dart';
 import 'package:mp/models/nft_create_buy_order_model/nft_create_buy_order_model.dart';
 import 'package:mp/models/product_detail_model/product_detail_model.dart';
+import 'package:mp/router/routes.dart';
 import 'package:mp/utils/log.utils.dart';
+import 'package:mp/utils/toast.utils.dart';
 
-class DetailsController extends GetxController  {
+class DetailsController extends GetxController {
   final params = Get.parameters;
   final expandedHeight = (300.0).obs;
   final opacity = (0.0).obs;
@@ -40,15 +43,21 @@ class DetailsController extends GetxController  {
     }
   }
 
-  createOrder() async{
-    final res = await ProductRequest.nftOrderCreateBuyOrder(NftOrderCreateBuyOrderParams(
-      holdUserId: detail.value.data?.holderId,
-      productMintId: params['id'],
-      // 目前默认连连
-      walletSource: 1
-    ));
-    if (res.data!=null) {
+  createOrder() async {
+    // 创建订单
+    ToastUtils.showLoading("订单创建中...");
+    final res = await ProductRequest.nftOrderCreateBuyOrder(
+        NftOrderCreateBuyOrderParams(
+            holdUserId: detail.value.data?.holderId,
+            productMintId: params['id'],
+            // 目前默认连连
+            walletSource: 1));
+    ToastUtils.close();
+    if (res.data != null) {
       orderData.value = res.data!;
+
+      Get.toNamed(
+          "${AppRoutes.buy}/${params["id"]}?data=${Uri.encodeComponent(detail.value.toJson().encode())}");
     }
   }
 
@@ -62,7 +71,6 @@ class DetailsController extends GetxController  {
     scrollController.removeListener(listener);
     super.onClose();
   }
-  
 
   @override
   void onInit() {

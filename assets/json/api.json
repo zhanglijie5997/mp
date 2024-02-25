@@ -76,5 +76,11 @@
         "method": "post",
         "desc": "创建订单",
         "name": "/nft/order/createBuyOrder"
+    },
+    {
+        "url": "/nft/order/getOrderList",
+        "method": "get",
+        "desc": "查询订单",
+        "name": "/nft/order/getOrderList"
     }
 ]

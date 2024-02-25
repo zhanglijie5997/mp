@@ -5,7 +5,7 @@ part 'data.g.dart';
 @JsonSerializable()
 class Data {
   final String? orderId;
-  final int? amount;
+  final double? amount;
   final int? num;
   final String? productName;
 
@@ -22,7 +22,7 @@ class Data {
 
   Data copyWith({
     String? orderId,
-    int? amount,
+    double? amount,
     int? num,
     String? productName,
   }) {

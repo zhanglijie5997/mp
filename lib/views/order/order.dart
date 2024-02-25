@@ -1,3 +1,4 @@
+import 'package:dartx/dartx.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mp/components/custom.appbar.dart';
@@ -19,34 +20,40 @@ class OrderPage extends GetView<OrderController> {
         body: Column(
           children: [
             TabBar(
-              controller: controller.tabController,
-              tabs: [
-                Tab(
-                  text: LocaleKeys.all.tr,
-                  height: 40,
+                controller: controller.tabController,
+                tabs: controller.tabsList
+                    .mapIndexed((index, p1) => Tab(
+                          text: p1.name!.tr,
+                          height: 40,
+                        ))
+                    .toList()
+                //   [
+                //   Tab(
+                //     text: LocaleKeys.all.tr,
+                //     height: 40,
+                //   ),
+                //   Tab(
+                //     text: LocaleKeys.finished.tr,
+                //     height: 40,
+                //   ),
+                //   Tab(
+                //     text: LocaleKeys.progressIn.tr,
+                //     height: 40,
+                //   ),
+                //   Tab(
+                //     text: LocaleKeys.cancel.tr,
+                //     height: 40,
+                //   ),
+                // ],
                 ),
-                Tab(
-                  text: LocaleKeys.finished.tr,
-                  height: 40,
-                ),
-                Tab(
-                  text: LocaleKeys.progressIn.tr,
-                  height: 40,
-                ),
-                Tab(
-                  text: LocaleKeys.cancel.tr,
-                  height: 40,
-                ),
-              ],
-            ),
             Expanded(
-                child:
-                    TabBarView(controller: controller.tabController, children: [
-              OrderPageViewList(),
-              OrderPageViewList(),
-              OrderPageViewList(),
-              OrderPageViewList(),
-            ]))
+                child: TabBarView(
+                    controller: controller.tabController,
+                    children: controller.tabsList
+                        .mapIndexed((index, p1) => OrderPageViewList(
+                              type: p1.value,
+                            ))
+                        .toList()))
           ],
         )
         // NestedScrollView(

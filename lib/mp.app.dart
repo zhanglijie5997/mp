@@ -84,9 +84,9 @@ class _MpAppState extends State<MpApp> {
           builder: FlutterSmartDialog.init(
               loadingBuilder: (msg) => CustomLoading(msg: msg),
               builder: (context, child) {
-                // _buildAnnotatedRegion(context, child!);
+                _buildAnnotatedRegion(context, child!);
                 _buildBottomPaddingVerticalShield(context);
-                return _buildFontSize(context, child!);
+                return _buildFontSize(context, child);
               }),
         ));
   }

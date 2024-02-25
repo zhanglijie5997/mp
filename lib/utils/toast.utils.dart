@@ -20,18 +20,15 @@ class ToastUtils {
   }
 
   static confirm([CustomConfirmParams? params]) {
-    SmartDialog.show(
-        builder: (BuildContext context) {
-          return CustomConfirm(params: params);
-        }
-    );
+    SmartDialog.show(builder: (BuildContext context) {
+      return CustomConfirm(params: params);
+    });
   }
 
   static close() {
     SmartDialog.dismiss();
   }
 }
-
 
 class CustomConfirmParams {
   String? title;
@@ -43,11 +40,11 @@ class CustomConfirmParams {
 
   CustomConfirmParams(
       {this.title,
-        this.content,
-        this.submitText,
-        this.cancelText,
-        this.submit,
-        this.cancel});
+      this.content,
+      this.submitText,
+      this.cancelText,
+      this.submit,
+      this.cancel});
 
   CustomConfirmParams.fromJson(Map<String, dynamic> json) {
     title = json['title'];

@@ -34,11 +34,11 @@ enum PayStats {
 
   final String value;
 
-  static PayStats getType(int number) => PayStats.values.firstWhere((activity) => activity.number == number);
+  static PayStats getType(int number) =>
+      PayStats.values.firstWhere((activity) => activity.number == number);
 
-  static String getValue(int number) => PayStats.values.firstWhere((activity) => activity.number == number).value;
-
-
+  static String getValue(int number) =>
+      PayStats.values.firstWhere((activity) => activity.number == number).value;
 }
 
 class DetailPage extends StatefulWidget {
@@ -57,21 +57,21 @@ class _DetailPageState extends RouteAwareState<DetailPage> {
     LogUtil.w("back");
     super.didPop();
   }
-  
+
   // @override
   // void didPopNext() {
   //   LogUtil.w("didPopNext");
   //   controller.getData();
   //   super.didPopNext();
   // }
- @override
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       // backgroundColor: Colors.transparent,
       body: Obx(
         () => CustomRefreshIndicator(
           onRefresh: () {
-            return EventUtils.sleep(3.seconds);
+            return controller.getData();
           },
           builder: (BuildContext context, Widget child,
               IndicatorController indicatorController) {
@@ -355,7 +355,8 @@ class _DetailPageState extends RouteAwareState<DetailPage> {
                                             url: controller.detail.value.data
                                                     ?.productDetailsImage ??
                                                 "",
-                                            size: Size(double.infinity, 300),
+                                            size: const Size(
+                                                double.infinity, 300),
                                           ))
                                     ],
                                   ),
@@ -402,7 +403,13 @@ class _DetailPageState extends RouteAwareState<DetailPage> {
                         borderRadius: 12.radius,
                         color: context.customTheme?.card),
                     child: Obx(() => Text(
-                        controller.detail.value.data?.status == 2 && GlobalController.to.currentUserMsg.value.data?.id == controller.detail.value.data?.holderId  ? '取消寄售': PayStats.getValue(int.parse("${controller.detail.value.data?.status ?? 2}")),
+                        controller.detail.value.data?.status == 2 &&
+                                GlobalController
+                                        .to.currentUserMsg.value.data?.id ==
+                                    controller.detail.value.data?.holderId
+                            ? '取消寄售'
+                            : PayStats.getValue(int.parse(
+                                "${controller.detail.value.data?.status ?? 2}")),
                         // "${LocaleKeys.buy.tr} ${controller.detail.value.data?.status}",
                         textAlign: TextAlign.center,
                         style: context.textTheme.bodyMedium?.copyWith(
@@ -410,23 +417,21 @@ class _DetailPageState extends RouteAwareState<DetailPage> {
                   ).onTap(() {
                     // LogUtil.w(controller.detail.value.toJson().encode());
                     if (controller.detail.value.data?.status == 2) {
-                      if (controller.detail.value.data?.holderId == GlobalController.to.currentUserMsg.value.data?.id) {
+                      if (controller.detail.value.data?.holderId ==
+                          GlobalController.to.currentUserMsg.value.data?.id) {
                         // 取消寄售
-                        ToastUtils.confirm(
-                          CustomConfirmParams(
-                            content: "取消寄售后，3分钟内将不能再寄售此藏品，您确认取消吗?",
+                        ToastUtils.confirm(CustomConfirmParams(
+                            content: "取消寄售后，3 分钟内将不能再寄售此藏品，您确认取消吗？",
                             cancel: () {
                               ToastUtils.close();
                             },
                             submit: () {
                               ToastUtils.close();
-                            }
-                          )
-                        );
+                            }));
                         return;
                       }
-                      Get.toNamed(
-                          "${AppRoutes.buy}/${controller.params["id"]}?data=${Uri.encodeComponent(controller.detail.value.toJson().encode())}");
+
+                      controller.createOrder();
                     }
                   }))
                 ],
@@ -437,5 +442,4 @@ class _DetailPageState extends RouteAwareState<DetailPage> {
       ),
     );
   }
-
 }

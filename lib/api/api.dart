@@ -44,4 +44,7 @@ class ApiName {
 
   /// * 名称: 创建订单 请求方式: post
   static String get NftOrderCreateBuyOrder => "/nft/order/createBuyOrder";
+
+  /// * 名称: 查询订单 请求方式: get
+  static String get NftOrderGetOrderList => "/nft/order/getOrderList";
 }

@@ -1,6 +1,7 @@
 import 'package:mp/api/api.dart';
 import 'package:mp/models/consignment_list_model/consignment_list_model.dart';
 import 'package:mp/models/nft_create_buy_order_model/nft_create_buy_order_model.dart';
+import 'package:mp/models/nft_order_get_order_list_model/nft_order_get_order_list_model.dart';
 import 'package:mp/models/product_detail_model/product_detail_model.dart';
 import 'package:mp/models/response.dart';
 import 'package:mp/utils/http.utils.dart';
@@ -30,6 +31,36 @@ class ProductRequest {
     return HttpUtil.fetchModel<NftCreateBuyOrderModel>(FetchType.post,
         url: ApiName.NftOrderCreateBuyOrder,
         body: v.toJson());
+  }
+
+   /// 查询订单
+  static Future<ResponseModel<NftOrderGetOrderListModel>>
+  nftOrderGetOrderList(NftOrderGetOrderListParams v) {
+    return HttpUtil.fetchModel<NftOrderGetOrderListModel>(FetchType.get,
+        url: ApiName.NftOrderGetOrderList,
+        body: v.toJson());
+  }
+}
+
+class NftOrderGetOrderListParams {
+  int? current;
+  int? row;
+  String? status;
+
+  NftOrderGetOrderListParams({this.current, this.row, this.status});
+
+  NftOrderGetOrderListParams.fromJson(Map<String, dynamic> json) {
+    current = json['current'];
+    row = json['row'];
+    status = json['status'];
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = {};
+    data['current'] = current;
+    data['row'] = row;
+    data['status'] = status;
+    return data;
   }
 }
 

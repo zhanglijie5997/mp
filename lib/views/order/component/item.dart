@@ -5,9 +5,10 @@ import 'package:mp/extension/context.ext.dart';
 import 'package:mp/extension/num.ext.dart';
 import 'package:mp/extension/widget.ext.dart';
 import 'package:mp/router/routes.dart';
-
+import 'package:mp/models/nft_order_get_order_list_model/row.dart' as row;
 class OrderItem extends StatefulWidget {
-  const OrderItem({super.key});
+  final row.Row? data;
+  const OrderItem({super.key, this.data});
 
   @override
   State<OrderItem> createState() => _OrderItemState();
@@ -18,6 +19,7 @@ class _OrderItemState extends State<OrderItem> {
       "https://cos.yanjie.art/exhibition/paint/setting/1719231731908870144.jpg";
   @override
   Widget build(BuildContext context) {
+    final item = widget.data;
     return Container(
       margin: const EdgeInsets.only(bottom: 10, left: 10, right: 10),
       decoration:
@@ -27,8 +29,8 @@ class _OrderItemState extends State<OrderItem> {
           ClipRRect(
               borderRadius: 6.radius,
               child: CustomImage(
-                url: url,
-                size: const Size(64, 98),
+                url: item?.productImg ?? "",
+                size: const Size(94, 98),
                 fit: BoxFit.fitHeight,
               )),
           Expanded(
@@ -43,12 +45,12 @@ class _OrderItemState extends State<OrderItem> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        "藏品名称",
+                        item?.productName ?? "",
                         style: context.textTheme.bodyMedium?.copyWith(
                             fontSize: 18, fontWeight: FontWeight.bold),
                       ),
                       Text(
-                        "X2",
+                        "X${item?.productMintList?.length}",
                         style: context.textTheme.bodyMedium?.copyWith(
                           fontSize: 14,
                         ),
@@ -62,13 +64,13 @@ class _OrderItemState extends State<OrderItem> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          "金额 ¥1000",
+                          "金额 ¥${item?.orderAmount}",
                           style: context.textTheme.bodyMedium?.copyWith(
                             fontSize: 14,
                           ),
                         ),
                         Text(
-                          "2024/1/1 12:00:00",
+                          item?.createDate ?? "",
                           style: context.textTheme.bodyMedium?.copyWith(
                               fontSize: 14, color: context.customTheme?.gray3),
                         )
