@@ -60,5 +60,9 @@
   "pointsMall": "Mall",
   "everyDayAnnouncement": "Announcement",
   "realName": "Real Name",
-  "idCard": "ID Card"
+  "realNameTip": "Please enter real name",
+  "idCard": "ID Card",
+  "idCardTip": "Please enter ID Card number",
+  "RealNameAuth": "Real name auth",
+  "ImmediateAuth": "Immediate auth"
 }
