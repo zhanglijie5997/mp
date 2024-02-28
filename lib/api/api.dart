@@ -57,4 +57,7 @@ class ApiName {
 
   /// * 名称: 获取支付 请求方式: post
   static String get ApiLianPayQueryAccInfo => "/api/lianPay/queryAccInfo";
+
+  /// * 名称: 实名认证，二要素 请求方式: post
+  static String get ApiAuthCheck => "/api/auth/check";
 }

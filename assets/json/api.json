@@ -100,5 +100,11 @@
         "method": "post",
         "desc": "获取支付",
         "name": "/api/lianPay/queryAccInfo"
+    },
+    {
+        "url": "/api/auth/check",
+        "method": "post",
+        "desc": "实名认证，二要素",
+        "name": "/api/auth/check"
     }
 ]
