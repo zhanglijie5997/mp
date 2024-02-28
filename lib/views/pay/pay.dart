@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:mp/components/custom.appbar.dart';
 import 'package:mp/views/pay/controller/controller.dart';
 
 class PayPage extends GetView<PayController> {
@@ -8,7 +9,13 @@ class PayPage extends GetView<PayController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(title: Text('PayPage')),
-        body: SafeArea(child: Text('PayController')));
+        appBar: const CustomAppBar(
+          header: "支付",
+        ),
+        body: Obx(() => Column(
+              children: [
+                Text("${controller.orderDetail.value.data?.actualAmount}")
+              ],
+            )));
   }
 }

@@ -3,24 +3,32 @@ import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
 import 'package:mp/components/custom.confim.dart';
 import 'package:mp/extension/num.ext.dart';
 import 'package:mp/extension/widget.ext.dart';
+import 'package:mp/utils/event.utils.dart';
 
 class ToastUtils {
-  static show(String value) {
+  static show(String value) async{
+    ToastUtils.close();
+    await EventUtils.sleep(100.microseconds);
     SmartDialog.showToast(value,
         alignment: Alignment.center,
         usePenetrate: false,
         maskColor: Colors.transparent);
   }
 
-  static showLoading(String? msg) {
+  static showLoading(String? msg) async{
+    ToastUtils.close();
+    await EventUtils.sleep(100.microseconds);
+
     SmartDialog.showLoading(msg: msg ?? '', backDismiss: false);
     Future.delayed(10.seconds, () {
       ToastUtils.close();
     });
   }
 
-  static confirm([CustomConfirmParams? params]) {
-    SmartDialog.show(builder: (BuildContext context) {
+  static confirm([CustomConfirmParams? params]) async{
+    ToastUtils.close();
+    await EventUtils.sleep(200.microseconds);
+    SmartDialog.show(debounce: false,builder: (BuildContext context) {
       return CustomConfirm(params: params);
     });
   }

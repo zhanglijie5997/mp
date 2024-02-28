@@ -143,7 +143,7 @@ final class AppRoutes {
         middlewares: [AuthMiddleWare(), RealMiddleWare()],
         binding: RealyBinding()),
     GetPage(
-        name: AppRoutes.pay,
+        name: "${AppRoutes.pay}/:id",
         page: () => const PayPage(),
         middlewares: [AuthMiddleWare(), RealMiddleWare()],
         binding: PayBinding()),

@@ -9,6 +9,7 @@ import 'package:mp/extension/context.ext.dart';
 import 'package:mp/extension/num.ext.dart';
 import 'package:mp/extension/widget.ext.dart';
 import 'package:mp/utils/event.utils.dart';
+import 'package:mp/utils/log.utils.dart';
 import 'package:mp/views/announcement/component/tabview.dart';
 import 'package:mp/views/announcement/controller/controller.dart';
 
@@ -18,7 +19,7 @@ class AnnouncementPage extends GetView<AnnouncementController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: CustomAppBar(header: "公告"),
+        appBar: const CustomAppBar(header: "公告"),
         body: Column(
           children: [
             // 搜索输入框
@@ -59,7 +60,7 @@ class AnnouncementPage extends GetView<AnnouncementController> {
               ),
             ),
 
-            // Tab导航
+            // Tab 导航
             Obx(() {
               return controller.tabData.value.data != null
                   ? TabBar(
@@ -100,6 +101,7 @@ class AnnouncementPage extends GetView<AnnouncementController> {
                                   // Text((controller.tabData.value.data ?? [])[i].name ?? ""),
                                   ).onTap(() {
                                 controller.tabSelect.value = i;
+                                controller.tabController?.animateTo(i);
                               }))
                           .toList(),
                       isScrollable: true,
@@ -113,8 +115,12 @@ class AnnouncementPage extends GetView<AnnouncementController> {
                   ? TabBarView(
                       controller: controller.tabController,
                       children: (controller.tabData.value.data ?? [])
-                          .mapIndexed((i, e) => AnnouncementTabView(data: e))
-                          .toList())
+                          .mapIndexed((i, e) {
+                        return AnnouncementTabView(
+                          data: e,
+                          key: ObjectKey("${e.id}"),
+                        );
+                      }).toList())
                   : const SizedBox(),
             ))
           ],

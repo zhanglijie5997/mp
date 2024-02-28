@@ -9,28 +9,28 @@ part of 'row.dart';
 Row _$RowFromJson(Map<String, dynamic> json) => Row(
       id: json['id'] as String?,
       productId: json['productId'] as String?,
-      productMintId: json['productMintId'] as String?,
+      productMintId: json['productMintId'],
       productName: json['productName'] as String?,
       productMintName: json['productMintName'] as String?,
       productImg: json['productImg'] as String?,
       orderId: json['orderId'] as String?,
-      orderStatus: json['orderStatus'] as dynamic,
-      orderAmount: json['orderAmount'] as dynamic,
-      actualAmount: json['actualAmount'] as dynamic,
-      serverFeeAmount: json['serverFeeAmount'] as dynamic,
+      orderStatus: json['orderStatus'],
+      orderAmount: json['orderAmount'],
+      actualAmount: json['actualAmount'],
+      serverFeeAmount: json['serverFeeAmount'],
       num: json['num'],
-      orderType: json['orderType'] as dynamic,
+      orderType: json['orderType'],
       tradeStatus: json['tradeStatus'],
-      readStatus: json['readStatus'] as dynamic,
+      readStatus: json['readStatus'],
       createDate: json['createDate'] as String?,
       batchOrderId: json['batchOrderId'],
-      isBatch: json['isBatch'] as dynamic,
+      isBatch: json['isBatch'],
       productMintList: (json['productMintList'] as List<dynamic>?)
           ?.map((e) => ProductMintList.fromJson(e as Map<String, dynamic>))
           .toList(),
       payWay: json['payWay'] as String?,
       walletSource: json['walletSource'],
-      productType: json['productType'] as dynamic,
+      productType: json['productType'],
     );
 
 Map<String, dynamic> _$RowToJson(Row instance) => <String, dynamic>{

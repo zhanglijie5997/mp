@@ -1,6 +1,9 @@
 import 'package:mp/api/api.dart';
+import 'package:mp/models/api_lian_pay_query_acc_info_model/api_lian_pay_query_acc_info_model.dart';
+import 'package:mp/models/api_lian_pay_query_bank_info_model/api_lian_pay_query_bank_info_model.dart';
 import 'package:mp/models/consignment_list_model/consignment_list_model.dart';
 import 'package:mp/models/nft_create_buy_order_model/nft_create_buy_order_model.dart';
+import 'package:mp/models/nft_order_detail_model/nft_order_detail_model.dart';
 import 'package:mp/models/nft_order_get_order_list_model/nft_order_get_order_list_model.dart';
 import 'package:mp/models/product_detail_model/product_detail_model.dart';
 import 'package:mp/models/response.dart';
@@ -38,7 +41,31 @@ class ProductRequest {
   nftOrderGetOrderList(NftOrderGetOrderListParams v) {
     return HttpUtil.fetchModel<NftOrderGetOrderListModel>(FetchType.get,
         url: ApiName.NftOrderGetOrderList,
-        body: v.toJson());
+        queryParameters: v.toJson());
+  }
+
+  // 获取订单详情
+  static Future<ResponseModel<NftOrderDetailModel>>
+  nftOrderOrderDetai(String id) {
+    return HttpUtil.fetchModel<NftOrderDetailModel>(FetchType.get,
+        url: "${ApiName.NftOrderOrderDetai}/$id"
+    );
+  }
+
+   // 获取银行卡信息
+  static Future<ResponseModel<ApiLianPayQueryBankInfoModel>>
+  apiLianPayQueryBankCardInfo() {
+    return HttpUtil.fetchModel<ApiLianPayQueryBankInfoModel>(FetchType.post,
+        url: ApiName.ApiLianPayQueryBankCardInfo
+    );
+  }
+
+  // 获取钱包信息
+  static Future<ResponseModel<ApiLianPayQueryAccInfoModel>>
+  apiLianPayQueryAccInfo() {
+    return HttpUtil.fetchModel<ApiLianPayQueryAccInfoModel>(FetchType.post,
+        url: ApiName.ApiLianPayQueryAccInfo
+    );
   }
 }
 

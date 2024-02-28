@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'package:mp/constants/data.model.factories.dart';
 import 'package:mp/utils/log.utils.dart';
+import 'package:mp/utils/toast.utils.dart';
 
 const JsonEncoder globalJsonEncoder = JsonEncoder.withIndent('  ');
 
@@ -42,11 +43,25 @@ T makeModel<T>(Json json) {
       "Please check if it's registered in `dataModelFactories`.",
       tag: '🏭 DataModel',
     );
+
     throw ModelNotRegisteredError<T>();
   }
   try {
     return dataModelFactories[T]!(json) as T;
   } catch (e, s) {
+    // 订单未支付
+    if (json['resultCode'] == "10021") {
+      ToastUtils.confirm(
+        CustomConfirmParams(
+          content: json['message'],
+          submit: () {
+            // 订单号
+            LogUtil.w("${json['data']} 订单号");
+          }
+        )
+      );
+    }
+    
     LogUtil.e(
       'Error when making model with $T type: $e\n'
       'The raw data which make this error is: '

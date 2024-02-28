@@ -28,8 +28,8 @@ class OrderController extends GetxController with GetTickerProviderStateMixin {
 
   final List<TabsList> tabsList = [
     TabsList(name: LocaleKeys.all, value: ""),
-    TabsList(name: LocaleKeys.finished, value: "1"),
-    TabsList(name: LocaleKeys.progressIn, value: "2"),
+    TabsList(name: LocaleKeys.progressIn, value: "1"),
+    TabsList(name: LocaleKeys.finished, value: "2"),
     TabsList(name: LocaleKeys.cancel, value: "3"),
   ];
 }

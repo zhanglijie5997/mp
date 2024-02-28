@@ -1,11 +1,14 @@
 import 'package:mp/models/accomoun_model/accomoun_model.dart';
 import 'package:mp/models/accomoun_tab_list_model/accomoun_tab_list_model.dart';
+import 'package:mp/models/api_lian_pay_query_acc_info_model/api_lian_pay_query_acc_info_model.dart';
+import 'package:mp/models/api_lian_pay_query_bank_info_model/api_lian_pay_query_bank_info_model.dart';
 import 'package:mp/models/consignment_list_model/consignment_list_model.dart';
 import 'package:mp/models/get_plate_list_model/get_plate_list_model.dart';
 import 'package:mp/models/home_banner_model/home_banner_model.dart';
 import 'package:mp/models/home_list_model/home_list_model.dart';
 import 'package:mp/models/home_position_model/home_position_model.dart';
 import 'package:mp/models/nft_create_buy_order_model/nft_create_buy_order_model.dart';
+import 'package:mp/models/nft_order_detail_model/nft_order_detail_model.dart';
 import 'package:mp/models/nft_order_get_order_list_model/nft_order_get_order_list_model.dart';
 import 'package:mp/models/product_detail_model/product_detail_model.dart';
 import 'package:mp/models/product_list_model/product_list_model.dart';
@@ -31,5 +34,8 @@ final Map<Type, DataFactory> dataModelFactories = <Type, DataFactory>{
   ProductDetailModel: ProductDetailModel.fromJson,
   ConsignmentListModel: ConsignmentListModel.fromJson,
   NftCreateBuyOrderModel: NftCreateBuyOrderModel.fromJson,
-  NftOrderGetOrderListModel: NftOrderGetOrderListModel.fromJson
+  NftOrderGetOrderListModel: NftOrderGetOrderListModel.fromJson,
+  NftOrderDetailModel: NftOrderDetailModel.fromJson,
+  ApiLianPayQueryBankInfoModel: ApiLianPayQueryBankInfoModel.fromJson,
+  ApiLianPayQueryAccInfoModel: ApiLianPayQueryAccInfoModel.fromJson
 };

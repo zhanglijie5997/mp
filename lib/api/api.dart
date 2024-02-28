@@ -47,4 +47,14 @@ class ApiName {
 
   /// * 名称: 查询订单 请求方式: get
   static String get NftOrderGetOrderList => "/nft/order/getOrderList";
+
+  /// * 名称: 获取订单详情 请求方式: get
+  static String get NftOrderOrderDetai => "/nft/order/orderDetai";
+
+  /// * 名称: 获取银行卡信息 请求方式: post
+  static String get ApiLianPayQueryBankCardInfo =>
+      "/api/lianPay/queryBankCardInfo";
+
+  /// * 名称: 获取支付 请求方式: post
+  static String get ApiLianPayQueryAccInfo => "/api/lianPay/queryAccInfo";
 }

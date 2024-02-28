@@ -10,12 +10,13 @@ class NftCreateBuyOrderModel {
   final String? resultCode;
   final Data? data;
   final String? dateTime;
-
+  final String? message;
   const NftCreateBuyOrderModel({
     this.success,
     this.resultCode,
     this.data,
     this.dateTime,
+    this.message,
   });
 
   @override
@@ -34,12 +35,14 @@ class NftCreateBuyOrderModel {
     String? resultCode,
     Data? data,
     String? dateTime,
+    String? message,
   }) {
     return NftCreateBuyOrderModel(
       success: success ?? this.success,
       resultCode: resultCode ?? this.resultCode,
       data: data ?? this.data,
       dateTime: dateTime ?? this.dateTime,
+      message: message ?? this.message,
     );
   }
 }

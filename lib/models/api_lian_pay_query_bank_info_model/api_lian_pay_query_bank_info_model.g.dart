@@ -1,29 +1,27 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'nft_create_buy_order_model.dart';
+part of 'api_lian_pay_query_bank_info_model.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-NftCreateBuyOrderModel _$NftCreateBuyOrderModelFromJson(
+ApiLianPayQueryBankInfoModel _$ApiLianPayQueryBankInfoModelFromJson(
         Map<String, dynamic> json) =>
-    NftCreateBuyOrderModel(
+    ApiLianPayQueryBankInfoModel(
       success: json['success'] as bool?,
       resultCode: json['resultCode'] as String?,
-      data: json['data'] == null
-          ? null
-          : Data.fromJson(json['data'] as Map<String, dynamic>),
+      data: (json['data'] as List<dynamic>?)
+          ?.map((e) => Datum.fromJson(e as Map<String, dynamic>))
+          .toList(),
       dateTime: json['dateTime'] as String?,
-      message: json['message'] as String?
     );
 
-Map<String, dynamic> _$NftCreateBuyOrderModelToJson(
-        NftCreateBuyOrderModel instance) =>
+Map<String, dynamic> _$ApiLianPayQueryBankInfoModelToJson(
+        ApiLianPayQueryBankInfoModel instance) =>
     <String, dynamic>{
       'success': instance.success,
       'resultCode': instance.resultCode,
       'data': instance.data,
       'dateTime': instance.dateTime,
-      'message': instance.message
     };

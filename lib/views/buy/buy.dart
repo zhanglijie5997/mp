@@ -174,7 +174,8 @@ class BuyPage extends GetView<BuyController> {
                         style: context.textTheme.bodyMedium?.copyWith(
                             fontSize: 18, fontWeight: FontWeight.bold)),
                   ).onTap(() {
-                    Get.toNamed("${AppRoutes.pay}");
+                    Get.toNamed(
+                        "${AppRoutes.pay}/${controller.params['orderId']}");
                   }),
                 )
               ],

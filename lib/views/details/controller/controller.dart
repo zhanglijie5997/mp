@@ -53,11 +53,14 @@ class DetailsController extends GetxController {
             // 目前默认连连
             walletSource: 1));
     ToastUtils.close();
-    if (res.data != null) {
+    if (res.data?.success == false) {
+      ToastUtils.show(res.data?.message ?? "");
+      return;
+    }
+    if (res.data?.data != null) {
       orderData.value = res.data!;
-
       Get.toNamed(
-          "${AppRoutes.buy}/${params["id"]}?data=${Uri.encodeComponent(detail.value.toJson().encode())}");
+          "${AppRoutes.buy}/${params["id"]}?data=${Uri.encodeComponent(detail.value.toJson().encode())}&orderId=${res.data?.data?.orderId}");
     }
   }
 

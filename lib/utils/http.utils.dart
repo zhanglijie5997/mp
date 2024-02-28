@@ -116,9 +116,9 @@ class HttpUtil {
       responseType: responseType,
       cancelToken: cancelToken,
     );
-    ToastUtils.close();
     final Json? resBody = response.data;
     if (resBody?.isNotEmpty ?? false) {
+
       final ResponseModel<T> model = ResponseModel<T>.fromJson(
         resBody!,
         modelFilter: modelFilter,
@@ -149,6 +149,7 @@ class HttpUtil {
             break;
         }
         // ToastUtil.text(model.msg);
+      }else {
       }
       _log('Response model: ${model.data}');
       return model;
@@ -354,7 +355,7 @@ class HttpUtil {
     if (body is Map && !body.containsKey('client_type')) {
       // body['client_type'] = 2606; // Indicates client type.
     }
-    // 本地获取token，塞入请求头
+    // 本地获取 token，塞入请求头
     // final _user = Storage.read<AccountLoginRes>(StoreName.userMsg);
     final token = GlobalController.to.token.value;
     if (token.isNotEmpty) {

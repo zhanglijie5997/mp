@@ -82,5 +82,23 @@
         "method": "get",
         "desc": "查询订单",
         "name": "/nft/order/getOrderList"
+    },
+    {
+        "url": "/nft/order/orderDetai",
+        "method": "get",
+        "desc": "获取订单详情",
+        "name": "/nft/order/orderDetai"
+    },
+    {
+        "url": "/api/lianPay/queryBankCardInfo",
+        "method": "post",
+        "desc": "获取银行卡信息",
+        "name": "/api/lianPay/queryBankCardInfo"
+    },
+    {
+        "url": "/api/lianPay/queryAccInfo",
+        "method": "post",
+        "desc": "获取支付",
+        "name": "/api/lianPay/queryAccInfo"
     }
 ]

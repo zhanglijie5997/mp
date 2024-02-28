@@ -58,12 +58,13 @@ class _DetailPageState extends RouteAwareState<DetailPage> {
     super.didPop();
   }
 
-  // @override
-  // void didPopNext() {
-  //   LogUtil.w("didPopNext");
-  //   controller.getData();
-  //   super.didPopNext();
-  // }
+  @override
+  void didPopNext() {
+    LogUtil.w("didPopNext");
+    controller.getData();
+    super.didPopNext();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

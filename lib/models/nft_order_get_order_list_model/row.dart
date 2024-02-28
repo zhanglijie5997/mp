@@ -8,7 +8,7 @@ part 'row.g.dart';
 class Row {
   final String? id;
   final String? productId;
-  final String? productMintId;
+  final dynamic productMintId;
   final String? productName;
   final String? productMintName;
   final String? productImg;
@@ -66,7 +66,7 @@ class Row {
   Row copyWith({
     String? id,
     String? productId,
-    String? productMintId,
+    dynamic productMintId,
     String? productName,
     String? productMintName,
     String? productImg,
