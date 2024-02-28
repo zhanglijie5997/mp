@@ -32,8 +32,8 @@ android {
     ndkVersion flutter.ndkVersion
 
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility kotlin_version
+        targetCompatibility kotlin_version
     }
 
     defaultConfig {
@@ -45,9 +45,9 @@ android {
         targetSdkVersion 34
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
-        ndk {
-            // abiFilters "armeabi-v7a"
-        }
+        // ndk {
+        //     // abiFilters "armeabi-v7a"
+        // }
     }
 
     signingConfigs {
