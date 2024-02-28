@@ -16,7 +16,7 @@ class GlobalStorageKey {
 class GlobalController extends GetxController {
   static GlobalController get to => Get.find<GlobalController>();
 
-  /// 用户token
+  /// 用户 token
   final token = "".obs;
   // 用户登陆信息
   final userMsg = (const UserPhoneLoginModel()).obs;
@@ -49,6 +49,7 @@ class GlobalController extends GetxController {
     }
   }
 
+  /// 退出，移除用户信息
   removeUserMsg() {
     StorageUtils().remove(GlobalStorageKey.userMsg);
     userMsg.value = (const UserPhoneLoginModel());

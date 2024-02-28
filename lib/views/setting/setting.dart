@@ -3,9 +3,11 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:mp/components/custom.appbar.dart';
 import 'package:mp/components/custom.image.dart';
+import 'package:mp/controller/global.controller.dart';
 import 'package:mp/extension/context.ext.dart';
 import 'package:mp/extension/num.ext.dart';
 import 'package:mp/extension/widget.ext.dart';
+import 'package:mp/models/user_phone_login_model/user_phone_login_model.dart';
 import 'package:mp/views/setting/controller/controller.dart';
 
 class SettingPage extends GetView<SettingController> {
@@ -358,7 +360,9 @@ class SettingPage extends GetView<SettingController> {
                       fontSize: 16,
                       fontWeight: FontWeight.bold,
                       color: context.customTheme?.navbarBg)),
-            )
+            ).onTap(() {
+              GlobalController.to.removeUserMsg();
+            })
           ],
         )));
   }
