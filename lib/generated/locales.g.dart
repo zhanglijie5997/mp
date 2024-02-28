@@ -71,6 +71,8 @@ class LocaleKeys {
   static const everyDayTask = 'everyDayTask';
   static const pointsMall = 'pointsMall';
   static const everyDayAnnouncement = 'everyDayAnnouncement';
+  static const realName = 'realName';
+  static const idCard = 'idCard';
 }
 
 class Locales {
@@ -135,6 +137,8 @@ class Locales {
     'everyDayTask': '每日任务',
     'pointsMall': '积分商城',
     'everyDayAnnouncement': '每日公告',
+    'realName': '真实姓名',
+    'idCard': '身份证号',
   };
   static const en_US = {
     'hello': 'hello',
@@ -197,5 +201,7 @@ class Locales {
     'everyDayTask': 'Task',
     'pointsMall': 'Mall',
     'everyDayAnnouncement': 'Announcement',
+    'realName': 'Real Name',
+    'idCard': 'ID Card',
   };
 }
