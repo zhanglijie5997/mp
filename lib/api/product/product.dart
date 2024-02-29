@@ -69,18 +69,18 @@ class ProductRequest {
   }
 
   // 获取用户的所有藏品 mintId
-  static Future<ResponseModel<NftUserProductGetProductMintListNewModel>> nftUserProductGetProductMintListNew(
-    NftUserProductGetProductMintListNewParams params
-  ) {
+  static Future<ResponseModel<NftUserProductGetProductMintListNewModel>>
+      nftUserProductGetProductMintListNew(
+          NftUserProductGetProductMintListNewParams params) {
     return HttpUtil.fetchModel<NftUserProductGetProductMintListNewModel>(
         FetchType.get,
         url: ApiName.NftUserProductGetProductMintListNew,
-        queryParameters: params.toJson()
-    );
+        queryParameters: params.toJson());
   }
 
   // 寄售获取地板价等信息
-  static Future<ResponseModel<ApiLianPayGetRandomModel>> nftOrderOrderSellPrice() {
+  static Future<ResponseModel<ApiLianPayGetRandomModel>>
+      nftOrderOrderSellPrice() {
     return HttpUtil.fetchModel<ApiLianPayGetRandomModel>(FetchType.post,
         url: ApiName.NftOrderOrderSellPrice);
   }
@@ -112,7 +112,6 @@ class NftUserProductGetProductMintListNewParams {
     return data;
   }
 }
-
 
 class NftOrderGetOrderListParams {
   int? current;

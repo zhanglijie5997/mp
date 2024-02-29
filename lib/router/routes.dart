@@ -11,6 +11,8 @@ import 'package:mp/views/consignment_list/binds/binds.dart';
 import 'package:mp/views/consignment_list/consignment_list.dart';
 import 'package:mp/views/details/binds/binds.dart';
 import 'package:mp/views/details/details.dart';
+import 'package:mp/views/featured/bind/bind.dart';
+import 'package:mp/views/featured/featured.dart';
 import 'package:mp/views/home/binds/binds.dart';
 import 'package:mp/views/home/home.dart';
 import 'package:mp/views/integration/binds/binds.dart';
@@ -56,6 +58,7 @@ final class AppRoutes {
   static String consignmentDetail = "/consignmentDetail";
   static String real = "/real";
   static String pay = "/pay";
+  static String featured = "/featured";
 
   /// 需要登陆的页面 在 GetPage middlewares: [AuthMiddleWare()]
   static var routes = [
@@ -148,5 +151,10 @@ final class AppRoutes {
         page: () => const PayPage(),
         middlewares: [AuthMiddleWare(), RealMiddleWare()],
         binding: PayBinding()),
+    GetPage(
+        name: "${AppRoutes.featured}/:id/:activeId",
+        page: () => const FeaturedPage(),
+        middlewares: [AuthMiddleWare()],
+        binding: FeaturedBinding()),
   ];
 }

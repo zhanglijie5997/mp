@@ -77,4 +77,8 @@ class ApiName {
 
   /// * 名称: 寄售查看藏品地板价等信息 请求方式: post
   static String get NftOrderOrderSellPrice => "/nft/order/orderSellPrice";
+
+  /// * 名称: 精选藏品推荐 请求方式: post
+  static String get ApiNftProductGetProductDetailById =>
+      "/api/nft/product/getProductDetailById";
 }

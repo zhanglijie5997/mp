@@ -8,6 +8,12 @@ import 'package:mp/extension/widget.ext.dart';
 import 'package:mp/utils/log.utils.dart';
 import 'package:mp/views/webview/controller/controller.dart';
 
+class WebviewMethods {
+  static String get close => "close";
+  static String get paySuccess => "paySuccess";
+  static String get getPayDetail => "getPayDetail";
+}
+
 class AppWebviewPage extends GetView<AppWebviewController> {
   const AppWebviewPage({super.key});
 
@@ -66,6 +72,22 @@ class AppWebviewPage extends GetView<AppWebviewController> {
                       controller.canBack.value = canBack;
                       controller.progress.value =
                           double.parse(progress.toStringAsFixed(2));
+                    },
+                    onWebViewCreated: (InAppWebViewController webviewController) {
+                      webviewController.addJavaScriptHandler(handlerName: WebviewMethods.close, callback: (arguments) { 
+                        
+                      });
+                      /// 获取支付的一些配置
+                      webviewController.addJavaScriptHandler(handlerName: WebviewMethods.getPayDetail, callback: (arguments) { 
+                        return controller.payData.value;
+                      });
+                      webviewController.addJavaScriptHandler(handlerName: WebviewMethods.paySuccess, callback: (args) {
+                      // 支付成功，跳转支付成功页面
+                      });
+                       /// [example] 示例
+                       /// window.flutter_inappwebview.callHandler("paySuccess", {
+                       ///  id: "xxx"
+                       /// })
                     },
                     onLoadStop: (webviewController, url) async {
                       final res = await webviewController.evaluateJavascript(

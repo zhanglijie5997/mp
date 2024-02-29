@@ -1,71 +1,53 @@
 import 'package:custom_refresh_indicator/custom_refresh_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_popup/flutter_popup.dart';
-import 'package:flutter_svg/svg.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:mp/components/custom.image.dart';
 import 'package:mp/components/custom.loading.dart';
 import 'package:mp/components/custom.vip.text.dart';
 import 'package:mp/constants/assets.dart';
-import 'package:mp/controller/global.controller.dart';
 import 'package:mp/extension/context.ext.dart';
-import 'package:mp/extension/map.ext.dart';
 import 'package:mp/extension/num.ext.dart';
 import 'package:mp/extension/widget.ext.dart';
 import 'package:mp/generated/locales.g.dart';
 import 'package:mp/router/router.ware.dart';
-import 'package:mp/router/routes.dart';
 import 'package:mp/services/theme/theme.services.dart';
-import 'package:mp/utils/event.utils.dart';
-import 'package:mp/utils/log.utils.dart';
-import 'package:mp/utils/toast.utils.dart';
-import 'package:mp/views/details/controller/controller.dart';
+import 'package:mp/views/featured/components/status.button.dart';
+import 'package:mp/views/featured/controller/controller.dart';
 import 'dart:ui' as ui;
 
-enum PayStats {
-  shelves(1, "寄售"),
+enum ActivityStatusEnum {
+  shelves(1, "即将开售"),
   buy(2, "立即购买"),
-  paying(3, "支付中"),
-  build(4, "已铸造"),
-  destory(5, "已销毁");
+  paying(3, "已结束"),
+  build(4, "已售罄"),
+  destory(5, "暂未开售");
 
-  const PayStats(this.number, this.value);
+  const ActivityStatusEnum(this.number, this.value);
 
   final int number;
 
   final String value;
 
-  static PayStats getType(int number) =>
-      PayStats.values.firstWhere((activity) => activity.number == number);
+  static ActivityStatusEnum getType(int number) =>
+      ActivityStatusEnum.values.firstWhere((activity) => activity.number == number);
 
   static String getValue(int number) =>
-      PayStats.values.firstWhere((activity) => activity.number == number).value;
+      ActivityStatusEnum.values.firstWhere((activity) => activity.number == number).value;
+}
+class FeaturedPage extends StatefulWidget {
+  const FeaturedPage({super.key});
+
+  @override
+  State<FeaturedPage> createState() => _FeaturedPageState();
 }
 
-class DetailPage extends StatefulWidget {
-  const DetailPage({super.key});
+class _FeaturedPageState extends RouteAwareState<FeaturedPage> {
 
-  @override
-  State<DetailPage> createState() => _DetailPageState();
-}
 
-class _DetailPageState extends RouteAwareState<DetailPage> {
-  final tag = Get.parameters["id"];
-  late final controller = Get.put(DetailsController(), tag: tag);
-
-  @override
-  void didPop() {
-    LogUtil.w("back");
-    super.didPop();
-  }
-
-  @override
-  void didPopNext() {
-    LogUtil.w("didPopNext");
-    controller.getData();
-    super.didPopNext();
-  }
-
+  final params = Get.parameters;
+  late final controller = Get.put(FeaturedController(), tag: params['id']);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -397,49 +379,8 @@ class _DetailPageState extends RouteAwareState<DetailPage> {
                     }),
                   ),
                   Expanded(
-                      child: Container(
-                    padding: const EdgeInsets.symmetric(vertical: 15),
-                    decoration: BoxDecoration(
-                        borderRadius: 12.radius,
-                        color: context.customTheme?.card),
-                    child: Obx(() => Text(
-                        controller.detail.value.data?.status == 2 &&
-                                GlobalController
-                                        .to.currentUserMsg.value.data?.id ==
-                                    controller.detail.value.data?.holderId
-                            ? '取消寄售'
-                            : PayStats.getValue(int.parse(
-                                "${controller.detail.value.data?.status ?? 2}")),
-                        // "${LocaleKeys.buy.tr} ${controller.detail.value.data?.status}",
-                        textAlign: TextAlign.center,
-                        style: context.textTheme.bodyMedium?.copyWith(
-                            fontSize: 18, fontWeight: FontWeight.bold))),
-                  ).onTap(() {
-                    // LogUtil.w(controller.detail.value.toJson().encode());
-                    switch (controller.detail.value.data?.status) {
-                      case 1:
-                        // 寄售
-                        break;
-                      case 2:
-                        // 取消寄售
-                        if (controller.detail.value.data?.holderId ==
-                            GlobalController.to.currentUserMsg.value.data?.id) {
-                    
-                          // 取消寄售
-                          ToastUtils.confirm(CustomConfirmParams(
-                              content: "取消寄售后，3 分钟内将不能再寄售此藏品，您确认取消吗？",
-                              cancel: () {},
-                              submit: () {}));
-                        } else {
-                          controller.createOrder();
-                        }
-                        break;
-                      case 3:
-                        break;
-                      default:
-                    }
-                    if (controller.detail.value.data?.status == 2) {}
-                  }))
+                      child:  Obx(() => StatusButton(data: controller.detail.value))
+                  )
                 ],
               ),
             ),
@@ -447,5 +388,6 @@ class _DetailPageState extends RouteAwareState<DetailPage> {
         ),
       ),
     );
+
   }
 }

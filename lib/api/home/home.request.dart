@@ -8,6 +8,7 @@ import 'package:mp/models/get_plate_list_model/get_plate_list_model.dart';
 import 'package:mp/models/home_banner_model/home_banner_model.dart';
 import 'package:mp/models/home_list_model/home_list_model.dart';
 import 'package:mp/models/home_position_model/home_position_model.dart';
+import 'package:mp/models/nft_product_get_product_detail_by_id_model/nft_product_get_product_detail_by_id_model.dart';
 import 'package:mp/models/product_list_model/product_list_model.dart';
 import 'package:mp/models/response.dart';
 import 'package:mp/models/user_product_list_model/user_product_list_model.dart';
@@ -90,6 +91,14 @@ class HomeRequest {
     return HttpUtil.fetchModel<ApiNftHomePageRecommentListModel>(FetchType.get,
         url: ApiName.ApiNftHomePageRecommendList,
         queryParameters: {"current": current, "rows": rows});
+  }
+
+  /// 首页进去藏品详情
+  static Future<ResponseModel<NftProductGetProductDetailByIdModel>>
+      nftProductGetProductDetailById(String id, String activityId) {
+    return HttpUtil.fetchModel<NftProductGetProductDetailByIdModel>(FetchType.get,
+        url: ApiName.ApiNftProductGetProductDetailById,
+        queryParameters: {"id": id, "activityId": activityId});
   }
 }
 

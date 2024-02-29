@@ -9,7 +9,9 @@ import 'package:mp/components/custom.nodata.dart';
 import 'package:mp/constants/assets.dart';
 import 'package:mp/extension/context.ext.dart';
 import 'package:mp/extension/num.ext.dart';
+import 'package:mp/extension/widget.ext.dart';
 import 'package:mp/models/api_nft_home_page_recomment_list_model/api_nft_home_page_recomment_list_model.dart';
+import 'package:mp/router/routes.dart';
 
 class IndexTabView extends StatefulWidget {
   const IndexTabView({super.key});
@@ -152,7 +154,9 @@ class IndexTabViewState extends State<IndexTabView>
                 ],
               ),
             ),
-          );
+          ).onTap(() {
+            Get.toNamed("${AppRoutes.featured}/${item?.nftProductId}/${item?.activity?.id}");
+          });
         },
       ),
     );

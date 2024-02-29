@@ -510,6 +510,13 @@ class HttpUtil {
         switch (e.response?.statusCode) {
           case 401:
             LogUtil.w('未登陆');
+            if (GlobalController.to.token.value.isNotEmpty) {
+              ToastUtils.confirm(CustomConfirmParams(
+                  content: "您的账号已在其他设备登陆，请重新登陆。",
+                  submit: () {
+                    ToastUtils.close();
+                  }));
+            }
             GlobalController.to.removeUserMsg();
             break;
         }

@@ -13,6 +13,7 @@ import 'package:mp/models/home_position_model/home_position_model.dart';
 import 'package:mp/models/nft_create_buy_order_model/nft_create_buy_order_model.dart';
 import 'package:mp/models/nft_order_detail_model/nft_order_detail_model.dart';
 import 'package:mp/models/nft_order_get_order_list_model/nft_order_get_order_list_model.dart';
+import 'package:mp/models/nft_product_get_product_detail_by_id_model/nft_product_get_product_detail_by_id_model.dart';
 import 'package:mp/models/nft_user_product_get_product_mint_list_new_model/nft_user_product_get_product_mint_list_new_model.dart';
 import 'package:mp/models/product_detail_model/product_detail_model.dart';
 import 'package:mp/models/product_list_model/product_list_model.dart';
@@ -45,6 +46,6 @@ final Map<Type, DataFactory> dataModelFactories = <Type, DataFactory>{
   ApiLianPayGetRandomModel: ApiLianPayGetRandomModel.fromJson,
   ApiAnnouncementDetailModel: ApiAnnouncementDetailModel.fromJson,
   ApiNftHomePageRecommentListModel: ApiNftHomePageRecommentListModel.fromJson,
-  NftUserProductGetProductMintListNewModel:
-      NftUserProductGetProductMintListNewModel.fromJson
+  NftUserProductGetProductMintListNewModel: NftUserProductGetProductMintListNewModel.fromJson,
+  NftProductGetProductDetailByIdModel: NftProductGetProductDetailByIdModel.fromJson
 };
