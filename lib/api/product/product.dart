@@ -78,6 +78,12 @@ class ProductRequest {
         queryParameters: params.toJson()
     );
   }
+
+  // 寄售获取地板价等信息
+  static Future<ResponseModel<ApiLianPayGetRandomModel>> nftOrderOrderSellPrice() {
+    return HttpUtil.fetchModel<ApiLianPayGetRandomModel>(FetchType.post,
+        url: ApiName.NftOrderOrderSellPrice);
+  }
 }
 
 class NftUserProductGetProductMintListNewParams {

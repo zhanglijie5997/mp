@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-
 enum StatusEnum {
   buy(1, "持"),
   paying(2, "寄"),
@@ -16,10 +15,10 @@ enum StatusEnum {
   static StatusEnum getType(int number) =>
       StatusEnum.values.firstWhere((activity) => activity.number == number);
 
-  static String getValue(int number) =>
-      StatusEnum.values.firstWhere((activity) => activity.number == number).value;
+  static String getValue(int number) => StatusEnum.values
+      .firstWhere((activity) => activity.number == number)
+      .value;
 }
-
 
 extension IntExt on int {
   Duration get days => Duration(days: this);
@@ -45,6 +44,7 @@ extension IntExt on int {
   String priceFix() {
     return "${this == 0 ? this : "--"}";
   }
+
   // 根据状态显示不同
   String statusStr() {
     return StatusEnum.getValue(this);

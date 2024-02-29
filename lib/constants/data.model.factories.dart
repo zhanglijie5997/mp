@@ -45,5 +45,6 @@ final Map<Type, DataFactory> dataModelFactories = <Type, DataFactory>{
   ApiLianPayGetRandomModel: ApiLianPayGetRandomModel.fromJson,
   ApiAnnouncementDetailModel: ApiAnnouncementDetailModel.fromJson,
   ApiNftHomePageRecommentListModel: ApiNftHomePageRecommentListModel.fromJson,
-  NftUserProductGetProductMintListNewModel: NftUserProductGetProductMintListNewModel.fromJson
+  NftUserProductGetProductMintListNewModel:
+      NftUserProductGetProductMintListNewModel.fromJson
 };

@@ -53,7 +53,10 @@ class _CustomConfirmState extends State<CustomConfirm> {
                           color: context.customTheme?.gray3,
                         ),
                       ),
-                    ).onTap(() => params?.cancel?.call()),
+                    ).onTap(() {
+                      ToastUtils.close();
+                      params?.cancel?.call();
+                    }),
                   ),
                   Expanded(
                     child: Container(
@@ -72,7 +75,9 @@ class _CustomConfirmState extends State<CustomConfirm> {
                           color: context.customTheme?.navbarBg,
                         ),
                       ),
-                    ).onTap(() => params?.submit?.call()),
+                    ).onTap(() {
+                      params?.submit?.call();
+                    }),
                   ),
                 ],
               )

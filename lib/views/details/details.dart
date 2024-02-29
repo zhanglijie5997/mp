@@ -23,6 +23,7 @@ import 'package:mp/views/details/controller/controller.dart';
 import 'dart:ui' as ui;
 
 enum PayStats {
+  shelves(1, "寄售"),
   buy(2, "立即购买"),
   paying(3, "支付中"),
   build(4, "已铸造"),
@@ -77,9 +78,7 @@ class _DetailPageState extends RouteAwareState<DetailPage> {
           builder: (BuildContext context, Widget child,
               IndicatorController indicatorController) {
             controller.refreshController ??= indicatorController;
-            return Column(
-              children: [Expanded(child: child)],
-            );
+            return child;
           },
           child: CustomScrollView(
               controller: controller.scrollController,
@@ -417,23 +416,28 @@ class _DetailPageState extends RouteAwareState<DetailPage> {
                             fontSize: 18, fontWeight: FontWeight.bold))),
                   ).onTap(() {
                     // LogUtil.w(controller.detail.value.toJson().encode());
-                    if (controller.detail.value.data?.status == 2) {
-                      if (controller.detail.value.data?.holderId ==
-                          GlobalController.to.currentUserMsg.value.data?.id) {
+                    switch (controller.detail.value.data?.status) {
+                      case 1:
+                        // 寄售
+                        break;
+                      case 2:
                         // 取消寄售
-                        ToastUtils.confirm(CustomConfirmParams(
-                            content: "取消寄售后，3 分钟内将不能再寄售此藏品，您确认取消吗？",
-                            cancel: () {
-                              ToastUtils.close();
-                            },
-                            submit: () {
-                              ToastUtils.close();
-                            }));
-                        return;
-                      }
-
-                      controller.createOrder();
+                        if (controller.detail.value.data?.holderId ==
+                            GlobalController.to.currentUserMsg.value.data?.id) {
+                          // 取消寄售
+                          ToastUtils.confirm(CustomConfirmParams(
+                              content: "取消寄售后，3 分钟内将不能再寄售此藏品，您确认取消吗？",
+                              cancel: () {},
+                              submit: () {}));
+                        } else {
+                          controller.createOrder();
+                        }
+                        break;
+                      case 3:
+                        break;
+                      default:
                     }
+                    if (controller.detail.value.data?.status == 2) {}
                   }))
                 ],
               ),

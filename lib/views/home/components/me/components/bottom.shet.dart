@@ -20,17 +20,16 @@ class MeBottomSheet extends StatefulWidget {
 }
 
 class _BottomSheetState extends State<MeBottomSheet> {
-
   int page = 1;
   NftUserProductGetProductMintListNewModel? data;
   final globalController = GlobalController.to;
   Future<bool> getData() async {
-    final res = await ProductRequest.nftUserProductGetProductMintListNew(NftUserProductGetProductMintListNewParams(
-      current: page,
-      rows: 20,
-      userId: globalController.currentUserMsg.value.data?.id,
-      productId: widget.id
-    ));
+    final res = await ProductRequest.nftUserProductGetProductMintListNew(
+        NftUserProductGetProductMintListNewParams(
+            current: page,
+            rows: 20,
+            userId: globalController.currentUserMsg.value.data?.id,
+            productId: widget.id));
     setState(() {
       data = res.data!;
     });
@@ -72,44 +71,42 @@ class _BottomSheetState extends State<MeBottomSheet> {
               child: GridView.builder(
                 itemCount: data?.rows?.length,
                 itemBuilder: (BuildContext context, int index) {
-                  final item =  data?.rows?[index];
+                  final item = data?.rows?[index];
                   return Container(
                     alignment: Alignment.center,
                     decoration: BoxDecoration(
-                      
-                      color: context.customTheme?.navbarBg,
-                      boxShadow: const [
-                        BoxShadow(
-                          color:
-                              Color.fromRGBO(236, 236, 241, 0.6),
-                          offset: Offset(0, 5),
-                          blurRadius: 25,
-                        ),
-                      ],
-                      borderRadius: 8.radius
-                    ),
+                        color: context.customTheme?.navbarBg,
+                        boxShadow: const [
+                          BoxShadow(
+                            color: Color.fromRGBO(236, 236, 241, 0.6),
+                            offset: Offset(0, 5),
+                            blurRadius: 25,
+                          ),
+                        ],
+                        borderRadius: 8.radius),
                     child: Stack(
                       fit: StackFit.expand,
                       children: [
                         Positioned(
-                          top: 0,
-                          left: 0,
-                          child: Visibility(
-                            visible:( item?.status?.toInt()??1) != 1 ,
-                            child: Container(
-                              width: 16,
-                              height: 16,
-                              alignment: Alignment.center,
-                              decoration: BoxDecoration(
-                                borderRadius: 50.radius,
-                                color: context.customTheme?.fontColor
-                              ),
-                              child: Text(( item?.status?.toInt()??1).statusStr(), style: context.textTheme.bodyMedium?.copyWith(
-                                fontSize: 10, color: context.customTheme?.navbarBg
-                              ))
-                            ),
-                          )
-                        ),
+                            top: 0,
+                            left: 0,
+                            child: Visibility(
+                              visible: (item?.status?.toInt() ?? 1) != 1,
+                              child: Container(
+                                  width: 16,
+                                  height: 16,
+                                  alignment: Alignment.center,
+                                  decoration: BoxDecoration(
+                                      borderRadius: 50.radius,
+                                      color: context.customTheme?.fontColor),
+                                  child: Text(
+                                      (item?.status?.toInt() ?? 1).statusStr(),
+                                      style: context.textTheme.bodyMedium
+                                          ?.copyWith(
+                                              fontSize: 10,
+                                              color: context
+                                                  .customTheme?.navbarBg))),
+                            )),
                         Center(child: Text("${item?.productCode}")),
                       ],
                     ),
@@ -117,13 +114,12 @@ class _BottomSheetState extends State<MeBottomSheet> {
                     Get.back();
                     Get.toNamed("${AppRoutes.details}/${item?.productMintId}");
                   });
-                }, 
+                },
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 4, 
-                  childAspectRatio: 2,
-                  crossAxisSpacing: 10,
-                  mainAxisSpacing: 10
-                ),
+                    crossAxisCount: 4,
+                    childAspectRatio: 2,
+                    crossAxisSpacing: 10,
+                    mainAxisSpacing: 10),
               ),
             ),
           ),

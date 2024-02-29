@@ -130,5 +130,11 @@
         "method": "get",
         "desc": "藏品列表",
         "name": "/nft/user/product/getProductMintListNew"
+    },
+    {
+        "url": "/nft/order/orderSellPrice",
+        "method": "post",
+        "desc": "寄售查看藏品地板价等信息",
+        "name": "/nft/order/orderSellPrice"
     }
 ]
