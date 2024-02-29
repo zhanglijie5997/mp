@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mp/api/home/home.request.dart';
 import 'package:mp/constants/assets.dart';
+import 'package:mp/controller/global.controller.dart';
 import 'package:mp/models/wx_user_model/wx_user_model.dart';
 import 'package:mp/router/routes.dart';
 import 'package:mp/utils/log.utils.dart';
@@ -77,16 +78,20 @@ class HomeMeController extends GetxController with GetTickerProviderStateMixin {
   }
 
   getUserData() async {
-    final res = await HomeRequest.wxUser();
-    LogUtil.w(res.data?.data);
-    LogUtil.w("用户信息");
-    if (res.data != null) {
-      user.value = res.data!;
-    }
+    // final res = await HomeRequest.wxUser();
+    // LogUtil.w(res.data?.data);
+    // LogUtil.w("用户信息");
+    // if (res.data != null) {
+    //   user.value = res.data!;
+    // }
+    user.value = GlobalController.to.currentUserMsg.value;
   }
 
   @override
   void onInit() {
+    debounce(GlobalController.to.token, (callback) {
+      getUserData();
+    });
     scrollController.addListener(listener);
     getUserData();
     super.onInit();

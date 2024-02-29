@@ -10,7 +10,7 @@ ProductMintList _$ProductMintListFromJson(Map<String, dynamic> json) =>
     ProductMintList(
       id: json['id'] as String?,
       productMintName: json['productMintName'] as String?,
-      price: json['price'] as int?,
+      price: json['price'],
       orderId: json['orderId'],
       lockStatus: json['lockStatus'],
       status: json['status'],

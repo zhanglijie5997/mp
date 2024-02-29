@@ -2,6 +2,8 @@ import 'package:mp/api/api.dart';
 import 'package:mp/models/accomoun_model/accomoun_model.dart';
 import 'package:mp/models/accomoun_params/accomoun_params.dart';
 import 'package:mp/models/accomoun_tab_list_model/accomoun_tab_list_model.dart';
+import 'package:mp/models/api_announcement_detail_model/api_announcement_detail_model.dart';
+import 'package:mp/models/api_nft_home_page_recomment_list_model/api_nft_home_page_recomment_list_model.dart';
 import 'package:mp/models/get_plate_list_model/get_plate_list_model.dart';
 import 'package:mp/models/home_banner_model/home_banner_model.dart';
 import 'package:mp/models/home_list_model/home_list_model.dart';
@@ -26,7 +28,7 @@ class HomeRequest {
         url: ApiName.ApiAnnouncementList, queryParameters: v.toJson());
   }
 
-  /// banner列表
+  /// banner 列表
   static Future<ResponseModel<HomeBannerModel>>
       apiRotationChartSelectRotationChartList() {
     return HttpUtil.fetchModel<HomeBannerModel>(FetchType.get,
@@ -40,14 +42,14 @@ class HomeRequest {
         url: ApiName.ApiHomePositionSelectNftHomePositionList);
   }
 
-  /// 公告tab列表
+  /// 公告 tab 列表
   static Future<ResponseModel<AccomounTabListModel>>
       apiAnnouncementTypeSelectAnnouncementTypeList() {
     return HttpUtil.fetchModel<AccomounTabListModel>(FetchType.get,
         url: ApiName.ApiAnnouncementTypeSelectAnnouncementTypeList);
   }
 
-  /// 寄售市场二级Tab
+  /// 寄售市场二级 Tab
   static Future<ResponseModel<GetPlateListModel>> nftMarketGetPlateList() {
     return HttpUtil.fetchModel<GetPlateListModel>(FetchType.get,
         url: ApiName.NftMarketGetPlateList);
@@ -66,12 +68,28 @@ class HomeRequest {
     return HttpUtil.fetchModel<WxUserModel>(FetchType.get, url: ApiName.WxUser);
   }
 
-  /// 根据userid 查询用户藏品
+  /// 根据 userid 查询用户藏品
   static Future<ResponseModel<UserProductListModel>>
       nftUserProductGetProductList(String userId, [int? type]) {
     return HttpUtil.fetchModel<UserProductListModel>(FetchType.get,
         url: ApiName.NftUserProductGetProductList,
         queryParameters: {"userId": userId, "type": type ?? ""});
+  }
+
+  /// 获取公告详情
+  static Future<ResponseModel<ApiAnnouncementDetailModel>>
+      apiAnnouncementDetail(String userId, String id) {
+    return HttpUtil.fetchModel<ApiAnnouncementDetailModel>(FetchType.get,
+        url: ApiName.ApiAnnouncementDetail,
+        queryParameters: {"userId": userId, "id": id});
+  }
+
+  /// 精选藏品
+  static Future<ResponseModel<ApiNftHomePageRecommentListModel>>
+      apiNftHomePageRecommendList(int current, int rows) {
+    return HttpUtil.fetchModel<ApiNftHomePageRecommentListModel>(FetchType.get,
+        url: ApiName.ApiNftHomePageRecommendList,
+        queryParameters: {"current": current, "rows": rows});
   }
 }
 

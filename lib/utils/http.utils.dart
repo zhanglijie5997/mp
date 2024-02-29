@@ -118,7 +118,6 @@ class HttpUtil {
     );
     final Json? resBody = response.data;
     if (resBody?.isNotEmpty ?? false) {
-
       final ResponseModel<T> model = ResponseModel<T>.fromJson(
         resBody!,
         modelFilter: modelFilter,
@@ -149,8 +148,7 @@ class HttpUtil {
             break;
         }
         // ToastUtil.text(model.msg);
-      }else {
-      }
+      } else {}
       _log('Response model: ${model.data}');
       return model;
     } else {

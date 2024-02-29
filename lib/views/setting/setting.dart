@@ -362,6 +362,7 @@ class SettingPage extends GetView<SettingController> {
                       color: context.customTheme?.navbarBg)),
             ).onTap(() {
               GlobalController.to.removeUserMsg();
+              GlobalController.to.back();
             })
           ],
         )));

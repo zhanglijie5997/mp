@@ -20,8 +20,16 @@ class _CustomCheckboxState extends State<CustomCheckbox> {
   handleStatus() {
     setState(() {
       widget.onChange?.call(!status);
-      status = !status;
+      // status = !status;
     });
+  }
+
+  @override
+  void didUpdateWidget(CustomCheckbox oldWidget) {
+    setState(() {
+      status = widget.isSelect ?? false;
+    });
+    super.didUpdateWidget(oldWidget);
   }
 
   @override

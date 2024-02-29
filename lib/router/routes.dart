@@ -38,7 +38,7 @@ import 'package:mp/views/webview/binds/binds.dart';
 import 'package:mp/views/webview/webview.dart';
 
 final class AppRoutes {
-  static String home = "/home";
+  static String home = "/";
   static String login = "/login";
   static String register = "/register";
   static String order = "/order";
@@ -63,7 +63,6 @@ final class AppRoutes {
         name: AppRoutes.home,
         page: () => const HomePage(),
         binding: HomeBinding()),
-    // middlewares: [AuthMiddleWare()]
     GetPage(
         name: AppRoutes.order,
         page: () => const OrderPage(),
@@ -85,7 +84,8 @@ final class AppRoutes {
     GetPage(
         name: "${AppRoutes.details}/:id",
         page: () => const DetailPage(),
-        binding: DetailsBinding()),
+        binding: DetailsBinding(),
+        middlewares: [AuthMiddleWare()]),
     GetPage(
         name: "${AppRoutes.orderDetail}/:id",
         page: () => const OrderDetailPage(),
@@ -136,7 +136,8 @@ final class AppRoutes {
     GetPage(
         name: "${AppRoutes.consignmentDetail}/:id",
         page: () => const ConsignmentPage(),
-        binding: ConsignmentBinding()),
+        binding: ConsignmentBinding(),
+        middlewares: [AuthMiddleWare()]),
     GetPage(
         name: AppRoutes.real,
         page: () => const RealPage(),

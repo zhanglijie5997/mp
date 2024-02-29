@@ -1,11 +1,14 @@
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mp/api/home/home.request.dart';
 import 'package:mp/extension/map.ext.dart';
 import 'package:mp/extension/string.ext.dart';
 import 'package:mp/models/user_phone_login_model/user_phone_login_model.dart';
 import 'package:mp/models/wx_user_model/wx_user_model.dart';
+import 'package:mp/router/routes.dart';
 import 'package:mp/utils/log.utils.dart';
 import 'package:mp/utils/storage.utils.dart';
+import 'package:mp/views/home/components/me/controller/controller.dart';
 
 class GlobalStorageKey {
   static String get userMsg => "userMsg";
@@ -53,7 +56,17 @@ class GlobalController extends GetxController {
   removeUserMsg() {
     StorageUtils().remove(GlobalStorageKey.userMsg);
     userMsg.value = (const UserPhoneLoginModel());
+    currentUserMsg.value = (const WxUserModel());
     token.value = "";
+    // HomeMeController.to.refresh();
+  }
+
+  back() {
+    // Navigator.of(Get.context!).popUntil(newRouteName, (route) => false)
+    // HomeMeController.to.
+    Get.until(ModalRoute.withName(
+      AppRoutes.home,
+    ));
   }
 
   @override

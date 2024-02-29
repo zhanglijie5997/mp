@@ -4,10 +4,13 @@ import 'package:mp/api/home/home.request.dart';
 import 'package:mp/components/custom.image.dart';
 import 'package:mp/components/custom.loaddata.dart';
 import 'package:mp/components/custom.refresh.dart';
+import 'package:mp/controller/global.controller.dart';
 import 'package:mp/extension/context.ext.dart';
 import 'package:mp/extension/num.ext.dart';
+import 'package:mp/extension/widget.ext.dart';
 import 'package:mp/utils/event.utils.dart';
 import 'package:mp/utils/log.utils.dart';
+import 'package:mp/views/home/components/me/components/bottom.shet.dart';
 import 'package:mp/views/home/components/me/controller/controller.dart';
 import 'package:mp/models/user_product_list_model/datum.dart'
     as userProductListModel;
@@ -35,12 +38,16 @@ class _MePageViewItemState extends State<MePageViewItem>
 
   @override
   void initState() {
-    if (HomeMeController.to.user.value.data?.id != null) {
-      getData();
-    }
-    debounce(HomeMeController.to.user, (callback) {
-      getData();
-    });
+    getData();
+    debounce(GlobalController.to.currentUserMsg, (callback) {
+      if (callback.data?.id == null) {
+        setState(() {
+          list = [];
+        });
+      } else {
+        getData();
+      }
+    }, time: 0.microseconds);
     super.initState();
   }
 
@@ -132,7 +139,11 @@ class _MePageViewItemState extends State<MePageViewItem>
                     )
                   ],
                 ),
-              );
+              ).onTap(() {
+                Get.bottomSheet(MeBottomSheet(
+                  id: item?.productId ?? "",
+                ));
+              });
             }),
       ),
     );

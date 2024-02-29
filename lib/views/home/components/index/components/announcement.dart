@@ -5,7 +5,10 @@ import 'package:get/get.dart';
 import 'package:mp/constants/assets.dart';
 import 'package:mp/extension/context.ext.dart';
 import 'package:mp/extension/num.ext.dart';
+import 'package:mp/extension/string.ext.dart';
+import 'package:mp/extension/widget.ext.dart';
 import 'package:mp/models/accomoun_model/accomoun_model.dart';
+import 'package:mp/router/routes.dart';
 
 class IndexAnnouncement extends StatefulWidget {
   final AccomounModel? data;
@@ -61,7 +64,11 @@ class _IndexAnnouncementState extends State<IndexAnnouncement> {
                     ),
                   ],
                 ),
-              );
+              ).onTap(() {
+                final row = widget.data?.rows?[index];
+                Get.toNamed(
+                    "${AppRoutes.announcementDetail}/${row?.id}?title=${(row?.title ?? "").encode()}");
+              });
             },
             itemCount: widget.data?.rows?.length ?? 0,
           ),

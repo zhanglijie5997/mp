@@ -6,7 +6,7 @@ part 'product_mint_list.g.dart';
 class ProductMintList {
   final String? id;
   final String? productMintName;
-  final int? price;
+  final dynamic price;
   final dynamic orderId;
   final dynamic lockStatus;
   final dynamic status;
@@ -36,7 +36,7 @@ class ProductMintList {
   ProductMintList copyWith({
     String? id,
     String? productMintName,
-    int? price,
+    dynamic price,
     dynamic orderId,
     dynamic lockStatus,
     dynamic status,

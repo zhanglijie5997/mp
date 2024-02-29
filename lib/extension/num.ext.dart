@@ -20,6 +20,16 @@ extension IntExt on int {
       DateTime.fromMillisecondsSinceEpoch(this);
 
   BorderRadius get radius => BorderRadius.all(Radius.circular(toDouble()));
+
+  String priceFix() {
+    return "${this == 0 ? this : "--"}";
+  }
+}
+
+extension DoubleExt on double? {
+  String priceFix() {
+    return "${(this ?? 0) > 0 ? this : "--"}";
+  }
 }
 
 extension Numext on num {

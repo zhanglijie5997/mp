@@ -6,7 +6,7 @@ import 'package:mp/extension/widget.ext.dart';
 import 'package:mp/utils/event.utils.dart';
 
 class ToastUtils {
-  static show(String value) async{
+  static show(String value) async {
     ToastUtils.close();
     await EventUtils.sleep(100.microseconds);
     SmartDialog.showToast(value,
@@ -15,7 +15,7 @@ class ToastUtils {
         maskColor: Colors.transparent);
   }
 
-  static showLoading(String? msg) async{
+  static showLoading(String? msg) async {
     ToastUtils.close();
     await EventUtils.sleep(100.microseconds);
 
@@ -25,12 +25,14 @@ class ToastUtils {
     });
   }
 
-  static confirm([CustomConfirmParams? params]) async{
+  static confirm([CustomConfirmParams? params]) async {
     ToastUtils.close();
     await EventUtils.sleep(200.microseconds);
-    SmartDialog.show(debounce: false,builder: (BuildContext context) {
-      return CustomConfirm(params: params);
-    });
+    SmartDialog.show(
+        debounce: false,
+        builder: (BuildContext context) {
+          return CustomConfirm(params: params);
+        });
   }
 
   static close() {

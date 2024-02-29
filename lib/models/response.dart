@@ -51,17 +51,14 @@ T makeModel<T>(Json json) {
   } catch (e, s) {
     // 订单未支付
     if (json['resultCode'] == "10021") {
-      ToastUtils.confirm(
-        CustomConfirmParams(
+      ToastUtils.confirm(CustomConfirmParams(
           content: json['message'],
           submit: () {
             // 订单号
             LogUtil.w("${json['data']} 订单号");
-          }
-        )
-      );
+          }));
     }
-    
+
     LogUtil.e(
       'Error when making model with $T type: $e\n'
       'The raw data which make this error is: '

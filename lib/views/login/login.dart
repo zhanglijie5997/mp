@@ -95,7 +95,9 @@ class LoginPage extends GetView<LoginController> {
                   key: controller.privateKey,
                   child: Row(
                     children: [
-                      CustomCheckbox(onChange: controller.handlePrivite),
+                      Obx(() => CustomCheckbox(
+                          isSelect: controller.privateStatus.value,
+                          onChange: controller.handlePrivite)),
                       Padding(
                         padding: const EdgeInsets.only(left: 10.0),
                         child: Text.rich(TextSpan(

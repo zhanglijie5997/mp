@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:mp/constants/assets.dart';
 import 'package:mp/generated/locales.g.dart';
 import 'package:mp/models/home/navbar.model.dart';
+import 'package:mp/views/home/components/index/components/tabview.dart';
 import 'package:mp/views/home/components/market/market.dart';
 import 'package:mp/views/home/components/index/index.dart';
 import 'package:mp/views/home/components/me/me.dart';

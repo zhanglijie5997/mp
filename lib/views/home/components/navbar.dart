@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
@@ -19,7 +20,8 @@ class _NavBarState extends State<NavBar> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.only(bottom: context.mediaQueryPadding.bottom),
+      padding: EdgeInsets.only(
+          bottom: kIsWeb ? 20 : context.mediaQueryPadding.bottom),
       decoration: BoxDecoration(
         color: context.customTheme?.navbarBg,
         borderRadius: const BorderRadius.only(

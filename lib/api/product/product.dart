@@ -1,15 +1,15 @@
 import 'package:mp/api/api.dart';
+import 'package:mp/models/api_lian_pay_get_random_model/api_lian_pay_get_random_model.dart';
 import 'package:mp/models/api_lian_pay_query_acc_info_model/api_lian_pay_query_acc_info_model.dart';
 import 'package:mp/models/api_lian_pay_query_bank_info_model/api_lian_pay_query_bank_info_model.dart';
 import 'package:mp/models/consignment_list_model/consignment_list_model.dart';
 import 'package:mp/models/nft_create_buy_order_model/nft_create_buy_order_model.dart';
 import 'package:mp/models/nft_order_detail_model/nft_order_detail_model.dart';
 import 'package:mp/models/nft_order_get_order_list_model/nft_order_get_order_list_model.dart';
+import 'package:mp/models/nft_user_product_get_product_mint_list_new_model/nft_user_product_get_product_mint_list_new_model.dart';
 import 'package:mp/models/product_detail_model/product_detail_model.dart';
 import 'package:mp/models/response.dart';
 import 'package:mp/utils/http.utils.dart';
-
-
 
 class ProductRequest {
   /// 获取藏品详情
@@ -22,50 +22,56 @@ class ProductRequest {
 
   /// 寄售市场列表
   static Future<ResponseModel<ConsignmentListModel>>
-  nftMarketGetConsignmentList(NftMarketGetConsignmentProductListParams v) {
+      nftMarketGetConsignmentList(NftMarketGetConsignmentProductListParams v) {
     return HttpUtil.fetchModel<ConsignmentListModel>(FetchType.get,
-        url: ApiName.NftMarketGetConsignmentList,
-        queryParameters: v.toJson());
+        url: ApiName.NftMarketGetConsignmentList, queryParameters: v.toJson());
   }
 
   /// 创建订单
-  static Future<ResponseModel<NftCreateBuyOrderModel>>
-  nftOrderCreateBuyOrder(NftOrderCreateBuyOrderParams v) {
+  static Future<ResponseModel<NftCreateBuyOrderModel>> nftOrderCreateBuyOrder(
+      NftOrderCreateBuyOrderParams v) {
     return HttpUtil.fetchModel<NftCreateBuyOrderModel>(FetchType.post,
-        url: ApiName.NftOrderCreateBuyOrder,
-        body: v.toJson());
+        url: ApiName.NftOrderCreateBuyOrder, body: v.toJson());
   }
 
-   /// 查询订单
-  static Future<ResponseModel<NftOrderGetOrderListModel>>
-  nftOrderGetOrderList(NftOrderGetOrderListParams v) {
+  /// 查询订单
+  static Future<ResponseModel<NftOrderGetOrderListModel>> nftOrderGetOrderList(
+      NftOrderGetOrderListParams v) {
     return HttpUtil.fetchModel<NftOrderGetOrderListModel>(FetchType.get,
-        url: ApiName.NftOrderGetOrderList,
-        queryParameters: v.toJson());
+        url: ApiName.NftOrderGetOrderList, queryParameters: v.toJson());
   }
 
   // 获取订单详情
-  static Future<ResponseModel<NftOrderDetailModel>>
-  nftOrderOrderDetai(String id) {
+  static Future<ResponseModel<NftOrderDetailModel>> nftOrderOrderDetai(
+      String id) {
     return HttpUtil.fetchModel<NftOrderDetailModel>(FetchType.get,
-        url: "${ApiName.NftOrderOrderDetai}/$id"
-    );
+        url: "${ApiName.NftOrderOrderDetail}/$id");
   }
 
-   // 获取银行卡信息
+  // 获取银行卡信息
   static Future<ResponseModel<ApiLianPayQueryBankInfoModel>>
-  apiLianPayQueryBankCardInfo() {
+      apiLianPayQueryBankCardInfo() {
     return HttpUtil.fetchModel<ApiLianPayQueryBankInfoModel>(FetchType.post,
-        url: ApiName.ApiLianPayQueryBankCardInfo
-    );
+        url: ApiName.ApiLianPayQueryBankCardInfo);
   }
 
   // 获取钱包信息
   static Future<ResponseModel<ApiLianPayQueryAccInfoModel>>
-  apiLianPayQueryAccInfo() {
+      apiLianPayQueryAccInfo() {
     return HttpUtil.fetchModel<ApiLianPayQueryAccInfoModel>(FetchType.post,
-        url: ApiName.ApiLianPayQueryAccInfo
-    );
+        url: ApiName.ApiLianPayQueryAccInfo);
+  }
+
+  // 获取钱包信息
+  static Future<ResponseModel<ApiLianPayGetRandomModel>> apiLianPayGetRandom() {
+    return HttpUtil.fetchModel<ApiLianPayGetRandomModel>(FetchType.get,
+        url: ApiName.ApiLianPayGetRandom);
+  }
+
+  // 获取用户的所有藏品mintId
+  static Future<ResponseModel<NftUserProductGetProductMintListNewModel>> nftUserProductGetProductMintListNew() {
+    return HttpUtil.fetchModel<NftUserProductGetProductMintListNewModel>(FetchType.get,
+        url: ApiName.NftUserProductGetProductMintListNew);
   }
 }
 
@@ -90,7 +96,6 @@ class NftOrderGetOrderListParams {
     return data;
   }
 }
-
 
 class NftMarketGetConsignmentProductListParams {
   int? current;
@@ -117,7 +122,6 @@ class NftMarketGetConsignmentProductListParams {
     return data;
   }
 }
-
 
 class NftOrderCreateBuyOrderParams {
   String? holdUserId;

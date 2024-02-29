@@ -64,7 +64,7 @@ class _OrderPageViewListState extends State<OrderPageViewList>
         length: details?.rows?.length,
         child: LoadMore(
           delegate: CustomLoadMoreDelegate(),
-          isFinish: (details?.rows?.length ?? 0) % 20 != 0,
+          isFinish: (details?.rows?.length ?? 0) == details?.total,
           onLoadMore: () {
             current++;
             return getData();

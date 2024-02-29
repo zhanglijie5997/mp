@@ -84,10 +84,10 @@
         "name": "/nft/order/getOrderList"
     },
     {
-        "url": "/nft/order/orderDetai",
+        "url": "/nft/order/orderDetail",
         "method": "get",
         "desc": "获取订单详情",
-        "name": "/nft/order/orderDetai"
+        "name": "/nft/order/orderDetail"
     },
     {
         "url": "/api/lianPay/queryBankCardInfo",
@@ -106,5 +106,29 @@
         "method": "post",
         "desc": "实名认证，二要素",
         "name": "/api/auth/check"
+    },
+    {
+        "url": "/api/lianPay/getRandom",
+        "method": "get",
+        "desc": "进入支付 webview",
+        "name": "/api/lianPay/getRandom"
+    },
+    {
+        "url": "/api/announcement/detail",
+        "method": "get",
+        "desc": "获取公告详情",
+        "name": "/api/announcement/detail"
+    },
+    {
+        "url": "/api/nft/homePage/recommendList",
+        "method": "get",
+        "desc": "精选藏品",
+        "name": "/api/nft/homePage/recommendList"
+    },
+    {
+        "url": "/nft/user/product/getProductMintListNew",
+        "method": "get",
+        "desc": "藏品列表",
+        "name": "/nft/user/product/getProductMintListNew"
     }
 ]

@@ -26,8 +26,8 @@ class Data {
   final List<ProductMintList>? productMintList;
   final dynamic resaleWalletAddress;
   final dynamic buyWalletAddress;
-  final double? chargeAmount;
-  final double? predictAmount;
+  final dynamic chargeAmount;
+  final dynamic predictAmount;
   final dynamic feeRatio;
   final dynamic mintNumber;
   final dynamic tradeStatus;
@@ -112,8 +112,8 @@ class Data {
     List<ProductMintList>? productMintList,
     dynamic resaleWalletAddress,
     dynamic buyWalletAddress,
-    double? chargeAmount,
-    double? predictAmount,
+    dynamic chargeAmount,
+    dynamic predictAmount,
     dynamic feeRatio,
     dynamic mintNumber,
     dynamic tradeStatus,

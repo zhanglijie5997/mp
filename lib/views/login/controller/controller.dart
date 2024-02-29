@@ -56,6 +56,7 @@ class LoginController extends GetxController {
     print(privateStatus.value);
     if (!privateStatus.value) {
       privateKey.currentState?.play();
+      return;
     }
     // 登陆
     final res = await AppLoginRequest.apiAppLoginPhone(

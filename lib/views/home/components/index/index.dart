@@ -87,7 +87,14 @@ class _HomeIndexPageState extends State<HomeIndexPage>
                 },
                 body: TabBarView(
                   controller: controller.tabsController,
-                  children: [IndexTabView(), IndexTabView()],
+                  children: [
+                    IndexTabView(
+                      key: indexController.collectKey,
+                    ),
+                    IndexTabView(
+                      key: indexController.boxKey,
+                    )
+                  ],
                 )
                 // ListView.builder(
                 //   physics: const ClampingScrollPhysics(),
