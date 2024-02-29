@@ -68,12 +68,45 @@ class ProductRequest {
         url: ApiName.ApiLianPayGetRandom);
   }
 
-  // 获取用户的所有藏品mintId
-  static Future<ResponseModel<NftUserProductGetProductMintListNewModel>> nftUserProductGetProductMintListNew() {
-    return HttpUtil.fetchModel<NftUserProductGetProductMintListNewModel>(FetchType.get,
-        url: ApiName.NftUserProductGetProductMintListNew);
+  // 获取用户的所有藏品 mintId
+  static Future<ResponseModel<NftUserProductGetProductMintListNewModel>> nftUserProductGetProductMintListNew(
+    NftUserProductGetProductMintListNewParams params
+  ) {
+    return HttpUtil.fetchModel<NftUserProductGetProductMintListNewModel>(
+        FetchType.get,
+        url: ApiName.NftUserProductGetProductMintListNew,
+        queryParameters: params.toJson()
+    );
   }
 }
+
+class NftUserProductGetProductMintListNewParams {
+  int? current;
+  int? rows;
+  String? productId;
+  String? userId;
+
+  NftUserProductGetProductMintListNewParams(
+      {this.current, this.rows, this.productId, this.userId});
+
+  NftUserProductGetProductMintListNewParams.fromJson(
+      Map<String, dynamic> json) {
+    current = json['current'];
+    rows = json['rows'];
+    productId = json['productId'];
+    userId = json['userId'];
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = {};
+    data['current'] = current;
+    data['rows'] = rows;
+    data['productId'] = productId;
+    data['userId'] = userId;
+    return data;
+  }
+}
+
 
 class NftOrderGetOrderListParams {
   int? current;

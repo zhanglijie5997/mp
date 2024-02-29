@@ -6,13 +6,13 @@ part 'row.g.dart';
 class Row {
   final String? productMintId;
   final String? productCode;
-  final int? price;
-  final int? status;
+  final num? price;
+  final num? status;
   final String? statusStr;
-  final int? synthesisStatus;
-  final int? holdDaysNumber;
+  final num? synthesisStatus;
+  final num? holdDaysNumber;
   final String? issueNumber;
-  final int? isBoxPrize;
+  final num? isBoxPrize;
 
   const Row({
     this.productMintId,
@@ -38,13 +38,13 @@ class Row {
   Row copyWith({
     String? productMintId,
     String? productCode,
-    int? price,
-    int? status,
+    num? price,
+    num? status,
     String? statusStr,
-    int? synthesisStatus,
-    int? holdDaysNumber,
+    num? synthesisStatus,
+    num? holdDaysNumber,
     String? issueNumber,
-    int? isBoxPrize,
+    num? isBoxPrize,
   }) {
     return Row(
       productMintId: productMintId ?? this.productMintId,

@@ -9,13 +9,13 @@ part of 'row.dart';
 Row _$RowFromJson(Map<String, dynamic> json) => Row(
       productMintId: json['productMintId'] as String?,
       productCode: json['productCode'] as String?,
-      price: json['price'] as int?,
-      status: json['status'] as int?,
+      price: json['price'] as num?,
+      status: json['status'] as num?,
       statusStr: json['statusStr'] as String?,
-      synthesisStatus: json['synthesisStatus'] as int?,
-      holdDaysNumber: json['holdDaysNumber'] as int?,
+      synthesisStatus: json['synthesisStatus'] as num?,
+      holdDaysNumber: json['holdDaysNumber'] as num?,
       issueNumber: json['issueNumber'] as String?,
-      isBoxPrize: json['isBoxPrize'] as int?,
+      isBoxPrize: json['isBoxPrize'] as num?,
     );
 
 Map<String, dynamic> _$RowToJson(Row instance) => <String, dynamic>{
