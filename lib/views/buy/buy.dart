@@ -30,7 +30,7 @@ class BuyPage extends GetView<BuyController> {
                 Container(
                   padding: const EdgeInsets.all(12),
                   margin:
-                      const EdgeInsets.symmetric(horizontal: 12, vertical: 20),
+                      const EdgeInsets.only(left: 12, right: 12, top: 20),
                   decoration: BoxDecoration(
                     borderRadius: 16.radius,
                     color: context.customTheme?.navbarBg,
@@ -72,7 +72,25 @@ class BuyPage extends GetView<BuyController> {
                     )
                   ]),
                 ),
+                // 购买数量
+                 Container(
+                    padding: const EdgeInsets.all(12),
+                    margin: const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
+                    decoration: BoxDecoration(
+                      borderRadius: 16.radius,
+                      color: context.customTheme?.navbarBg,
+                      boxShadow: const [
+                        BoxShadow(
+                          color: Color.fromRGBO(236, 236, 241, 0.6),
+                          offset: Offset(0, 5),
+                          blurRadius: 25,
+                        ),
+                      ],
+                    ),
+                    child: Row(
 
+                    )
+                ),
                 // 支付方式
                 Container(
                     padding: const EdgeInsets.all(12),
@@ -156,7 +174,7 @@ class BuyPage extends GetView<BuyController> {
                 Padding(
                   padding: const EdgeInsets.only(right: 8.0),
                   child: Obx(
-                    () => Text("总价 ¥${controller.data.value.data?.price}",
+                    () => Text("总价 ¥${(controller.data.value.data?.price ?? 0) * controller.number.value}",
                         style: context.textTheme.bodyMedium?.copyWith(
                           fontSize: 16,
                           fontWeight: FontWeight.bold,

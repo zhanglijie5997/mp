@@ -3,9 +3,11 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mp/extension/context.ext.dart';
+import 'package:mp/extension/map.ext.dart';
 import 'package:mp/extension/num.ext.dart';
 import 'package:mp/extension/widget.ext.dart';
 import 'package:mp/models/nft_product_get_product_detail_by_id_model/nft_product_get_product_detail_by_id_model.dart';
+import 'package:mp/router/routes.dart';
 import 'package:mp/views/featured/featured.dart';
 
 class StatusButton extends StatefulWidget {
@@ -60,10 +62,13 @@ class _StatusButtonState extends State<StatusButton> {
             // 即将开售
             break;
           case 2:
-            
+            // 立即购买
+            Get.toNamed("${AppRoutes.buy}/${data.data?.productId}?data=${Uri.encodeComponent(data.toJson().encode())}");
             break;
           case 3:
             // 已结束
+            // TODO:测试代码
+            Get.toNamed("${AppRoutes.buy}/${data.data?.productId}?data=${Uri.encodeComponent(data.toJson().encode())}&isFirt=true");
             break;
           case 4:
             // 已售罄

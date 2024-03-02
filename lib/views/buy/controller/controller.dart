@@ -8,6 +8,10 @@ class BuyController extends GetxController {
   final number = 1.obs;
   final params = Get.parameters;
   final data = (const ProductDetailModel()).obs;
+  // 是否首发
+  final isFirst = false.obs;
+  // 购买数量
+  final buyNum = 1.obs;
   add(int value) {
     if (value < 0) {
       if (number.value > 1) {
@@ -21,6 +25,7 @@ class BuyController extends GetxController {
   @override
   void onReady() {
     final res = (params['data'] as String).decode<Map<String, dynamic>>();
+    isFirst.value = params['isFirst'] == "true";
     data.value = ProductDetailModel.fromJson(res);
     super.onReady();
   }
