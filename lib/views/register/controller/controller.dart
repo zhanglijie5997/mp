@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mp/animation/shank.ani.dart';
+import 'package:mp/api/login/login.dart';
+import 'package:mp/controller/global.controller.dart';
 import 'package:mp/core/reg.core.dart';
+import 'package:mp/utils/log.utils.dart';
+import 'package:mp/views/home/components/me/controller/controller.dart';
 
 class RegisterController extends GetxController {
   static RegisterController get to => Get.find<RegisterController>();
@@ -35,7 +39,7 @@ class RegisterController extends GetxController {
   }
 
   // 注册
-  handleRegister() {
+  handleRegister() async{
     final emailRes = !RegCore.emailReg.hasMatch(account.value);
     final passwrodRes = !RegCore.passwrodReg.hasMatch(passwrod.value);
     if (emailRes) {
@@ -52,7 +56,16 @@ class RegisterController extends GetxController {
     print(privateStatus.value);
     if (!privateStatus.value) {
       privateKey.currentState?.play();
+      return;
     }
     // 注册
+    final res = await AppLoginRequest.apiAppLoginPhone(
+        UserPhoneLoginParams(phone: account.value, code: passwrod.value));
+    GlobalController.to.changeUserMsg(res.data!);
+
+    LogUtil.w("登陆成功___${res.data?.data?.token}");
+    HomeMeController.to.getUserData();
+    // Get.back();
+    GlobalController.to.back();
   }
 }

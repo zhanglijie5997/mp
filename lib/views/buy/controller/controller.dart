@@ -10,6 +10,8 @@ class BuyController extends GetxController {
   final data = (const ProductDetailModel()).obs;
   // 是否首发
   final isFirst = false.obs;
+  // 是否寄售
+  final isSell = false.obs;
   // 购买数量
   final buyNum = 1.obs;
   add(int value) {
@@ -26,6 +28,7 @@ class BuyController extends GetxController {
   void onReady() {
     final res = (params['data'] as String).decode<Map<String, dynamic>>();
     isFirst.value = params['isFirst'] == "true";
+    isSell.value = params['isSell'] == "1";
     data.value = ProductDetailModel.fromJson(res);
     super.onReady();
   }

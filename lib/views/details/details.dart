@@ -419,6 +419,7 @@ class _DetailPageState extends RouteAwareState<DetailPage> {
                     switch (controller.detail.value.data?.status) {
                       case 1:
                         // 寄售
+                        Get.toNamed("${AppRoutes.buy}/${controller.detail.value.data?.productId}?data=${Uri.encodeComponent(controller.detail.value.toJson().encode())}&isSell=1");
                         break;
                       case 2:
                         // 取消寄售

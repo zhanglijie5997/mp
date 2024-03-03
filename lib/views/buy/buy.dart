@@ -73,24 +73,51 @@ class BuyPage extends GetView<BuyController> {
                   ]),
                 ),
                 // 购买数量
-                 Container(
-                    padding: const EdgeInsets.all(12),
-                    margin: const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
-                    decoration: BoxDecoration(
-                      borderRadius: 16.radius,
-                      color: context.customTheme?.navbarBg,
-                      boxShadow: const [
-                        BoxShadow(
-                          color: Color.fromRGBO(236, 236, 241, 0.6),
-                          offset: Offset(0, 5),
-                          blurRadius: 25,
-                        ),
-                      ],
+                 Visibility(
+                  visible: controller.isFirst.value,
+                   child: Container(
+                      padding: const EdgeInsets.all(12),
+                      margin: const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
+                      decoration: BoxDecoration(
+                        borderRadius: 16.radius,
+                        color: context.customTheme?.navbarBg,
+                        boxShadow: const [
+                          BoxShadow(
+                            color: Color.fromRGBO(236, 236, 241, 0.6),
+                            offset: Offset(0, 5),
+                            blurRadius: 25,
+                          ),
+                        ],
+                      ),
+                      child: Row(
+                        
+                      )
+                                   ),
+                 ),
+                // 寄售
+                Visibility(
+                  visible: controller.isSell.value,
+                  child: Container(
+                      padding: const EdgeInsets.all(12),
+                      margin: const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
+                      decoration: BoxDecoration(
+                        borderRadius: 16.radius,
+                        color: context.customTheme?.navbarBg,
+                        boxShadow: const [
+                          BoxShadow(
+                            color: Color.fromRGBO(236, 236, 241, 0.6),
+                            offset: Offset(0, 5),
+                            blurRadius: 25,
+                          ),
+                        ],
+                      ),
+                      child: Row(
+                        children: [
+                          Text("寄售卖出")
+                        ],
+                      )
                     ),
-                    child: Row(
-
-                    )
-                ),
+                 ),
                 // 支付方式
                 Container(
                     padding: const EdgeInsets.all(12),
