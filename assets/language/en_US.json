@@ -64,5 +64,7 @@
   "idCard": "ID Card",
   "idCardTip": "Please enter ID Card number",
   "RealNameAuth": "Real name auth",
-  "ImmediateAuth": "Immediate auth"
+  "ImmediateAuth": "Immediate auth",
+  "inviteCode": "Invite Code"
+
 }

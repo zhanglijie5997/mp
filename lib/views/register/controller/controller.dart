@@ -16,11 +16,16 @@ class RegisterController extends GetxController {
   final accountStatus = false.obs;
   final passwordStatus = false.obs;
   final privateStatus = false.obs;
+  final inviteCode = "".obs;
   changeCount(String value) {
     account.value = value;
     if (RegCore.emailReg.hasMatch(value)) {
       accountStatus.value = false;
     }
+  }
+
+  changeInviteCode(String value) {
+    inviteCode.value = value;
   }
 
   changePassword(String value) {

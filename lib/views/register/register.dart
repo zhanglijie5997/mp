@@ -4,6 +4,7 @@ import 'package:mp/animation/shank.ani.dart';
 import 'package:mp/components/custom.checkbox.dart';
 import 'package:mp/components/custom.field.dart';
 import 'package:mp/constants/assets.dart';
+import 'package:mp/controller/global.controller.dart';
 import 'package:mp/extension/context.ext.dart';
 import 'package:mp/extension/num.ext.dart';
 import 'package:mp/extension/widget.ext.dart';
@@ -31,7 +32,9 @@ class RegisterPage extends GetView<RegisterController> {
                       Icons.close,
                       color: context.customTheme?.fontColor,
                     ),
-                  ).onTap(() => Get.back()),
+                  ).onTap(() {
+                    GlobalController.to.back();
+                  }),
                 ],
               ),
               Padding(
@@ -70,6 +73,17 @@ class RegisterPage extends GetView<RegisterController> {
                       keyboardType: TextInputType.visiblePassword,
                       status: controller.passwordStatus.value,
                     )),
+              ),
+              // 邀请码输入框
+              Padding(
+                padding: const EdgeInsets.only(top: 16),
+                child: CustomFiled(
+                      labelText: LocaleKeys.inviteCode.tr,
+                      onChange: controller.changeInviteCode,
+                      helperText: "",
+                      keyboardType: TextInputType.text,
+                      status: true,
+                    ),
               ),
               Padding(
                 padding: const EdgeInsets.only(top: 20, left: 10, right: 10),

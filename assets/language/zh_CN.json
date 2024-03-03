@@ -21,7 +21,7 @@
   "password": "密码",
   "pleaseEnterSure": "请输入正确",
   "pleaseEnter": "请输入",
-  "passwrodHelp": "请输入6位 字母+数字密码组合",
+  "passwrodHelp": "请输入 6 位 字母 + 数字密码组合",
   "forgetPassword": "忘记密码？",
   "dontHaveAccountTip": "没有账号？去注册",
   "haveAccountTip": "已有账号？去登陆",
@@ -64,5 +64,6 @@
   "idCard": "身份证号",
   "idCardTip": "请输入身份证号",
   "RealNameAuth": "实名认证",
-  "ImmediateAuth": "立即认证"
+  "ImmediateAuth": "立即认证",
+  "inviteCode": "邀请码"
 }

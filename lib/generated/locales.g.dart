@@ -77,6 +77,7 @@ class LocaleKeys {
   static const idCardTip = 'idCardTip';
   static const RealNameAuth = 'RealNameAuth';
   static const ImmediateAuth = 'ImmediateAuth';
+  static const inviteCode = 'inviteCode';
 }
 
 class Locales {
@@ -103,7 +104,7 @@ class Locales {
     'password': '密码',
     'pleaseEnterSure': '请输入正确',
     'pleaseEnter': '请输入',
-    'passwrodHelp': '请输入6位 字母+数字密码组合',
+    'passwrodHelp': '请输入 6 位 字母 + 数字密码组合',
     'forgetPassword': '忘记密码？',
     'dontHaveAccountTip': '没有账号？去注册',
     'haveAccountTip': '已有账号？去登陆',
@@ -147,6 +148,7 @@ class Locales {
     'idCardTip': '请输入身份证号',
     'RealNameAuth': '实名认证',
     'ImmediateAuth': '立即认证',
+    'inviteCode': '邀请码',
   };
   static const en_US = {
     'hello': 'hello',
@@ -215,5 +217,6 @@ class Locales {
     'idCardTip': 'Please enter ID Card number',
     'RealNameAuth': 'Real name auth',
     'ImmediateAuth': 'Immediate auth',
+    'inviteCode': 'Invite Code',
   };
 }
